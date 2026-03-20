@@ -1,0 +1,27 @@
+{
+  "nav": {
+    "about": "About",
+    "services": "Services",
+    "projects": "Projects",
+    "journal": "Journal",
+    "careers": "Careers",
+    "contact": "Contact",
+    "cta": "Book survey"
+  },
+  "footer": {
+    "office": "Office",
+    "hotline": "Hotline",
+    "email": "Email",
+    "menu": "Navigation",
+    "social": "Social"
+  },
+  "home": {
+    "eyebrow": "Industrial Minimal Fit-out",
+    "title": "Restaurant construction focused on operations, speed and technical discipline.",
+    "description": "This frontend scaffold is derived from the project spec and is ready for UI and CMS integration work.",
+    "primaryCta": "Request a quote",
+    "secondaryCta": "View projects",
+    "specLabel": "Specification",
+    "metricsLabel": "Scaffold metrics"
+  }
+}

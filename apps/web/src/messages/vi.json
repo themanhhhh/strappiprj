@@ -1,0 +1,27 @@
+{
+  "nav": {
+    "about": "Về chúng tôi",
+    "services": "Dịch vụ",
+    "projects": "Dự án",
+    "journal": "Tin tức",
+    "careers": "Tuyển dụng",
+    "contact": "Liên hệ",
+    "cta": "Đặt lịch khảo sát"
+  },
+  "footer": {
+    "office": "Văn phòng",
+    "hotline": "Đường dây nóng",
+    "email": "Hộp thư",
+    "menu": "Điều hướng",
+    "social": "Kênh kết nối"
+  },
+  "home": {
+    "eyebrow": "Industrial Minimal Fit-out",
+    "title": "Thi công nhà hàng tập trung vào vận hành, tiến độ và độ bền.",
+    "description": "Bộ khung frontend được tạo từ đặc tả để sẵn sàng cho giai đoạn build giao diện và kết nối CMS.",
+    "primaryCta": "Nhận báo giá",
+    "secondaryCta": "Xem dự án",
+    "specLabel": "Bản thông số",
+    "metricsLabel": "Chỉ số khởi tạo"
+  }
+}
