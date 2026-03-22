@@ -36,11 +36,14 @@ export function NewsShowcase({locale, items}: NewsShowcaseProps) {
             {/* Thumbnail */}
             <div className="news-card-img-wrap">
               {item.coverUrl ? (
-                <img
-                  src={item.coverUrl}
-                  alt={item.title}
-                  className="news-card-img"
-                />
+                <>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={item.coverUrl}
+                    alt={item.title}
+                    className="news-card-img"
+                  />
+                </>
               ) : (
                 <div className="news-card-img-placeholder" />
               )}

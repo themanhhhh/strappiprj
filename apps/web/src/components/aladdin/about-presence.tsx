@@ -98,6 +98,7 @@ export function AboutPresence({locale}: AboutPresenceProps) {
         {/* Map column */}
         <div className="about-presence-map-col">
           <div className="about-presence-map">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/map.png"
               alt="Vietnam Map"

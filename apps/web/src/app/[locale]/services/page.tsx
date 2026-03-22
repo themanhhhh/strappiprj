@@ -117,7 +117,10 @@ export default async function ServicesPage({params}: ServicesPageProps) {
                 {/* Image / Placeholder side */}
                 <div className={`svc-media ${isEven ? 'svc-media--left' : 'svc-media--right'}`}>
                   {service.coverUrl ? (
-                    <img src={service.coverUrl} alt={service.title} className="svc-img" />
+                    <>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={service.coverUrl} alt={service.title} className="svc-img" />
+                    </>
                   ) : (
                     <div className="svc-img-placeholder">
                       <span className="svc-index-bg">{service.index}</span>

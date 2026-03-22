@@ -12,8 +12,6 @@ type ChatWidgetProps = {
 };
 
 export function ChatWidget({ enabled = true }: ChatWidgetProps) {
-  if (!enabled) return null;
-
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -94,6 +92,8 @@ export function ChatWidget({ enabled = true }: ChatWidgetProps) {
   const now = new Date();
   const timeStr = now.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' });
   const dateStr = `Hôm nay ${timeStr}`;
+
+  if (!enabled) return null;
 
   return (
     <>

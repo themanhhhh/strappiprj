@@ -80,11 +80,14 @@ export default async function JournalPage({params}: JournalPageProps) {
               >
                 <div className="news-card-img-wrap">
                   {post.coverUrl ? (
-                    <img
-                      src={post.coverUrl}
-                      alt={post.title}
-                      className="news-card-img"
-                    />
+                    <>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={post.coverUrl}
+                        alt={post.title}
+                        className="news-card-img"
+                      />
+                    </>
                   ) : (
                     <div className="news-card-img-placeholder" />
                   )}

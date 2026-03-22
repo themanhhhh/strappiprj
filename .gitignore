@@ -6,7 +6,7 @@ build
 .env
 .env.local
 .env.*.local
+/apps/cms/
 coverage
 .DS_Store
 *.log
-

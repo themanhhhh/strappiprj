@@ -17,6 +17,7 @@ export function ProjectGallery({images, title}: ProjectGalleryProps) {
     <div className="project-gallery-container">
       {/* Main active image */}
       <div className="project-gallery-main">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={images[activeIndex]}
           alt={`${title} gallery image ${activeIndex + 1}`}
@@ -56,6 +57,7 @@ export function ProjectGallery({images, title}: ProjectGalleryProps) {
               onClick={() => setActiveIndex(i)}
               aria-label={`View image ${i + 1}`}
             >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={url} alt={`Thumbnail ${i + 1}`} className="gallery-thumb-img" />
             </button>
           ))}
