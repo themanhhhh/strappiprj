@@ -12,6 +12,10 @@ export default withNextIntl({
       {
         protocol: 'https',
         hostname: 'images.unsplash.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'wise-chocolate-949cb1f9f3.media.strapiapp.com'
       }
     ]
   }
