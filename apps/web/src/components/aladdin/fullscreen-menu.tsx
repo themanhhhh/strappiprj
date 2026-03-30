@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import {useState, useEffect, useRef} from 'react';
 import {usePathname} from 'next/navigation';
@@ -99,8 +100,14 @@ export function FullscreenMenu({items, locale, transparent = false}: FullscreenM
           </nav>
 
           <Link href={`/${locale}`} className="header-brand-center">
-            <span className="brand-mark">ALADDIN JSC</span>
-            <span className="brand-meta">Tinh Hoa Ẩm Thực</span>
+            <Image
+              src="/images/logo.png"
+              alt="Maestro"
+              width={260}
+              height={61}
+              priority
+              className="brand-logo-image brand-logo-image-center"
+            />
           </Link>
 
           <nav className="header-nav-right">
@@ -180,8 +187,14 @@ export function FullscreenMenu({items, locale, transparent = false}: FullscreenM
   return (
     <div className="aladdin-nav-wrapper">
       <Link href={`/${locale}`} className="brand">
-        <span className="brand-mark">ALADDIN JSC</span>
-        <span className="brand-meta">Tinh Hoa Ẩm Thực</span>
+        <Image
+          src="/images/logo.png"
+          alt="Maestro"
+          width={220}
+          height={52}
+          priority
+          className="brand-logo-image"
+        />
       </Link>
 
       {/* Desktop Navigation */}

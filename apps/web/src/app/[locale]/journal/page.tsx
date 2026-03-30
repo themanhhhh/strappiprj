@@ -1,6 +1,9 @@
 import type {Metadata} from 'next';
-import {PageHero} from '@/components/page-hero';
-import {getPosts, getHeroSlides} from '@/lib/strapi/queries';
+import Link from 'next/link';
+import {Header} from '@/components/header';
+import {SlideshowBackground} from '@/components/slideshow-background';
+import type {Locale} from '@/i18n/routing';
+import {getHeroSlides, getPosts} from '@/lib/strapi/queries';
 import {posts as catalogPosts} from '@/lib/catalog';
 
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL ?? 'http://localhost:1337';
@@ -9,13 +12,23 @@ type JournalPageProps = {
   params: Promise<{locale: string}>;
 };
 
+type DisplayPost = {
+  slug: string;
+  title: string;
+  date: string | null;
+  meta: string;
+  description: string;
+  intro: string;
+  coverUrl: string | null;
+};
+
 export async function generateMetadata({params}: JournalPageProps): Promise<Metadata> {
   const {locale} = await params;
   return {
-    title: locale === 'vi' ? 'Tin tức — Trung tâm kiến thức' : 'Journal — Knowledge Base',
+    title: locale === 'vi' ? 'Journal - Tin tuc va goc nhin tu MAESTRO' : 'Journal - Insights from MAESTRO',
     description: locale === 'vi'
-      ? 'Cập nhật tin tức, kiến thức và góc nhìn chuyên sâu về ngành F&B từ đội ngũ ALADDIN JSC.'
-      : 'Stay updated with F&B industry news, insights and expert knowledge from the ALADDIN JSC team.',
+      ? 'Nhung cau chuyen ve du an, craftsmanship va nang luc thi cong duoc bien tap theo tinh than chi tiet, tiet che va cao cap cua MAESTRO.'
+      : 'Project stories, craftsmanship, and execution insights presented with MAESTRO\'s refined and editorial point of view.',
   };
 }
 
@@ -31,6 +44,68 @@ function formatDate(dateStr: string, locale: string) {
   }
 }
 
+function getCopy(locale: string) {
+  if (locale === 'vi') {
+    return {
+      eyebrow: 'Journal',
+      title: 'Nhung cau chuyen ve thi cong va noi that duoc bien tap voi su tiet che, chinh xac va tinh than cao cap.',
+      description:
+        'Tu project updates den joinery, vat lieu va nang luc delivery, moi bai viet duoc trinh bay nhu mot an pham thuong hieu: ro rang, tinh te va giau tinh hinh anh.',
+      introLabel: 'Tinh than editorial cua MAESTRO',
+      introTitle: 'Noi dung duoc xay dung de phan anh nang luc, su chi tiet va chat luong thuc thi cua MAESTRO.',
+      introBody:
+        'Journal la noi MAESTRO chia se nhung cap nhat ve du an, quy trinh che tac, chat luong hoan thien va cac goc nhin thi truong lien quan den construction, fit-out va interior delivery.',
+      featureLabel: 'Bai viet noi bat',
+      listLabel: 'Tat ca bai viet',
+      articleCount: 'bai viet',
+      readMore: 'Doc tiep',
+    };
+  }
+
+  return {
+    eyebrow: 'Journal',
+    title: 'Stories on construction and interiors, shaped with a more refined editorial discipline.',
+    description:
+      'From project updates to joinery, materials, and execution capability, each story is presented like a brand publication: composed, spacious, and quietly confident.',
+    introLabel: 'The MAESTRO editorial language',
+    introTitle: 'Content designed to reflect MAESTRO through precision, restraint, and delivery excellence.',
+    introBody:
+      'The Journal brings together project stories, manufacturing quality, finishing standards, and market perspectives across construction, fit-out, joinery, and interior delivery.',
+    featureLabel: 'Featured story',
+    listLabel: 'All articles',
+    articleCount: 'articles',
+    readMore: 'Read more',
+  };
+}
+
+function mapPosts(strapiPosts: Awaited<ReturnType<typeof getPosts>>): DisplayPost[] {
+  if (strapiPosts.length > 0) {
+    return strapiPosts.map((post) => ({
+      slug: post.slug,
+      title: post.title,
+      date: post.publishedAt ?? null,
+      meta: post.meta,
+      description: post.description,
+      intro: post.intro,
+      coverUrl: post.cover?.url
+        ? post.cover.url.startsWith('http')
+          ? post.cover.url
+          : `${STRAPI_URL}${post.cover.url}`
+        : null,
+    }));
+  }
+
+  return catalogPosts.map((post) => ({
+    slug: post.slug,
+    title: post.title,
+    date: null,
+    meta: post.meta,
+    description: post.description,
+    intro: post.intro,
+    coverUrl: null,
+  }));
+}
+
 export default async function JournalPage({params}: JournalPageProps) {
   const {locale} = await params;
 
@@ -38,71 +113,130 @@ export default async function JournalPage({params}: JournalPageProps) {
     getPosts(locale),
     getHeroSlides(locale, 'journal'),
   ]);
-  const slides = heroSlides.map((s) => ({
-    imageUrl: s.cover?.url ? (s.cover.url.startsWith('http') ? s.cover.url : `${STRAPI_URL}${s.cover.url}`) : null,
-  }));
-  const displayPosts =
-    strapiPosts.length > 0
-      ? strapiPosts.map((p) => ({
-          slug: p.slug,
-          title: p.title,
-          date: p.publishedAt ?? null,
-          coverUrl: p.cover?.url
-            ? p.cover.url.startsWith('http') ? p.cover.url : `${STRAPI_URL}${p.cover.url}`
-            : null,
-        }))
-      : catalogPosts.map((p) => ({
-          slug: p.slug,
-          title: p.title,
-          date: null,
-          coverUrl: null,
-        }));
+
+  const displayPosts = mapPosts(strapiPosts);
+  const copy = getCopy(locale);
+  const slides = heroSlides
+    .map((slide) => ({
+      imageUrl: slide.cover?.url
+        ? slide.cover.url.startsWith('http')
+          ? slide.cover.url
+          : `${STRAPI_URL}${slide.cover.url}`
+        : null,
+    }))
+    .filter((slide) => slide.imageUrl);
+  const heroImage = displayPosts[0]?.coverUrl ?? null;
+  const [featuredPost, ...remainingPosts] = displayPosts;
 
   return (
-    <>
-      <PageHero
-        slides={slides}
-        eyebrow={locale === 'vi' ? 'Trung tâm tin tức' : 'Knowledge Base'}
-        title={locale === 'vi' ? 'Tin tức hệ sinh thái ALADDIN JSC' : 'ALADDIN JSC Ecosystem News'}
-        description={locale === 'vi'
-          ? 'Cập nhật tin tức, sự kiện và câu chuyện mới nhất từ hệ sinh thái nhà hàng Aladdin.'
-          : 'Latest news, events and stories from the Aladdin restaurant ecosystem.'}
-      />
+    <div className="journal-index-maestro-page">
+      <div className="hero-header-page journal-index-hero-maestro">
+        <Header locale={locale as Locale} transparent />
+        <div className="journal-index-hero-media-maestro">
+          {slides.length > 0 ? (
+            <SlideshowBackground slides={slides} />
+          ) : heroImage ? (
+            <div
+              className="journal-index-hero-fallback-maestro"
+              style={{backgroundImage: `url(${heroImage})`}}
+            />
+          ) : null}
+        </div>
+        <div className="journal-index-hero-overlay-maestro" />
 
-      <section className="section-block">
+        <div className="shell journal-index-hero-shell-maestro">
+          <p className="journal-index-eyebrow-maestro">{copy.eyebrow}</p>
+          <h1 className="journal-index-title-maestro">{copy.title}</h1>
+          <p className="journal-index-description-maestro">{copy.description}</p>
+
+          <div className="journal-index-meta-row-maestro">
+            <span>{String(displayPosts.length).padStart(2, '0')} {copy.articleCount}</span>
+            <span>Editorial format</span>
+            <span>Crafted presentation</span>
+          </div>
+        </div>
+      </div>
+
+      <section className="journal-index-intro-maestro">
+        <div className="shell journal-index-intro-grid-maestro">
+          <div>
+            <p className="journal-index-section-kicker-maestro">{copy.introLabel}</p>
+            <h2 className="journal-index-section-title-maestro">{copy.introTitle}</h2>
+          </div>
+          <p className="journal-index-intro-copy-maestro">{copy.introBody}</p>
+        </div>
+      </section>
+
+      {featuredPost ? (
+        <section className="journal-featured-maestro">
+          <div className="shell journal-featured-grid-maestro">
+            <div className="journal-featured-media-maestro">
+              {featuredPost.coverUrl ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={featuredPost.coverUrl} alt={featuredPost.title} className="journal-featured-image-maestro" />
+              ) : (
+                <div className="journal-featured-placeholder-maestro" />
+              )}
+            </div>
+
+            <div className="journal-featured-content-maestro">
+              <p className="journal-index-section-kicker-maestro">{copy.featureLabel}</p>
+              <h2 className="journal-featured-title-maestro">{featuredPost.title}</h2>
+
+              <div className="journal-featured-meta-maestro">
+                {featuredPost.meta ? <span>{featuredPost.meta}</span> : null}
+                {featuredPost.date ? <span>{formatDate(featuredPost.date, locale)}</span> : null}
+              </div>
+
+              <p className="journal-featured-summary-maestro">
+                {featuredPost.intro || featuredPost.description}
+              </p>
+
+              <Link href={`/${locale}/journal/${featuredPost.slug}`} className="journal-featured-link-maestro">
+                {copy.readMore}
+              </Link>
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      <section className="journal-listing-maestro">
         <div className="shell">
-          <div className="news-card-grid">
-            {displayPosts.map((post) => (
-              <a
+          <div className="journal-listing-header-maestro">
+            <p className="journal-index-section-kicker-maestro">{copy.listLabel}</p>
+          </div>
+
+          <div className="journal-listing-grid-maestro">
+            {remainingPosts.map((post) => (
+              <Link
                 key={post.slug}
                 href={`/${locale}/journal/${post.slug}`}
-                className="news-card"
+                className="journal-card-maestro"
               >
-                <div className="news-card-img-wrap">
+                <div className="journal-card-media-maestro">
                   {post.coverUrl ? (
-                    <>
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={post.coverUrl}
-                        alt={post.title}
-                        className="news-card-img"
-                      />
-                    </>
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={post.coverUrl} alt={post.title} className="journal-card-image-maestro" />
                   ) : (
-                    <div className="news-card-img-placeholder" />
+                    <div className="journal-card-placeholder-maestro" />
                   )}
                 </div>
-                <div className="news-card-body">
-                  {post.date && (
-                    <p className="news-card-date">{formatDate(post.date, locale)}</p>
-                  )}
-                  <h3 className="news-card-title">{post.title}</h3>
+
+                <div className="journal-card-content-maestro">
+                  <div className="journal-card-meta-maestro">
+                    {post.date ? <span>{formatDate(post.date, locale)}</span> : null}
+                    {post.meta ? <span>{post.meta}</span> : null}
+                  </div>
+
+                  <h3 className="journal-card-title-maestro">{post.title}</h3>
+                  <p className="journal-card-summary-maestro">{post.description || post.intro}</p>
+                  <span className="journal-card-link-maestro">{copy.readMore}</span>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

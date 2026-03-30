@@ -14,7 +14,7 @@ export function ProjectGallery({images, title}: ProjectGalleryProps) {
   if (!images || images.length === 0) return null;
 
   return (
-    <div className="project-gallery-container">
+    <div className="project-gallery-container maestro-gallery">
       {/* Main active image */}
       <div className="project-gallery-main">
         {/* eslint-disable-next-line @next/next/no-img-element */}

@@ -130,22 +130,19 @@ p {
 
 .header-brand-center {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 2px;
+  justify-content: center;
 }
 
-.header-brand-center .brand-mark {
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  white-space: nowrap;
+.brand-logo-image {
+  width: auto;
+  height: 44px;
+  object-fit: contain;
+  display: block;
 }
 
-.header-brand-center .brand-meta {
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  white-space: nowrap;
+.brand-logo-image-center {
+  height: 52px;
 }
 
 /* Transparent header text colors */
@@ -368,10 +365,7 @@ p {
 
 .brand {
   display: inline-flex;
-  flex-direction: column;
-  gap: var(--space-1);
-  font-family: var(--font-display);
-  letter-spacing: 0.1em;
+  align-items: center;
 }
 
 .brand-mark {
@@ -384,6 +378,12 @@ p {
   font-family: var(--font-body);
   font-size: 11px;
   letter-spacing: 0.12em;
+}
+
+@media (max-width: 1200px) {
+  .brand-logo-image-center {
+    height: 44px;
+  }
 }
 
 .main-nav,

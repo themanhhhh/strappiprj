@@ -13,10 +13,10 @@ type ServicesPageProps = {
 export async function generateMetadata({params}: ServicesPageProps): Promise<Metadata> {
   const {locale} = await params;
   return {
-    title: locale === 'vi' ? 'Dịch vụ — ALADDIN JSC' : 'Services — ALADDIN JSC',
+    title: locale === 'vi' ? 'Dich vu - MAESTRO' : 'Services - MAESTRO',
     description: locale === 'vi'
-      ? 'Khám phá các dịch vụ thi công, thiết kế và vận hành chuỗi nhà hàng chuyên nghiệp của ALADDIN JSC.'
-      : 'Explore ALADDIN JSC professional F&B fit-out, design and operations services.',
+      ? 'Kham pha cac dich vu construction, fit-out, joinery va dieu phoi ky thuat duoc MAESTRO trien khai voi su chinh xac va tinh dong bo cao.'
+      : 'Explore MAESTRO construction, fit-out, joinery, and technical coordination services delivered with precision and consistency.',
   };
 }
 
@@ -61,48 +61,48 @@ export default async function ServicesPage({params}: ServicesPageProps) {
     <>
       <PageHero
         slides={slides}
-        eyebrow={locale === 'vi' ? 'Dịch Vụ' : 'What We Do'}
-        title={locale === 'vi' ? 'Giải pháp toàn diện từ thiết kế đến vận hành.' : 'End-to-end solutions from design to operations.'}
+        eyebrow={locale === 'vi' ? 'Dich vu' : 'What We Do'}
+        title={locale === 'vi' ? 'Nhung nang luc duoc xay dung de dua du an tu y tuong den giai doan ban giao.' : 'Capabilities built to carry a project from concept through handover.'}
         description={locale === 'vi'
-          ? 'Chúng tôi quản lý mọi giai đoạn — từ tư vấn ý tưởng đến bàn giao vận hành chuỗi nhà hàng.'
-          : 'We manage every phase — from concept consulting to operational handover of F&B chains.'}
+          ? 'MAESTRO cung cap mot he thong dich vu lien ket giua construction, fit-out, joinery va giam sat thi cong, nham dam bao chat luong, tien do va tinh dong bo cua tung hang muc.'
+          : 'MAESTRO provides an integrated service structure across construction, fit-out, joinery, and site supervision to secure quality, timing, and coordination at every stage.'}
       />
 
       {/* ── Services Grid — Overview ── */}
       <ServicesGrid
-        heading={locale === 'vi' ? 'DỊCH VỤ CỦA CHÚNG TÔI' : 'OUR SERVICES'}
+        heading={locale === 'vi' ? 'DICH VU CUA CHUNG TOI' : 'OUR SERVICES'}
         items={[
           {
             icon: <IconPMCM />,
-            title: locale === 'vi' ? 'Quản Lý Dự Án' : 'PMCM',
-            subtitle: locale === 'vi' ? 'Quản lý & Giám sát Thi công' : 'Project Management & Construction Management',
+            title: locale === 'vi' ? 'Quan ly du an' : 'PMCM',
+            subtitle: locale === 'vi' ? 'Project Management & Construction Management' : 'Project Management & Construction Management',
             description: locale === 'vi'
-              ? 'Chúng tôi quản lý toàn bộ quá trình từ ý tưởng đến bàn giao — phối hợp tất cả các bộ phận để đảm bảo chất lượng, kiểm soát chi phí và tiến độ.'
-              : 'We manage every phase from concept to completion — coordinating all disciplines to ensure quality, cost control, and on-time delivery.',
+              ? 'Tu lap ke hoach den giam sat thi cong, MAESTRO dieu phoi cac bo mon, kiem soat chat luong, tien do va cac diem giao cat ky thuat de du an van hanh mach lac tu dau den cuoi.'
+              : 'From planning through site supervision, MAESTRO coordinates disciplines, controls quality and programme, and manages technical interfaces with disciplined consistency.',
           },
           {
             icon: <IconFitOut />,
-            title: locale === 'vi' ? 'Thi Công Nhà Hàng' : 'Restaurant Fit-Out',
-            subtitle: locale === 'vi' ? 'Hoàn thiện không gian F&B' : 'Full F&B Space Execution',
+            title: locale === 'vi' ? 'Interior fit-out' : 'Interior Fit-Out',
+            subtitle: locale === 'vi' ? 'Thi cong va hoan thien khong gian noi that' : 'Interior execution and finishing',
             description: locale === 'vi'
-              ? 'Gói thi công toàn diện từ mặt tiền, bếp đến khu vực hậu trường — đảm bảo khai trương đúng tiến độ và vận hành hiệu quả.'
-              : 'Full execution package for front-of-house, kitchen and back-of-house coordination — built for operational readiness.',
+              ? 'Chung toi trien khai cac hang muc fit-out voi muc do hoan thien cao, tu khong gian cong cong den khu vuc chuc nang, nham dat duoc su can doi giua tham my, do ben va tinh san sang dua vao van hanh.'
+              : 'We deliver interior fit-out packages with a high standard of finish, balancing aesthetics, durability, and operational readiness across public and functional spaces.',
           },
           {
             icon: <IconDesign />,
-            title: locale === 'vi' ? 'Thiết Kế Nội Thất' : 'Interior Design',
-            subtitle: locale === 'vi' ? 'Sáng tạo & thẩm mỹ không gian' : 'Creative & Aesthetic Spaces',
+            title: locale === 'vi' ? 'Thiet ke noi that' : 'Interior Design',
+            subtitle: locale === 'vi' ? 'Khong gian duoc dinh hinh boi vat lieu, ti le va anh sang' : 'Spaces shaped by material, proportion, and light',
             description: locale === 'vi'
-              ? 'Triết lý thiết kế tập trung vào sự cân bằng và chi tiết — từng vật liệu, texture và ánh sáng được lựa chọn kỹ để phản ánh bản sắc thương hiệu.'
-              : 'Design philosophy focused on balance and detail — every material, texture, and lighting element thoughtfully selected to reflect the brand identity.',
+              ? 'Ngon ngu thiet ke cua MAESTRO huong den su tiet che va tinh chinh. Moi be mat, ty le, vat lieu va anh sang deu duoc lua chon de phan anh dung tinh than cua khong gian.'
+              : 'MAESTRO approaches interior design with restraint and precision. Every surface, proportion, material, and lighting decision is shaped to reflect the intended character of the space.',
           },
           {
             icon: <IconMEP />,
-            title: locale === 'vi' ? 'Phối Hợp MEP' : 'MEP Coordination',
-            subtitle: locale === 'vi' ? 'Kỹ thuật cơ điện & hệ thống' : 'Mechanical, Electrical & Plumbing',
+            title: locale === 'vi' ? 'Phoi hop MEP' : 'MEP Coordination',
+            subtitle: locale === 'vi' ? 'Mechanical, Electrical & Plumbing' : 'Mechanical, Electrical & Plumbing',
             description: locale === 'vi'
-              ? 'Phối hợp kỹ thuật toàn diện giữa kết cấu, HVAC, hệ thống thoát nước, chiếu sáng và vị trí thiết bị bếp — giảm thiểu xung đột trước khi thi công.'
-              : 'Technical alignment across structure, HVAC, plumbing, lighting and equipment positions — reducing clashes before site execution.',
+              ? 'Su dong bo ky thuat duoc xu ly ngay tu dau thong qua viec can doi ket cau, HVAC, cap thoat nuoc, chieu sang va thiet bi, giam thieu xung dot truoc khi dua ra cong truong.'
+              : 'Technical coordination is resolved early through alignment between structure, HVAC, plumbing, lighting, and equipment positions, reducing clashes before site execution begins.',
           },
         ]}
       />
@@ -142,7 +142,7 @@ export default async function ServicesPage({params}: ServicesPageProps) {
                     </ul>
                   )}
                   <Link href={`/${locale}/services/${service.slug}`} className="svc-link">
-                    {locale === 'vi' ? 'Xem chi tiết' : 'Learn more'}
+                    {locale === 'vi' ? 'Xem chi tiet' : 'Learn more'}
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg>

@@ -17,11 +17,11 @@ type ProjectsPageProps = {
 export async function generateMetadata({params}: ProjectsPageProps): Promise<Metadata> {
   const {locale} = await params;
   return {
-    title: locale === 'vi' ? 'Hệ sinh thái thương hiệu — ALADDIN JSC' : 'Brand Ecosystem — ALADDIN JSC',
+    title: locale === 'vi' ? 'Du an - MAESTRO' : 'Projects - MAESTRO',
     description:
       locale === 'vi'
-        ? 'Khám phá các chuỗi nhà hàng trong hệ sinh thái F&B của ALADDIN JSC — từ lẩu đến BBQ, từ Việt Nam đến quốc tế.'
-        : 'Explore the restaurant chain brands in the ALADDIN JSC F&B ecosystem.',
+        ? 'Kham pha cac du an duoc MAESTRO thuc hien trong linh vuc construction, interior fit-out va joinery voi muc do hoan thien cao va tinh dong bo ro net.'
+        : 'Explore projects delivered by MAESTRO across construction, interior fit-out, and joinery with a high standard of finish and coordination.',
   };
 }
 
@@ -89,30 +89,30 @@ export default async function ProjectsPage({params}: ProjectsPageProps) {
     <>
       <PageHero
         slides={slides}
-        eyebrow={locale === 'vi' ? 'Hệ sinh thái thương hiệu' : 'Brand Ecosystem'}
+        eyebrow={locale === 'vi' ? 'Du an' : 'Projects'}
         title={
           locale === 'vi'
-            ? 'Các chuỗi nhà hàng trong hệ sinh thái ALADDIN JSC'
-            : 'Restaurant chains in the ALADDIN JSC ecosystem'
+            ? 'Nhung cong trinh phan anh nang luc thuc thi, su chi tiet va chat luong hoan thien cua MAESTRO'
+            : 'Projects that reflect MAESTRO\'s execution capability, precision, and finishing quality'
         }
         description={
           locale === 'vi'
-            ? 'Từ lẩu Hồng Kông đến BBQ Nhật Bản — chúng tôi xây dựng, vận hành và nhân rộng các thương hiệu F&B chất lượng cao.'
-            : 'From Hong Kong hotpot to Japanese BBQ — we build, operate and scale premium F&B brands.'
+            ? 'Moi du an la mot qua trinh can doi giua ky thuat, vat lieu, tien do va trai nghiem khong gian. Day la noi MAESTRO trinh bay nhung cong trinh duoc hoan thanh voi su dong bo tu concept den handover.'
+            : 'Each project balances technical discipline, material quality, programme control, and spatial experience. This is where MAESTRO presents work delivered with consistency from concept through handover.'
         }
         aside={
           <ul className="detail-list">
             {locale === 'vi' ? (
               <>
-                <li>Chuỗi nhà hàng đa thương hiệu.</li>
-                <li>Vận hành chuyên nghiệp từ A-Z.</li>
-                <li>Nhân rộng toàn quốc.</li>
+                <li>Construction va fit-out duoc dieu phoi dong bo.</li>
+                <li>Chat luong hoan thien duoc kiem soat o tung chi tiet.</li>
+                <li>Joinery, vat lieu va ky thuat duoc can doi trong mot he thong thuc thi thong nhat.</li>
               </>
             ) : (
               <>
-                <li>Multi-brand restaurant chains.</li>
-                <li>Full A-Z professional operations.</li>
-                <li>National rollout capability.</li>
+                <li>Construction and fit-out delivered through coordinated execution.</li>
+                <li>Finishing quality controlled at the level of detail.</li>
+                <li>Joinery, materiality, and technical systems aligned within one delivery framework.</li>
               </>
             )}
           </ul>

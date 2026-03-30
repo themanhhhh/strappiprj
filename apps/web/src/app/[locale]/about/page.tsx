@@ -13,55 +13,55 @@ type AboutPageProps = {
 export async function generateMetadata({params}: AboutPageProps): Promise<Metadata> {
   const {locale} = await params;
   return {
-    title: locale === 'vi' ? 'Về Chúng Tôi — ALADDIN JSC' : 'About Us — ALADDIN JSC',
+    title: locale === 'vi' ? 'Ve chung toi - MAESTRO' : 'About Us - MAESTRO',
     description:
       locale === 'vi'
-        ? 'Công ty Cổ phần Tầm nhìn Quốc tế Aladdin — đơn vị tiên phong trong lĩnh vực Culinary, vận hành hệ sinh thái chuỗi nhà hàng F&B chất lượng cao.'
-        : 'Aladdin International Vision Joint Stock Company — a pioneering culinary enterprise operating a premium F&B restaurant chain ecosystem.',
+        ? 'MAESTRO la don vi hoat dong trong linh vuc construction, interior fit-out va joinery, theo duoi su chinh xac, tinh dong bo va chat luong hoan thien o tieu chuan cao.'
+        : 'MAESTRO operates across construction, interior fit-out, and joinery with a focus on precision, coordination, and a high standard of finish.',
   };
 }
 
 const viStats = [
-  {value: '19+', label: 'Nhà hàng'},
-  {value: '716+', label: 'Nhân viên'},
-  {value: '6', label: 'Thương hiệu ẩm thực'},
-  {value: '2028', label: 'Mục tiêu 300 nhà hàng'},
+  {value: '54,000m2+', label: 'Nha may va nang luc san xuat'},
+  {value: '5', label: 'Thi truong hien dien'},
+  {value: 'End-to-end', label: 'Construction, fit-out va joinery'},
+  {value: 'Premium', label: 'Tieu chuan hoan thien'},
 ];
 
 const enStats = [
-  {value: '19+', label: 'Restaurants'},
-  {value: '716+', label: 'Employees'},
-  {value: '6', label: 'F&B Brands'},
-  {value: '2028', label: 'Target: 300 restaurants'},
+  {value: '54,000m2+', label: 'Manufacturing footprint'},
+  {value: '5', label: 'Active markets'},
+  {value: 'End-to-end', label: 'Construction, fit-out, and joinery'},
+  {value: 'Premium', label: 'Finishing standard'},
 ];
 
 const viVmv = [
   {
     label: 'Tầm nhìn',
-    body: 'Trở thành thương hiệu F&B hàng đầu tại Việt Nam, xây dựng một hệ sinh thái bền vững, đóng góp vào sự phát triển của nền văn hóa ẩm thực nước nhà.',
+    body: 'Tro thanh doi tac duoc tin cay trong linh vuc construction, fit-out va joinery, duoc nhan dien boi su tinh chinh, chat luong dong bo va gia tri tham my ben vung.',
   },
   {
     label: 'Sứ mệnh',
-    body: 'Mang lại những trải nghiệm hạnh phúc cho khách hàng thông qua những bữa ăn ngon, không gian thưởng thức ấm cúng và phong cách phục vụ tận tâm.',
+    body: 'Kien tao nhung khong gian duoc hoan thien voi ky luat thuc thi cao, can doi giua cong nang, do ben, vat lieu va trai nghiem khong gian cho tung du an.',
   },
   {
     label: 'Giá trị cốt lõi',
-    body: 'Tươi ngon — Sạch sẽ — Kiểm soát chất lượng — Quản trị chuyên nghiệp. Trân trọng từng khách hàng; Lấy khách hàng làm trọng tâm; Phục vụ bằng sự tử tế và chân thành.',
+    body: 'Precision - Coordination - Craftsmanship - Accountability. Moi quyet dinh deu huong den chat luong thuc thi, tinh ro rang trong phoi hop va su chi tiet trong hoan thien.',
   },
 ];
 
 const enVmv = [
   {
     label: 'Vision',
-    body: 'Become the leading F&B brand in Vietnam, building a sustainable ecosystem that contributes to the development of Vietnamese culinary culture.',
+    body: 'To be a trusted name in construction, fit-out, and joinery, recognised for precision, consistency, and enduring design value.',
   },
   {
     label: 'Mission',
-    body: 'Deliver happiness to customers through delicious food, warm dining atmospheres and dedicated service, consistently placing customers at the center of every decision.',
+    body: 'To deliver spaces shaped by disciplined execution, balancing function, durability, materiality, and spatial experience in every project.',
   },
   {
     label: 'Core Values',
-    body: 'Fresh — Clean — Quality Control — Professional Management. We value every customer, put customers at the center, and serve with kindness and sincerity.',
+    body: 'Precision - Coordination - Craftsmanship - Accountability. Every decision is guided by execution quality, technical clarity, and attention to finish.',
   },
 ];
 
@@ -69,32 +69,32 @@ const viTeam = [
   {
     name: 'Nguyễn Văn An',
     role: 'Tổng Giám Đốc',
-    bio: 'Với hơn 20 năm kinh nghiệm trong ngành F&B, ông An là người dẫn dắt chiến lược phát triển của hệ sinh thái Aladdin tại Việt Nam và khu vực.',
+    bio: 'Dinh huong chien luoc tong the cho MAESTRO, tap trung vao nang luc delivery, chat luong thuc thi va su mo rong ben vung trong linh vuc construction va interior.',
   },
   {
     name: 'Trần Thị Bích',
-    role: 'Giám Đốc Vận Hành',
-    bio: 'Chuyên gia vận hành chuỗi nhà hàng với kinh nghiệm triển khai trên 50 điểm bán trên toàn quốc, đảm bảo chất lượng và tiêu chuẩn đồng nhất.',
+    role: 'Giam Doc Van Hanh',
+    bio: 'Dieu phoi cac he thong van hanh, quy trinh va nguon luc du an nham duy tri tien do, su dong bo va kha nang kiem soat xuyen suot cong truong.',
   },
   {
     name: 'Lê Minh Cường',
-    role: 'Giám Đốc Phát Triển Thương Hiệu',
-    bio: 'Kiến trúc sư chiến lược thương hiệu cho chuỗi nhà hàng đa phong cách — từ hotpot cao cấp đến ẩm thực dân dã — trong hệ sinh thái Aladdin.',
+    role: 'Giam Doc Thiet Ke',
+    bio: 'Dinh hinh ngon ngu khong gian thong qua ti le, vat lieu va anh sang, dam bao moi du an dat duoc su can doi giua ban sac tham my va tinh kha thi thi cong.',
   },
   {
     name: 'Phạm Hồng Dương',
-    role: 'Giám Đốc Tài Chính',
-    bio: 'Chuyên gia tài chính doanh nghiệp với nền tảng đầu tư và mở rộng chuỗi, dẫn dắt kế hoạch nhượng quyền và tăng trưởng vốn của Aladdin.',
+    role: 'Giam Doc Tai Chinh',
+    bio: 'Quan tri tai chinh du an va cau truc dau tu voi cach tiep can can trong, ho tro viec dua ra quyet dinh duoc neo tren hieu qua va gia tri dai han.',
   },
   {
     name: 'Ngô Thị Lan Anh',
-    role: 'Giám Đốc Nhân Sự',
-    bio: 'Xây dựng và phát triển đội ngũ hơn 700 nhân sự, tạo môi trường làm việc gắn kết với văn hóa Aladdin tại mọi thương hiệu trong hệ sinh thái.',
+    role: 'Giam Doc Nhan Su',
+    bio: 'Phat trien doi ngu dua tren tinh ky luat, kha nang phoi hop va trach nhiem nghe nghiep, tao nen van hoa lam viec ro rang va ben vung cho MAESTRO.',
   },
   {
     name: 'Vũ Quang Hưng',
     role: 'Giám Đốc Marketing',
-    bio: 'Chuyên gia marketing kỹ thuật số và xây dựng cộng đồng thương hiệu, tạo dựng nhận diện mạnh mẽ cho từng thương hiệu trong hệ sinh thái Aladdin.',
+    bio: 'Xay dung hinh anh thuong hieu MAESTRO thong qua ngon ngu bien tap, he thong truyen thong va cach ke chuyen nhan manh vao nang luc, du an va craftsmanship.',
   },
 ];
 
@@ -102,32 +102,32 @@ const enTeam = [
   {
     name: 'An Nguyen',
     role: 'Chief Executive Officer',
-    bio: 'With over 20 years in the F&B sector, An leads the strategic vision and ecosystem expansion of Aladdin across Vietnam and the region.',
+    bio: 'Leads MAESTRO\'s overall direction with a focus on delivery capability, execution quality, and long-term growth across construction and interiors.',
   },
   {
     name: 'Bich Tran',
     role: 'Chief Operations Officer',
-    bio: 'Restaurant chain operations expert with experience rolling out over 50 locations nationwide, ensuring uniform quality and standards.',
+    bio: 'Oversees operating systems, project resources, and site coordination to maintain programme discipline and consistency across delivery.',
   },
   {
     name: 'Cuong Le',
-    role: 'Brand Development Director',
-    bio: 'Strategic architect of multi-concept restaurant brands — from premium hotpot to casual dining — within the Aladdin ecosystem.',
+    role: 'Design Director',
+    bio: 'Shapes spatial language through proportion, materiality, and light, ensuring each project balances design intent with construction reality.',
   },
   {
     name: 'Duong Pham',
     role: 'Chief Financial Officer',
-    bio: 'Corporate finance expert with a background in investment and chain expansion, leading Aladdin\'s franchise plan and capital growth.',
+    bio: 'Leads project finance and investment discipline with a measured approach anchored in efficiency, clarity, and long-term value.',
   },
   {
     name: 'Lan Anh Ngo',
     role: 'Human Resources Director',
-    bio: 'Builds and develops a team of over 700 staff, creating a cohesive work environment rooted in Aladdin culture across all brands.',
+    bio: 'Builds teams around discipline, coordination, and professional responsibility, strengthening MAESTRO\'s delivery culture over time.',
   },
   {
     name: 'Hung Vu',
     role: 'Marketing Director',
-    bio: 'Digital marketing and brand community specialist, establishing strong identities for each brand within the Aladdin ecosystem.',
+    bio: 'Develops MAESTRO\'s editorial and brand communication language with an emphasis on projects, capability, and craftsmanship.',
   },
 ];
 
@@ -145,9 +145,9 @@ export default async function AboutPage({params}: AboutPageProps) {
     <>
       <PageHero
         slides={slides}
-        eyebrow={locale === 'vi' ? 'Về Chúng Tôi' : 'About Us'}
-        title={locale === 'vi' ? 'Công ty Cổ phần Tầm nhìn Quốc tế Aladdin' : 'Aladdin International Vision Joint Stock Company'}
-        description={locale === 'vi' ? 'ĐƠN VỊ TIÊN PHONG TRONG LĨNH VỰC CULINARY' : 'PIONEERING ENTERPRISE IN THE CULINARY FIELD'}
+        eyebrow={locale === 'vi' ? 'Ve chung toi' : 'About Us'}
+        title={locale === 'vi' ? 'MAESTRO' : 'MAESTRO'}
+        description={locale === 'vi' ? 'CONSTRUCTION - INTERIOR FIT-OUT - JOINERY' : 'CONSTRUCTION - INTERIOR FIT-OUT - JOINERY'}
       />
 
       {/* ── Intro split ──────────────────────────────────────── */}
@@ -156,33 +156,33 @@ export default async function AboutPage({params}: AboutPageProps) {
           <div className="about-split-title">
             <h2>
               {locale === 'vi'
-                ? 'Hệ sinh thái F&B được xây dựng trên nền tảng chất lượng và trải nghiệm'
-                : 'Integrated F&B Ecosystem Built on Quality and Experience'}
+                ? 'Mot he thong thuc thi duoc xay dung tren su chinh xac, tinh dong bo va chat luong hoan thien'
+                : 'A delivery system built on precision, coordination, and finishing quality'}
             </h2>
             <div className="about-split-rule" />
           </div>
           <div className="about-split-body">
             <p>
               {locale === 'vi'
-                ? 'ALADDIN JSC vận hành một hệ sinh thái chuỗi nhà hàng đa thương hiệu gồm Long Wang, Tian Long, Bò Tơ Quán Mộc, G.Master, Hải Sư và Khèn Nướng Sapa — mỗi thương hiệu mang một bản sắc ẩm thực riêng biệt, kết nối thực khách với những trải nghiệm ăn uống chân thực và đáng nhớ.'
-                : 'ALADDIN JSC operates a multi-brand restaurant chain ecosystem including Long Wang, Tian Long, Bò Tơ Quán Mộc, G.Master, Hải Sư and Khèn Nướng Sapa — each brand carrying a distinct culinary identity, connecting diners with authentic and memorable dining experiences.'}
+                ? 'MAESTRO hoat dong trong cac linh vuc construction, interior fit-out va joinery, mang den nhung giai phap duoc do may theo quy mo, tieu chuan va yeu cau van hanh cua tung cong trinh.'
+                : 'MAESTRO operates across construction, interior fit-out, and joinery, delivering solutions shaped around the scale, standards, and operational requirements of each project.'}
             </p>
             <p>
               {locale === 'vi'
-                ? 'Được thành lập với sứ mệnh mang lại những bữa ăn ngon, không gian thưởng thức ấm cúng và phong cách phục vụ tận tâm, chúng tôi không ngừng đặt khách hàng làm trọng tâm trong mọi quyết định kinh doanh.'
-                : 'Founded with the mission of delivering delicious meals, warm dining atmospheres and dedicated service, we consistently place our customers at the center of every business decision.'}
+                ? 'Tu nha may den cong truong, MAESTRO theo duoi mot he thong delivery ro rang, trong do ky thuat, vat lieu, tien do va chat luong duoc ket noi thanh mot qua trinh thong nhat.'
+                : 'From manufacturing to site delivery, MAESTRO follows a clear execution system in which technical coordination, materials, programme, and finishing quality are treated as one integrated process.'}
             </p>
             <p>
               {locale === 'vi'
-                ? 'Với mục tiêu chiến lược 300 nhà hàng trên toàn quốc vào năm 2028, Aladdin đang hiện thực hóa tầm nhìn trở thành thương hiệu F&B hàng đầu Việt Nam.'
-                : 'With the strategic goal of 300 restaurants nationwide by 2028, Aladdin is realizing its vision of becoming Vietnam\'s leading F&B brand.'}
+                ? 'Moi du an duoc tiep can voi su tiet che trong ngon ngu tham my va su ky luat trong thi cong, nham tao ra nhung khong gian ben vung, tinh te va san sang dua vao van hanh.'
+                : 'Each project is approached with restraint in aesthetic language and discipline in execution, resulting in spaces that are durable, refined, and ready for operation.'}
             </p>
             <div className="button-row" style={{marginTop: '32px'}}>
               <ButtonLink href={`/${locale}/projects`} variant="primary">
-                {locale === 'vi' ? 'Khám phá thương hiệu' : 'Explore our brands'}
+                {locale === 'vi' ? 'Kham pha du an' : 'Explore projects'}
               </ButtonLink>
               <ButtonLink href={`/${locale}/contact`} variant="secondary">
-                {locale === 'vi' ? 'Liên hệ chúng tôi' : 'Contact us'}
+                {locale === 'vi' ? 'Lien he chung toi' : 'Contact us'}
               </ButtonLink>
             </div>
           </div>
@@ -219,7 +219,7 @@ export default async function AboutPage({params}: AboutPageProps) {
       <section className="about-intro-section">
         <div className="shell about-split-row">
           <div className="about-split-title">
-            <h2>{locale === 'vi' ? 'Lịch sử phát triển' : 'Development History'}</h2>
+            <h2>{locale === 'vi' ? 'Cac cot moc phat trien' : 'Development Milestones'}</h2>
             <div className="about-split-rule" />
           </div>
           <div className="about-split-body">
@@ -227,22 +227,22 @@ export default async function AboutPage({params}: AboutPageProps) {
               <div className="about-timeline-item">
                 <span className="about-timeline-year">{locale === 'vi' ? '2024' : '2024'}</span>
                 <div className="about-timeline-content">
-                  <h4>{locale === 'vi' ? 'Chuyển mình ngoạn mục' : 'Spectacular Transformation'}</h4>
+                  <h4>{locale === 'vi' ? 'Cung co nen tang thuc thi' : 'Strengthening the delivery platform'}</h4>
                   <ul>
-                    <li>{locale === 'vi' ? 'Bò Tơ Quán Mộc: Lột xác với không gian hiện đại, sang trọng.' : 'Bò Tơ Quán Mộc: Transformed with a modern, luxurious space.'}</li>
-                    <li>{locale === 'vi' ? 'Long Wang: Khẳng định vị thế là thương hiệu lẩu hấp lớn nhất Việt Nam.' : 'Long Wang: Affirmed its position as the largest steam hotpot brand in Vietnam.'}</li>
-                    <li>{locale === 'vi' ? 'Ra mắt Lẩu bò tươi Triều Châu Tian Long và thương hiệu Cơm Niêu Hải Sư.' : 'Launched Tian Long Fresh Beef Hotpot and Hải Sư Claypot Rice.'}</li>
+                    <li>{locale === 'vi' ? 'Hoan thien them nang luc dieu phoi giua construction, fit-out va joinery.' : 'Expanded coordination capability across construction, fit-out, and joinery.'}</li>
+                    <li>{locale === 'vi' ? 'Tang cuong quy trinh kiem soat chat luong va he thong delivery tai cong truong.' : 'Strengthened quality control procedures and site delivery systems.'}</li>
+                    <li>{locale === 'vi' ? 'Dinh hinh ro hon ngon ngu thuong hieu va tieu chuan hoan thien cua MAESTRO.' : 'Further defined the MAESTRO brand language and finishing standards.'}</li>
                   </ul>
                 </div>
               </div>
               <div className="about-timeline-item">
                 <span className="about-timeline-year">{locale === 'vi' ? '2025' : '2025'}</span>
                 <div className="about-timeline-content">
-                  <h4>{locale === 'vi' ? 'Hiện thực hóa tầm nhìn' : 'Realizing Our Vision'}</h4>
-                  <p>{locale === 'vi' ? 'Mục tiêu 100 điểm chạm trên toàn quốc:' : 'Goal of 100 touchpoints nationwide:'}</p>
+                  <h4>{locale === 'vi' ? 'Mo rong quy mo va pham vi hien dien' : 'Expanding scale and regional presence'}</h4>
+                  <p>{locale === 'vi' ? 'MAESTRO tiep tuc phat trien tren nen tang san xuat va delivery co tinh dong bo cao:' : 'MAESTRO continues to grow on top of an increasingly integrated manufacturing and delivery platform:'}</p>
                   <div className="about-timeline-brands">
-                    {['Long Wang: 42', 'Tian Long: 25', 'Bò Tơ Quán Mộc: 24', 'Cơm Niêu Hải Sư: 8', 'G.Master: 1'].map((b, i) => (
-                      <span key={i} className="about-timeline-brand-tag">{b} {locale === 'vi' ? 'nhà hàng' : 'restaurants'}</span>
+                    {['Singapore', 'Vietnam', 'UAE', 'UK', 'Saudi Arabia'].map((b, i) => (
+                      <span key={i} className="about-timeline-brand-tag">{b}</span>
                     ))}
                   </div>
                 </div>
@@ -250,8 +250,8 @@ export default async function AboutPage({params}: AboutPageProps) {
               <div className="about-timeline-item">
                 <span className="about-timeline-year">{locale === 'vi' ? '2028' : '2028'}</span>
                 <div className="about-timeline-content">
-                  <h4>{locale === 'vi' ? 'Mục tiêu chiến lược' : 'Strategic Target'}</h4>
-                  <p>{locale === 'vi' ? 'Aladdin sở hữu 300 nhà hàng trên khắp Việt Nam — mở rộng hệ sinh thái đến mọi tỉnh thành, phủ rộng trải nghiệm ẩm thực Aladdin toàn quốc.' : 'Aladdin owns 300 restaurants across Vietnam — expanding the ecosystem to every province, bringing the Aladdin dining experience nationwide.'}</p>
+                  <h4>{locale === 'vi' ? 'Dinh huong chien luoc' : 'Strategic Direction'}</h4>
+                  <p>{locale === 'vi' ? 'Tiep tuc nang cao tieu chuan construction, fit-out va joinery thong qua viec dau tu vao con nguoi, quy trinh, nha may va kha nang thuc thi xuyen du an.' : 'Continue elevating standards in construction, fit-out, and joinery through long-term investment in people, systems, manufacturing, and project-wide execution capability.'}</p>
                 </div>
               </div>
             </div>
@@ -264,12 +264,12 @@ export default async function AboutPage({params}: AboutPageProps) {
         <div className="shell">
           <div className="about-team-header">
             <h2>
-              {locale === 'vi' ? 'Ban Lãnh Đạo & Điều Hành' : 'Executive Leadership and Management Team'}
+              {locale === 'vi' ? 'Ban lanh dao va dieu hanh' : 'Executive Leadership and Management Team'}
             </h2>
             <p>
               {locale === 'vi'
-                ? 'Đội ngũ lãnh đạo của Aladdin JSC — những con người định hình tầm nhìn và dẫn dắt sự phát triển của hệ sinh thái.'
-                : "Introducing Aladdin JSC's leadership team responsible for strategic direction and ecosystem growth."}
+                ? 'Doi ngu dieu hanh dinh hinh chuan muc lam viec cua MAESTRO thong qua su ky luat, tinh ro rang trong phoi hop va dinh huong phat trien dai han.'
+                : 'The leadership team shapes MAESTRO\'s working standards through discipline, coordination clarity, and long-term strategic direction.'}
             </p>
           </div>
           <div className="about-team-grid">
@@ -292,23 +292,23 @@ export default async function AboutPage({params}: AboutPageProps) {
       <section className="section-block">
         <div className="shell">
           <CtaStrip
-            label={locale === 'vi' ? 'Hợp tác' : 'Partner with us'}
+            label={locale === 'vi' ? 'Hop tac' : 'Partner with us'}
             title={
               locale === 'vi'
-                ? 'Cùng xây dựng hệ sinh thái ẩm thực lớn mạnh'
-                : 'Build a thriving culinary ecosystem together'
+                ? 'Cung trao doi ve nhung du an can su chinh xac va nang luc thuc thi dong bo'
+                : 'Discuss projects that call for precision and coordinated delivery'
             }
             description={
               locale === 'vi'
-                ? 'Tìm hiểu cơ hội hợp tác, nhượng quyền và đầu tư trong hệ sinh thái ALADDIN JSC.'
-                : 'Explore partnership, franchise and investment opportunities within the ALADDIN JSC ecosystem.'
+                ? 'Lien he voi MAESTRO de trao doi ve construction, fit-out, joinery va nhung giai phap hoan thien duoc do may theo yeu cau cua tung cong trinh.'
+                : 'Contact MAESTRO to discuss construction, fit-out, joinery, and finishing solutions tailored to the needs of each project.'
             }
             primary={{
-              label: locale === 'vi' ? 'Xem thương hiệu' : 'View brands',
+              label: locale === 'vi' ? 'Xem du an' : 'View projects',
               href: `/${locale}/projects`,
             }}
             secondary={{
-              label: locale === 'vi' ? 'Liên hệ ngay' : 'Contact us',
+              label: locale === 'vi' ? 'Lien he ngay' : 'Contact us',
               href: `/${locale}/contact`,
             }}
           />

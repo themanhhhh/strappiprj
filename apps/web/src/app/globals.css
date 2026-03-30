@@ -1,6 +1,7 @@
 @import "../styles/tokens.css";
 @import "../styles/system.css";
 @import '../styles/aladdin.css';
+@import '../styles/project-maestro.css';
 
 * {
   box-sizing: border-box;

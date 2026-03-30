@@ -1,9 +1,12 @@
 import {notFound} from 'next/navigation';
 import type {Metadata} from 'next';
-import {ButtonLink} from '@/components/button-link';
+import Image from 'next/image';
+import Link from 'next/link';
 import {CtaStrip} from '@/components/cta-strip';
-import {PageHero} from '@/components/page-hero';
-import {getPostBySlug, getPosts} from '@/lib/strapi/queries';
+import {Header} from '@/components/header';
+import {SlideshowBackground} from '@/components/slideshow-background';
+import type {Locale} from '@/i18n/routing';
+import {getHeroSlides, getPostBySlug, getPosts} from '@/lib/strapi/queries';
 import {getPost, posts as catalogPosts} from '@/lib/catalog';
 
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL ?? 'http://localhost:1337';
@@ -31,7 +34,7 @@ export async function generateMetadata({params}: PostDetailPageProps): Promise<M
     : undefined;
 
   return {
-    title: `${title} — ALADDIN JSC`,
+    title: `${title} — MAESTRO`,
     description,
     openGraph: {
       title,
@@ -43,109 +46,174 @@ export async function generateMetadata({params}: PostDetailPageProps): Promise<M
 
 export default async function PostDetailPage({params}: PostDetailPageProps) {
   const {locale, slug} = await params;
-  const post = await getPostBySlug(slug, locale);
+  const [post, detailHeroSlides, allStrapiPosts] = await Promise.all([
+    getPostBySlug(slug, locale),
+    getHeroSlides(locale, 'journal'),
+    getPosts(locale),
+  ]);
+  const catalogPost = post ? null : getPost(slug);
+  const targetPost = post || catalogPost;
 
-  if (post) {
-    const coverUrl = post.cover?.url
-      ? post.cover.url.startsWith('http') ? post.cover.url : `${STRAPI_URL}${post.cover.url}`
-      : null;
+  if (!targetPost) notFound();
 
-    return (
-      <>
-        <PageHero
-          eyebrow={post.meta ?? post.category?.name ?? ''}
-          title={post.title}
-          description={post.description ?? ''}
-          actions={
-            <div className="button-row">
-              <ButtonLink href={`/${locale}/journal`} variant="secondary">
-                {locale === 'vi' ? '← Quay lại tin tức' : '← Back to journal'}
-              </ButtonLink>
-            </div>
-          }
-        />
+  // Determine cover URL
+  let coverUrl = null;
+  if ('cover' in targetPost && targetPost.cover?.url) { // Strapi Post
+    coverUrl = targetPost.cover.url.startsWith('http') ? targetPost.cover.url : `${STRAPI_URL}${targetPost.cover.url}`;
+  } 
 
-        {coverUrl && (
-          <section className="section-block">
-            <div className="shell">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={coverUrl}
-                alt={post.cover?.alternativeText ?? post.title}
-                style={{width: '100%', aspectRatio: '16/7', objectFit: 'cover', display: 'block', borderRadius: '4px'}}
-              />
-            </div>
-          </section>
-        )}
+  const heroSlides = detailHeroSlides
+    .map((slide) => ({
+      imageUrl: slide.cover?.url
+        ? slide.cover.url.startsWith('http')
+          ? slide.cover.url
+          : `${STRAPI_URL}${slide.cover.url}`
+        : null,
+    }))
+    .filter((slide) => slide.imageUrl);
 
-        {post.intro && (
-          <section className="section-block">
-            <div className="shell">
-              <p className="post-intro" style={{fontSize: '1.125rem', lineHeight: '1.8', maxWidth: '72ch', opacity: 0.85}}>
-                {post.intro}
-              </p>
-            </div>
-          </section>
-        )}
+  // Fetch related posts (latest 2 excluding current)
+  let relatedPosts = allStrapiPosts
+    .filter((p) => p.slug !== slug)
+    .slice(0, 2)
+    .map((p) => ({
+      title: p.title,
+      slug: p.slug,
+      date: p.publishedAt,
+      coverUrl: p.cover?.url
+        ? p.cover.url.startsWith('http') ? p.cover.url : `${STRAPI_URL}${p.cover.url}`
+        : null,
+    }));
 
-        {post.content && (
-          <section className="section-block">
-            <div className="shell">
-              <div
-                className="prose"
-                style={{maxWidth: '72ch'}}
-                dangerouslySetInnerHTML={{__html: post.content}}
-              />
-            </div>
-          </section>
-        )}
-
-        <section className="section-block">
-          <div className="shell">
-            <CtaStrip
-              label={locale === 'vi' ? 'Liên hệ' : 'Contact'}
-              title={locale === 'vi' ? 'Bạn muốn trao đổi thêm?' : 'Want to discuss this further?'}
-              description={locale === 'vi' ? 'Chúng tôi luôn sẵn sàng tư vấn trực tiếp cho dự án của bạn.' : 'We are always ready for a direct consultation on your project.'}
-              primary={{label: locale === 'vi' ? 'Liên hệ ngay' : 'Contact us', href: `/${locale}/contact`}}
-              secondary={{label: locale === 'vi' ? 'Xem dịch vụ' : 'View services', href: `/${locale}/services`}}
-            />
-          </div>
-        </section>
-      </>
-    );
+  if (relatedPosts.length === 0) {
+    relatedPosts = catalogPosts
+      .filter((p) => p.slug !== slug)
+      .slice(0, 2)
+      .map((p) => ({
+        title: p.title,
+        slug: p.slug,
+        date: new Date().toISOString(), // Mock date for catalog posts if any
+        coverUrl: null,
+      }));
   }
 
-  // Fallback to catalog
-  const catalogPost = getPost(slug);
-  if (!catalogPost) notFound();
+  let eyebrowMeta = '';
+  if (post) {
+    eyebrowMeta = post.meta ?? post.category?.name ?? '';
+  } else if (catalogPost) {
+    eyebrowMeta = catalogPost.meta ?? (catalogPost as any).category?.name ?? '';
+  }
+
+  const publishedLabel = post?.publishedAt
+    ? new Intl.DateTimeFormat(locale === 'vi' ? 'vi-VN' : 'en-GB', {
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric',
+      }).format(new Date(post.publishedAt))
+    : null;
 
   return (
-    <>
-      <PageHero
-        eyebrow={catalogPost.meta}
-        title={catalogPost.title}
-        description={catalogPost.description}
-        actions={
-          <div className="button-row">
-            <ButtonLink href={`/${locale}/journal`} variant="secondary">
-              {locale === 'vi' ? '← Quay lại tin tức' : '← Back to journal'}
-            </ButtonLink>
+    <div className="journal-detail-page maestro-project-page journal-article-maestro-page">
+      <div className="journal-hero-maestro hero-header-page">
+        <Header locale={locale as Locale} transparent />
+        <div className="journal-hero-bg-maestro">
+          {heroSlides.length > 0 ? (
+            <SlideshowBackground slides={heroSlides} />
+          ) : coverUrl ? (
+            <Image src={coverUrl} alt={targetPost.title} fill priority style={{objectFit: 'cover'}} />
+          ) : (
+            <div className="project-hero-bg-fallback-maestro" style={{ width: '100%', height: '100%', background: '#333' }} />
+          )}
+          <div className="journal-hero-overlay-maestro" />
+        </div>
+        <div className="shell journal-hero-shell-maestro">
+          <div className="journal-hero-content-maestro">
+            {eyebrowMeta && <p className="journal-hero-eyebrow-maestro">{eyebrowMeta}</p>}
+            <h1 className="journal-hero-title-maestro">{targetPost.title}</h1>
+            <div className="journal-article-meta-maestro">
+              {publishedLabel ? <span>{publishedLabel}</span> : null}
+              <span>{locale === 'vi' ? 'An pham bien tap cua MAESTRO' : 'An editorial publication by MAESTRO'}</span>
+            </div>
           </div>
-        }
-        aside={<p>{catalogPost.intro}</p>}
-      />
+        </div>
+      </div>
 
-      <section className="section-block">
+      <section className="journal-article-intro-band-maestro">
+        <div className="shell journal-article-intro-grid-maestro">
+          <div>
+            <p className="journal-index-section-kicker-maestro">
+              {locale === 'vi' ? 'Tong quan bai viet' : 'Article overview'}
+            </p>
+          </div>
+          <p className="journal-intro-maestro">{targetPost.intro || targetPost.description}</p>
+        </div>
+      </section>
+
+      <div className="journal-content-wrapper-maestro">
+        {'content' in targetPost && targetPost.content ? (
+          <div
+            className="journal-body-maestro"
+            dangerouslySetInnerHTML={{__html: targetPost.content}}
+          />
+        ) : (
+          <div className="journal-body-maestro">
+            <p>{targetPost.description}</p>
+          </div>
+        )}
+      </div>
+
+      {relatedPosts.length > 0 && (
+        <section className="related-news-section-maestro">
+          <div className="shell">
+            <div className="related-news-header-maestro">
+              <p className="journal-index-section-kicker-maestro">
+                {locale === 'vi' ? 'Noi dung lien quan' : 'Related content'}
+              </p>
+              <h2 className="related-news-title-maestro">
+                {locale === 'vi' ? 'Nhung goc nhin tiep theo' : 'Further Reading'}
+              </h2>
+            </div>
+            <div className="journal-related-grid-maestro">
+              {relatedPosts.map((rp) => (
+                <article key={rp.slug} className="journal-related-card-maestro">
+                  <div className="journal-related-media-maestro">
+                    {rp.coverUrl ? (
+                      <Image src={rp.coverUrl} alt={rp.title} fill style={{objectFit: 'cover'}} />
+                    ) : (
+                      <div className="journal-related-placeholder-maestro" />
+                    )}
+                  </div>
+                  <div className="journal-related-content-maestro">
+                    {rp.date && (
+                      <p className="journal-related-date-maestro">
+                        {new Date(rp.date).toLocaleDateString(locale === 'vi' ? 'vi-VN' : 'en-US', {
+                          year: 'numeric', month: 'short', day: 'numeric'
+                        })}
+                      </p>
+                    )}
+                    <h3 className="journal-related-title-maestro">{rp.title}</h3>
+                    <Link href={`/${locale}/journal/${rp.slug}`} className="journal-card-link-maestro">
+                      {locale === 'vi' ? 'Doc tiep' : 'Read more'}
+                    </Link>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      <section className="section-block bg-sector-overlay" style={{ padding: '4rem 0' }}>
         <div className="shell">
           <CtaStrip
-            label={locale === 'vi' ? 'Liên hệ' : 'Contact'}
-            title={locale === 'vi' ? 'Bạn muốn trao đổi thêm?' : 'Want to discuss this further?'}
-            description={locale === 'vi' ? 'Chúng tôi luôn sẵn sàng tư vấn trực tiếp.' : 'We are always ready for a direct consultation.'}
-            primary={{label: locale === 'vi' ? 'Liên hệ ngay' : 'Contact us', href: `/${locale}/contact`}}
-            secondary={{label: locale === 'vi' ? 'Xem dịch vụ' : 'View services', href: `/${locale}/services`}}
+            label={locale === 'vi' ? 'Lien he' : 'Contact'}
+            title={locale === 'vi' ? 'Ban dang chuan bi cho mot du an can su tinh chinh va nang luc thuc thi dong bo?' : 'Planning a project that calls for precision and coordinated delivery?'}
+            description={locale === 'vi' ? 'MAESTRO san sang dong hanh tu construction den fit-out, joinery va hoan thien noi that, voi cach tiep can duoc do may theo quy mo, tieu chuan va muc tieu van hanh cua tung du an.' : 'MAESTRO supports construction, fit-out, joinery, and interior finishing with a delivery approach tailored to each project\'s scale, standards, and operational goals.'}
+            primary={{label: locale === 'vi' ? 'Lien he chung toi' : 'Contact us', href: `/${locale}/contact`}}
+            secondary={{label: locale === 'vi' ? 'Xem du an' : 'View projects', href: `/${locale}/projects`}}
           />
         </div>
       </section>
-    </>
+    </div>
   );
 }

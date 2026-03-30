@@ -1,11 +1,12 @@
 import {notFound} from 'next/navigation';
 import {ButtonLink} from '@/components/button-link';
 import {CtaStrip} from '@/components/cta-strip';
-import {getProjectBySlug, getProjects} from '@/lib/strapi/queries';
+import {getProjectBySlug, getProjects, getHeroSlides} from '@/lib/strapi/queries';
 import {getProject, getService, projects as catalogProjects} from '@/lib/catalog';
 import {Header} from '@/components/header';
 import Image from 'next/image';
 import {ProjectGallery} from '@/components/project-gallery';
+import {HeroBanner} from '@/components/aladdin/hero-banner';
 
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL ?? 'http://localhost:1337';
 
@@ -64,73 +65,96 @@ export default async function ProjectDetailPage({params}: ProjectDetailPageProps
 
   const p = projectData;
 
-  return (
-    <div className="project-detail-page">
-      {/* 1. Custom Hero */}
-      <div className="project-hero hero-header-page">
-        <Header locale={locale as any} transparent />
-        <div className="project-hero-bg">
-          {p.coverUrl ? (
-            <Image src={p.coverUrl} alt={p.title} fill priority style={{objectFit: 'cover'}} />
-          ) : (
-            <div className="project-hero-bg-fallback" />
-          )}
-          <div className="project-hero-overlay" />
-        </div>
-        <div className="project-hero-content shell">
-          <h1 className="project-hero-title">{p.title}</h1>
-          {p.category && <p className="project-hero-subtitle">{p.category}</p>}
-        </div>
-      </div>
+  // 0. Giả định lấy banner (nếu có config từ CMS "all" hoặc "projects")
+  const strapiHeroSlides = await getHeroSlides(locale, 'projects');
+  const heroSlidesData = strapiHeroSlides.map((slide) => ({
+    eyebrow: slide.eyebrow ?? '',
+    title: slide.title,
+    description: slide.description ?? '',
+    imageUrl: slide.cover?.url
+      ? slide.cover.url.startsWith('http') ? slide.cover.url : `${STRAPI_URL}${slide.cover.url}`
+      : undefined,
+  }));
 
-      {/* 2. Metadata Strip */}
-      <section className="project-meta-section">
+  return (
+    <div className="project-detail-page maestro-project-page">
+      {/* 1. Custom Hero: Render HeroBanner if data exists, else fallback to project cover */}
+      {heroSlidesData.length > 0 ? (
+        <div className="hero-header-page" style={{ position: 'relative' }}>
+          <Header locale={locale as any} transparent />
+          <HeroBanner
+            locale={locale}
+            slides={heroSlidesData}
+            ctaText={locale === 'vi' ? 'Khám phá' : 'Explore'}
+          />
+        </div>
+      ) : (
+        <div className="project-hero-maestro hero-header-page" style={{ position: 'relative' }}>
+          <Header locale={locale as any} transparent />
+          <div className="project-hero-bg-maestro">
+            {p.coverUrl ? (
+              <Image src={p.coverUrl} alt={p.title} fill priority style={{objectFit: 'cover'}} />
+            ) : (
+              <div className="project-hero-bg-fallback-maestro" />
+            )}
+            {/* Removed overlay to match Maestro look */}
+          </div>
+        </div>
+      )}
+
+      <div className="project-content-wrapper">
         <div className="shell">
-          <div className="project-meta-grid">
-            <div className="project-meta-item">
-              <span className="project-meta-label">LOCATION</span>
-              <span className="project-meta-value">{p.location || '—'}</span>
+          <div className="project-details-column-maestro">
+            {/* Main Info Box */}
+            <div className="project-header-maestro">
+              <h1 className="project-title-maestro">{p.title}</h1>
+              <p className="project-subtitle-maestro">
+                {p.solution ? p.solution : p.category} {/* Use solution or category as subtitle */}
+              </p>
             </div>
-            <div className="project-meta-item">
-              <span className="project-meta-label">SCOPE</span>
-              <span className="project-meta-value">{p.area || '—'}</span>
-            </div>
-            <div className="project-meta-item">
-              <span className="project-meta-label">YEAR</span>
-              <span className="project-meta-value">{p.year || '—'}</span>
-            </div>
-            <div className="project-meta-item">
-              <span className="project-meta-label">SUB-SECTOR</span>
-              <span className="project-meta-value">{p.category || '—'}</span>
+
+            <div className="project-details-row-maestro">
+              {/* 2. Metadata Table */}
+              <div className="project-meta-table-container">
+                <table className="project-meta-table">
+                  <tbody>
+                    <tr className="project-meta-row">
+                      <td className="project-meta-label-maestro">LOCATION</td>
+                      <td className="project-meta-value-maestro">{p.location || '—'}</td>
+                    </tr>
+                    <tr className="project-meta-row">
+                      <td className="project-meta-label-maestro">SCOPE</td>
+                      <td className="project-meta-value-maestro">{p.area || '—'}</td>
+                    </tr>
+                    <tr className="project-meta-row">
+                      <td className="project-meta-label-maestro">YEAR</td>
+                      <td className="project-meta-value-maestro">{p.year || '—'}</td>
+                    </tr>
+                    <tr className="project-meta-row">
+                      <td className="project-meta-label-maestro">SUB-SECTOR</td>
+                      <td className="project-meta-value-maestro">{p.category || '—'}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              {/* 3. Text Content */}
+              <div className="project-text-maestro">
+                {(p.challenge || p.solution || p.outcome) && (
+                  <>
+                    {p.challenge && <div dangerouslySetInnerHTML={{__html: p.challenge}} />}
+                    {p.outcome && <div dangerouslySetInnerHTML={{__html: p.outcome}} />}
+                  </>
+                )}
+                {/* If no challenge or outcome is present, display it nicely */}
+                {(!p.challenge && !p.outcome && p.solution) && (
+                   <div><p>{p.solution}</p></div>
+                )}
+              </div>
             </div>
           </div>
         </div>
-      </section>
-
-      {/* 3. Text Content */}
-      <section className="project-content-section section-block">
-        <div className="shell project-content-grid">
-          {(p.challenge || p.solution) && (
-            <div className="project-text-column">
-              {p.challenge && (
-                <div className="project-text-block">
-                  <p>{p.challenge}</p>
-                </div>
-              )}
-              {p.solution && (
-                <div className="project-text-block">
-                  <p>{p.solution}</p>
-                </div>
-              )}
-              {p.outcome && (
-                <div className="project-text-block project-text-outcome">
-                  <p>{p.outcome}</p>
-                </div>
-              )}
-            </div>
-          )}
-        </div>
-      </section>
+      </div>
 
       {/* 4. Gallery */}
       {p.galleryUrls && p.galleryUrls.length > 0 && (
@@ -141,26 +165,24 @@ export default async function ProjectDetailPage({params}: ProjectDetailPageProps
         </section>
       )}
 
-      {/* 5. Related Services / CTA */}
+      {/* 5. Related Services / CTA -> Mimicking Related Projects */}
       {p.relatedServices.length > 0 && (
-        <section className="section-block bg-muted">
+        <section className="related-services-maestro">
           <div className="shell">
-            <div className="related-projects-header">
-              <h2 className="related-projects-title">
-                {locale === 'vi' ? 'Dịch vụ liên quan' : 'Related Services'}
-              </h2>
-            </div>
-            <div className="tile-grid">
+            <h2 className="related-projects-title-maestro">
+              {locale === 'vi' ? 'Dịch vụ liên quan' : 'Related Services'}
+            </h2>
+            <div className="related-projects-grid-maestro">
               {p.relatedServices.map((service) => (
-                <div key={service.slug} className="news-card">
+                <div key={service.slug} className="related-project-card-maestro">
                    <div className="news-card-body">
-                    <h3 className="news-card-title">{service.title}</h3>
-                    <p style={{fontSize: '14px', color: '#666', marginTop: '8px', lineHeight: 1.5}}>
+                    <h3>{service.title}</h3>
+                    <p style={{fontSize: '1rem', color: '#666'}}>
                       {service.description}
                     </p>
-                    <div style={{marginTop: '16px'}}>
-                      <ButtonLink href={`/${locale}/services/${service.slug}`} variant="ghost">
-                        {locale === 'vi' ? 'Xem dịch vụ' : 'View service'}
+                    <div className="related-project-links">
+                      <ButtonLink href={`/${locale}/services/${service.slug}`} variant="ghost" style={{ borderBottom: '1px solid #c5a059', borderRadius: 0, paddingBottom: 2 }}>
+                        {locale === 'vi' ? 'Chi tiết' : 'Details'}
                       </ButtonLink>
                     </div>
                   </div>
@@ -170,18 +192,6 @@ export default async function ProjectDetailPage({params}: ProjectDetailPageProps
           </div>
         </section>
       )}
-
-      <section className="section-block bg-sector-overlay">
-        <div className="shell">
-          <CtaStrip
-            label={locale === 'vi' ? 'Liên hệ dự án' : 'Project CTA'}
-            title={locale === 'vi' ? 'Biến mối quan tâm thành yêu cầu tư vấn.' : 'Use case studies to turn interest into a scoped enquiry.'}
-            description={locale === 'vi' ? 'Trang chi tiết kết thúc bằng liên kết từ bằng chứng dự án đến yêu cầu tư vấn.' : 'The detail page closes by linking project proof back to a consultation request.'}
-            primary={{label: locale === 'vi' ? 'Yêu cầu báo giá' : 'Request quotation', href: `/${locale}/contact`}}
-            secondary={{label: locale === 'vi' ? 'Xem danh sách' : 'Explore projects', href: `/${locale}/projects`}}
-          />
-        </div>
-      </section>
     </div>
   );
 }
