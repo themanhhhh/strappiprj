@@ -422,44 +422,10 @@
   color: #111111;
 }
 
-.journal-index-hero-maestro {
+.journal-hero-summary-maestro {
+  margin-top: -28px;
   position: relative;
-  min-height: 100svh;
-  display: flex;
-  align-items: flex-end;
-  overflow: hidden;
-  background: #1e1713;
-}
-
-.journal-index-hero-media-maestro {
-  position: absolute;
-  inset: 0;
-  background: #241b16;
-  transform: scale(1.03);
-  overflow: hidden;
-}
-
-.journal-index-hero-fallback-maestro {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-}
-
-.journal-index-hero-overlay-maestro {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgba(18, 14, 12, 0.1) 0%, rgba(18, 14, 12, 0.32) 42%, rgba(18, 14, 12, 0.82) 100%),
-    linear-gradient(90deg, rgba(18, 14, 12, 0.56) 0%, rgba(18, 14, 12, 0.18) 55%, rgba(18, 14, 12, 0.06) 100%);
-}
-
-.journal-index-hero-shell-maestro {
-  position: relative;
-  z-index: 1;
-  padding-top: 180px;
-  padding-bottom: 88px;
-  color: #f7f0e4;
+  z-index: 3;
 }
 
 .journal-index-eyebrow-maestro,
@@ -504,6 +470,16 @@
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: rgba(247, 240, 228, 0.82);
+}
+
+.journal-index-meta-row-surface-maestro {
+  margin-top: 0;
+}
+
+.journal-index-meta-row-surface-maestro span {
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  background: rgba(247, 245, 240, 0.96);
+  color: #5f5a54;
 }
 
 .journal-index-intro-maestro {
@@ -756,6 +732,10 @@
   .journal-index-hero-shell-maestro {
     padding-top: 148px;
     padding-bottom: 56px;
+  }
+
+  .journal-hero-summary-maestro {
+    margin-top: -20px;
   }
 
   .journal-index-description-maestro,

@@ -1,8 +1,6 @@
 import type {Metadata} from 'next';
 import Link from 'next/link';
-import {Header} from '@/components/header';
-import {SlideshowBackground} from '@/components/slideshow-background';
-import type {Locale} from '@/i18n/routing';
+import {PageHero} from '@/components/page-hero';
 import {getHeroSlides, getPosts} from '@/lib/strapi/queries';
 import {posts as catalogPosts} from '@/lib/catalog';
 
@@ -27,7 +25,7 @@ export async function generateMetadata({params}: JournalPageProps): Promise<Meta
   return {
     title: locale === 'vi' ? 'Journal - Tin tuc va goc nhin tu MAESTRO' : 'Journal - Insights from MAESTRO',
     description: locale === 'vi'
-      ? 'Nhung cau chuyen ve du an, craftsmanship va nang luc thi cong duoc bien tap theo tinh than chi tiet, tiet che va cao cap cua MAESTRO.'
+      ? 'Những câu chuyện về dự án, craftsmanship và năng lực thi công được biên tập theo tinh thần chi tiết, tinh tế và cao cấp của MAESTRO.'
       : 'Project stories, craftsmanship, and execution insights presented with MAESTRO\'s refined and editorial point of view.',
   };
 }
@@ -48,17 +46,17 @@ function getCopy(locale: string) {
   if (locale === 'vi') {
     return {
       eyebrow: 'Journal',
-      title: 'Nhung cau chuyen ve thi cong va noi that duoc bien tap voi su tiet che, chinh xac va tinh than cao cap.',
+      title: 'Những câu chuyện về thi công và nội thất được biên tập với sự tiết chế, chính xác và tinh thần cao cấp.',
       description:
-        'Tu project updates den joinery, vat lieu va nang luc delivery, moi bai viet duoc trinh bay nhu mot an pham thuong hieu: ro rang, tinh te va giau tinh hinh anh.',
-      introLabel: 'Tinh than editorial cua MAESTRO',
-      introTitle: 'Noi dung duoc xay dung de phan anh nang luc, su chi tiet va chat luong thuc thi cua MAESTRO.',
+        'Từ project updates đến joinery, vật liệu và năng lực delivery, mỗi bài viết được trình bày như một bản phẩm thương hiệu: rõ ràng, tinh tế và giàu tính hình ảnh.',
+      introLabel: 'Tinh thần editorial của MAESTRO',
+      introTitle: 'Nội dung được xây dựng để phản ánh năng lực, sự chi tiết và chất lượng thực thi của MAESTRO.',
       introBody:
-        'Journal la noi MAESTRO chia se nhung cap nhat ve du an, quy trinh che tac, chat luong hoan thien va cac goc nhin thi truong lien quan den construction, fit-out va interior delivery.',
-      featureLabel: 'Bai viet noi bat',
-      listLabel: 'Tat ca bai viet',
-      articleCount: 'bai viet',
-      readMore: 'Doc tiep',
+        'Journal là nơi MAESTRO chia sẻ những cập nhật về dự án, quy trình chế tác, chất lượng hoàn thiện và các góc nhìn thị trường liên quan đến construction, fit-out và interior delivery.',
+      featureLabel: 'Bài viết nổi bật',
+      listLabel: 'Tất cả bài viết',
+      articleCount: 'bài viết',
+      readMore: 'Đọc tiếp',
     };
   }
 
@@ -130,32 +128,23 @@ export default async function JournalPage({params}: JournalPageProps) {
 
   return (
     <div className="journal-index-maestro-page">
-      <div className="hero-header-page journal-index-hero-maestro">
-        <Header locale={locale as Locale} transparent />
-        <div className="journal-index-hero-media-maestro">
-          {slides.length > 0 ? (
-            <SlideshowBackground slides={slides} />
-          ) : heroImage ? (
-            <div
-              className="journal-index-hero-fallback-maestro"
-              style={{backgroundImage: `url(${heroImage})`}}
-            />
-          ) : null}
-        </div>
-        <div className="journal-index-hero-overlay-maestro" />
+      <PageHero
+        slides={slides}
+        imageUrl={heroImage ?? undefined}
+        eyebrow={copy.eyebrow}
+        title={copy.title}
+        description={copy.description}
+      />
 
-        <div className="shell journal-index-hero-shell-maestro">
-          <p className="journal-index-eyebrow-maestro">{copy.eyebrow}</p>
-          <h1 className="journal-index-title-maestro">{copy.title}</h1>
-          <p className="journal-index-description-maestro">{copy.description}</p>
-
-          <div className="journal-index-meta-row-maestro">
+      <section className="journal-hero-summary-maestro">
+        <div className="shell">
+          <div className="journal-index-meta-row-maestro journal-index-meta-row-surface-maestro">
             <span>{String(displayPosts.length).padStart(2, '0')} {copy.articleCount}</span>
             <span>Editorial format</span>
             <span>Crafted presentation</span>
           </div>
         </div>
-      </div>
+      </section>
 
       <section className="journal-index-intro-maestro">
         <div className="shell journal-index-intro-grid-maestro">

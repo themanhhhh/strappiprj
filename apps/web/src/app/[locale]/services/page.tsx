@@ -70,7 +70,7 @@ export default async function ServicesPage({params}: ServicesPageProps) {
 
       {/* ── Services Grid — Overview ── */}
       <ServicesGrid
-        heading={locale === 'vi' ? 'DICH VU CUA CHUNG TOI' : 'OUR SERVICES'}
+        heading={locale === 'vi' ? 'DỊCH VỤ CỦA CHÚNG TÔI' : 'OUR SERVICES'}
         items={[
           {
             icon: <IconPMCM />,
