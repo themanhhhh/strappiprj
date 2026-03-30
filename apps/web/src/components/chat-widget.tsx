@@ -16,7 +16,7 @@ export function ChatWidget({ enabled = true }: ChatWidgetProps) {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'assistant',
-      content: 'Xin chào! Tôi là trợ lý tư vấn thi công nhà hàng. Tôi có thể giúp gì cho bạn?',
+      content: 'Xin chao. Toi la tro ly tu van cua MAESTRO. Toi co the ho tro ban ve construction, interior fit-out, joinery, tien do thi cong va dinh huong giai phap phu hop voi du an cua ban.',
     },
   ]);
   const [input, setInput] = useState('');
@@ -73,7 +73,7 @@ export function ChatWidget({ enabled = true }: ChatWidgetProps) {
         const updated = [...prev];
         updated[updated.length - 1] = {
           role: 'assistant',
-          content: 'Xin lỗi, có lỗi xảy ra. Vui lòng thử lại sau.',
+          content: 'Xin loi, he thong tam thoi gian doan. Vui long thu lai sau it phut hoac lien he truc tiep voi doi ngu MAESTRO de duoc ho tro nhanh hon.',
         };
         return updated;
       });
@@ -101,7 +101,7 @@ export function ChatWidget({ enabled = true }: ChatWidgetProps) {
       <button
         className="cw-fab"
         onClick={() => setOpen((v) => !v)}
-        aria-label={open ? 'Đóng chat' : 'Mở chat tư vấn'}
+        aria-label={open ? 'Dong khung tro ly' : 'Mo tro ly tu van'}
       >
         {open ? (
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -124,9 +124,9 @@ export function ChatWidget({ enabled = true }: ChatWidgetProps) {
               <div className="cw-bot-avatar-sm">
                 <BotIcon size={18} />
               </div>
-              <span className="cw-header-title">Trợ lý tư vấn</span>
+              <span className="cw-header-title">MAESTRO Assistant</span>
             </div>
-            <button className="cw-close-btn" onClick={() => setOpen(false)} aria-label="Đóng">
+            <button className="cw-close-btn" onClick={() => setOpen(false)} aria-label="Dong">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <line x1="18" y1="6" x2="6" y2="18" />
                 <line x1="6" y1="6" x2="18" y2="18" />
@@ -165,7 +165,7 @@ export function ChatWidget({ enabled = true }: ChatWidgetProps) {
               <textarea
                 ref={inputRef}
                 className="cw-input"
-                placeholder="Nhập tin nhắn của bạn..."
+                placeholder="Mo ta ngan gon nhu cau hoac quy mo du an cua ban..."
                 rows={1}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
@@ -176,7 +176,7 @@ export function ChatWidget({ enabled = true }: ChatWidgetProps) {
                 className="cw-send"
                 onClick={send}
                 disabled={loading || !input.trim()}
-                aria-label="Gửi"
+                aria-label="Gui"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <line x1="22" y1="2" x2="11" y2="13" />
@@ -185,7 +185,7 @@ export function ChatWidget({ enabled = true }: ChatWidgetProps) {
               </button>
             </div>
             <p className="cw-disclaimer">
-              Phản hồi AI có thể không chính xác. Hãy kiểm tra thông tin từ đội ngũ chuyên viên.
+              Noi dung AI mang tinh tham khao ban dau. Voi phuong an, tien do va bao gia cu the, vui long xac nhan cung doi ngu MAESTRO.
             </p>
           </div>
         </div>
