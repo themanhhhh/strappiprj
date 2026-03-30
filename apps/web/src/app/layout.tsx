@@ -1,12 +1,19 @@
 import './globals.css';
 import type {Metadata} from 'next';
-import {Roboto} from 'next/font/google';
+import {Playfair_Display, Roboto} from 'next/font/google';
 
 const roboto = Roboto({
   weight: ['400', '500', '700'],
   subsets: ['latin', 'vietnamese'],
   display: 'swap',
   variable: '--font-roboto',
+});
+
+const playfairDisplay = Playfair_Display({
+  weight: ['400', '500', '600', '700'],
+  subsets: ['latin', 'vietnamese'],
+  display: 'swap',
+  variable: '--font-serif',
 });
 
 export const metadata: Metadata = {
@@ -43,9 +50,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({children}: Readonly<{children: React.ReactNode}>) {
   return (
-    <html lang="vi" className={roboto.variable}>
-      <body className={roboto.variable}>{children}</body>
+    <html lang="vi" className={`${roboto.variable} ${playfairDisplay.variable}`}>
+      <body className={`${roboto.variable} ${playfairDisplay.variable}`}>{children}</body>
     </html>
   );
 }
-

@@ -280,7 +280,7 @@
 
 .journal-hero-title-maestro {
   margin: 0;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-editorial);
   font-size: clamp(3rem, 6vw, 5.4rem);
   line-height: 0.98;
   font-weight: 500;
@@ -323,7 +323,7 @@
 
 .journal-intro-maestro {
   margin: 0;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-editorial);
   font-size: clamp(1.45rem, 2.4vw, 2rem);
   line-height: 1.45;
   font-weight: 400;
@@ -346,7 +346,7 @@
 .journal-body-maestro h3,
 .journal-body-maestro h4 {
   margin: 3.4rem 0 1rem;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-editorial);
   font-weight: 500;
   line-height: 1.15;
   letter-spacing: -0.02em;
@@ -381,7 +381,7 @@
   margin: 2.4rem 0;
   padding: 0 0 0 1.4rem;
   border-left: 1px solid #d8d1c7;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-editorial);
   font-size: 1.4rem;
   line-height: 1.5;
   color: #111111;
@@ -406,7 +406,7 @@
 
 .related-news-title-maestro {
   margin: 8px 0 0;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-editorial);
   font-size: clamp(2rem, 3.6vw, 3rem);
   font-weight: 500;
   color: #111111;
@@ -440,7 +440,7 @@
 .journal-index-title-maestro {
   max-width: 880px;
   margin: 0;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-editorial);
   font-size: clamp(3.4rem, 7vw, 6.4rem);
   line-height: 0.98;
   font-weight: 500;
@@ -496,7 +496,7 @@
 .journal-index-section-title-maestro,
 .journal-featured-title-maestro,
 .journal-card-title-maestro {
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-editorial);
   letter-spacing: -0.03em;
   color: #19130f;
 }
@@ -702,7 +702,7 @@
 
 .journal-related-title-maestro {
   margin: 14px 0 0;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-editorial);
   font-size: 1.55rem;
   line-height: 1.16;
   font-weight: 500;
