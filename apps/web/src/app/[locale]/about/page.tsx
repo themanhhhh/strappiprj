@@ -16,16 +16,16 @@ export async function generateMetadata({params}: AboutPageProps): Promise<Metada
     title: locale === 'vi' ? 'Ve chung toi - MAESTRO' : 'About Us - MAESTRO',
     description:
       locale === 'vi'
-        ? 'MAESTRO la don vi hoat dong trong linh vuc construction, interior fit-out va joinery, theo duoi su chinh xac, tinh dong bo va chat luong hoan thien o tieu chuan cao.'
+        ? 'MAESTRO la đơn vị hoạt động trong lĩnh vực construction, interior fit-out và joinery, theo đuổi sự chính xác, tinh đồng bộ và chất lượng hoàn thiện ở tiêu chuẩn cao.'
         : 'MAESTRO operates across construction, interior fit-out, and joinery with a focus on precision, coordination, and a high standard of finish.',
   };
 }
 
 const viStats = [
-  {value: '54,000m2+', label: 'Nha may va nang luc san xuat'},
-  {value: '5', label: 'Thi truong hien dien'},
-  {value: 'End-to-end', label: 'Construction, fit-out va joinery'},
-  {value: 'Premium', label: 'Tieu chuan hoan thien'},
+  {value: '54,000m2+', label: 'Nhà máy và năng lực sản xuất'},
+  {value: '5', label: 'Thị trường hiện diện'},
+  {value: 'End-to-end', label: 'Construction, fit-out và joinery'},
+  {value: 'Premium', label: 'Tiêu chuẩn hoàn thiện'},
 ];
 
 const enStats = [
@@ -38,11 +38,11 @@ const enStats = [
 const viVmv = [
   {
     label: 'Tầm nhìn',
-    body: 'Tro thanh doi tac duoc tin cay trong linh vuc construction, fit-out va joinery, duoc nhan dien boi su tinh chinh, chat luong dong bo va gia tri tham my ben vung.',
+    body: 'Trở thành đối tác được tin cậy trong lĩnh vực construction, fit-out và joinery, được nhận diện bởi sự chính xác, chất lượng đồng bộ và giá trị thẩm mỹ bền vững.',
   },
   {
     label: 'Sứ mệnh',
-    body: 'Kien tao nhung khong gian duoc hoan thien voi ky luat thuc thi cao, can doi giua cong nang, do ben, vat lieu va trai nghiem khong gian cho tung du an.',
+    body: 'Kiến tạo những không gian được hoàn thiện với kỷ luật thi công cao, cân đối giữa công năng, độ bền, vật liệu và trải nghiệm không gian cho từng dự án.',
   },
   {
     label: 'Giá trị cốt lõi',
@@ -69,27 +69,27 @@ const viTeam = [
   {
     name: 'Nguyễn Văn An',
     role: 'Tổng Giám Đốc',
-    bio: 'Dinh huong chien luoc tong the cho MAESTRO, tap trung vao nang luc delivery, chat luong thuc thi va su mo rong ben vung trong linh vuc construction va interior.',
+    bio: 'Định hướng chiến lược tổng thể cho MAESTRO, tập trung vào năng lực delivery, chất lượng thi công va sự mở rộng bền vững trong lĩnh vực construction va interior.',
   },
   {
     name: 'Trần Thị Bích',
-    role: 'Giam Doc Van Hanh',
-    bio: 'Dieu phoi cac he thong van hanh, quy trinh va nguon luc du an nham duy tri tien do, su dong bo va kha nang kiem soat xuyen suot cong truong.',
+    role: 'Giám Đốc Van Hanh',
+    bio: 'Điều phối các hệ thống vận hành, quy trình và nguồn lực dự án nhằm duy trì tiến độ, sự đồng bộ và khả năng kiểm soát xuyên suốt công trường.',
   },
   {
     name: 'Lê Minh Cường',
-    role: 'Giam Doc Thiet Ke',
-    bio: 'Dinh hinh ngon ngu khong gian thong qua ti le, vat lieu va anh sang, dam bao moi du an dat duoc su can doi giua ban sac tham my va tinh kha thi thi cong.',
+    role: 'Giám Đốc Thiet Ke',
+    bio: 'Định hình ngôn ngữ không gian thông qua tỉ lệ, vật liệu và ánh sáng, đảm bảo mỗi dự án đạt được sự cân đối giữa bản sắc thẩm mỹ và tính khả thi thi công.',
   },
   {
     name: 'Phạm Hồng Dương',
-    role: 'Giam Doc Tai Chinh',
-    bio: 'Quan tri tai chinh du an va cau truc dau tu voi cach tiep can can trong, ho tro viec dua ra quyet dinh duoc neo tren hieu qua va gia tri dai han.',
+    role: 'Giám Đốc Tai Chinh',
+    bio: 'Quản tri tài chính dự án và cấu trúc đầu tư với cách tiếp cận can thận, hỗ trợ việc đưa ra quyết định được neo trên hiệu quả và giá trị dài hạn.',
   },
   {
     name: 'Ngô Thị Lan Anh',
-    role: 'Giam Doc Nhan Su',
-    bio: 'Phat trien doi ngu dua tren tinh ky luat, kha nang phoi hop va trach nhiem nghe nghiep, tao nen van hoa lam viec ro rang va ben vung cho MAESTRO.',
+    role: 'Giám Đốc Nhân Sự',
+    bio: 'Phát triển đội ngũ dựa trên tinh kỷ luật, khả năng phối hợp và trách nhiệm nghề nghiệp, tạo nên văn hóa làm việc rõ ràng và bền vững cho MAESTRO.',
   },
   {
     name: 'Vũ Quang Hưng',
@@ -145,7 +145,7 @@ export default async function AboutPage({params}: AboutPageProps) {
     <>
       <PageHero
         slides={slides}
-        eyebrow={locale === 'vi' ? 'Ve chung toi' : 'About Us'}
+        eyebrow={locale === 'vi' ? 'Về chúng tôi' : 'About Us'}
         title={locale === 'vi' ? 'MAESTRO' : 'MAESTRO'}
         description={locale === 'vi' ? 'CONSTRUCTION - INTERIOR FIT-OUT - JOINERY' : 'CONSTRUCTION - INTERIOR FIT-OUT - JOINERY'}
       />
@@ -156,7 +156,7 @@ export default async function AboutPage({params}: AboutPageProps) {
           <div className="about-split-title">
             <h2>
               {locale === 'vi'
-                ? 'Mot he thong thuc thi duoc xay dung tren su chinh xac, tinh dong bo va chat luong hoan thien'
+                ? 'Một hệ thống thực thi được xây dựng trên sự chính xác, tính đồng bộ và chất lượng hoàn thiện'
                 : 'A delivery system built on precision, coordination, and finishing quality'}
             </h2>
             <div className="about-split-rule" />
@@ -164,17 +164,17 @@ export default async function AboutPage({params}: AboutPageProps) {
           <div className="about-split-body">
             <p>
               {locale === 'vi'
-                ? 'MAESTRO hoat dong trong cac linh vuc construction, interior fit-out va joinery, mang den nhung giai phap duoc do may theo quy mo, tieu chuan va yeu cau van hanh cua tung cong trinh.'
+                ? 'MAESTRO hoat động trong các lĩnh vực construction, interior fit-out và joinery, mang đến những giải pháp được do may theo quy mô, tiêu chuẩn va yêu cầu vận hành của từng công trình.'
                 : 'MAESTRO operates across construction, interior fit-out, and joinery, delivering solutions shaped around the scale, standards, and operational requirements of each project.'}
             </p>
             <p>
               {locale === 'vi'
-                ? 'Tu nha may den cong truong, MAESTRO theo duoi mot he thong delivery ro rang, trong do ky thuat, vat lieu, tien do va chat luong duoc ket noi thanh mot qua trinh thong nhat.'
+                ? 'Từ nhà máy đến công trường, MAESTRO theo đuổi một hệ thống delivery rõ ràng, trong đó kỹ thuật, vật liệu, tiến độ và chất lượng được kết nối thành một quá trình thống nhất.'
                 : 'From manufacturing to site delivery, MAESTRO follows a clear execution system in which technical coordination, materials, programme, and finishing quality are treated as one integrated process.'}
             </p>
             <p>
               {locale === 'vi'
-                ? 'Moi du an duoc tiep can voi su tiet che trong ngon ngu tham my va su ky luat trong thi cong, nham tao ra nhung khong gian ben vung, tinh te va san sang dua vao van hanh.'
+                ? 'Mỗi dự án được tiếp cận với sự tiết chế trong ngôn ngữ thẩm mỹ và sự kỷ luật trong thi công, nhằm tạo ra những không gian bền vững, tinh tế và sẵn sàng đưa vào vận hành.'
                 : 'Each project is approached with restraint in aesthetic language and discipline in execution, resulting in spaces that are durable, refined, and ready for operation.'}
             </p>
             <div className="button-row" style={{marginTop: '32px'}}>
@@ -227,19 +227,19 @@ export default async function AboutPage({params}: AboutPageProps) {
               <div className="about-timeline-item">
                 <span className="about-timeline-year">{locale === 'vi' ? '2024' : '2024'}</span>
                 <div className="about-timeline-content">
-                  <h4>{locale === 'vi' ? 'Cung co nen tang thuc thi' : 'Strengthening the delivery platform'}</h4>
+                  <h4>{locale === 'vi' ? 'Củng cố nền tảng thực thi' : 'Strengthening the delivery platform'}</h4>
                   <ul>
-                    <li>{locale === 'vi' ? 'Hoan thien them nang luc dieu phoi giua construction, fit-out va joinery.' : 'Expanded coordination capability across construction, fit-out, and joinery.'}</li>
-                    <li>{locale === 'vi' ? 'Tang cuong quy trinh kiem soat chat luong va he thong delivery tai cong truong.' : 'Strengthened quality control procedures and site delivery systems.'}</li>
-                    <li>{locale === 'vi' ? 'Dinh hinh ro hon ngon ngu thuong hieu va tieu chuan hoan thien cua MAESTRO.' : 'Further defined the MAESTRO brand language and finishing standards.'}</li>
+                    <li>{locale === 'vi' ? 'Hoàn thiện thêm năng lực điều phối giữa construction, fit-out va joinery.' : 'Expanded coordination capability across construction, fit-out, and joinery.'}</li>
+                    <li>{locale === 'vi' ? 'ăng cường quy trình kiểm soát chất lượng và hệ thống delivery tại công trường.' : 'Strengthened quality control procedures and site delivery systems.'}</li>
+                    <li>{locale === 'vi' ? 'Định hình rõ hơn ngôn ngữ thương hiệu và tiêu chuẩn hoàn thiện của MAESTRO.' : 'Further defined the MAESTRO brand language and finishing standards.'}</li>
                   </ul>
                 </div>
               </div>
               <div className="about-timeline-item">
                 <span className="about-timeline-year">{locale === 'vi' ? '2025' : '2025'}</span>
                 <div className="about-timeline-content">
-                  <h4>{locale === 'vi' ? 'Mo rong quy mo va pham vi hien dien' : 'Expanding scale and regional presence'}</h4>
-                  <p>{locale === 'vi' ? 'MAESTRO tiep tuc phat trien tren nen tang san xuat va delivery co tinh dong bo cao:' : 'MAESTRO continues to grow on top of an increasingly integrated manufacturing and delivery platform:'}</p>
+                  <h4>{locale === 'vi' ? 'Mở rộng quy mô và phạm vi hiện diện' : 'Expanding scale and regional presence'}</h4>
+                  <p>{locale === 'vi' ? 'MAESTRO tiếp tục phát triển trên nền tảng sản xuất và delivery có tính đồng bộ cao:' : 'MAESTRO continues to grow on top of an increasingly integrated manufacturing and delivery platform:'}</p>
                   <div className="about-timeline-brands">
                     {['Singapore', 'Vietnam', 'UAE', 'UK', 'Saudi Arabia'].map((b, i) => (
                       <span key={i} className="about-timeline-brand-tag">{b}</span>
@@ -250,8 +250,8 @@ export default async function AboutPage({params}: AboutPageProps) {
               <div className="about-timeline-item">
                 <span className="about-timeline-year">{locale === 'vi' ? '2028' : '2028'}</span>
                 <div className="about-timeline-content">
-                  <h4>{locale === 'vi' ? 'Dinh huong chien luoc' : 'Strategic Direction'}</h4>
-                  <p>{locale === 'vi' ? 'Tiep tuc nang cao tieu chuan construction, fit-out va joinery thong qua viec dau tu vao con nguoi, quy trinh, nha may va kha nang thuc thi xuyen du an.' : 'Continue elevating standards in construction, fit-out, and joinery through long-term investment in people, systems, manufacturing, and project-wide execution capability.'}</p>
+                  <h4>{locale === 'vi' ? 'Định hướng chiến lược' : 'Strategic Direction'}</h4>
+                  <p>{locale === 'vi' ? 'Tiếp tục nâng cao tiêu chuẩn construction, fit-out va joinery thông qua việc đầu tư vào con người, quy trình, nhà máy và khả năng thực thi xuyên dự án.' : 'Continue elevating standards in construction, fit-out, and joinery through long-term investment in people, systems, manufacturing, and project-wide execution capability.'}</p>
                 </div>
               </div>
             </div>
@@ -264,11 +264,11 @@ export default async function AboutPage({params}: AboutPageProps) {
         <div className="shell">
           <div className="about-team-header">
             <h2>
-              {locale === 'vi' ? 'Ban lanh dao va dieu hanh' : 'Executive Leadership and Management Team'}
+              {locale === 'vi' ? 'Ban lãnh đạo va điều hành' : 'Executive Leadership and Management Team'}
             </h2>
             <p>
               {locale === 'vi'
-                ? 'Doi ngu dieu hanh dinh hinh chuan muc lam viec cua MAESTRO thong qua su ky luat, tinh ro rang trong phoi hop va dinh huong phat trien dai han.'
+                ? 'Đội ngũ điều hành định hinh chuẩn mực làm việc của MAESTRO thông qua sự kỷ luật, tính rõ ràng trong phối hợp và định hướng phát triển dài hạn.'
                 : 'The leadership team shapes MAESTRO\'s working standards through discipline, coordination clarity, and long-term strategic direction.'}
             </p>
           </div>
@@ -292,23 +292,23 @@ export default async function AboutPage({params}: AboutPageProps) {
       <section className="section-block">
         <div className="shell">
           <CtaStrip
-            label={locale === 'vi' ? 'Hop tac' : 'Partner with us'}
+            label={locale === 'vi' ? 'Hợp tác' : 'Partner with us'}
             title={
               locale === 'vi'
-                ? 'Cung trao doi ve nhung du an can su chinh xac va nang luc thuc thi dong bo'
+                ? 'Cùng trao đổi về những dự án cần sự chinh xác và năng lực thực thi đồng bộ'
                 : 'Discuss projects that call for precision and coordinated delivery'
             }
             description={
               locale === 'vi'
-                ? 'Lien he voi MAESTRO de trao doi ve construction, fit-out, joinery va nhung giai phap hoan thien duoc do may theo yeu cau cua tung cong trinh.'
+                ? 'Liên hệ với MAESTRO để trao đổi về construction, fit-out, joinery và những giải pháp hoàn thiện được dựng nên theo yêu cầu của từng công trình.'
                 : 'Contact MAESTRO to discuss construction, fit-out, joinery, and finishing solutions tailored to the needs of each project.'
             }
             primary={{
-              label: locale === 'vi' ? 'Xem du an' : 'View projects',
+              label: locale === 'vi' ? 'Xem dự án' : 'View projects',
               href: `/${locale}/projects`,
             }}
             secondary={{
-              label: locale === 'vi' ? 'Lien he ngay' : 'Contact us',
+              label: locale === 'vi' ? 'Liên hệ ngay' : 'Contact us',
               href: `/${locale}/contact`,
             }}
           />

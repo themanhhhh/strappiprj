@@ -13,9 +13,9 @@ type ServicesPageProps = {
 export async function generateMetadata({params}: ServicesPageProps): Promise<Metadata> {
   const {locale} = await params;
   return {
-    title: locale === 'vi' ? 'Dich vu - MAESTRO' : 'Services - MAESTRO',
+    title: locale === 'vi' ? 'Dịch vụ - MAESTRO' : 'Services - MAESTRO',
     description: locale === 'vi'
-      ? 'Kham pha cac dich vu construction, fit-out, joinery va dieu phoi ky thuat duoc MAESTRO trien khai voi su chinh xac va tinh dong bo cao.'
+      ? 'Khám phá các dịch vụ construction, fit-out, joinery va điều phối kỹ thuật được MAESTRO triển khai với sự chính xác và tính đồng bộ cao.'
       : 'Explore MAESTRO construction, fit-out, joinery, and technical coordination services delivered with precision and consistency.',
   };
 }
@@ -61,10 +61,10 @@ export default async function ServicesPage({params}: ServicesPageProps) {
     <>
       <PageHero
         slides={slides}
-        eyebrow={locale === 'vi' ? 'Dich vu' : 'What We Do'}
-        title={locale === 'vi' ? 'Nhung nang luc duoc xay dung de dua du an tu y tuong den giai doan ban giao.' : 'Capabilities built to carry a project from concept through handover.'}
+        eyebrow={locale === 'vi' ? 'Dịch vụ' : 'What We Do'}
+        title={locale === 'vi' ? 'Những năng lực được xây dựng để đưa dự án từ ý tưởng đến giai đoạn bàn giao.' : 'Capabilities built to carry a project from concept through handover.'}
         description={locale === 'vi'
-          ? 'MAESTRO cung cap mot he thong dich vu lien ket giua construction, fit-out, joinery va giam sat thi cong, nham dam bao chat luong, tien do va tinh dong bo cua tung hang muc.'
+          ? 'MAESTRO cung cấp một hệ thống dịch vụ liên kết giữa construction, fit-out, joinery và giám sát thi công, nhằm đảm bảo chất lượng, tiến độ và tính đồng bộ của từng hạng mục.'
           : 'MAESTRO provides an integrated service structure across construction, fit-out, joinery, and site supervision to secure quality, timing, and coordination at every stage.'}
       />
 
@@ -74,34 +74,34 @@ export default async function ServicesPage({params}: ServicesPageProps) {
         items={[
           {
             icon: <IconPMCM />,
-            title: locale === 'vi' ? 'Quan ly du an' : 'PMCM',
+            title: locale === 'vi' ? 'Quản lý dự án' : 'PMCM',
             subtitle: locale === 'vi' ? 'Project Management & Construction Management' : 'Project Management & Construction Management',
             description: locale === 'vi'
-              ? 'Tu lap ke hoach den giam sat thi cong, MAESTRO dieu phoi cac bo mon, kiem soat chat luong, tien do va cac diem giao cat ky thuat de du an van hanh mach lac tu dau den cuoi.'
+              ? 'Từ lập kế hoạch đến giám sát thi công, MAESTRO điều phối các bộ môn, kiểm soát chất lượng, tiến độ và các điểm giao cắt kỹ thuật để dự án vận hành mạch lạc từ đầu đến cuối.'
               : 'From planning through site supervision, MAESTRO coordinates disciplines, controls quality and programme, and manages technical interfaces with disciplined consistency.',
           },
           {
             icon: <IconFitOut />,
             title: locale === 'vi' ? 'Interior fit-out' : 'Interior Fit-Out',
-            subtitle: locale === 'vi' ? 'Thi cong va hoan thien khong gian noi that' : 'Interior execution and finishing',
+            subtitle: locale === 'vi' ? 'Thi công và hoàn thiện không gian nội thất' : 'Interior execution and finishing',
             description: locale === 'vi'
-              ? 'Chung toi trien khai cac hang muc fit-out voi muc do hoan thien cao, tu khong gian cong cong den khu vuc chuc nang, nham dat duoc su can doi giua tham my, do ben va tinh san sang dua vao van hanh.'
+              ? 'Chúng tôi triển khai các hạng mục fit-out với mức độ hoàn thiện cao, từ không gian công cộng đến khu vực chức năng, nhằm đạt được sự cân đối giữa thẩm mỹ, độ bền và tính sẵn sàng đưa vào vận hành.'
               : 'We deliver interior fit-out packages with a high standard of finish, balancing aesthetics, durability, and operational readiness across public and functional spaces.',
           },
           {
             icon: <IconDesign />,
-            title: locale === 'vi' ? 'Thiet ke noi that' : 'Interior Design',
-            subtitle: locale === 'vi' ? 'Khong gian duoc dinh hinh boi vat lieu, ti le va anh sang' : 'Spaces shaped by material, proportion, and light',
+            title: locale === 'vi' ? 'Thiết kế nội thất' : 'Interior Design',
+            subtitle: locale === 'vi' ? 'Không gian được định hình bởi vật liệu, tỷ lệ và ánh sáng' : 'Spaces shaped by material, proportion, and light',
             description: locale === 'vi'
-              ? 'Ngon ngu thiet ke cua MAESTRO huong den su tiet che va tinh chinh. Moi be mat, ty le, vat lieu va anh sang deu duoc lua chon de phan anh dung tinh than cua khong gian.'
+              ? 'Ngôn ngữ thiết kế của MAESTRO hướng đến sự tiết chế và tính chính. Mỗi bề mặt, tỷ lệ, vật liệu và ánh sáng đều được lựa chọn để phản ánh đúng tính chất của không gian.'
               : 'MAESTRO approaches interior design with restraint and precision. Every surface, proportion, material, and lighting decision is shaped to reflect the intended character of the space.',
           },
           {
             icon: <IconMEP />,
-            title: locale === 'vi' ? 'Phoi hop MEP' : 'MEP Coordination',
+            title: locale === 'vi' ? 'Phối hợp MEP' : 'MEP Coordination',
             subtitle: locale === 'vi' ? 'Mechanical, Electrical & Plumbing' : 'Mechanical, Electrical & Plumbing',
             description: locale === 'vi'
-              ? 'Su dong bo ky thuat duoc xu ly ngay tu dau thong qua viec can doi ket cau, HVAC, cap thoat nuoc, chieu sang va thiet bi, giam thieu xung dot truoc khi dua ra cong truong.'
+              ? 'Sự đồng bộ kỹ thuật được xử lý ngay từ đầu thông qua việc căn chỉnh kết cấu, HVAC, cấp thoát nước, chiếu sáng và thiết bị, giảm thiểu xung đột trước khi đưa ra công trường.'
               : 'Technical coordination is resolved early through alignment between structure, HVAC, plumbing, lighting, and equipment positions, reducing clashes before site execution begins.',
           },
         ]}
