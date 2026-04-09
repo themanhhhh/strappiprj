@@ -1,8 +1,7 @@
 import type {Metadata} from 'next';
 import Link from 'next/link';
 import {PageHero} from '@/components/page-hero';
-import {CtaStrip} from '@/components/cta-strip';
-import {ServicesGrid, IconFitOut, IconRenovation, IconMEP, IconDesign, IconPMCM, IconJoinery} from '@/components/services-grid';
+import {ServicesGrid, IconFitOut, IconMEP, IconDesign, IconPMCM} from '@/components/services-grid';
 import {getServices, getHeroSlides} from '@/lib/strapi/queries';
 import {services as catalogServices} from '@/lib/catalog';
 
@@ -68,44 +67,57 @@ export default async function ServicesPage({params}: ServicesPageProps) {
           : 'MAESTRO provides an integrated service structure across construction, fit-out, joinery, and site supervision to secure quality, timing, and coordination at every stage.'}
       />
 
-      {/* ── Services Grid — Overview ── */}
-      <ServicesGrid
-        heading={locale === 'vi' ? 'DỊCH VỤ CỦA CHÚNG TÔI' : 'OUR SERVICES'}
-        items={[
-          {
-            icon: <IconPMCM />,
-            title: locale === 'vi' ? 'Quản lý dự án' : 'PMCM',
-            subtitle: locale === 'vi' ? 'Project Management & Construction Management' : 'Project Management & Construction Management',
-            description: locale === 'vi'
-              ? 'Từ lập kế hoạch đến giám sát thi công, MAESTRO điều phối các bộ môn, kiểm soát chất lượng, tiến độ và các điểm giao cắt kỹ thuật để dự án vận hành mạch lạc từ đầu đến cuối.'
-              : 'From planning through site supervision, MAESTRO coordinates disciplines, controls quality and programme, and manages technical interfaces with disciplined consistency.',
-          },
-          {
-            icon: <IconFitOut />,
-            title: locale === 'vi' ? 'Interior fit-out' : 'Interior Fit-Out',
-            subtitle: locale === 'vi' ? 'Thi công và hoàn thiện không gian nội thất' : 'Interior execution and finishing',
-            description: locale === 'vi'
-              ? 'Chúng tôi triển khai các hạng mục fit-out với mức độ hoàn thiện cao, từ không gian công cộng đến khu vực chức năng, nhằm đạt được sự cân đối giữa thẩm mỹ, độ bền và tính sẵn sàng đưa vào vận hành.'
-              : 'We deliver interior fit-out packages with a high standard of finish, balancing aesthetics, durability, and operational readiness across public and functional spaces.',
-          },
-          {
-            icon: <IconDesign />,
-            title: locale === 'vi' ? 'Thiết kế nội thất' : 'Interior Design',
-            subtitle: locale === 'vi' ? 'Không gian được định hình bởi vật liệu, tỷ lệ và ánh sáng' : 'Spaces shaped by material, proportion, and light',
-            description: locale === 'vi'
-              ? 'Ngôn ngữ thiết kế của MAESTRO hướng đến sự tiết chế và tính chính. Mỗi bề mặt, tỷ lệ, vật liệu và ánh sáng đều được lựa chọn để phản ánh đúng tính chất của không gian.'
-              : 'MAESTRO approaches interior design with restraint and precision. Every surface, proportion, material, and lighting decision is shaped to reflect the intended character of the space.',
-          },
-          {
-            icon: <IconMEP />,
-            title: locale === 'vi' ? 'Phối hợp MEP' : 'MEP Coordination',
-            subtitle: locale === 'vi' ? 'Mechanical, Electrical & Plumbing' : 'Mechanical, Electrical & Plumbing',
-            description: locale === 'vi'
-              ? 'Sự đồng bộ kỹ thuật được xử lý ngay từ đầu thông qua việc căn chỉnh kết cấu, HVAC, cấp thoát nước, chiếu sáng và thiết bị, giảm thiểu xung đột trước khi đưa ra công trường.'
-              : 'Technical coordination is resolved early through alignment between structure, HVAC, plumbing, lighting, and equipment positions, reducing clashes before site execution begins.',
-          },
-        ]}
-      />
+      <section className="services-overview-band">
+        <div className="shell services-overview-shell">
+          <div className="services-overview-intro">
+            <p className="services-overview-kicker">{locale === 'vi' ? 'Năng lực cốt lõi' : 'Core capabilities'}</p>
+            <h2>{locale === 'vi' ? 'Một hệ dịch vụ được tổ chức để giữ chất lượng và tính đồng bộ ở mọi giai đoạn.' : 'A service system organized to protect quality and coordination at every stage.'}</h2>
+            <p>
+              {locale === 'vi'
+                ? 'Thay vì trình bày dịch vụ như các hạng mục rời rạc, trang này nhóm chúng thành một cấu trúc vận hành rõ ràng: quản lý, thiết kế, thi công và phối hợp kỹ thuật.'
+                : 'Rather than listing services as isolated items, this page frames them as a coordinated operating structure across management, design, execution, and technical integration.'}
+            </p>
+          </div>
+
+          <ServicesGrid
+            heading={locale === 'vi' ? 'Dịch vụ cốt lõi' : 'Core Services'}
+            items={[
+              {
+                icon: <IconPMCM />,
+                title: locale === 'vi' ? 'Quản lý dự án' : 'PMCM',
+                subtitle: locale === 'vi' ? 'Project Management & Construction Management' : 'Project Management & Construction Management',
+                description: locale === 'vi'
+                  ? 'Điều phối tổng thể giữa tiến độ, chất lượng, ngân sách và các bộ môn kỹ thuật để dự án vận hành mạch lạc từ đầu đến cuối.'
+                  : 'Overall coordination across programme, quality, budget, and technical disciplines from briefing through handover.',
+              },
+              {
+                icon: <IconFitOut />,
+                title: locale === 'vi' ? 'Interior fit-out' : 'Interior Fit-Out',
+                subtitle: locale === 'vi' ? 'Thi công và hoàn thiện nội thất' : 'Interior execution and finishing',
+                description: locale === 'vi'
+                  ? 'Triển khai fit-out với mức độ hoàn thiện cao, cân bằng giữa thẩm mỹ, độ bền và tính sẵn sàng vận hành.'
+                  : 'High-standard fit-out delivery balancing finish quality, durability, and operational readiness.',
+              },
+              {
+                icon: <IconDesign />,
+                title: locale === 'vi' ? 'Thiết kế nội thất' : 'Interior Design',
+                subtitle: locale === 'vi' ? 'Vật liệu, tỷ lệ và ánh sáng' : 'Material, proportion, and light',
+                description: locale === 'vi'
+                  ? 'Định hình không gian bằng ngôn ngữ tiết chế, chú trọng vật liệu, tỷ lệ và sắc độ hoàn thiện.'
+                  : 'Spaces shaped with restraint through material language, proportion, and tonal refinement.',
+              },
+              {
+                icon: <IconMEP />,
+                title: locale === 'vi' ? 'Phối hợp MEP' : 'MEP Coordination',
+                subtitle: locale === 'vi' ? 'Mechanical, Electrical & Plumbing' : 'Mechanical, Electrical & Plumbing',
+                description: locale === 'vi'
+                  ? 'Kiểm soát giao cắt kỹ thuật sớm để giảm xung đột và tăng độ chính xác trước khi triển khai ngoài công trường.'
+                  : 'Early coordination of technical interfaces to reduce clashes and improve site accuracy before execution begins.',
+              },
+            ]}
+          />
+        </div>
+      </section>
 
       {/* ── Services Alternating Sections ── */}
       <div className="svc-list">
@@ -154,55 +166,80 @@ export default async function ServicesPage({params}: ServicesPageProps) {
         })}
       </div>
 
-      {/* ── CTA ── */}
-      {/* <section className="section-block">
-        <div className="shell">
-          <CtaStrip
-            label={locale === 'vi' ? 'Hợp tác với chúng tôi' : 'Work with us'}
-            title={locale === 'vi' ? 'Sẵn sàng khởi động dự án của bạn?' : 'Ready to start your project?'}
-            description={locale === 'vi'
-              ? 'Liên hệ đội ngũ tư vấn của chúng tôi để nhận đánh giá nhu cầu và tư vấn giải pháp phù hợp nhất.'
-              : 'Contact our advisory team to receive a needs assessment and the most suitable solution.'}
-            primary={{label: locale === 'vi' ? 'Đặt lịch tư vấn' : 'Book a consultation', href: `/${locale}/contact`}}
-            secondary={{label: locale === 'vi' ? 'Xem dự án' : 'View projects', href: `/${locale}/projects`}}
-          />
-        </div>
-      </section> */}
-
       <style>{`
+        .services-overview-band {
+          padding: clamp(72px, 9vw, 120px) 0 clamp(36px, 5vw, 56px);
+          background: linear-gradient(180deg, #f6f2eb 0%, #fbfaf7 100%);
+        }
+
+        .services-overview-shell {
+          display: grid;
+          gap: 40px;
+        }
+
+        .services-overview-intro {
+          max-width: 820px;
+          display: grid;
+          gap: 18px;
+        }
+
+        .services-overview-kicker {
+          margin: 0;
+          font-size: 12px;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          color: #8a7a58;
+        }
+
+        .services-overview-intro h2 {
+          margin: 0;
+          max-width: 16ch;
+          font-size: clamp(36px, 5vw, 62px);
+          line-height: 0.98;
+          color: #111;
+        }
+
+        .services-overview-intro p:last-child {
+          margin: 0;
+          max-width: 64ch;
+          color: rgba(17, 17, 17, 0.68);
+          line-height: 1.8;
+        }
+
         /* ── Services list ───────────────────────────── */
         .svc-list {
           width: 100%;
+          padding: 0 0 clamp(72px, 9vw, 120px);
+          background: #fbfaf7;
         }
 
         .svc-row {
-          padding: 0;
-          overflow: hidden;
-        }
-
-        .svc-row--light {
-          background: #fafafa;
-          color: #1B1718;
-        }
-
-        .svc-row--dark {
-          background: var(--surface-dark, #1B1718);
-          color: #fff;
+          padding: clamp(18px, 2vw, 26px) 0;
         }
 
         .svc-row-inner {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          min-height: 520px;
+          min-height: 560px;
           align-items: stretch;
           padding: 0;
-          max-width: 100%;
+          max-width: var(--shell-width);
+          background: #fff;
+          border: 1px solid rgba(17, 17, 17, 0.08);
+          overflow: hidden;
+        }
+
+        .svc-row--dark .svc-row-inner {
+          background: #151515;
+          border-color: rgba(255, 255, 255, 0.08);
+          color: #fff;
         }
 
         /* ── Media (image) side ──────────────────────── */
         .svc-media {
           position: relative;
           overflow: hidden;
+          background: #ece8e1;
         }
 
         .svc-media--right {
@@ -220,7 +257,7 @@ export default async function ServicesPage({params}: ServicesPageProps) {
           width: 100%;
           height: 100%;
           min-height: 400px;
-          background: linear-gradient(135deg, #2a2626 0%, #1a1212 100%);
+          background: linear-gradient(135deg, #f0ebe3 0%, #ddd4c7 100%);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -228,15 +265,15 @@ export default async function ServicesPage({params}: ServicesPageProps) {
           overflow: hidden;
         }
 
-        .svc-row--light .svc-img-placeholder {
-          background: linear-gradient(135deg, #e8e4e0 0%, #d0ccc8 100%);
+        .svc-row--dark .svc-img-placeholder {
+          background: linear-gradient(135deg, #292522 0%, #171311 100%);
         }
 
         .svc-index-bg {
-          font-family: var(--font-roboto, sans-serif);
+          font-family: var(--font-editorial);
           font-size: clamp(120px, 18vw, 220px);
-          font-weight: 900;
-          color: rgba(255,255,255,0.04);
+          font-weight: 600;
+          color: rgba(17, 17, 17, 0.06);
           line-height: 1;
           user-select: none;
           letter-spacing: -0.05em;
@@ -245,17 +282,17 @@ export default async function ServicesPage({params}: ServicesPageProps) {
           right: -0.05em;
         }
 
-        .svc-row--light .svc-index-bg {
-          color: rgba(0,0,0,0.05);
+        .svc-row--dark .svc-index-bg {
+          color: rgba(255, 255, 255, 0.05);
         }
 
         /* ── Content side ────────────────────────────── */
         .svc-content {
-          padding: clamp(48px, 6vw, 100px) clamp(32px, 5vw, 80px);
+          padding: clamp(44px, 6vw, 88px) clamp(28px, 4.5vw, 72px);
           display: flex;
           flex-direction: column;
           justify-content: center;
-          gap: 16px;
+          gap: 14px;
         }
 
         .svc-content--left {
@@ -263,11 +300,11 @@ export default async function ServicesPage({params}: ServicesPageProps) {
         }
 
         .svc-index {
-          font-family: var(--font-roboto, monospace);
+          font-family: var(--font-mono);
           font-size: 12px;
           font-weight: 700;
           letter-spacing: 0.15em;
-          opacity: 0.35;
+          opacity: 0.42;
           text-transform: uppercase;
         }
 
@@ -276,48 +313,64 @@ export default async function ServicesPage({params}: ServicesPageProps) {
           font-weight: 600;
           letter-spacing: 0.12em;
           text-transform: uppercase;
-          opacity: 0.55;
+          color: #8a7a58;
           margin: 0;
         }
 
+        .svc-row--dark .svc-meta {
+          color: rgba(255, 255, 255, 0.64);
+        }
+
         .svc-title {
-          font-size: clamp(24px, 3.5vw, 42px);
-          font-weight: 700;
-          line-height: 1.15;
-          letter-spacing: -0.02em;
+          font-size: clamp(30px, 4vw, 48px);
+          font-weight: 600;
+          line-height: 1.02;
           margin: 4px 0 0;
+          color: inherit;
         }
 
         .svc-desc {
           font-size: 16px;
-          line-height: 1.7;
-          opacity: 0.75;
-          max-width: 500px;
+          line-height: 1.8;
+          color: rgba(17, 17, 17, 0.68);
+          max-width: 56ch;
           margin: 0;
+        }
+
+        .svc-row--dark .svc-desc {
+          color: rgba(255, 255, 255, 0.74);
         }
 
         .svc-deliverables {
           list-style: none;
           padding: 0;
-          margin: 8px 0 0;
+          margin: 12px 0 0;
           display: flex;
           flex-direction: column;
-          gap: 8px;
+          gap: 10px;
         }
 
         .svc-deliverables li {
           font-size: 14px;
-          line-height: 1.5;
-          opacity: 0.75;
-          padding-left: 16px;
+          line-height: 1.65;
+          color: rgba(17, 17, 17, 0.66);
+          padding-left: 18px;
           position: relative;
         }
 
+        .svc-row--dark .svc-deliverables li {
+          color: rgba(255, 255, 255, 0.7);
+        }
+
         .svc-deliverables li::before {
-          content: '—';
+          content: '';
           position: absolute;
           left: 0;
-          opacity: 0.5;
+          top: 0.72em;
+          width: 6px;
+          height: 6px;
+          border-radius: 999px;
+          background: #8a7a58;
         }
 
         .svc-link {
@@ -326,9 +379,10 @@ export default async function ServicesPage({params}: ServicesPageProps) {
           gap: 8px;
           font-size: 14px;
           font-weight: 600;
-          letter-spacing: 0.05em;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
           text-decoration: none;
-          margin-top: 12px;
+          margin-top: 18px;
           transition: gap 0.2s ease, opacity 0.2s;
         }
 
@@ -337,22 +391,40 @@ export default async function ServicesPage({params}: ServicesPageProps) {
         }
 
         .svc-row--light .svc-link {
-          color: var(--surface-dark, #1B1718);
+          color: #111;
         }
 
         .svc-link:hover {
-          gap: 16px;
+          gap: 14px;
           opacity: 0.7;
         }
 
         /* ── Responsive ──────────────────────────────── */
+        @media (max-width: 1024px) {
+          .svc-row-inner {
+            min-height: 0;
+          }
+
+          .svc-content {
+            padding: 40px 32px;
+          }
+        }
+
         @media (max-width: 768px) {
           .svc-row-inner {
             grid-template-columns: 1fr;
           }
+
           .svc-media--right { order: 0; }
           .svc-content--left { order: 1; }
-          .svc-img-placeholder { min-height: 260px; }
+          .svc-img,
+          .svc-img-placeholder {
+            min-height: 280px;
+          }
+
+          .services-overview-intro h2 {
+            max-width: none;
+          }
         }
       `}</style>
     </>

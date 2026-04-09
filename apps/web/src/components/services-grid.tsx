@@ -33,82 +33,85 @@ export function ServicesGrid({heading = 'OUR SERVICES', items}: ServicesGridProp
 
       <style>{`
         .sg-section {
-          background: #f7f3ee;
-          padding: clamp(64px, 9vw, 120px) 0;
+          background: transparent;
+          padding: 0;
         }
         .sg-shell {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 0 clamp(20px, 5vw, 60px);
+          max-width: none;
+          margin: 0;
+          padding: 0;
         }
         .sg-heading {
-          text-align: center;
-          font-size: clamp(18px, 2.2vw, 26px);
-          font-weight: 800;
+          text-align: left;
+          font-size: 12px;
+          font-weight: 600;
           letter-spacing: 0.14em;
           text-transform: uppercase;
-          color: #b5892a;
-          margin: 0 0 clamp(40px, 6vw, 72px);
+          color: #8a7a58;
+          margin: 0 0 22px;
         }
         .sg-card {
-          border: 1.5px solid #c8b99a;
-          border-radius: 2px;
-          background: #faf8f4;
+          border: 1px solid rgba(17, 17, 17, 0.08);
+          border-radius: 0;
+          background: #fff;
+          overflow: hidden;
         }
         .sg-grid {
           display: grid;
         }
         .sg-item {
-          padding: clamp(32px, 4vw, 52px) clamp(20px, 3vw, 36px);
+          padding: clamp(28px, 3.5vw, 40px) clamp(22px, 3vw, 32px);
           display: flex;
           flex-direction: column;
           align-items: flex-start;
-          gap: 8px;
+          gap: 10px;
         }
         .sg-item--divider {
-          border-right: 1px solid #ddd2be;
+          border-right: 1px solid rgba(17, 17, 17, 0.08);
         }
         .sg-icon {
-          width: 68px;
-          height: 68px;
+          width: 56px;
+          height: 56px;
           display: flex;
           align-items: center;
           justify-content: center;
-          margin-bottom: 10px;
+          margin-bottom: 8px;
           flex-shrink: 0;
         }
         .sg-icon svg { width: 100%; height: 100%; }
         .sg-title {
-          font-size: clamp(16px, 1.6vw, 20px);
-          font-weight: 800;
-          letter-spacing: 0.01em;
-          line-height: 1.2;
-          color: #b5892a;
+          font-size: clamp(22px, 2vw, 28px);
+          font-weight: 600;
+          letter-spacing: 0;
+          line-height: 1.08;
+          color: #111;
           margin: 0;
         }
         .sg-subtitle {
-          font-size: 12px;
-          color: #b5892a;
-          margin: -2px 0 0;
-          line-height: 1.4;
-          font-style: italic;
+          font-size: 11px;
+          color: #8a7a58;
+          margin: 0;
+          line-height: 1.5;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          font-style: normal;
         }
         .sg-desc {
-          font-size: 13.5px;
+          font-size: 14px;
           line-height: 1.75;
-          color: #555;
-          margin: 6px 0 0;
+          color: rgba(17, 17, 17, 0.66);
+          margin: 2px 0 0;
         }
         @media (max-width: 900px) {
           .sg-grid { grid-template-columns: repeat(2, 1fr) !important; }
           .sg-item--divider { border-right: none; }
-          .sg-item:nth-child(odd) { border-right: 1px solid #ddd2be; }
-          .sg-item:nth-child(-n+2) { border-bottom: 1px solid #ddd2be; }
+          .sg-item:nth-child(odd) { border-right: 1px solid rgba(17, 17, 17, 0.08); }
+          .sg-item:nth-child(-n+2) { border-bottom: 1px solid rgba(17, 17, 17, 0.08); }
         }
         @media (max-width: 540px) {
           .sg-grid { grid-template-columns: 1fr !important; }
           .sg-item:nth-child(odd) { border-right: none; }
-          .sg-item:not(:last-child) { border-bottom: 1px solid #ddd2be; }
+          .sg-item:not(:last-child) { border-bottom: 1px solid rgba(17, 17, 17, 0.08); }
         }
       `}</style>
     </section>
