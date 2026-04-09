@@ -126,23 +126,14 @@ export default async function PostDetailPage({params}: PostDetailPageProps) {
           )}
           <div className="journal-hero-overlay-maestro" />
         </div>
-        <div className="shell journal-hero-shell-maestro">
-          <div className="journal-hero-content-maestro">
-            {eyebrowMeta && <p className="journal-hero-eyebrow-maestro">{eyebrowMeta}</p>}
-            <h1 className="journal-hero-title-maestro">{targetPost.title}</h1>
-            <div className="journal-article-meta-maestro">
-              {publishedLabel ? <span>{publishedLabel}</span> : null}
-              <span>{locale === 'vi' ? 'An pham bien tap cua MAESTRO' : 'An editorial publication by MAESTRO'}</span>
-            </div>
-          </div>
-        </div>
+        
       </div>
 
       <section className="journal-article-intro-band-maestro">
         <div className="shell journal-article-intro-grid-maestro">
           <div>
             <p className="journal-index-section-kicker-maestro">
-              {locale === 'vi' ? 'Tong quan bai viet' : 'Article overview'}
+              {locale === 'vi' ? 'Tổng quan bài viết' : 'Article overview'}
             </p>
           </div>
           <p className="journal-intro-maestro">{targetPost.intro || targetPost.description}</p>
@@ -167,10 +158,10 @@ export default async function PostDetailPage({params}: PostDetailPageProps) {
           <div className="shell">
             <div className="related-news-header-maestro">
               <p className="journal-index-section-kicker-maestro">
-                {locale === 'vi' ? 'Noi dung lien quan' : 'Related content'}
+                {locale === 'vi' ? 'Nội dung liên quan' : 'Related content'}
               </p>
               <h2 className="related-news-title-maestro">
-                {locale === 'vi' ? 'Nhung goc nhin tiep theo' : 'Further Reading'}
+                {locale === 'vi' ? 'Những góc nhìn tiếp theo' : 'Further Reading'}
               </h2>
             </div>
             <div className="journal-related-grid-maestro">
@@ -202,18 +193,6 @@ export default async function PostDetailPage({params}: PostDetailPageProps) {
           </div>
         </section>
       )}
-
-      <section className="section-block bg-sector-overlay" style={{ padding: '4rem 0' }}>
-        <div className="shell">
-          <CtaStrip
-            label={locale === 'vi' ? 'Lien he' : 'Contact'}
-            title={locale === 'vi' ? 'Ban dang chuan bi cho mot du an can su tinh chinh va nang luc thuc thi dong bo?' : 'Planning a project that calls for precision and coordinated delivery?'}
-            description={locale === 'vi' ? 'MAESTRO san sang dong hanh tu construction den fit-out, joinery va hoan thien noi that, voi cach tiep can duoc do may theo quy mo, tieu chuan va muc tieu van hanh cua tung du an.' : 'MAESTRO supports construction, fit-out, joinery, and interior finishing with a delivery approach tailored to each project\'s scale, standards, and operational goals.'}
-            primary={{label: locale === 'vi' ? 'Lien he chung toi' : 'Contact us', href: `/${locale}/contact`}}
-            secondary={{label: locale === 'vi' ? 'Xem du an' : 'View projects', href: `/${locale}/projects`}}
-          />
-        </div>
-      </section>
     </div>
   );
 }

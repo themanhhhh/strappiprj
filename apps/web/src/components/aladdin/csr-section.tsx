@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import {ButtonLink} from '@/components/button-link';
 
 type CsrSectionProps = {
@@ -11,6 +12,8 @@ type CsrSectionProps = {
 };
 
 export function CsrSection({locale, title, description, stories}: CsrSectionProps) {
+  const csrImages = ['/images/bg-about.png', '/images/bg-sector.jpg', '/images/map.png'];
+
   return (
     <section className="aladdin-section csr-section-bg">
       <div className="shell">
@@ -23,7 +26,12 @@ export function CsrSection({locale, title, description, stories}: CsrSectionProp
           {stories.map((story, index) => (
             <div key={story.title} className="csr-card">
               <div className="csr-image">
-                <div className={`placeholder-csr-${index % 2}`}></div>
+                <Image
+                  src={csrImages[index % csrImages.length]}
+                  alt={story.title}
+                  fill
+                  className="csr-image-media"
+                />
               </div>
               <div className="csr-content">
                 <h3 className="csr-title">{story.title}</h3>

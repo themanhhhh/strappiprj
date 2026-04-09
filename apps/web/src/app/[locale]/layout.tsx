@@ -4,16 +4,8 @@ import {setRequestLocale} from 'next-intl/server';
 import {Footer} from '@/components/footer';
 import {Header} from '@/components/header';
 import {locales, type Locale} from '@/i18n/routing';
-import {Roboto} from 'next/font/google';
 import {ChatWidget} from '@/components/chat-widget';
 import {getSiteSetting} from '@/lib/strapi/queries';
-
-const roboto = Roboto({
-  weight: ['400', '500', '700'],
-  subsets: ['latin', 'vietnamese'],
-  display: 'swap',
-  variable: '--font-roboto',
-});
 
 type LocaleLayoutProps = {
   children: React.ReactNode;
@@ -40,7 +32,7 @@ export default async function LocaleLayout({children, params}: LocaleLayoutProps
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
-      <div className={`page-frame ${roboto.variable}`}>
+      <div className="page-frame maestro-locale-frame">
         <Header locale={locale as Locale} />
         <main className="page-main">{children}</main>
         <Footer locale={locale as Locale} />

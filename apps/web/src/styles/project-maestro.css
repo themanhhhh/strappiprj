@@ -1,3 +1,33 @@
+/* Maestro layout typography */
+.maestro-locale-frame {
+  color: #111;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+.maestro-locale-frame h1,
+.maestro-locale-frame h2,
+.maestro-locale-frame h3,
+.maestro-locale-frame h4,
+.maestro-locale-frame h5,
+.maestro-locale-frame h6 {
+  font-family: var(--font-editorial);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.maestro-locale-frame p,
+.maestro-locale-frame li,
+.maestro-locale-frame a,
+.maestro-locale-frame span,
+.maestro-locale-frame label,
+.maestro-locale-frame input,
+.maestro-locale-frame textarea,
+.maestro-locale-frame button,
+.maestro-locale-frame select {
+  font-family: var(--font-body);
+}
+
 /* Maestro specific styles for Project Detail Page */
 .maestro-project-page {
   background-color: #f7f7f7; /* Very light subtle background around but mostly white inner */

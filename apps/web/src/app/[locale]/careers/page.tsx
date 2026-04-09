@@ -1,10 +1,11 @@
 import type {Metadata} from 'next';
 import {ButtonLink} from '@/components/button-link';
-import {InfoCard} from '@/components/info-card';
-import {PageHero} from '@/components/page-hero';
 import {SectionIntro} from '@/components/section-intro';
+import {Header} from '@/components/header';
+import {SlideshowBackground} from '@/components/slideshow-background';
 import {getJobs, getHeroSlides} from '@/lib/strapi/queries';
 import {jobs as catalogJobs} from '@/lib/catalog';
+import type {Locale} from '@/i18n/routing';
 
 type CareersPageProps = {
   params: Promise<{locale: string}>;
@@ -50,28 +51,57 @@ export default async function CareersPage({params}: CareersPageProps) {
 
   return (
     <>
-      <PageHero
-        slides={slides}
-        eyebrow={locale === 'vi' ? 'Tuyển Dụng' : 'Careers'}
-        title={locale === 'vi' ? 'Phát triển con người cùng tốc độ mở rộng hệ thống.' : 'Recruitment pages now inherit the same visual discipline.'}
-        description={locale === 'vi' ? 'Khu vực tuyển dụng cũng được thiết kế liền mạch, đồng nhất với chất lượng dự án thay vì tách biệt như một trang nội bộ xa lạ.' : 'This makes the HR section feel like part of the same system instead of a disconnected microsite.'}
-      />
+      <div className="hero-header-page careers-hero-page" style={{position: 'relative'}}>
+        <Header locale={locale as Locale} transparent />
 
-      <section className="section-block">
+        <section className="careers-hero">
+          <div className="careers-hero-media">
+            {slides.length > 0 ? <SlideshowBackground slides={slides} /> : null}
+            <div className="careers-hero-overlay" />
+          </div>
+        </section>
+      </div>
+
+      <section className="section-block careers-intro-section">
+        <div className="shell careers-intro-grid">
+          <div>
+            <SectionIntro
+              index="09"
+              title={locale === 'vi' ? 'Làm việc cùng hệ thống đang tăng trưởng' : 'Work inside a growing operating system'}
+              description={locale === 'vi' ? 'Các vị trí tuyển dụng được trình bày theo ngôn ngữ doanh nghiệp rõ ràng, tập trung vào vai trò, kỳ vọng và giá trị công việc thay vì các thẻ demo chung chung.' : 'Open roles are presented with a clearer corporate structure focused on scope, expectations, and the value of the work.'}
+            />
+          </div>
+
+          <div className="careers-intro-note panel">
+            <p className="meta-kicker">{locale === 'vi' ? 'Cách tiếp cận' : 'Approach'}</p>
+            <h3>{locale === 'vi' ? 'Tuyển đúng người cho đúng giai đoạn mở rộng.' : 'Hiring the right people for the right stage of growth.'}</h3>
+            <p>
+              {locale === 'vi'
+                ? 'Mỗi vai trò đều cần khả năng thực thi, phối hợp đội nhóm và thích nghi với nhịp độ triển khai của một hệ thống đa thương hiệu.'
+                : 'Each role requires execution strength, collaborative discipline, and the ability to move with a multi-brand operating pace.'}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-block careers-openings-section" id="careers-openings">
         <div className="shell">
           <SectionIntro
             index="09"
-            title={locale === 'vi' ? 'Vị trí đang mở' : 'Open role cards'}
-            description={locale === 'vi' ? 'Danh sách công việc hiển thị như các thẻ thông tin đa dụng, tập trung vào mô tả súc tích và thuộc tính rõ ràng.' : 'Job listings can be rendered as reusable cards with technical metadata and concise description.'}
+            title={locale === 'vi' ? 'Vị trí đang mở' : 'Open roles'}
+            description={locale === 'vi' ? 'Danh sách vị trí được rút gọn để dễ quét, đồng thời giữ cảm giác chỉn chu và nhất quán với ngôn ngữ thiết kế toàn site.' : 'Each opening is presented in a compact, easier-to-scan format while staying consistent with the site’s visual language.'}
           />
-          <div className="tile-grid">
-            {displayJobs.map((role) => (
-              <div key={role.slug} className="page-stack">
-                <InfoCard meta={role.meta} title={role.title} description={role.description} />
-                <ButtonLink href={`/${locale}/careers/${role.slug}`} variant="ghost">
-                  {locale === 'vi' ? 'Xem vị trí' : 'View role'}
-                </ButtonLink>
-              </div>
+          <div className="careers-role-list">
+            {displayJobs.map((role, index) => (
+              <article key={role.slug} className="careers-role-card">
+                <div className="careers-role-index">{String(index + 1).padStart(2, '0')}</div>
+                <div className="careers-role-main">
+                  <p className="careers-role-meta">{role.meta}</p>
+                  <h3>{role.title}</h3>
+                </div>
+                <p className="careers-role-desc">{role.description}</p>
+               
+              </article>
             ))}
           </div>
         </div>

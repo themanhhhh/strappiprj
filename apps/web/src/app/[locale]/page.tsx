@@ -2,7 +2,6 @@ import {HeroBanner} from '@/components/aladdin/hero-banner';
 import {BrandGrid} from '@/components/aladdin/brand-grid';
 import {EcosystemBrands} from '@/components/aladdin/ecosystem-brands';
 import {AboutPresence} from '@/components/aladdin/about-presence';
-import {PackagedProducts} from '@/components/aladdin/packaged-products';
 import {CsrSection} from '@/components/aladdin/csr-section';
 import {ButtonLink} from '@/components/button-link';
 import {NewsShowcase} from '@/components/news-showcase';
@@ -102,8 +101,6 @@ export default async function HomePage({params}: HomePageProps) {
         title={strapiHomepage?.brandSectionTitle ?? content.brandSectionTitle}
         brands={brandItems}
       />
-
-      <PackagedProducts locale={locale} />
 
       <CsrSection
         locale={locale}

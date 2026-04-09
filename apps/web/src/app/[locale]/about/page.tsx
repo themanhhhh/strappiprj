@@ -179,10 +179,10 @@ export default async function AboutPage({params}: AboutPageProps) {
             </p>
             <div className="button-row" style={{marginTop: '32px'}}>
               <ButtonLink href={`/${locale}/projects`} variant="primary">
-                {locale === 'vi' ? 'Kham pha du an' : 'Explore projects'}
+                {locale === 'vi' ? 'Khám phá dự án' : 'Explore projects'}
               </ButtonLink>
               <ButtonLink href={`/${locale}/contact`} variant="secondary">
-                {locale === 'vi' ? 'Lien he chung toi' : 'Contact us'}
+                {locale === 'vi' ? 'Liên hệ chúng tôi' : 'Contact us'}
               </ButtonLink>
             </div>
           </div>
@@ -219,7 +219,7 @@ export default async function AboutPage({params}: AboutPageProps) {
       <section className="about-intro-section">
         <div className="shell about-split-row">
           <div className="about-split-title">
-            <h2>{locale === 'vi' ? 'Cac cot moc phat trien' : 'Development Milestones'}</h2>
+            <h2>{locale === 'vi' ? 'Các cột mốc phát triển' : 'Development Milestones'}</h2>
             <div className="about-split-rule" />
           </div>
           <div className="about-split-body">
@@ -230,7 +230,7 @@ export default async function AboutPage({params}: AboutPageProps) {
                   <h4>{locale === 'vi' ? 'Củng cố nền tảng thực thi' : 'Strengthening the delivery platform'}</h4>
                   <ul>
                     <li>{locale === 'vi' ? 'Hoàn thiện thêm năng lực điều phối giữa construction, fit-out va joinery.' : 'Expanded coordination capability across construction, fit-out, and joinery.'}</li>
-                    <li>{locale === 'vi' ? 'ăng cường quy trình kiểm soát chất lượng và hệ thống delivery tại công trường.' : 'Strengthened quality control procedures and site delivery systems.'}</li>
+                    <li>{locale === 'vi' ? 'Tăng cường quy trình kiểm soát chất lượng và hệ thống delivery tại công trường.' : 'Strengthened quality control procedures and site delivery systems.'}</li>
                     <li>{locale === 'vi' ? 'Định hình rõ hơn ngôn ngữ thương hiệu và tiêu chuẩn hoàn thiện của MAESTRO.' : 'Further defined the MAESTRO brand language and finishing standards.'}</li>
                   </ul>
                 </div>
@@ -285,33 +285,6 @@ export default async function AboutPage({params}: AboutPageProps) {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ── CTA ───────────────────────────────────────────────── */}
-      <section className="section-block">
-        <div className="shell">
-          <CtaStrip
-            label={locale === 'vi' ? 'Hợp tác' : 'Partner with us'}
-            title={
-              locale === 'vi'
-                ? 'Cùng trao đổi về những dự án cần sự chinh xác và năng lực thực thi đồng bộ'
-                : 'Discuss projects that call for precision and coordinated delivery'
-            }
-            description={
-              locale === 'vi'
-                ? 'Liên hệ với MAESTRO để trao đổi về construction, fit-out, joinery và những giải pháp hoàn thiện được dựng nên theo yêu cầu của từng công trình.'
-                : 'Contact MAESTRO to discuss construction, fit-out, joinery, and finishing solutions tailored to the needs of each project.'
-            }
-            primary={{
-              label: locale === 'vi' ? 'Xem dự án' : 'View projects',
-              href: `/${locale}/projects`,
-            }}
-            secondary={{
-              label: locale === 'vi' ? 'Liên hệ ngay' : 'Contact us',
-              href: `/${locale}/contact`,
-            }}
-          />
         </div>
       </section>
     </>

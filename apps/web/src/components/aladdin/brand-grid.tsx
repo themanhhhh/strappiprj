@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import {ButtonLink} from '@/components/button-link';
 
 type Brand = {
   name: string;
@@ -15,13 +16,15 @@ type BrandGridProps = {
 };
 
 export function BrandGrid({locale, title, brands}: BrandGridProps) {
+  const visibleBrands = brands.slice(0, 6);
+
   return (
     <section className="aladdin-section aladdin-brand-section">
       <div className="shell">
         <h2 className="section-title-center">{title}</h2>
 
         <div className="aladdin-brand-grid">
-          {brands.map((brand) => (
+          {visibleBrands.map((brand) => (
             <Link
               href={brand.slug ? `/${locale}/projects/${brand.slug}` : `/${locale}/projects`}
               key={brand.name}
@@ -46,6 +49,12 @@ export function BrandGrid({locale, title, brands}: BrandGridProps) {
               </div>
             </Link>
           ))}
+        </div>
+
+        <div className="button-row" style={{justifyContent: 'center', marginTop: '40px'}}>
+          <ButtonLink href={`/${locale}/projects`} variant="secondary">
+            {locale === 'vi' ? 'Xem thêm' : 'See more'}
+          </ButtonLink>
         </div>
       </div>
     </section>

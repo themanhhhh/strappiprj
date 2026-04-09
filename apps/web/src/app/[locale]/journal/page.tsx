@@ -25,7 +25,7 @@ export async function generateMetadata({params}: JournalPageProps): Promise<Meta
   return {
     title: locale === 'vi' ? 'Journal - Tin tuc va goc nhin tu MAESTRO' : 'Journal - Insights from MAESTRO',
     description: locale === 'vi'
-      ? 'Những câu chuyện về dự án, craftsmanship và năng lực thi công được biên tập theo tinh thần chi tiết, tinh tế và cao cấp của MAESTRO.'
+      ? 'Những câu chuyện về dự an, craftsmanship va nang luc thi cong duoc bien tap theo tinh than chi tiet, tiet che va cao cap cua MAESTRO.'
       : 'Project stories, craftsmanship, and execution insights presented with MAESTRO\'s refined and editorial point of view.',
   };
 }
@@ -46,17 +46,17 @@ function getCopy(locale: string) {
   if (locale === 'vi') {
     return {
       eyebrow: 'Journal',
-      title: 'Những câu chuyện về thi công và nội thất được biên tập với sự tiết chế, chính xác và tinh thần cao cấp.',
+      title: 'Nhung cau chuyen ve thi cong va noi that duoc bien tap voi su tiet che, chinh xac va tinh than cao cap.',
       description:
-        'Từ project updates đến joinery, vật liệu và năng lực delivery, mỗi bài viết được trình bày như một bản phẩm thương hiệu: rõ ràng, tinh tế và giàu tính hình ảnh.',
-      introLabel: 'Tinh thần editorial của MAESTRO',
-      introTitle: 'Nội dung được xây dựng để phản ánh năng lực, sự chi tiết và chất lượng thực thi của MAESTRO.',
+        'Tu project updates den joinery, vat lieu va nang luc delivery, moi bai viet duoc trinh bay nhu mot an pham thuong hieu: ro rang, tinh te va giau tinh hinh anh.',
+      introLabel: 'Tinh than editorial cua MAESTRO',
+      introTitle: 'Noi dung duoc xay dung de phan anh nang luc, su chi tiet va chat luong thuc thi cua MAESTRO.',
       introBody:
-        'Journal là nơi MAESTRO chia sẻ những cập nhật về dự án, quy trình chế tác, chất lượng hoàn thiện và các góc nhìn thị trường liên quan đến construction, fit-out và interior delivery.',
-      featureLabel: 'Bài viết nổi bật',
-      listLabel: 'Tất cả bài viết',
-      articleCount: 'bài viết',
-      readMore: 'Đọc tiếp',
+        'Journal la noi MAESTRO chia se nhung cap nhat ve du an, quy trinh che tac, chat luong hoan thien va cac goc nhin thi truong lien quan den construction, fit-out va interior delivery.',
+      featureLabel: 'Bai viet noi bat',
+      listLabel: 'Tat ca bai viet',
+      articleCount: 'bai viet',
+      readMore: 'Doc tiep',
     };
   }
 
