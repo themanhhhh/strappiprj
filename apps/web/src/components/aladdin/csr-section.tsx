@@ -12,7 +12,7 @@ type CsrSectionProps = {
 };
 
 export function CsrSection({locale, title, description, stories}: CsrSectionProps) {
-  const csrImages = ['/images/bg-about.png', '/images/bg-sector.jpg', '/images/map.png'];
+  const csrImages = ['/images/img1.jpg', '/images/img2.jpg', '/images/img3.jpg'];
 
   return (
     <section className="aladdin-section csr-section-bg">
