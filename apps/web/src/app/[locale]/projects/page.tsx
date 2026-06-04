@@ -17,11 +17,11 @@ type ProjectsPageProps = {
 export async function generateMetadata({params}: ProjectsPageProps): Promise<Metadata> {
   const {locale} = await params;
   return {
-    title: locale === 'vi' ? 'Du an - MAESTRO' : 'Projects - MAESTRO',
+    title: locale === 'vi' ? 'Dự án - New Sky' : 'Projects - New Sky',
     description:
       locale === 'vi'
-        ? 'Kham pha cac du an duoc MAESTRO thuc hien trong linh vuc construction, interior fit-out va joinery voi muc do hoan thien cao va tinh dong bo ro net.'
-        : 'Explore projects delivered by MAESTRO across construction, interior fit-out, and joinery with a high standard of finish and coordination.',
+        ? 'Khám phá các dự án nhà hàng, chuỗi F&B và không gian thương mại do New Sky thiết kế + thi công trọn gói.'
+        : 'Explore restaurant, F&B chain, and commercial projects delivered end-to-end by New Sky.',
   };
 }
 
@@ -92,13 +92,13 @@ export default async function ProjectsPage({params}: ProjectsPageProps) {
         eyebrow={locale === 'vi' ? 'Du an' : 'Projects'}
         title={
           locale === 'vi'
-            ? 'Nhung cong trinh phan anh nang luc thuc thi, su chi tiet va chat luong hoan thien cua MAESTRO'
-            : 'Projects that reflect MAESTRO\'s execution capability, precision, and finishing quality'
+            ? 'Những dự án chứng minh năng lực tiến độ, chất lượng và thi công chuỗi của New Sky'
+            : 'Projects that prove New Sky\'s programme, quality, and chain rollout capability'
         }
         description={
           locale === 'vi'
-            ? 'Moi du an la mot qua trinh can doi giua ky thuat, vat lieu, tien do va trai nghiem khong gian. Day la noi MAESTRO trinh bay nhung cong trinh duoc hoan thanh voi su dong bo tu concept den handover.'
-            : 'Each project balances technical discipline, material quality, programme control, and spatial experience. This is where MAESTRO presents work delivered with consistency from concept through handover.'
+            ? 'Mỗi dự án là bằng chứng cho khả năng phối hợp thiết kế, cơ điện, Inox bếp công nghiệp, xây dựng và bàn giao vận hành trong một đầu mối.'
+            : 'Each project proves New Sky\'s ability to coordinate design, MEP, industrial stainless-steel kitchens, construction, and operational handover through one accountable partner.'
         }
         aside={
           <ul className="detail-list">

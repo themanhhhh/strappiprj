@@ -17,29 +17,29 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://aladdin-jsc.com'),
+  metadataBase: new URL('https://newskyfnb.vn'),
   title: {
-    default: 'ALADDIN JSC — Hệ sinh thái F&B Việt Nam',
-    template: '%s — ALADDIN JSC',
+    default: 'New Sky — Thiết kế + thi công nhà hàng trọn gói',
+    template: '%s — New Sky',
   },
   description:
-    'ALADDIN JSC — đơn vị thi công & quản lý chuỗi nhà hàng, cafe chuyên nghiệp tại Việt Nam. Thiết kế, xây dựng và vận hành hệ sinh thái F&B từ A-Z.',
-  keywords: ['thi công nhà hàng', 'thiết kế quán cafe', 'F&B Việt Nam', 'chuỗi nhà hàng', 'ALADDIN JSC'],
-  authors: [{name: 'ALADDIN JSC', url: 'https://aladdin-jsc.com'}],
-  creator: 'ALADDIN JSC',
+    'New Sky là đối tác thiết kế + thi công nhà hàng trọn gói cho chủ nhà hàng Việt, với 10 năm kinh nghiệm, 100+ dự án và xưởng sản xuất Inox riêng.',
+  keywords: ['thi công nhà hàng', 'thiết kế nhà hàng', 'bếp inox công nghiệp', 'thi công F&B', 'New Sky'],
+  authors: [{name: 'New Sky', url: 'https://newskyfnb.vn'}],
+  creator: 'New Sky',
   openGraph: {
     type: 'website',
     locale: 'vi_VN',
     alternateLocale: 'en_US',
-    url: 'https://aladdin-jsc.com',
-    siteName: 'ALADDIN JSC',
-    title: 'ALADDIN JSC — Hệ sinh thái F&B Việt Nam',
-    description: 'Thi công & quản lý chuỗi nhà hàng, cafe chuyên nghiệp tại Việt Nam.',
+    url: 'https://newskyfnb.vn',
+    siteName: 'New Sky',
+    title: 'New Sky — Thiết kế + thi công nhà hàng trọn gói',
+    description: 'Đối tác thiết kế + thi công nhà hàng cho chủ nhà hàng Việt.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ALADDIN JSC — Hệ sinh thái F&B Việt Nam',
-    description: 'Thi công & quản lý chuỗi nhà hàng, cafe chuyên nghiệp tại Việt Nam.',
+    title: 'New Sky — Thiết kế + thi công nhà hàng trọn gói',
+    description: '10 năm — 100+ dự án — xưởng sản xuất Inox riêng.',
   },
   robots: {
     index: true,

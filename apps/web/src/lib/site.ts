@@ -93,9 +93,9 @@ export const siteConfig: {
   offices: Office[];
   megaMenu: Record<string, MegaMenuEntry>;
 } = {
-  name: 'Industrial Minimal Fit-out',
+  name: 'New Sky',
   description:
-    'Corporate website scaffold for a restaurant construction group with multilingual content and CMS integration.',
+    'Đối tác thiết kế + thi công nhà hàng trọn gói cho chủ nhà hàng Việt.',
   locales: ['vi', 'en'],
   navigation: [
     {key: 'about', href: '/about'},
@@ -117,16 +117,16 @@ export const siteConfig: {
   ],
   offices: [
     {
-      label: 'Head Office',
-      address: '69 To Huu, Van Phuc Ward, Hanoi',
-      phone: '(+84)24 2246 4555',
-      email: 'contact@example.com'
+      label: 'VĂN PHÒNG MIỀN BẮC',
+      address: 'BT C01-L10 An Vượng, Khu đô thị Dương Nội, Phường Dương Nội, Thành phố Hà Nội',
+      phone: '0906 790 333',
+      email: 'syluu.newsky@gmail.com'
     },
     {
-      label: 'Southern Branch',
-      address: '43-45 Nguyen Thi Thap, Tan Hung Ward, Ho Chi Minh City',
-      phone: '(+84)85 442 3388',
-      email: 'south@example.com'
+      label: 'VĂN PHÒNG MIỀN NAM',
+      address: '31-33 Nguyễn Thị Thập, Khu đô thị Him Lam, Quận 7, TP. Hồ Chí Minh',
+      phone: '0906 790 333',
+      email: 'syluu.newsky@gmail.com'
     }
   ],
   megaMenu: {
@@ -298,232 +298,232 @@ export const homepageContent: Record<Locale, HomepageContent> = {
   vi: {
     heroSlides: [
       {
-        eyebrow: 'Restaurant Group Construction',
-        title: 'Thi công hệ thống F&B theo tư duy vận hành và mở rộng thương hiệu.',
+        eyebrow: 'New Sky Capability Profile',
+        title: 'Đối tác thiết kế + thi công nhà hàng trọn gói cho chủ nhà hàng Việt.',
         description:
-          'Bố cục trang chủ được chuyển sang hướng corporate group site với nhấn mạnh thương hiệu, trách nhiệm xã hội, tuyển dụng và tin tức nổi bật.',
+          '10 năm đồng hành cùng hệ thống chuỗi nhà hàng, 100+ dự án đã thi công và xưởng sản xuất Inox riêng tại Hà Đông.',
         imageLabel: 'Retail center rollout',
         imageUrl: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=2070&auto=format&fit=crop',
         stats: [
-          {value: '12+', label: 'Thương hiệu phục vụ'},
-          {value: '2', label: 'Văn phòng điều hành'},
-          {value: '100+', label: 'Dự án F&B đã triển khai'}
+          {value: '10 năm', label: 'Kinh nghiệm thực chiến'},
+          {value: '100+', label: 'Dự án nhà hàng'},
+          {value: '3.000m2', label: 'Xưởng Inox riêng'}
         ]
       },
       {
-        eyebrow: 'Brand Rollout',
-        title: 'Vận hành rollout cho chuỗi nhà hàng cần dữ liệu, kỷ luật và phối hợp kỹ thuật.',
+        eyebrow: '3 cam kết',
+        title: 'Cạnh tranh bằng tiến độ, chất lượng và niềm tin có bằng chứng cụ thể.',
         description:
-          'Slide thứ hai dùng để mô tả năng lực rollout chuỗi, tiến độ và khả năng lặp lại quy trình giữa các điểm bán.',
+          'New Sky chứng minh năng lực bằng dự án 84 Ngọc Khánh thi công 16 ngày, 100+ dự án trong 10 năm và quan hệ đồng hành dài hạn cùng các thương hiệu F&B.',
         imageLabel: 'Chain rollout system',
         imageUrl: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070&auto=format&fit=crop',
         stats: [
-          {value: '08', label: 'Mô hình rollout song song'},
-          {value: '72h', label: 'Chu kỳ phản hồi site'},
-          {value: 'MEP', label: 'Điều phối xưởng kỹ thuật'}
+          {value: '16 ngày', label: 'Kỷ lục Ngọc Khánh'},
+          {value: '60+', label: 'Dự án mới 2026'},
+          {value: '6', label: 'Thương hiệu F&B'}
         ]
       },
       {
-        eyebrow: 'Flagship Delivery',
-        title: 'Từ flagship đến renovation, giao diện mới cần thể hiện rõ năng lực thực thi doanh nghiệp.',
+        eyebrow: 'Một đầu mối',
+        title: 'Thiết kế, cơ điện, Inox bếp, xây dựng và bàn giao vận hành trong một hệ thống.',
         description:
-          'Slide thứ ba đưa người dùng vào nhóm case-study và flagship execution, tạo nháp để đi tiếp vào portfolio.',
+          'Cách làm trọn gói giúp chủ đầu tư giảm phối hợp nhiều nhà thầu, kiểm soát chất lượng tốt hơn và rút ngắn tiến độ khai trương.',
         imageLabel: 'Flagship execution',
         imageUrl: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=2070&auto=format&fit=crop',
         stats: [
-          {value: '560', label: 'm2 flagship lớn nhất'},
-          {value: '3', label: 'Loại công trình chủ lực'},
-          {value: '24/7', label: 'Kênh tiếp nhận lead'}
+          {value: '5', label: 'Năng lực cốt lõi'},
+          {value: '2-3x', label: 'Rút ngắn tiến độ'},
+          {value: '12 tháng', label: 'Bảo hành'}
         ]
       }
     ],
-    brandSectionTitle: 'Thương hiệu',
+    brandSectionTitle: 'Khách hàng tiêu biểu',
     brandSectionLead:
-      'Section thương hiệu được đẩy lên thành khối trung tâm của homepage, gần với pattern tập đoàn F&B trên trang tham chiếu.',
+      'New Sky đồng hành thi công cho các thương hiệu F&B thuộc hệ thống chuỗi nhà hàng của Aladdin.,JSC và nhiều dự án chuỗi quy mô lớn.',
     brands: [
       {
         name: 'Long Wang',
         tag: 'Hong Kong Hotpot',
-        description: 'Không gian thương hiệu cần nhận diện rõ concept, vận hành và tốc độ rollout.'
+        description: 'Một trong các thương hiệu F&B New Sky đồng hành thi công trong quá trình mở rộng hệ thống.'
       },
       {
-        name: 'Tiến Lòng',
+        name: 'Tian Long',
         tag: 'Teochew Beef Hotpot',
-        description: 'Mẫu card cho thương hiệu chủ lực với tone corporate, không đi vào fashion editorial.'
+        description: 'Chuỗi lẩu bò tươi Triều Châu với yêu cầu đồng bộ chất lượng khi mở rộng nhiều cơ sở.'
       },
       {
         name: 'Quán Mộc',
         tag: 'Traditional Dining',
-        description: 'Dùng để trình bày network brand, flagship và hướng phát triển của hệ thống.'
+        description: 'Thương hiệu nhà hàng phong cách hoài cổ Hà Nội, nổi bật trong case Ngọc Khánh 16 ngày.'
       },
       {
         name: 'Hải Sư',
         tag: 'Dimsum & Rice',
-        description: 'Có thể thay bằng logo, cover image và link detail khi nối CMS.'
+        description: 'Dự án F&B được triển khai từ thiết kế, thi công đến bàn giao vận hành.'
       }
     ],
-    socialTitle: 'Trách nhiệm xã hội',
+    socialTitle: 'Cam kết của New Sky',
     socialLead:
-      'Khối này mô phỏng section CSR và community stories để trang chủ không chỉ nói về thi công mà còn về giá trị thương hiệu.',
+      'Mỗi cam kết về tiến độ, chất lượng và niềm tin đều được neo bằng bằng chứng dự án thực tế.',
     socialStories: [
       {
-        title: 'Đồng hành cùng cộng đồng',
-        description: 'Đưa vào các case về hỗ trợ cộng đồng, đồng hành địa phương và dự án tác động xã hội.'
+        title: 'Tiến độ có bằng chứng',
+        description: 'Tổ hợp Bò Tơ Quán Mộc + Long Wang tại 84 Ngọc Khánh được triển khai từ nhận mặt bằng đến khai trương trong 16 ngày.'
       },
       {
-        title: 'Vận hành có trách nhiệm',
-        description: 'Sử dụng để nói về tiêu chuẩn an toàn, vật liệu và kỷ luật thi công tại công trình.'
+        title: 'Chất lượng đồng bộ',
+        description: '100+ dự án trong 10 năm với hệ thống kiểm soát từ thiết kế, vật tư, sản xuất, lắp đặt đến nghiệm thu.'
       }
     ],
-    careersTitle: 'Tuyển dụng',
+    careersTitle: 'Đội ngũ triển khai',
     careersLead:
-      'Homepage kiểu corporate cần dành một khối rõ ràng cho employer brand và thông điệp tuyển dụng.',
+      'New Sky vận hành bằng các đội chuyên trách: thiết kế, giám sát thi công, đội thi công trực tiếp, hành chính, kế toán và xưởng Inox.',
     careers: {
-      title: 'Xây dựng đội ngũ để mở rộng hệ thống',
+      title: 'Một đội ngũ phục vụ đồng thời nhiều dự án trên 3 miền',
       description:
-        'Chúng tôi đặt con người và kỷ luật vận hành vào trung tâm của quá trình thi công, rollout và phát triển thương hiệu.',
-      highlights: ['Môi trường quy trình rõ ràng', 'Dự án F&B quy mô lớn', 'Cơ hội phát triển liên phòng ban']
+        'Các bộ phận phối hợp theo quy trình rõ ràng để giữ tiến độ, chất lượng và trách nhiệm xuyên suốt dự án.',
+      highlights: ['Đội thiết kế', 'Đội giám sát thi công', 'Xưởng Inox 3.000m2']
     },
-    newsTitle: 'Tin tức nổi bật',
+    newsTitle: 'Dự án và năng lực',
     newsLead:
-      'Khối news được bố trí như một corporate newsroom nhỏ, tập trung bài nổi bật và luồng cập nhật thương hiệu.',
+      'Cập nhật các dự án tiêu biểu, năng lực xưởng Inox và kinh nghiệm triển khai chuỗi nhà hàng.',
     featuredNews: [
       {
-        category: 'Ra mắt thương hiệu',
-        title: 'Khai trương concept nhà hàng mới tại trung tâm thương mại',
-        description: 'Mô tả ngắn cho bài nổi bật với heading lớn và teaser dáng corporate.'
+        category: 'Case study',
+        title: 'Tổ hợp Ngọc Khánh 1.260m2 hoàn thành trong 16 ngày',
+        description: 'Bằng chứng tiêu biểu cho năng lực điều phối đồng bộ nhiều hạng mục trong tiến độ rất ngắn.'
       },
       {
-        category: 'Cập nhật dự án',
-        title: 'Hoàn tất fit-out flagship với tiến độ rút gọn',
-        description: 'Dùng cho bài cập nhật thi công, bàn giao và milestone vận hành.'
+        category: 'Xưởng Inox',
+        title: 'Xưởng sản xuất Inox 3.000m2 tại Hà Đông',
+        description: 'Năng lực sản xuất nội bộ giúp rút ngắn tiến độ và kiểm soát chất lượng từ khâu đầu.'
       },
       {
-        category: 'Tin tức công ty',
-        title: 'Mở rộng hệ thống vận hành tại khu vực phía Nam',
-        description: 'Dùng cho thông báo doanh nghiệp, đối tác, bộ máy và tăng trưởng hệ thống.'
+        category: 'Chuỗi F&B',
+        title: 'Đồng hành thi công 6 thương hiệu nhà hàng',
+        description: 'Kinh nghiệm triển khai chuỗi giúp New Sky chuẩn hóa hạng mục và đồng bộ chất lượng giữa nhiều mặt bằng.'
       }
     ],
     ctaLabel: 'Liên hệ',
-    ctaTitle: 'Sẵn sàng chuyển từ giao diện corporate sang dữ liệu và vận hành thật.',
+    ctaTitle: 'Sẵn sàng trao đổi về dự án nhà hàng của bạn.',
     ctaDescription:
-      'Bước tiếp theo là nối brand, news, jobs và project data từ Strapi để trang chủ vận hành đúng như một website doanh nghiệp.',
+      'Chia sẻ mặt bằng, concept, ngân sách dự kiến và timeline để New Sky tư vấn phương án thiết kế + thi công phù hợp.',
     ctaPrimary: 'Đặt lịch tư vấn',
     ctaSecondary: 'Xem dự án'
   },
   en: {
     heroSlides: [
       {
-        eyebrow: 'Restaurant Group Construction',
-        title: 'F&B construction built around operations, rollout speed and brand expansion.',
+        eyebrow: 'New Sky Capability Profile',
+        title: 'Design-and-build partner for restaurant owners in Vietnam.',
         description:
-          'The homepage has been shifted toward a corporate group-site pattern with emphasis on brands, CSR, careers and featured news.',
+          '10 years of practical experience, 100+ restaurant projects, and an in-house stainless-steel production workshop.',
         imageLabel: 'Retail center rollout',
         imageUrl: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=2070&auto=format&fit=crop',
         stats: [
-          {value: '12+', label: 'Brands supported'},
-          {value: '2', label: 'Operating offices'},
-          {value: '100+', label: 'F&B projects delivered'}
+          {value: '10 years', label: 'Practical experience'},
+          {value: '100+', label: 'Restaurant projects'},
+          {value: '3,000sqm', label: 'Stainless-steel workshop'}
         ]
       },
       {
-        eyebrow: 'Brand Rollout',
-        title: 'Chain-store rollout needs data, site discipline and technical coordination.',
+        eyebrow: '3 commitments',
+        title: 'Competing through programme, quality, and trust backed by proof.',
         description:
-          'The second slide highlights rollout capability, execution cadence and process repeatability across locations.',
+          'New Sky proves capability through the 16-day Ngoc Khanh project, 100+ projects over 10 years, and long-term delivery for F&B brands.',
         imageLabel: 'Chain rollout system',
         imageUrl: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070&auto=format&fit=crop',
         stats: [
-          {value: '08', label: 'Parallel rollout tracks'},
-          {value: '72h', label: 'Site response cycle'},
-          {value: 'MEP', label: 'Technical coordination'}
+          {value: '16 days', label: 'Ngoc Khanh record'},
+          {value: '60+', label: 'New projects in 2026'},
+          {value: '6', label: 'F&B brands'}
         ]
       },
       {
-        eyebrow: 'Flagship Delivery',
-        title: 'From flagship dining to renovation programs, the homepage now presents enterprise execution strength.',
+        eyebrow: 'Single partner',
+        title: 'Design, MEP, kitchen stainless steel, construction, and handover in one system.',
         description:
-          'The third slide directs visitors into flagship case studies and portfolio proof instead of a generic opening banner.',
+          'The end-to-end model helps investors reduce multi-contractor coordination, improve quality control, and shorten opening schedules.',
         imageLabel: 'Flagship execution',
         imageUrl: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=2070&auto=format&fit=crop',
         stats: [
-          {value: '560', label: 'Largest flagship m2'},
-          {value: '3', label: 'Core project types'},
-          {value: '24/7', label: 'Lead intake channel'}
+          {value: '5', label: 'Core capabilities'},
+          {value: '2-3x', label: 'Faster delivery'},
+          {value: '12 months', label: 'Warranty'}
         ]
       }
     ],
-    brandSectionTitle: 'Brands',
+    brandSectionTitle: 'Representative Clients',
     brandSectionLead:
-      'The brand block now sits at the center of the homepage, following the same corporate F&B group pattern as the reference site.',
+      'New Sky has delivered projects for F&B brands within the Aladdin.,JSC restaurant-chain system and other large-scale chain projects.',
     brands: [
       {
         name: 'Long Wang',
         tag: 'Hong Kong Hotpot',
-        description: 'Brand cards are structured to show concept, positioning and rollout readiness.'
+        description: 'One of the F&B brands New Sky has supported through restaurant rollout and delivery.'
       },
       {
         name: 'Tien Long',
         tag: 'Teochew Beef Hotpot',
-        description: 'A corporate-style brand module for core concepts instead of a generic project grid.'
+        description: 'A Teochew fresh-beef hotpot chain requiring consistent quality across multiple locations.'
       },
       {
         name: 'Quan Moc',
         tag: 'Traditional Dining',
-        description: 'Use this area to map flagship concepts and the broader brand network.'
+        description: 'A nostalgic Hanoi-style restaurant brand featured in the 16-day Ngoc Khanh case study.'
       },
       {
         name: 'Hai Su',
         tag: 'Dimsum & Rice',
-        description: 'This can later be replaced by logos, media and CMS-linked detail pages.'
+        description: 'An F&B project type delivered from design and construction through operational handover.'
       }
     ],
-    socialTitle: 'Social Responsibility',
+    socialTitle: 'New Sky Commitments',
     socialLead:
-      'This section mirrors the CSR and community-story pattern so the homepage does not speak only about construction output.',
+      'Every commitment on programme, quality, and trust is anchored in actual project proof.',
     socialStories: [
       {
-        title: 'Community engagement',
-        description: 'Prepared for stories around local support, outreach and public impact.'
+        title: 'Programme with proof',
+        description: 'The combined Bo To Quan Moc + Long Wang project at 84 Ngoc Khanh was delivered from site handover to opening in 16 days.'
       },
       {
-        title: 'Responsible operations',
-        description: 'A place to explain safety standards, material decisions and delivery discipline.'
+        title: 'Consistent quality',
+        description: '100+ projects over 10 years with control from design, materials, production, and installation through acceptance.'
       }
     ],
-    careersTitle: 'Careers',
+    careersTitle: 'Delivery Teams',
     careersLead:
-      'A corporate homepage needs a dedicated employer-brand block instead of hiding recruitment inside the footer.',
+      'New Sky operates through dedicated design, site supervision, direct construction, administration, accounting, and stainless-steel workshop teams.',
     careers: {
-      title: 'Build the team behind rollout growth',
+      title: 'One team serving simultaneous projects across Vietnam',
       description:
-        'We place people, delivery discipline and operational thinking at the center of fit-out and brand expansion.',
-      highlights: ['Structured work environment', 'Large-scale F&B projects', 'Cross-functional growth path']
+        'Specialized departments coordinate through a clear process to protect programme, quality, and accountability throughout each project.',
+      highlights: ['Design team', 'Site supervision team', '3,000sqm stainless-steel workshop']
     },
-    newsTitle: 'Featured News',
+    newsTitle: 'Projects and Capabilities',
     newsLead:
-      'The news block is arranged more like a compact corporate newsroom with one clear editorial hierarchy.',
+      'Updates on representative projects, stainless-steel workshop capability, and restaurant-chain delivery experience.',
     featuredNews: [
       {
-        category: 'Brand Launch',
-        title: 'New restaurant concept opening in a retail center',
-        description: 'A featured story card with strong headline and a compact corporate teaser.'
+        category: 'Case study',
+        title: '1,260sqm Ngoc Khanh project completed in 16 days',
+        description: 'A proof point for coordinating multiple workstreams under a compressed schedule.'
       },
       {
-        category: 'Project Update',
-        title: 'Flagship fit-out completed under a compressed schedule',
-        description: 'Reserved for handover updates, execution milestones and project delivery notes.'
+        category: 'Workshop',
+        title: '3,000sqm stainless-steel workshop in Ha Dong',
+        description: 'In-house production shortens timelines and controls quality from the beginning.'
       },
       {
-        category: 'Company News',
-        title: 'Operating footprint expanded in the southern market',
-        description: 'Prepared for company-wide updates around structure, partners and growth.'
+        category: 'F&B chains',
+        title: 'Delivery partner for six restaurant brands',
+        description: 'Chain delivery experience helps New Sky standardize packages and maintain quality across different sites.'
       }
     ],
     ctaLabel: 'Contact',
-    ctaTitle: 'The corporate homepage is ready to move from presentation to live operation.',
+    ctaTitle: 'Ready to discuss your restaurant project.',
     ctaDescription:
-      'The next phase is connecting brands, news, jobs and project data from Strapi so the homepage behaves like a real enterprise website.',
+      'Share your site, concept, target budget, and timeline so New Sky can advise a suitable design-and-build direction.',
     ctaPrimary: 'Book consultation',
     ctaSecondary: 'View projects'
   }

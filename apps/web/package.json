@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:cpanel": "next build && node scripts/prepare-cpanel-standalone.js",
     "start": "next start",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },

@@ -136,13 +136,13 @@ p {
 
 .brand-logo-image {
   width: auto;
-  height: 44px;
+  height: 60px;
   object-fit: contain;
   display: block;
 }
 
 .brand-logo-image-center {
-  height: 52px;
+  height: 72px;
 }
 
 /* Transparent header text colors */
@@ -381,8 +381,12 @@ p {
 }
 
 @media (max-width: 1200px) {
+  .brand-logo-image {
+    height: 52px;
+  }
+
   .brand-logo-image-center {
-    height: 44px;
+    height: 60px;
   }
 }
 

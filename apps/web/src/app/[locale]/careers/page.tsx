@@ -14,10 +14,10 @@ type CareersPageProps = {
 export async function generateMetadata({params}: CareersPageProps): Promise<Metadata> {
   const {locale} = await params;
   return {
-    title: locale === 'vi' ? 'Tuyển dụng — Đội ngũ ALADDIN JSC' : 'Careers — Join ALADDIN JSC',
+    title: locale === 'vi' ? 'Tuyển dụng — Đội ngũ New Sky' : 'Careers — Join New Sky',
     description: locale === 'vi'
-      ? 'Khám phá các vị trí tuyển dụng tại ALADDIN JSC. Phát triển con người cùng tốc độ mở rộng hệ thống.'
-      : 'Explore open positions at ALADDIN JSC and grow with our expanding F&B ecosystem.',
+      ? 'Khám phá các vị trí tuyển dụng tại New Sky trong đội thiết kế, giám sát, thi công và xưởng sản xuất Inox.'
+      : 'Explore open positions at New Sky across design, site supervision, construction, and stainless-steel production teams.',
   };
 }
 

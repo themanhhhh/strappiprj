@@ -1,4 +1,4 @@
-/* ALADDIN JSC CUSTOM UI */
+/* NEW SKY CUSTOM UI */
 .aladdin-section {
   padding: 80px 0;
 }
@@ -908,6 +908,91 @@
   margin-bottom: 20px;
 }
 
+.about-leader-section {
+  padding: 88px 0;
+  background: #fff;
+}
+
+.about-leader-card {
+  max-width: 1120px;
+}
+
+.about-leader-heading {
+  border-bottom: 3px solid var(--accent-warm, #c87941);
+  margin-bottom: 36px;
+  padding-bottom: 12px;
+}
+
+.about-leader-heading span {
+  display: block;
+  color: var(--accent-warm, #c87941);
+  font-size: 0.875rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.about-leader-heading h2 {
+  color: #173f70;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.about-leader-content {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+.about-leader-portrait {
+  aspect-ratio: 4 / 5;
+  background: linear-gradient(135deg, #173f70, #c87941);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.about-leader-copy p {
+  color: #2f2f2f;
+  font-size: 1rem;
+  line-height: 1.75;
+  margin-bottom: 18px;
+}
+
+.about-leader-signature {
+  margin-top: 32px;
+}
+
+.about-leader-signature-top {
+  margin-bottom: 24px;
+  margin-top: 0;
+}
+
+.about-leader-signature strong,
+.about-leader-signature span {
+  display: block;
+}
+
+.about-leader-signature strong {
+  color: #173f70;
+  font-size: 1.125rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.about-leader-signature span {
+  color: #6f7f91;
+  font-size: 0.9375rem;
+}
+
 /* Vision / Mission / Values rows */
 .about-vmv-section {
   padding: 80px 0;
@@ -965,10 +1050,22 @@
 
 .about-timeline-item {
   display: grid;
-  grid-template-columns: 80px 1fr;
+  grid-template-columns: 220px 1fr;
   gap: 32px;
   padding: 32px 0;
   border-bottom: 1px solid #e8e4df;
+}
+
+.about-capability-image {
+  aspect-ratio: 4 / 3;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  background: #e8e4df;
+}
+
+.about-capability-image img {
+  object-fit: cover;
 }
 
 .about-timeline-item:first-child {
@@ -1431,6 +1528,41 @@
 
 
 @media (max-width: 768px) {
+  .about-intro-section,
+  .about-vmv-section,
+  .about-team-section {
+    padding: 64px 0;
+  }
+
+  .about-split-row,
+  .about-vmv-item,
+  .about-timeline-item,
+  .about-team-grid,
+  .about-leader-content {
+    grid-template-columns: 1fr;
+  }
+
+  .about-split-row,
+  .about-vmv-item {
+    gap: 24px;
+  }
+
+  .about-timeline-item {
+    gap: 12px;
+  }
+
+  .about-team-header {
+    margin-bottom: 40px;
+  }
+
+  .about-leader-section {
+    padding: 64px 0;
+  }
+
+  .about-leader-portrait {
+    max-width: 260px;
+  }
+
   .about-intro-grid {
     grid-template-columns: 1fr;
     gap: var(--space-10);

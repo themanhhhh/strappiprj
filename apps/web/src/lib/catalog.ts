@@ -48,46 +48,74 @@ export type JobEntry = {
 
 export const services: ServiceEntry[] = [
   {
-    slug: 'restaurant-fit-out',
+    slug: 'thiet-ke-noi-that',
     index: '01',
-    title: 'Restaurant fit-out',
-    description: 'Full execution package for front-of-house, kitchen and back-of-house coordination.',
-    meta: 'Execution / Core Service',
+    title: 'Thiết kế nội thất',
+    description: 'Triển khai bản vẽ kiến trúc + nội thất từ ý tưởng ban đầu đến chi tiết thi công, phù hợp định vị thương hiệu chủ nhà hàng.',
+    meta: 'Năng lực cốt lõi',
     deliverables: [
-      'Site survey and execution scope definition',
-      'Construction coordination across architecture and MEP',
-      'Material control, progress reporting and handover package'
+      'Ý tưởng thiết kế ban đầu',
+      'Bản vẽ kiến trúc + nội thất',
+      'Chi tiết thi công theo định vị thương hiệu'
     ],
-    process: ['Brief intake', 'Survey and execution planning', 'Build supervision', 'Operational handover'],
-    relatedProjectSlugs: ['mall-restaurant-rollout', 'signature-dining-space']
+    process: ['Khảo sát', 'Thiết kế', 'Duyệt bản vẽ', 'Bàn giao hồ sơ thi công'],
+    relatedProjectSlugs: ['ngoc-khanh-complex', 'tian-long-chain']
   },
   {
-    slug: 'renovation-upgrade',
+    slug: 'co-dien',
     index: '02',
-    title: 'Renovation and upgrade',
-    description: 'Phased renovation work for operating stores that need tighter schedule control.',
-    meta: 'Upgrade / Phased Delivery',
+    title: 'Cơ điện',
+    description: 'Hệ thống điện, nước cấp, nước thải, thông gió, hút khói và phối hợp tiêu chuẩn PCCC cho nhà hàng.',
+    meta: 'MEP / Nhà hàng',
     deliverables: [
-      'Existing site assessment and risk mapping',
-      'Phasing plan to reduce business interruption',
-      'Execution sequencing for live-operation constraints'
+      'Hệ thống điện và cấp thoát nước',
+      'Thông gió, hút khói và PCCC',
+      'Phối hợp tiêu chuẩn BQL tòa nhà khi thi công trong TTTM'
     ],
-    process: ['Condition audit', 'Phasing proposal', 'Night-shift execution', 'Reopening support'],
-    relatedProjectSlugs: ['cafe-upgrade-package']
+    process: ['Khảo sát hạ tầng', 'Bản vẽ kỹ thuật', 'Thi công công trường', 'Chạy thử'],
+    relatedProjectSlugs: ['gmaster-landmark-81']
   },
   {
-    slug: 'mep-coordination',
+    slug: 'inox-bep-cong-nghiep',
     index: '03',
-    title: 'MEP coordination',
-    description: 'Technical alignment across structure, HVAC, plumbing, lighting and equipment positions.',
-    meta: 'Technical / Coordination',
+    title: 'Inox bếp công nghiệp',
+    description: 'Bàn Inox, giá kệ, tủ bếp, bồn rửa và hệ thống thiết bị bếp được sản xuất trực tiếp tại xưởng Inox 3.000m2 nội bộ.',
+    meta: 'Xưởng Inox 3.000m2',
     deliverables: [
-      'Constraint review with structure and landlord requirements',
-      'Layout coordination between kitchen, bar and utility runs',
-      'Clash reduction before site execution'
+      'Bàn Inox, giá kệ, tủ bếp, bồn rửa',
+      'Sản xuất tại xưởng Hà Đông',
+      'Kiểm soát từ cắt CNC, chấn, hàn đến lắp đặt'
     ],
-    process: ['Technical review', 'Coordination workshop', 'Revised shop drawings', 'Site monitoring'],
-    relatedProjectSlugs: ['mall-restaurant-rollout', 'cafe-upgrade-package']
+    process: ['Thiết kế Inox', 'Sản xuất tại xưởng', 'Đóng gói', 'Lắp đặt công trường'],
+    relatedProjectSlugs: ['ngoc-khanh-complex', 'tian-long-chain']
+  },
+  {
+    slug: 'xay-dung',
+    index: '04',
+    title: 'Xây dựng',
+    description: 'Cải tạo mặt bằng nhà phố, dựng vách ngăn và hoàn thiện sàn - tường - trần theo bản vẽ thiết kế.',
+    meta: 'Cải tạo / Hoàn thiện',
+    deliverables: [
+      'Cải tạo mặt bằng nhà phố hoặc trung tâm thương mại',
+      'Dựng vách ngăn',
+      'Hoàn thiện sàn, tường, trần'
+    ],
+    process: ['Khảo sát hiện trạng', 'Lập tiến độ', 'Thi công cải tạo', 'Nghiệm thu hoàn thiện'],
+    relatedProjectSlugs: ['ngoc-khanh-complex']
+  },
+  {
+    slug: 'lap-dat-ban-giao-van-hanh',
+    index: '05',
+    title: 'Lắp đặt + bàn giao vận hành',
+    description: 'Lắp đặt thiết bị, chạy thử, nghiệm thu, bàn giao hồ sơ kỹ thuật và hỗ trợ vận hành 30 ngày đầu sau khai trương.',
+    meta: 'Handover / Operation',
+    deliverables: [
+      'Lắp đặt thiết bị và chạy thử',
+      'Nghiệm thu và bàn giao hồ sơ kỹ thuật',
+      'Hỗ trợ vận hành 30 ngày đầu sau khai trương'
+    ],
+    process: ['Lắp đặt', 'Chạy thử', 'Nghiệm thu', 'Hỗ trợ vận hành'],
+    relatedProjectSlugs: ['ngoc-khanh-complex', 'gmaster-landmark-81', 'tian-long-chain']
   }
 ];
 

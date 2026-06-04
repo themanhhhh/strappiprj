@@ -19,8 +19,8 @@ const locations: Location[] = [
     cityEn: 'Hanoi',
     x: '50%',
     y: '25%',
-    info: 'Thủ đô Hà Nội — thị trường trọng điểm phía Bắc với hàng chục nhà hàng thuộc hệ sinh thái Aladdin, phục vụ hàng nghìn thực khách mỗi ngày.',
-    infoEn: 'Hanoi capital — a key northern market with dozens of Aladdin restaurants serving thousands of diners daily.',
+    info: 'Hà Nội — khu vực trọng điểm phía Bắc, nơi New Sky đặt văn phòng đại diện và kết nối xưởng Inox 3.000m2 tại Hà Đông.',
+    infoEn: 'Hanoi — New Sky\'s key northern base with a representative office and connection to the 3,000sqm stainless-steel workshop in Ha Dong.',
   },
   {
     id: '02',
@@ -28,8 +28,8 @@ const locations: Location[] = [
     cityEn: 'Hai Phong',
     x: '56%',
     y: '23%',
-    info: 'Thành phố Hải Phòng — cửa ngõ kinh tế vùng biển phía Bắc, nơi Aladdin xây dựng điểm đến ẩm thực đặc trưng cho người dân địa phương.',
-    infoEn: "Hai Phong — the northern coast's economic gateway, where Aladdin has established signature dining destinations.",
+    info: 'Hải Phòng — thị trường triển khai dự án F&B và chuỗi nhà hàng tại khu vực duyên hải phía Bắc.',
+    infoEn: "Hai Phong — a northern coastal market for F&B and restaurant-chain project delivery.",
   },
   {
     id: '03',
@@ -37,8 +37,8 @@ const locations: Location[] = [
     cityEn: 'Da Nang',
     x: '60%',
     y: '53%',
-    info: 'Thành phố Đà Nẵng — trung tâm miền Trung năng động, nơi Aladdin mang ẩm thực đặc sắc phục vụ cả thực khách địa phương lẫn du lịch.',
-    infoEn: 'Da Nang — the vibrant central city where Aladdin brings signature cuisine to both locals and tourists.',
+    info: 'Đà Nẵng — điểm kết nối miền Trung trong mạng lưới triển khai dự án Bắc - Trung - Nam của New Sky.',
+    infoEn: 'Da Nang — a central-region connection point in New Sky\'s nationwide delivery network.',
   },
   {
     id: '04',
@@ -46,8 +46,8 @@ const locations: Location[] = [
     cityEn: 'Ho Chi Minh City',
     x: '51%',
     y: '80%',
-    info: 'TP. Hồ Chí Minh — đầu tàu kinh tế cả nước và thị trường lớn nhất của Aladdin với hệ thống nhà hàng phủ khắp các trung tâm thương mại lớn.',
-    infoEn: "Ho Chi Minh City — the nation's economic hub and Aladdin's largest market, with restaurants across major commercial centers.",
+    info: 'TP. Hồ Chí Minh — văn phòng miền Nam của New Sky, phục vụ các dự án F&B, bán lẻ và lưu trú tại khu vực phía Nam.',
+    infoEn: "Ho Chi Minh City — New Sky's southern office base for F&B, retail, and hospitality projects.",
   },
   {
     id: '05',
@@ -55,8 +55,8 @@ const locations: Location[] = [
     cityEn: 'Can Tho',
     x: '49%',
     y: '82%',
-    info: 'Thành phố Cần Thơ — trung tâm đồng bằng sông Cửu Long, nơi Aladdin mở rộng hệ sinh thái ẩm thực đến miền Tây Nam Bộ.',
-    infoEn: "Can Tho — the heart of the Mekong Delta, where Aladdin expands its culinary ecosystem to the region.",
+    info: 'Cần Thơ — cửa ngõ Tây Nam Bộ trong mạng lưới phục vụ chủ đầu tư trên toàn quốc.',
+    infoEn: "Can Tho — the Mekong Delta gateway within New Sky's nationwide investor service network.",
   },
 ];
 
@@ -78,12 +78,12 @@ export function AboutPresence({locale}: AboutPresenceProps) {
           {locale === 'vi' ? 'Về chúng tôi' : 'About us'}
         </p>
         <div className="about-presence-intro-grid">
-          <h2 className="about-presence-title">ALADDIN JSC</h2>
+          <h2 className="about-presence-title">NEW SKY</h2>
           <div className="about-presence-intro-body">
             <p>
               {locale === 'vi'
-                ? <>Aladdin JSC là <strong>đơn vị tiên phong trong lĩnh vực F&B</strong> tại Việt Nam, vận hành hệ sinh thái chuỗi nhà hàng đa thương hiệu gồm Long Wang, Tian Long, Bò Tơ Quán Mộc, G.Master, Hải Sư và Khèn Nướng Sapa. Kết hợp giữa <strong>ẩm thực chất lượng</strong> và <strong>không gian ấm cúng</strong>, Aladdin tạo nên những bữa ăn đáng nhớ cho mọi thực khách.</>
-                : <>Aladdin JSC is a <strong>pioneering F&B enterprise</strong> in Vietnam, operating a multi-brand restaurant chain ecosystem. Combining <strong>quality cuisine</strong> with <strong>welcoming spaces</strong>, Aladdin creates memorable dining experiences.</>}
+                ? <>New Sky là <strong>đối tác thiết kế + thi công nhà hàng trọn gói</strong> cho chủ nhà hàng Việt, phục vụ các dự án chuỗi F&B, nhà hàng độc lập và khách sạn - lưu trú trên cả 3 miền. Chúng tôi tập trung vào <strong>tiến độ, chất lượng và trách nhiệm một đầu mối</strong> từ thiết kế đến bàn giao vận hành.</>
+                : <>New Sky is a <strong>design-and-build partner for restaurant owners in Vietnam</strong>, serving F&B chains, independent restaurants, and hospitality projects nationwide. We focus on <strong>programme, quality, and single-point accountability</strong> from design through operational handover.</>}
             </p>
             <a href={`/${locale}/about`} className="about-presence-btn">
               {locale === 'vi' ? 'Xem thêm' : 'See more'}

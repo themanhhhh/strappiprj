@@ -23,10 +23,10 @@ type DisplayPost = {
 export async function generateMetadata({params}: JournalPageProps): Promise<Metadata> {
   const {locale} = await params;
   return {
-    title: locale === 'vi' ? 'Journal - Tin tuc va goc nhin tu MAESTRO' : 'Journal - Insights from MAESTRO',
+    title: locale === 'vi' ? 'Tin tức và năng lực - New Sky' : 'News and Capabilities - New Sky',
     description: locale === 'vi'
-      ? 'Những câu chuyện về dự an, craftsmanship va nang luc thi cong duoc bien tap theo tinh than chi tiet, tiet che va cao cap cua MAESTRO.'
-      : 'Project stories, craftsmanship, and execution insights presented with MAESTRO\'s refined and editorial point of view.',
+      ? 'Những câu chuyện về dự án, năng lực thi công, xưởng Inox và quy trình triển khai nhà hàng của New Sky.'
+      : 'Project stories, construction capabilities, stainless-steel workshop updates, and restaurant delivery insights from New Sky.',
   };
 }
 
@@ -45,14 +45,14 @@ function formatDate(dateStr: string, locale: string) {
 function getCopy(locale: string) {
   if (locale === 'vi') {
     return {
-      eyebrow: 'Journal',
-      title: 'Nhung cau chuyen ve thi cong va noi that duoc bien tap voi su tiet che, chinh xac va tinh than cao cap.',
+      eyebrow: 'Tin tức & năng lực',
+      title: 'Những câu chuyện về dự án, năng lực thi công và quy trình triển khai nhà hàng.',
       description:
-        'Tu project updates den joinery, vat lieu va nang luc delivery, moi bai viet duoc trinh bay nhu mot an pham thuong hieu: ro rang, tinh te va giau tinh hinh anh.',
-      introLabel: 'Tinh than editorial cua MAESTRO',
-      introTitle: 'Noi dung duoc xay dung de phan anh nang luc, su chi tiet va chat luong thuc thi cua MAESTRO.',
+        'Từ cập nhật dự án đến xưởng Inox, tiến độ thi công và kinh nghiệm triển khai chuỗi F&B, mỗi bài viết tập trung vào bằng chứng thực tế.',
+      introLabel: 'Góc nhìn New Sky',
+      introTitle: 'Nội dung được xây dựng để phản ánh năng lực, tiến độ và chất lượng thi công của New Sky.',
       introBody:
-        'Journal la noi MAESTRO chia se nhung cap nhat ve du an, quy trinh che tac, chat luong hoan thien va cac goc nhin thi truong lien quan den construction, fit-out va interior delivery.',
+        'Đây là nơi New Sky chia sẻ cập nhật dự án, quy trình sản xuất Inox, chất lượng thi công và các góc nhìn thị trường liên quan đến thiết kế + thi công nhà hàng.',
       featureLabel: 'Bai viet noi bat',
       listLabel: 'Tat ca bai viet',
       articleCount: 'bai viet',
@@ -61,14 +61,14 @@ function getCopy(locale: string) {
   }
 
   return {
-    eyebrow: 'Journal',
-    title: 'Stories on construction and interiors, shaped with a more refined editorial discipline.',
+    eyebrow: 'News & Capabilities',
+    title: 'Stories on projects, construction capability, and restaurant delivery process.',
     description:
-      'From project updates to joinery, materials, and execution capability, each story is presented like a brand publication: composed, spacious, and quietly confident.',
-    introLabel: 'The MAESTRO editorial language',
-    introTitle: 'Content designed to reflect MAESTRO through precision, restraint, and delivery excellence.',
+      'From project updates to stainless-steel workshop capability and F&B rollout experience, each story focuses on practical proof.',
+    introLabel: 'New Sky perspective',
+    introTitle: 'Content designed to reflect New Sky\'s capability, programme discipline, and construction quality.',
     introBody:
-      'The Journal brings together project stories, manufacturing quality, finishing standards, and market perspectives across construction, fit-out, joinery, and interior delivery.',
+      'The Journal brings together project stories, stainless-steel production, construction quality, and market perspectives around restaurant design-and-build delivery.',
     featureLabel: 'Featured story',
     listLabel: 'All articles',
     articleCount: 'articles',

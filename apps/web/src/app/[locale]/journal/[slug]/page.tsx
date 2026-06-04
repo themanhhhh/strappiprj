@@ -34,7 +34,7 @@ export async function generateMetadata({params}: PostDetailPageProps): Promise<M
     : undefined;
 
   return {
-    title: `${title} — MAESTRO`,
+    title: `${title} — New Sky`,
     description,
     openGraph: {
       title,

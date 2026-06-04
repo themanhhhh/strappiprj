@@ -16,7 +16,7 @@ export function ChatWidget({ enabled = true }: ChatWidgetProps) {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'assistant',
-      content: 'Xin chao. Toi la tro ly tu van cua MAESTRO. Toi co the ho tro ban ve construction, interior fit-out, joinery, tien do thi cong va dinh huong giai phap phu hop voi du an cua ban.',
+      content: 'Xin chao. Toi la tro ly tu van cua New Sky. Toi co the ho tro ban ve thiet ke + thi cong nha hang tron goi, co dien, Inox bep cong nghiep, tien do thi cong va buoc tiep theo cho du an cua ban.',
     },
   ]);
   const [input, setInput] = useState('');
@@ -73,7 +73,7 @@ export function ChatWidget({ enabled = true }: ChatWidgetProps) {
         const updated = [...prev];
         updated[updated.length - 1] = {
           role: 'assistant',
-          content: 'Xin loi, he thong tam thoi gian doan. Vui long thu lai sau it phut hoac lien he truc tiep voi doi ngu MAESTRO de duoc ho tro nhanh hon.',
+          content: 'Xin loi, he thong tam thoi gian doan. Vui long thu lai sau it phut hoac lien he truc tiep New Sky qua hotline 0906 790 333 de duoc ho tro nhanh hon.',
         };
         return updated;
       });
@@ -124,7 +124,7 @@ export function ChatWidget({ enabled = true }: ChatWidgetProps) {
               <div className="cw-bot-avatar-sm">
                 <BotIcon size={18} />
               </div>
-              <span className="cw-header-title">MAESTRO Assistant</span>
+              <span className="cw-header-title">New Sky Assistant</span>
             </div>
             <button className="cw-close-btn" onClick={() => setOpen(false)} aria-label="Dong">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -185,7 +185,7 @@ export function ChatWidget({ enabled = true }: ChatWidgetProps) {
               </button>
             </div>
             <p className="cw-disclaimer">
-              Noi dung AI mang tinh tham khao ban dau. Voi phuong an, tien do va bao gia cu the, vui long xac nhan cung doi ngu MAESTRO.
+              Noi dung AI mang tinh tham khao ban dau. Voi phuong an, tien do va bao gia cu the, vui long xac nhan cung doi ngu New Sky.
             </p>
           </div>
         </div>

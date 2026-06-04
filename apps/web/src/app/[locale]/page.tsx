@@ -89,7 +89,7 @@ export default async function HomePage({params}: HomePageProps) {
 
       <EcosystemBrands
         locale={locale}
-        title={locale === 'vi' ? 'Thương hiệu thuộc hệ sinh thái' : 'Ecosystem Brands'}
+        title={locale === 'vi' ? 'Thương hiệu đã đồng hành thi công' : 'Brands We Have Delivered'}
         description={content.brandSectionLead}
         brands={brandItems}
       />
