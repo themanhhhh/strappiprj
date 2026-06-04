@@ -9,11 +9,23 @@
     "cta": "Đặt lịch khảo sát"
   },
   "footer": {
+    "brand": "NEW SKY",
+    "brandDescription": "Đối tác thiết kế + thi công nhà hàng trọn gói cho chủ nhà hàng Việt. 10 năm - 100+ dự án - xưởng sản xuất Inox riêng.",
     "office": "Văn phòng",
     "hotline": "Đường dây nóng",
     "email": "Hộp thư",
     "menu": "Điều hướng",
     "social": "Kênh kết nối"
+  },
+  "chat": {
+    "initialMessage": "Xin chào. Tôi là trợ lý tư vấn của New Sky. Tôi có thể hỗ trợ bạn về thiết kế + thi công nhà hàng trọn gói, cơ điện, Inox bếp công nghiệp, tiến độ thi công và bước tiếp theo cho dự án của bạn.",
+    "errorMessage": "Xin lỗi, hệ thống tạm thời gián đoạn. Vui lòng thử lại sau ít phút hoặc liên hệ trực tiếp New Sky qua hotline 0906 790 333 để được hỗ trợ nhanh hơn.",
+    "title": "New Sky Assistant",
+    "placeholder": "Mô tả ngắn gọn nhu cầu hoặc quy mô dự án của bạn...",
+    "disclaimer": "Nội dung AI mang tính tham khảo ban đầu. Với phương án, tiến độ và báo giá cụ thể, vui lòng xác nhận cùng đội ngũ New Sky.",
+    "openLabel": "Mở trợ lý tư vấn",
+    "closeLabel": "Đóng khung trợ lý",
+    "sendLabel": "Gửi"
   },
   "home": {
     "eyebrow": "New Sky",
@@ -23,5 +35,104 @@
     "secondaryCta": "Xem dự án",
     "specLabel": "Bản thông số",
     "metricsLabel": "Chỉ số khởi tạo"
+  },
+  "servicesPage": {
+    "metadata": {
+      "title": "Năng lực thi công - New Sky",
+      "description": "5 năng lực cốt lõi, xưởng Inox 3.000m2 và quy trình thi công 6 bước của New Sky."
+    },
+    "hero": {
+      "eyebrow": "Năng lực thi công",
+      "title": "Thiết kế + thi công nhà hàng trọn gói từ ý tưởng đến ngày khai trương.",
+      "description": "New Sky tổ chức 5 hạng mục năng lực cốt lõi trong một đầu mối duy nhất, kết hợp xưởng Inox 3.000m2 và quy trình thi công 6 bước để kiểm soát tiến độ, chất lượng và bàn giao vận hành."
+    },
+    "capabilitiesIntro": {
+      "eyebrow": "5 năng lực cốt lõi",
+      "title": "Một hệ năng lực phục vụ toàn bộ vòng đời triển khai nhà hàng.",
+      "description": "Từ bản vẽ thiết kế, cơ điện, Inox bếp công nghiệp, xây dựng đến lắp đặt và bàn giao vận hành, New Sky kiểm soát toàn bộ quá trình bằng một đội ngũ thống nhất."
+    },
+    "capabilities": [
+      {
+        "index": "01",
+        "title": "Thiết kế nội thất",
+        "description": "Triển khai bản vẽ kiến trúc + nội thất từ ý tưởng ban đầu đến chi tiết thi công, phù hợp định vị thương hiệu chủ nhà hàng.",
+        "image": "/images/image1.png"
+      },
+      {
+        "index": "02",
+        "title": "Cơ điện",
+        "description": "Hệ thống điện, nước cấp, nước thải, thông gió, hút khói và phối hợp tiêu chuẩn PCCC cho nhà hàng, bao gồm yêu cầu của BQL trung tâm thương mại khi cần.",
+        "image": "/images/image2.png"
+      },
+      {
+        "index": "03",
+        "title": "Inox bếp công nghiệp",
+        "description": "Bàn Inox, giá kệ, tủ bếp, bồn rửa và hệ thống thiết bị bếp được sản xuất trực tiếp tại xưởng Inox 3.000m2 nội bộ.",
+        "image": "/images/image3.png"
+      },
+      {
+        "index": "04",
+        "title": "Xây dựng",
+        "description": "Cải tạo mặt bằng nhà phố, dựng vách ngăn và hoàn thiện sàn - tường - trần theo bản vẽ thiết kế.",
+        "image": "/images/image4.png"
+      },
+      {
+        "index": "05",
+        "title": "Lắp đặt + bàn giao vận hành",
+        "description": "Lắp đặt thiết bị, chạy thử, nghiệm thu, bàn giao hồ sơ kỹ thuật và hỗ trợ vận hành 30 ngày đầu sau khai trương.",
+        "image": "/images/image5.png"
+      }
+    ],
+    "factory": {
+      "eyebrow": "Bước chuyển dịch 2026",
+      "title": "Xưởng sản xuất Inox 3.000m2 tại Hà Đông, Hà Nội",
+      "description": "Xưởng Inox riêng giúp New Sky chủ động hoàn toàn từ thiết kế đến sản xuất Inox bếp, không phụ thuộc gia công ngoài như trước. Đây là nền tảng để rút ngắn tiến độ thi công gấp 2-3 lần và kiểm soát chất lượng ngay từ khâu cắt CNC, chấn, hàn đến đóng gói và lắp đặt.",
+      "stats": [
+        {"value": "3.000m2", "label": "Tổng quy mô xưởng và bãi tập kết"},
+        {"value": "1.000m2", "label": "Khu xưởng sản xuất"},
+        {"value": "2.000m2", "label": "Bãi tập kết"},
+        {"value": "2-3x", "label": "Rút ngắn tiến độ so với thuê gia công ngoài"}
+      ]
+    },
+    "processIntro": {
+      "eyebrow": "Quy trình thi công 6 bước",
+      "title": "Từ khảo sát đến bàn giao, mỗi bước có phạm vi, thời gian và người phụ trách rõ ràng.",
+      "description": "Quy trình này được hình thành từ 10 năm thi công 100+ dự án nhà hàng, cân bằng giữa rút ngắn tiến độ, đảm bảo chất lượng và minh bạch chi phí trước khi ký hợp đồng."
+    },
+    "processLabels": {
+      "timeline": "Thời gian",
+      "owner": "Phụ trách"
+    },
+    "process": [
+      {"index": "01", "title": "Khảo sát", "scope": "Đo đạc mặt bằng, ghi nhận hạ tầng điện, nước, thoát thải và yêu cầu BQL tòa nhà nếu là TTTM.", "timeline": "3-7 ngày", "owner": "Đội thiết kế + giám sát"},
+      {"index": "02", "title": "Thiết kế", "scope": "Ý tưởng ban đầu và bản vẽ chi tiết: kiến trúc, nội thất, cơ điện, Inox bếp. Điều chỉnh đến khi khách hàng duyệt.", "timeline": "7-14 ngày", "owner": "Đội thiết kế"},
+      {"index": "03", "title": "Báo giá + hợp đồng", "scope": "Bóc tách khối lượng vật tư, nhân công, thời gian và thiết bị; lên báo giá chi tiết, ký hợp đồng và tạm ứng.", "timeline": "3-5 ngày", "owner": "Đội thiết kế + kế toán"},
+      {"index": "04", "title": "Sản xuất tại xưởng", "scope": "Sản xuất Inox và đồ furniture nội thất tại xưởng Hà Đông, song song chuẩn bị vật tư xây dựng và cơ điện.", "timeline": "4-6 ngày", "owner": "Đội thi công xưởng"},
+      {"index": "05", "title": "Lắp đặt công trường", "scope": "Vận chuyển, lắp đặt Inox, cơ điện, thi công xây dựng hoàn thiện và chạy thử thiết bị.", "timeline": "3-5 ngày", "owner": "Đội thi công + giám sát"},
+      {"index": "06", "title": "Bàn giao + bảo hành", "scope": "Nghiệm thu, bàn giao hồ sơ kỹ thuật, đào tạo vận hành ban đầu và bảo hành 12 tháng cho hạng mục Inox và lắp đặt.", "timeline": "Sau khai trương", "owner": "Toàn đội"}
+    ]
+  },
+  "serviceDetail": {
+    "metadataSuffix": "Dịch vụ",
+    "actions": {
+      "request": "Yêu cầu dịch vụ",
+      "back": "Xem tất cả dịch vụ"
+    },
+    "deliverables": {
+      "title": "Hạng mục thực hiện",
+      "description": "Chi tiết các hạng mục triển khai trong gói dịch vụ này."
+    },
+    "relatedProjects": {
+      "title": "Dự án sử dụng dịch vụ này",
+      "description": "Các dự án thực tế đã triển khai dịch vụ này.",
+      "view": "Xem dự án"
+    },
+    "cta": {
+      "label": "Tư vấn dịch vụ",
+      "title": "Sẵn sàng triển khai dự án của bạn?",
+      "description": "Liên hệ ngay để nhận tư vấn và báo giá phù hợp.",
+      "primary": "Đặt lịch tư vấn",
+      "secondary": "Xem tất cả dịch vụ"
+    }
   }
 }

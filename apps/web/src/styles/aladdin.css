@@ -349,7 +349,7 @@
   position: relative;
   min-height: 780px;
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   overflow: hidden;
   color: #fff;
   background: #111;
@@ -377,7 +377,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.7fr);
   gap: 48px;
-  align-items: end;
+  align-items: flex-end;
   padding-top: 180px;
   padding-bottom: 72px;
 }

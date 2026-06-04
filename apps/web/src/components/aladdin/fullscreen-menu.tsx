@@ -103,7 +103,7 @@ export function FullscreenMenu({items, locale, transparent = false}: FullscreenM
             <Image
               src="/images/logo.png"
               alt="Maestro"
-              width={260}
+              width={350}
               height={61}
               priority
               className="brand-logo-image brand-logo-image-center"

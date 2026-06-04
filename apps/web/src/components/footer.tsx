@@ -15,11 +15,8 @@ export async function Footer({locale}: FooterProps) {
     <footer className="site-footer section-dark" style={{ padding: '64px 0', borderTop: '0' }}>
       <div className="shell footer-top">
         <div className="footer-brand">
-          <p className="footer-label" style={{ color: 'var(--accent-safety)' }}>NEW SKY</p>
-          <p>
-            Đối tác thiết kế + thi công nhà hàng trọn gói cho chủ nhà hàng Việt.
-            10 năm - 100+ dự án - xưởng sản xuất Inox riêng.
-          </p>
+          <p className="footer-label" style={{ color: 'var(--accent-safety)' }}>{t('brand')}</p>
+          <p>{t('brandDescription')}</p>
         </div>
 
         <div className="footer-office-grid">

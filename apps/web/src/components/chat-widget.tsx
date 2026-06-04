@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect, useCallback } from 'react';
+import {useTranslations} from 'next-intl';
 
 type Message = {
   role: 'user' | 'assistant';
@@ -12,11 +13,12 @@ type ChatWidgetProps = {
 };
 
 export function ChatWidget({ enabled = true }: ChatWidgetProps) {
+  const t = useTranslations('chat');
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'assistant',
-      content: 'Xin chao. Toi la tro ly tu van cua New Sky. Toi co the ho tro ban ve thiet ke + thi cong nha hang tron goi, co dien, Inox bep cong nghiep, tien do thi cong va buoc tiep theo cho du an cua ban.',
+      content: t('initialMessage'),
     },
   ]);
   const [input, setInput] = useState('');
@@ -73,14 +75,14 @@ export function ChatWidget({ enabled = true }: ChatWidgetProps) {
         const updated = [...prev];
         updated[updated.length - 1] = {
           role: 'assistant',
-          content: 'Xin loi, he thong tam thoi gian doan. Vui long thu lai sau it phut hoac lien he truc tiep New Sky qua hotline 0906 790 333 de duoc ho tro nhanh hon.',
+          content: t('errorMessage'),
         };
         return updated;
       });
     } finally {
       setLoading(false);
     }
-  }, [input, loading, messages]);
+  }, [input, loading, messages, t]);
 
   const handleKey = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter' && !e.shiftKey) {
@@ -101,7 +103,7 @@ export function ChatWidget({ enabled = true }: ChatWidgetProps) {
       <button
         className="cw-fab"
         onClick={() => setOpen((v) => !v)}
-        aria-label={open ? 'Dong khung tro ly' : 'Mo tro ly tu van'}
+        aria-label={open ? t('closeLabel') : t('openLabel')}
       >
         {open ? (
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -124,9 +126,9 @@ export function ChatWidget({ enabled = true }: ChatWidgetProps) {
               <div className="cw-bot-avatar-sm">
                 <BotIcon size={18} />
               </div>
-              <span className="cw-header-title">New Sky Assistant</span>
+              <span className="cw-header-title">{t('title')}</span>
             </div>
-            <button className="cw-close-btn" onClick={() => setOpen(false)} aria-label="Dong">
+            <button className="cw-close-btn" onClick={() => setOpen(false)} aria-label={t('closeLabel')}>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <line x1="18" y1="6" x2="6" y2="18" />
                 <line x1="6" y1="6" x2="18" y2="18" />
@@ -165,7 +167,7 @@ export function ChatWidget({ enabled = true }: ChatWidgetProps) {
               <textarea
                 ref={inputRef}
                 className="cw-input"
-                placeholder="Mo ta ngan gon nhu cau hoac quy mo du an cua ban..."
+                placeholder={t('placeholder')}
                 rows={1}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
@@ -176,7 +178,7 @@ export function ChatWidget({ enabled = true }: ChatWidgetProps) {
                 className="cw-send"
                 onClick={send}
                 disabled={loading || !input.trim()}
-                aria-label="Gui"
+                aria-label={t('sendLabel')}
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <line x1="22" y1="2" x2="11" y2="13" />
@@ -185,7 +187,7 @@ export function ChatWidget({ enabled = true }: ChatWidgetProps) {
               </button>
             </div>
             <p className="cw-disclaimer">
-              Noi dung AI mang tinh tham khao ban dau. Voi phuong an, tien do va bao gia cu the, vui long xac nhan cung doi ngu New Sky.
+              {t('disclaimer')}
             </p>
           </div>
         </div>

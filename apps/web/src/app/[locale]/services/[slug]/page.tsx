@@ -1,5 +1,6 @@
 import {notFound} from 'next/navigation';
 import type {Metadata} from 'next';
+import {getTranslations} from 'next-intl/server';
 import {ButtonLink} from '@/components/button-link';
 import {CtaStrip} from '@/components/cta-strip';
 import {InfoCard} from '@/components/info-card';
@@ -22,6 +23,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({params}: ServiceDetailPageProps): Promise<Metadata> {
   const {locale, slug} = await params;
+  const t = await getTranslations({locale, namespace: 'serviceDetail'});
   const strapiService = await getServiceBySlug(slug, locale);
   const catalogService = strapiService ? null : getService(slug);
 
@@ -29,7 +31,7 @@ export async function generateMetadata({params}: ServiceDetailPageProps): Promis
   const description = strapiService?.description ?? catalogService?.description ?? '';
 
   return {
-    title: locale === 'vi' ? `${title} — Dịch vụ` : `${title} — Service`,
+    title: `${title} — ${t('metadataSuffix')}`,
     description,
     openGraph: {title, description},
   };
@@ -46,6 +48,7 @@ function toList(text: string | null | undefined): string[] {
 
 export default async function ServiceDetailPage({params}: ServiceDetailPageProps) {
   const {locale, slug} = await params;
+  const t = await getTranslations({locale, namespace: 'serviceDetail'});
   const strapiService = await getServiceBySlug(slug, locale);
 
   if (strapiService) {
@@ -62,10 +65,10 @@ export default async function ServiceDetailPage({params}: ServiceDetailPageProps
           actions={
             <div className="button-row">
               <ButtonLink href={`/${locale}/contact`} variant="primary">
-                {locale === 'vi' ? 'Yêu cầu dịch vụ' : 'Request this service'}
+                {t('actions.request')}
               </ButtonLink>
               <ButtonLink href={`/${locale}/services`} variant="secondary">
-                {locale === 'vi' ? 'Xem tất cả dịch vụ' : 'Back to services'}
+                {t('actions.back')}
               </ButtonLink>
             </div>
           }
@@ -85,12 +88,8 @@ export default async function ServiceDetailPage({params}: ServiceDetailPageProps
             <div className="shell">
               <SectionIntro
                 index={strapiService.index ?? ''}
-                title={locale === 'vi' ? 'Hạng mục thực hiện' : 'Service deliverables'}
-                description={
-                  locale === 'vi'
-                    ? 'Chi tiết các hạng mục triển khai trong gói dịch vụ này.'
-                    : 'Detailed scope items and execution value for this service.'
-                }
+                title={t('deliverables.title')}
+                description={t('deliverables.description')}
               />
               <div className="tile-grid">
                 {deliverables.map((item, index) => (
@@ -111,12 +110,8 @@ export default async function ServiceDetailPage({params}: ServiceDetailPageProps
             <div className="shell">
               <SectionIntro
                 index="11"
-                title={locale === 'vi' ? 'Dự án sử dụng dịch vụ này' : 'Related projects'}
-                description={
-                  locale === 'vi'
-                    ? 'Các dự án thực tế đã triển khai dịch vụ này.'
-                    : 'Case studies that prove execution capability for this service.'
-                }
+                title={t('relatedProjects.title')}
+                description={t('relatedProjects.description')}
               />
               <div className="tile-grid">
                 {relatedProjects.map((project) => (
@@ -128,7 +123,7 @@ export default async function ServiceDetailPage({params}: ServiceDetailPageProps
                       tone="accent"
                     />
                     <ButtonLink href={`/${locale}/projects/${project.slug}`} variant="ghost">
-                      {locale === 'vi' ? 'Xem dự án' : 'View case study'}
+                      {t('relatedProjects.view')}
                     </ButtonLink>
                   </div>
                 ))}
@@ -140,19 +135,15 @@ export default async function ServiceDetailPage({params}: ServiceDetailPageProps
         <section className="section-block bg-sector-overlay">
           <div className="shell">
             <CtaStrip
-              label={locale === 'vi' ? 'Tư vấn dịch vụ' : 'Service enquiry'}
-              title={locale === 'vi' ? 'Sẵn sàng triển khai dự án của bạn?' : 'Ready to scope your project?'}
-              description={
-                locale === 'vi'
-                  ? 'Liên hệ ngay để nhận tư vấn chuyên sâu và báo giá phù hợp với nhu cầu.'
-                  : 'Get in touch for a tailored consultation and project quotation.'
-              }
+              label={t('cta.label')}
+              title={t('cta.title')}
+              description={t('cta.description')}
               primary={{
-                label: locale === 'vi' ? 'Đặt lịch tư vấn' : 'Book consultation',
+                label: t('cta.primary'),
                 href: `/${locale}/contact`,
               }}
               secondary={{
-                label: locale === 'vi' ? 'Xem tất cả dịch vụ' : 'See all services',
+                label: t('cta.secondary'),
                 href: `/${locale}/services`,
               }}
             />
@@ -179,10 +170,10 @@ export default async function ServiceDetailPage({params}: ServiceDetailPageProps
         actions={
           <div className="button-row">
             <ButtonLink href={`/${locale}/contact`} variant="primary">
-              {locale === 'vi' ? 'Yêu cầu dịch vụ' : 'Request this service'}
+              {t('actions.request')}
             </ButtonLink>
             <ButtonLink href={`/${locale}/services`} variant="secondary">
-              {locale === 'vi' ? 'Xem tất cả dịch vụ' : 'Back to services'}
+              {t('actions.back')}
             </ButtonLink>
           </div>
         }
@@ -199,10 +190,8 @@ export default async function ServiceDetailPage({params}: ServiceDetailPageProps
         <div className="shell">
           <SectionIntro
             index={catalogService.index}
-            title={locale === 'vi' ? 'Hạng mục thực hiện' : 'Service deliverables'}
-            description={locale === 'vi'
-              ? 'Chi tiết các hạng mục triển khai trong gói dịch vụ này.'
-              : 'The detail page expands each service into clear scope items and execution value.'}
+            title={t('deliverables.title')}
+            description={t('deliverables.description')}
           />
           <div className="tile-grid">
             {catalogService.deliverables.map((item, index) => (
@@ -222,10 +211,8 @@ export default async function ServiceDetailPage({params}: ServiceDetailPageProps
           <div className="shell">
             <SectionIntro
               index="11"
-              title={locale === 'vi' ? 'Dự án sử dụng dịch vụ này' : 'Related projects'}
-              description={locale === 'vi'
-                ? 'Các dự án thực tế đã triển khai dịch vụ này.'
-                : 'Service detail pages should point directly to case studies that prove execution capability.'}
+              title={t('relatedProjects.title')}
+              description={t('relatedProjects.description')}
             />
             <div className="tile-grid">
               {relatedProjects.map((project) => (
@@ -237,7 +224,7 @@ export default async function ServiceDetailPage({params}: ServiceDetailPageProps
                     tone="accent"
                   />
                   <ButtonLink href={`/${locale}/projects/${project.slug}`} variant="ghost">
-                    {locale === 'vi' ? 'Xem dự án' : 'View case study'}
+                    {t('relatedProjects.view')}
                   </ButtonLink>
                 </div>
               ))}
@@ -249,13 +236,11 @@ export default async function ServiceDetailPage({params}: ServiceDetailPageProps
       <section className="section-block bg-sector-overlay">
         <div className="shell">
           <CtaStrip
-            label={locale === 'vi' ? 'Tư vấn dịch vụ' : 'Service enquiry'}
-            title={locale === 'vi' ? 'Sẵn sàng triển khai dự án của bạn?' : 'Move from service detail into a scoped discussion.'}
-            description={locale === 'vi'
-              ? 'Liên hệ ngay để nhận tư vấn và báo giá phù hợp.'
-              : 'This is the handoff point from capability explanation to business enquiry.'}
-            primary={{label: locale === 'vi' ? 'Đặt lịch tư vấn' : 'Book consultation', href: `/${locale}/contact`}}
-            secondary={{label: locale === 'vi' ? 'Xem tất cả dịch vụ' : 'See all services', href: `/${locale}/services`}}
+            label={t('cta.label')}
+            title={t('cta.title')}
+            description={t('cta.description')}
+            primary={{label: t('cta.primary'), href: `/${locale}/contact`}}
+            secondary={{label: t('cta.secondary'), href: `/${locale}/services`}}
           />
         </div>
       </section>

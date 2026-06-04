@@ -9,11 +9,23 @@
     "cta": "Book survey"
   },
   "footer": {
+    "brand": "NEW SKY",
+    "brandDescription": "Design-and-build partner for restaurant owners in Vietnam. 10 years - 100+ projects - in-house stainless-steel workshop.",
     "office": "Office",
     "hotline": "Hotline",
     "email": "Email",
     "menu": "Navigation",
     "social": "Social"
+  },
+  "chat": {
+    "initialMessage": "Hello. I am New Sky's consultation assistant. I can help with restaurant design-and-build, MEP, industrial kitchen stainless steel, construction timelines, and next steps for your project.",
+    "errorMessage": "Sorry, the system is temporarily unavailable. Please try again later or contact New Sky directly via hotline 0906 790 333 for faster support.",
+    "title": "New Sky Assistant",
+    "placeholder": "Briefly describe your project needs or scale...",
+    "disclaimer": "AI content is for initial reference only. For specific proposals, timelines, and quotations, please confirm with the New Sky team.",
+    "openLabel": "Open consultation assistant",
+    "closeLabel": "Close consultation assistant",
+    "sendLabel": "Send"
   },
   "home": {
     "eyebrow": "New Sky",
@@ -23,5 +35,104 @@
     "secondaryCta": "View projects",
     "specLabel": "Specification",
     "metricsLabel": "Scaffold metrics"
+  },
+  "servicesPage": {
+    "metadata": {
+      "title": "Capabilities - New Sky",
+      "description": "New Sky core capabilities, 3,000sqm stainless-steel workshop, and six-step construction process."
+    },
+    "hero": {
+      "eyebrow": "Capabilities",
+      "title": "End-to-end restaurant design and construction from concept to opening day.",
+      "description": "New Sky organizes five core capabilities under one accountable partner, combining a 3,000sqm stainless-steel workshop and a six-step construction process to control programme, quality, and handover."
+    },
+    "capabilitiesIntro": {
+      "eyebrow": "5 core capabilities",
+      "title": "A capability system for the full restaurant delivery lifecycle.",
+      "description": "From design drawings, MEP, industrial kitchen stainless steel, and construction through installation and operational handover, New Sky controls the full process through one integrated team."
+    },
+    "capabilities": [
+      {
+        "index": "01",
+        "title": "Interior Design",
+        "description": "Architecture and interior drawings from initial concept to construction details, aligned with each restaurant brand position.",
+        "image": "/images/image1.png"
+      },
+      {
+        "index": "02",
+        "title": "MEP Systems",
+        "description": "Electrical, water supply, wastewater, ventilation, smoke extraction, and fire-safety coordination, including mall management requirements when needed.",
+        "image": "/images/image2.png"
+      },
+      {
+        "index": "03",
+        "title": "Industrial Kitchen Stainless Steel",
+        "description": "Stainless-steel tables, shelves, cabinets, sinks, and kitchen equipment systems produced directly at New Sky's 3,000sqm in-house workshop.",
+        "image": "/images/image3.png"
+      },
+      {
+        "index": "04",
+        "title": "Construction",
+        "description": "Site renovation, partition works, and floor - wall - ceiling finishes executed according to approved construction drawings.",
+        "image": "/images/image4.png"
+      },
+      {
+        "index": "05",
+        "title": "Installation + Operational Handover",
+        "description": "Equipment installation, testing, acceptance, technical document handover, and 30-day initial operational support after opening.",
+        "image": "/images/image5.png"
+      }
+    ],
+    "factory": {
+      "eyebrow": "2026 capability shift",
+      "title": "3,000sqm stainless-steel workshop in Ha Dong, Hanoi",
+      "description": "The in-house workshop gives New Sky full control from design to kitchen stainless-steel fabrication instead of relying on outside fabricators. This is the foundation for shortening delivery timelines by 2-3 times and controlling quality from CNC cutting, bending, and welding through packing and installation.",
+      "stats": [
+        {"value": "3,000sqm", "label": "Total workshop and staging area"},
+        {"value": "1,000sqm", "label": "Production workshop"},
+        {"value": "2,000sqm", "label": "Staging area"},
+        {"value": "2-3x", "label": "Faster than outsourced fabrication"}
+      ]
+    },
+    "processIntro": {
+      "eyebrow": "Six-step construction process",
+      "title": "From survey to handover, every step has clear scope, timing, and ownership.",
+      "description": "This process is shaped by 10 years and 100+ restaurant projects, balancing shorter timelines, quality control, and cost transparency before contract signing."
+    },
+    "processLabels": {
+      "timeline": "Timeline",
+      "owner": "Owner"
+    },
+    "process": [
+      {"index": "01", "title": "Survey", "scope": "Measure the site, record electrical, water, and drainage conditions, and review landlord requirements for mall projects.", "timeline": "3-7 days", "owner": "Design + supervision teams"},
+      {"index": "02", "title": "Design", "scope": "Initial concept and detailed drawings across architecture, interiors, MEP, and kitchen stainless steel, adjusted until approval.", "timeline": "7-14 days", "owner": "Design team"},
+      {"index": "03", "title": "Quotation + Contract", "scope": "Break down materials, labour, timeline, and equipment; prepare detailed quotation, sign contract, and collect deposit.", "timeline": "3-5 days", "owner": "Design + accounting teams"},
+      {"index": "04", "title": "Workshop Production", "scope": "Produce stainless-steel and furniture items at the Ha Dong workshop while preparing construction and MEP materials in parallel.", "timeline": "4-6 days", "owner": "Workshop team"},
+      {"index": "05", "title": "Site Installation", "scope": "Transport and install stainless steel, MEP, and construction finishes, then test equipment on site.", "timeline": "3-5 days", "owner": "Construction + supervision teams"},
+      {"index": "06", "title": "Handover + Warranty", "scope": "Acceptance, technical document handover, initial operation training, and 12-month warranty for stainless-steel and installation works.", "timeline": "After opening", "owner": "Full team"}
+    ]
+  },
+  "serviceDetail": {
+    "metadataSuffix": "Service",
+    "actions": {
+      "request": "Request this service",
+      "back": "Back to services"
+    },
+    "deliverables": {
+      "title": "Service deliverables",
+      "description": "Detailed scope items and execution value for this service."
+    },
+    "relatedProjects": {
+      "title": "Related projects",
+      "description": "Case studies that prove execution capability for this service.",
+      "view": "View case study"
+    },
+    "cta": {
+      "label": "Service enquiry",
+      "title": "Ready to scope your project?",
+      "description": "Get in touch for a tailored consultation and project quotation.",
+      "primary": "Book consultation",
+      "secondary": "See all services"
+    }
   }
 }
