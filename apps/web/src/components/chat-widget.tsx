@@ -259,7 +259,7 @@ export function ChatWidget({ enabled = true }: ChatWidgetProps) {
           width: 32px;
           height: 32px;
           border-radius: 50%;
-          background: var(--accent-safety, #C1532F);
+          background: var(--accent-safety, #004075);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -333,7 +333,7 @@ export function ChatWidget({ enabled = true }: ChatWidgetProps) {
           width: 30px;
           height: 30px;
           border-radius: 50%;
-          background: var(--accent-safety, #C1532F);
+          background: var(--accent-safety, #004075);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -419,7 +419,7 @@ export function ChatWidget({ enabled = true }: ChatWidgetProps) {
           align-items: center;
           transition: color 0.15s;
         }
-        .cw-send:not(:disabled):hover { color: var(--accent-safety, #C1532F); }
+        .cw-send:not(:disabled):hover { color: var(--accent-safety, #004075); }
         .cw-send:disabled { opacity: 0.35; cursor: not-allowed; }
         .cw-disclaimer {
           font-size: 11px;

@@ -1,3 +1,4 @@
+import type {Metadata} from 'next';
 import {HeroBanner} from '@/components/aladdin/hero-banner';
 import {BrandGrid} from '@/components/aladdin/brand-grid';
 import {EcosystemBrands} from '@/components/aladdin/ecosystem-brands';
@@ -9,6 +10,8 @@ import {Header} from '@/components/header';
 import {homepageContent} from '@/lib/site';
 import {getProjects, getPosts, getHeroSlides, getHomepage} from '@/lib/strapi/queries';
 import type {Locale} from '@/i18n/routing';
+import {getLocalizedAlternates, getOpenGraphLocale} from '@/lib/seo';
+import {getTranslations} from 'next-intl/server';
 
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL ?? 'http://localhost:1337';
 
@@ -16,8 +19,24 @@ type HomePageProps = {
   params: Promise<{locale: string}>;
 };
 
+export async function generateMetadata({params}: HomePageProps): Promise<Metadata> {
+  const {locale} = await params;
+  const t = await getTranslations({locale, namespace: 'home'});
+
+  return {
+    title: t('metadataTitle'),
+    description: t('metadataDescription'),
+    alternates: getLocalizedAlternates(locale),
+    openGraph: {
+      locale: getOpenGraphLocale(locale),
+      url: `/${locale}`,
+    },
+  };
+}
+
 export default async function HomePage({params}: HomePageProps) {
   const {locale} = await params;
+  const t = await getTranslations({locale, namespace: 'home'});
   const content = homepageContent[locale as keyof typeof homepageContent] ?? homepageContent.vi;
 
   // ── Fetch từ Strapi ───────────────────────────────────────────
@@ -89,7 +108,7 @@ export default async function HomePage({params}: HomePageProps) {
 
       <EcosystemBrands
         locale={locale}
-        title={locale === 'vi' ? 'Thương hiệu đã đồng hành thi công' : 'Brands We Have Delivered'}
+        title={t('ecosystemTitle')}
         description={content.brandSectionLead}
         brands={brandItems}
       />
@@ -116,7 +135,7 @@ export default async function HomePage({params}: HomePageProps) {
             <p className="section-desc-left">{strapiHomepage?.careersLead ?? content.careersLead}</p>
             <div className="panel recruitment-panel">
               <p className="meta-kicker">
-                {locale === 'vi' ? 'Thương hiệu Nhà tuyển dụng' : 'Employer Brand'}
+                {t('teamLabel')}
               </p>
               <h3>{strapiHomepage?.careersBlock?.title ?? content.careers.title}</h3>
               <p>{strapiHomepage?.careersBlock?.description ?? content.careers.description}</p>
@@ -127,7 +146,7 @@ export default async function HomePage({params}: HomePageProps) {
               </ul>
               <div className="button-row">
                 <ButtonLink href={`/${locale}/careers`} variant="primary">
-                  {locale === 'vi' ? 'Khám phá cơ hội' : 'Explore careers'}
+                  {t('exploreCareers')}
                 </ButtonLink>
               </div>
             </div>

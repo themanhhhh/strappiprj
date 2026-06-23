@@ -1,4 +1,4 @@
-/* Maestro layout typography */
+/* Project detail layout typography */
 .maestro-locale-frame {
   color: #111;
   text-rendering: optimizeLegibility;
@@ -28,7 +28,7 @@
   font-family: var(--font-body);
 }
 
-/* Maestro specific styles for Project Detail Page */
+/* Project detail page styles */
 .maestro-project-page {
   background-color: #f7f7f7; /* Very light subtle background around but mostly white inner */
 }

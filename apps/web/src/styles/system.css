@@ -1,7 +1,7 @@
 body {
   background:
-    radial-gradient(circle at top left, rgba(158, 95, 42, 0.08), transparent 28%),
-    linear-gradient(180deg, #f7f6f4 0%, var(--bg-concrete) 100%);
+    radial-gradient(circle at top left, rgba(26, 117, 190, 0.08), transparent 28%),
+    linear-gradient(180deg, var(--brand-off-white) 0%, var(--bg-concrete) 100%);
   background-attachment: fixed;
   color: var(--text-charcoal);
   font-family: var(--font-body);
@@ -69,7 +69,7 @@ p {
   left: 24px;
   right: 24px;
   border-radius: 60px;
-  background: #0B0202;
+  background: var(--brand-navy);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -177,7 +177,7 @@ p {
   font-weight: 500;
   color: var(--text-charcoal);
   text-transform: none;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease;
   position: relative;
   padding-bottom: 2px;
 }
@@ -574,6 +574,7 @@ p {
 .button-primary {
   background: var(--accent-safety);
   border-color: var(--accent-safety);
+  color: #fff;
 }
 
 .button-secondary {
@@ -1536,7 +1537,7 @@ h3.news-card-title,
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--accent-safety, #c48a2a);
+  color: var(--brand-navy);
   font-weight: 600;
   display: flex;
   gap: var(--space-2);
@@ -1557,7 +1558,7 @@ h3.news-card-title,
 }
 
 .brand-row:hover .brand-row-title {
-  color: var(--accent-safety, #c48a2a);
+  color: var(--brand-navy);
 }
 
 .brand-row-desc {

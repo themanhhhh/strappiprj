@@ -3,6 +3,8 @@ import Image from 'next/image';
 import {ButtonLink} from '@/components/button-link';
 import {PageHero} from '@/components/page-hero';
 import {getHeroSlides} from '@/lib/strapi/queries';
+import {getLocalizedAlternates, getOpenGraphLocale} from '@/lib/seo';
+import {getTranslations} from 'next-intl/server';
 
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL ?? 'http://localhost:1337';
 
@@ -12,144 +14,158 @@ type AboutPageProps = {
 
 export async function generateMetadata({params}: AboutPageProps): Promise<Metadata> {
   const {locale} = await params;
+  const t = await getTranslations({locale, namespace: 'aboutPage'});
   return {
-    title: locale === 'vi' ? 'Giới thiệu New Sky' : 'About New Sky',
-    description:
-      locale === 'vi'
-        ? 'New Sky là đối tác thiết kế và thi công nhà hàng trọn gói cho chủ nhà hàng, chuỗi F&B và dự án khách sạn tại Việt Nam.'
-        : 'New Sky is a design-and-build partner for restaurants, F&B chains, and hospitality projects in Vietnam.',
+    title: t('metadata.title'),
+    description: t('metadata.description'),
+    alternates: getLocalizedAlternates(locale, '/about'),
+    openGraph: {
+      locale: getOpenGraphLocale(locale),
+      url: `/${locale}/about`,
+    },
   };
 }
 
 const viStats = [
   {value: '10 năm', label: 'Đồng hành cùng hệ thống chuỗi nhà hàng của Aladdin.,JSC'},
-  {value: '100+', label: 'Dự án nhà hàng đã thi công trên cả 3 miền'},
+  {value: 'Hơn 100', label: 'Dự án nhà hàng đã thi công trong 10 năm'},
   {value: '16 ngày', label: 'Từ nhận mặt bằng đến khai trương dự án 84 Ngọc Khánh'},
-  {value: '3.000m2', label: 'Xưởng sản xuất Inox tại Hà Đông, Hà Nội'},
+  {value: '3.000m²', label: 'Xưởng tự sản xuất tại Hà Đông, Hà Nội'},
 ];
 
 const enStats = [
   {value: '10 years', label: 'Working alongside Aladdin.,JSC restaurant chains'},
-  {value: '100+', label: 'Restaurant projects delivered across Vietnam'},
+  {value: '100+', label: 'Restaurant projects delivered over 10 years'},
   {value: '16 days', label: 'From site handover to opening at 84 Ngoc Khanh'},
-  {value: '3,000sqm', label: 'Stainless-steel production workshop in Ha Dong, Hanoi'},
+  {value: '3,000sqm', label: 'In-house workshop in Ha Dong, Hanoi'},
 ];
 
-const viCommitments = [
+const viProofPoints = [
   {
-    label: 'Cam kết tiến độ',
-    body: 'New Sky lấy tiến độ làm một lợi thế cạnh tranh quan trọng. Dự án tổ hợp Bò Tơ Quán Mộc + Long Wang tại 84 Ngọc Khánh, Ba Đình, Hà Nội, quy mô 1.260m2, được triển khai từ nhận mặt bằng đến khai trương trong 16 ngày.',
+    label: 'Minh chứng tiến độ',
+    body: 'New Sky lấy tiến độ làm một lợi thế cạnh tranh quan trọng. Dự án tổ hợp Bò Tơ Quán Mộc + Long Wang tại 84 Ngọc Khánh, Ba Đình, Hà Nội, quy mô 1.260m², được triển khai từ nhận mặt bằng đến khai trương trong 16 ngày.',
   },
   {
-    label: 'Cam kết chất lượng',
-    body: 'Chất lượng được xây dựng từ kinh nghiệm thực chiến qua 100+ dự án nhà hàng trong 10 năm. Mỗi dự án được kiểm soát từ thiết kế, vật tư, sản xuất, lắp đặt đến nghiệm thu để hạn chế tối đa sửa chữa lớn sau bàn giao.',
+    label: 'Minh chứng chất lượng',
+    body: 'Chất lượng được xây dựng từ kinh nghiệm thực chiến qua hơn 100 dự án nhà hàng trong 10 năm. Mỗi dự án được kiểm soát từ thiết kế, vật tư, sản xuất, lắp đặt đến nghiệm thu để hạn chế sửa chữa lớn sau bàn giao.',
   },
   {
-    label: 'Cam kết niềm tin',
-    body: 'Niềm tin của khách hàng đến từ bằng chứng cụ thể: 10 năm đồng hành cùng hệ thống chuỗi nhà hàng của Aladdin.,JSC, từ giai đoạn khởi đầu đến khi hệ thống phát triển thành nhiều thương hiệu và hàng trăm cơ sở.',
+    label: 'Minh chứng niềm tin',
+    body: 'Niềm tin của khách hàng đến từ bằng chứng cụ thể: 10 năm đồng hành cùng 6 thương hiệu thuộc hệ thống Aladdin gồm Bò Tơ Quán Mộc, Tian Long, Long Wang, G.Master, Cơm Niêu Hải Sư và Khèn Nướng Sapa.',
   },
 ];
 
-const enCommitments = [
+const enProofPoints = [
   {
-    label: 'Programme Commitment',
+    label: 'Programme Proof',
     body: 'New Sky treats speed as a core competitive advantage. The combined Bo To Quan Moc + Long Wang project at 84 Ngoc Khanh, Ba Dinh, Hanoi, covering 1,260sqm, was delivered from site handover to opening in 16 days.',
   },
   {
-    label: 'Quality Commitment',
+    label: 'Quality Proof',
     body: 'Quality is built from hands-on experience across more than 100 restaurant projects over 10 years. Each project is controlled from design, materials, production, and installation through to acceptance to reduce major post-handover rework.',
   },
   {
-    label: 'Trust Commitment',
+    label: 'Trust Proof',
     body: 'Customer trust is built on concrete proof: 10 years working with the Aladdin.,JSC restaurant-chain system, from its early stage to a multi-brand ecosystem with hundreds of outlets.',
   },
 ];
 
 const viCapabilities = [
   {
-    label: 'Thiết kế nội thất',
-    body: 'Triển khai ý tưởng, kiến trúc, nội thất và bản vẽ thi công phù hợp với định vị thương hiệu.',
+    label: 'Thiết kế',
+    body: 'Triển khai ý tưởng, mặt bằng công năng và bản vẽ kỹ thuật phù hợp với định vị thương hiệu nhà hàng.',
     image: '/images/image1.png',
   },
   {
-    label: 'Cơ điện',
-    body: 'Hệ thống điện, cấp thoát nước, thông gió, hút khói và phối hợp tiêu chuẩn PCCC.',
+    label: 'Nội thất',
+    body: 'Sản xuất và lắp đặt hạng mục nội thất nhà hàng tại xưởng để đồng bộ giữa thiết kế và thi công.',
     image: '/images/image2.png',
   },
   {
-    label: 'Inox bếp công nghiệp',
-    body: 'Bàn Inox, giá kệ, bồn rửa, tủ bếp và hệ thống thiết bị bếp được sản xuất tại xưởng riêng.',
+    label: 'Cơ điện',
+    body: 'Điều phối hệ thống điện, cấp thoát nước, thông gió, hút khói và các yêu cầu kỹ thuật liên quan cho nhà hàng.',
     image: '/images/image3.png',
   },
   {
-    label: 'Xây dựng và cải tạo',
-    body: 'Xử lý mặt bằng nhà phố, trung tâm thương mại, khách sạn hoặc dự án lưu trú.',
+    label: 'Inox bếp công nghiệp',
+    body: 'Bàn inox, giá kệ, tủ bếp, bồn rửa và các hạng mục inox bếp công nghiệp được sản xuất tại xưởng Hà Đông.',
     image: '/images/image4.png',
   },
   {
-    label: 'Lắp đặt và bàn giao vận hành',
-    body: 'Lắp đặt thiết bị, chạy thử, nghiệm thu, bàn giao hồ sơ kỹ thuật và hỗ trợ vận hành ban đầu.',
+    label: 'Xây dựng',
+    body: 'Tổ chức cải tạo mặt bằng, dựng vách ngăn và hoàn thiện sàn, tường, trần theo bản vẽ đã duyệt.',
+    image: '/images/image5.png',
+  },
+  {
+    label: 'Biển hiệu',
+    body: 'Sản xuất chữ inox, biển hiệu UV và pano để đồng bộ nhận diện mặt tiền, không gian và điểm chạm thương hiệu.',
     image: '/images/image5.png',
   },
 ];
 
 const enCapabilities = [
   {
-    label: 'Interior Design',
-    body: 'Concept, architecture, interior design, and construction drawings aligned with each brand position.',
+    label: 'Design',
+    body: 'Concept, functional layout, and technical drawings aligned with each restaurant brand position.',
     image: '/images/image1.png',
   },
   {
-    label: 'MEP Systems',
-    body: 'Electrical, water supply and drainage, ventilation, smoke extraction, and coordination with fire-safety standards.',
+    label: 'Interiors',
+    body: 'Production and installation of restaurant interior items through New Sky\'s workshop for stronger design-to-build consistency.',
     image: '/images/image2.png',
   },
   {
-    label: 'Industrial Kitchen Stainless Steel',
-    body: 'Stainless-steel tables, shelves, sinks, cabinets, and kitchen equipment systems produced at New Sky\'s own workshop.',
+    label: 'MEP Systems',
+    body: 'Coordination of electrical, water supply, drainage, ventilation, smoke extraction, and related restaurant technical requirements.',
     image: '/images/image3.png',
   },
   {
-    label: 'Construction and Renovation',
-    body: 'Site works for townhouses, shopping malls, hotels, and hospitality projects.',
+    label: 'Industrial Kitchen Stainless Steel',
+    body: 'Stainless-steel tables, shelves, cabinets, sinks, and kitchen items produced at the Ha Dong workshop.',
     image: '/images/image4.png',
   },
   {
-    label: 'Installation and Operational Handover',
-    body: 'Equipment installation, testing, acceptance, technical document handover, and initial operational support.',
+    label: 'Construction',
+    body: 'Coordination of site renovation, partitions, and floor, wall, and ceiling finishes according to approved drawings.',
+    image: '/images/image5.png',
+  },
+  {
+    label: 'Signage',
+    body: 'Production of stainless-steel lettering, UV signage, and pano signage to align frontage, space, and brand touchpoints.',
     image: '/images/image5.png',
   },
 ];
 
 const viFactoryBenefits = [
-  'Chủ động sản xuất thiết bị bếp Inox công nghiệp.',
-  'Rút ngắn tiến độ so với việc thuê gia công ngoài.',
-  'Kiểm soát đồng bộ chất lượng từ sản xuất đến lắp đặt.',
-  'Đáp ứng cùng lúc nhiều dự án chuỗi, nhà hàng quy mô lớn và dự án khách sạn - lưu trú.',
+  'Chủ động sản xuất inox bếp công nghiệp.',
+  'Chủ động sản xuất hạng mục nội thất nhà hàng.',
+  'Chủ động sản xuất chữ inox, biển hiệu UV và pano.',
+  'Phục vụ cả gói tổng thầu nhà hàng F&B và nhu cầu sản phẩm rời.',
 ];
 
 const enFactoryBenefits = [
-  'Proactive production of industrial stainless-steel kitchen equipment.',
-  'Shorter timelines compared with outsourced fabrication.',
-  'Consistent quality control from production through installation.',
-  'Capacity to support multiple chain, large restaurant, and hospitality projects at the same time.',
+  'In-house production of industrial kitchen stainless steel.',
+  'In-house production of restaurant interior items.',
+  'In-house production of stainless-steel lettering, UV signage, and pano signage.',
+  'Support for both restaurant F&B general contracting and standalone product needs.',
 ];
 
 const viDirectorProfile = [
-  'Ông Lưu Văn Sỹ là Giám đốc Công ty TNHH Xây Dựng và Thực Phẩm New Sky, người định hướng năng lực thiết kế và thi công trọn gói cho các dự án nhà hàng, chuỗi F&B và khách sạn - lưu trú tại Việt Nam.',
-  'Với kinh nghiệm đồng hành cùng hệ thống chuỗi nhà hàng của Aladdin.,JSC, ông tập trung xây dựng New Sky theo hướng thực thi nhanh, kiểm soát chất lượng chặt chẽ và phát triển năng lực sản xuất nội bộ, đặc biệt là hệ thống bếp Inox công nghiệp.',
+  'Ông Lưu Văn Sỹ là Giám đốc Công ty TNHH Xây Dựng và Thực Phẩm New Sky, người định hướng năng lực thiết kế và thi công trọn gói cho các dự án nhà hàng và chuỗi F&B tại Việt Nam.',
+  'Với kinh nghiệm đồng hành cùng hệ thống chuỗi nhà hàng của Aladdin.,JSC, ông tập trung xây dựng New Sky theo hướng thực thi nhanh, kiểm soát chất lượng chặt chẽ và phát triển năng lực sản xuất nội bộ cho nội thất, inox bếp và biển hiệu.',
 ];
 
 const enDirectorProfile = [
-  'Mr. Luu Van Sy is the Director of New Sky Construction and Food Co., Ltd., leading the company\'s design-and-build capability for restaurants, F&B chains, and hospitality projects in Vietnam.',
-  'With experience working alongside the Aladdin.,JSC restaurant-chain system, he focuses on building New Sky around fast execution, strict quality control, and stronger in-house production capability, especially for industrial stainless-steel kitchen systems.',
+  'Mr. Luu Van Sy is the Director of New Sky Construction and Food Co., Ltd., leading the company\'s design and construction capability for restaurants and F&B chains in Vietnam.',
+  'With experience working alongside the Aladdin.,JSC restaurant-chain system, he focuses on building New Sky around fast execution, strict quality control, and stronger in-house production for interiors, kitchen stainless steel, and signage.',
 ];
 
 export default async function AboutPage({params}: AboutPageProps) {
   const {locale} = await params;
+  const t = await getTranslations({locale, namespace: 'aboutPage'});
   const isVi = locale === 'vi';
   const stats = isVi ? viStats : enStats;
-  const commitments = isVi ? viCommitments : enCommitments;
+  const proofPoints = isVi ? viProofPoints : enProofPoints;
   const capabilities = isVi ? viCapabilities : enCapabilities;
   const factoryBenefits = isVi ? viFactoryBenefits : enFactoryBenefits;
   const heroSlides = await getHeroSlides(locale, 'about');
@@ -161,31 +177,27 @@ export default async function AboutPage({params}: AboutPageProps) {
     <>
       <PageHero
         slides={slides}
-        eyebrow={isVi ? 'Giới thiệu New Sky' : 'About New Sky'}
-        title={isVi ? 'Đối tác thiết kế và thi công trọn gói cho chủ nhà hàng Việt' : 'Design-and-build partner for restaurant owners in Vietnam'}
-        description={isVi ? 'Thiết kế - thi công nhà hàng - cơ điện - bếp Inox công nghiệp - bàn giao vận hành' : 'Design - restaurant construction - MEP - industrial stainless-steel kitchens - operational handover'}
+        eyebrow={t('hero.eyebrow')}
+        title={t('hero.title')}
+        description={t('hero.description')}
       />
 
       <section className="about-intro-section">
         <div className="shell about-split-row">
           <div className="about-split-title">
-            <h2>
-              {isVi
-                ? 'Một đầu mối duy nhất cho toàn bộ quá trình triển khai nhà hàng'
-                : 'One accountable partner for the full restaurant delivery process'}
-            </h2>
+            <h2>{t('introTitle')}</h2>
             <div className="about-split-rule" />
           </div>
           <div className="about-split-body">
             <p>
               {isVi
-                ? 'New Sky là đối tác chuyên thiết kế và thi công nhà hàng trọn gói, phục vụ chủ nhà hàng, chuỗi F&B và các dự án khách sạn - lưu trú tại Việt Nam. Với kinh nghiệm 10 năm đồng hành cùng hệ thống chuỗi nhà hàng của Aladdin.,JSC, New Sky đã tham gia thi công hơn 100 dự án nhà hàng trên cả 3 miền Bắc - Trung - Nam.'
-                : 'New Sky is a specialist design-and-build partner for restaurant owners, F&B chains, and hospitality projects in Vietnam. With 10 years working alongside the Aladdin.,JSC restaurant-chain system, New Sky has delivered more than 100 restaurant projects across Northern, Central, and Southern Vietnam.'}
+                ? 'New Sky là đối tác chuyên thiết kế và thi công nhà hàng F&B, phục vụ chủ chuỗi nhà hàng Việt Nam quy mô 3 đến hơn 50 cơ sở, người setup nhà hàng F&B và doanh nghiệp F&B mở rộng chuỗi. Với kinh nghiệm 10 năm đồng hành cùng hệ thống Aladdin, New Sky đã tham gia thi công hơn 100 dự án nhà hàng.'
+                : 'New Sky is a specialist design and construction partner for restaurant owners, F&B chains, and F&B businesses expanding in Vietnam. With 10 years working alongside the Aladdin system, New Sky has delivered more than 100 restaurant projects.'}
             </p>
             <p>
               {isVi
-                ? 'Chúng tôi triển khai đồng bộ từ ý tưởng thiết kế, bản vẽ kỹ thuật, cơ điện, hệ thống bếp Inox công nghiệp, cải tạo mặt bằng, lắp đặt thiết bị đến bàn giao vận hành. Cách làm này giúp chủ đầu tư giảm thời gian phối hợp với nhiều nhà thầu, kiểm soát chất lượng tốt hơn và rút ngắn tiến độ khai trương.'
-                : 'We coordinate concept design, technical drawings, MEP, industrial stainless-steel kitchen systems, site renovation, equipment installation, and operational handover. This approach helps investors reduce contractor coordination time, improve quality control, and shorten opening schedules.'}
+                ? 'Chúng tôi triển khai đồng bộ 6 năng lực: thiết kế, nội thất, cơ điện, inox bếp, xây dựng và biển hiệu; sau đó tổ chức lắp đặt, bàn giao và bảo trì. Cơ điện và xây dựng được điều phối qua thầu phụ, các phần còn lại do New Sky tự làm.'
+                : 'We coordinate 6 capabilities: design, interiors, MEP, kitchen stainless steel, construction, and signage, followed by installation, handover, and maintenance. MEP and construction are coordinated through subcontractors, while the remaining scopes are handled in-house.'}
             </p>
             <p>
               {isVi
@@ -194,10 +206,10 @@ export default async function AboutPage({params}: AboutPageProps) {
             </p>
             <div className="button-row" style={{marginTop: '32px'}}>
               <ButtonLink href={`/${locale}/projects`} variant="primary">
-                {isVi ? 'Khám phá dự án' : 'Explore projects'}
+                  {t('projectsCta')}
               </ButtonLink>
               <ButtonLink href={`/${locale}/contact`} variant="secondary">
-                {isVi ? 'Liên hệ tư vấn' : 'Contact us'}
+                  {t('contactCta')}
               </ButtonLink>
             </div>
           </div>
@@ -207,17 +219,23 @@ export default async function AboutPage({params}: AboutPageProps) {
       <section className="about-leader-section">
         <div className="shell about-leader-card">
           <div className="about-leader-content">
-            <div className="about-leader-portrait" aria-hidden="true">
-              <span>LVS</span>
+            <div className="about-leader-portrait">
+              <Image
+                src="/images/giamdocpic.png"
+                alt={isVi ? 'Ông Lưu Văn Sỹ - Giám đốc New Sky' : 'Mr. Luu Van Sy - Director of New Sky'}
+                fill
+                sizes="(max-width: 768px) 260px, 280px"
+                priority={false}
+              />
             </div>
             <div className="about-leader-copy">
               <div className="about-leader-heading">
-                <span>{isVi ? 'Người đứng đầu' : 'Leadership'}</span>
-                <h2>{isVi ? 'Giám đốc công ty' : 'Company Director'}</h2>
+                 <span>{t('leaderLabel')}</span>
+                 <h2>{t('leaderTitle')}</h2>
               </div>
               <div className="about-leader-signature about-leader-signature-top">
-                <strong>{isVi ? 'Lưu Văn Sỹ' : 'Luu Van Sy'}</strong>
-                <span>{isVi ? 'Giám đốc - Công ty TNHH Xây Dựng và Thực Phẩm New Sky' : 'Director - New Sky Construction and Food Co., Ltd.'}</span>
+                <strong>{t('directorName')}</strong>
+                <span>{t('directorRole')}</span>
               </div>
               {(isVi ? viDirectorProfile : enDirectorProfile).map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
@@ -230,7 +248,7 @@ export default async function AboutPage({params}: AboutPageProps) {
       <section className="about-vmv-section">
         <div className="shell">
           <ul className="about-vmv-list">
-            {commitments.map((item) => (
+            {proofPoints.map((item) => (
               <li key={item.label} className="about-vmv-item">
                 <h3 className="about-vmv-label">{item.label}</h3>
                 <p className="about-vmv-body">{item.body}</p>
@@ -254,7 +272,7 @@ export default async function AboutPage({params}: AboutPageProps) {
       <section className="about-intro-section">
         <div className="shell about-split-row">
           <div className="about-split-title">
-            <h2>{isVi ? 'Năng lực thi công trọn gói' : 'End-to-end delivery capability'}</h2>
+            <h2>{t('capabilitiesTitle')}</h2>
             <div className="about-split-rule" />
           </div>
           <div className="about-split-body">
@@ -278,11 +296,11 @@ export default async function AboutPage({params}: AboutPageProps) {
       <section className="about-team-section">
         <div className="shell">
           <div className="about-team-header">
-            <h2>{isVi ? 'Xưởng sản xuất Inox 3.000m2' : '3,000sqm Stainless-Steel Workshop'}</h2>
+            <h2>{t('factoryTitle')}</h2>
             <p>
               {isVi
-                ? 'Xưởng đặt tại Hà Đông, Hà Nội, bao gồm khu sản xuất và bãi tập kết, giúp New Sky chủ động hơn trong khâu sản xuất bếp Inox công nghiệp và kiểm soát chất lượng ngay từ cắt CNC, chấn, hàn đến đóng gói và lắp đặt.'
-                : 'Located in Ha Dong, Hanoi, the workshop includes production and staging areas, giving New Sky greater control over industrial kitchen fabrication from CNC cutting, bending, and welding through to packing and installation.'}
+                ? 'Xưởng đặt tại Hà Đông, Hà Nội, giúp New Sky chủ động sản xuất nội thất, inox bếp công nghiệp và biển hiệu cho dự án nhà hàng F&B cũng như nhu cầu sản phẩm rời.'
+                : 'Located in Ha Dong, Hanoi, the workshop helps New Sky produce interiors, industrial kitchen stainless steel, and signage for restaurant F&B projects as well as standalone product needs.'}
             </p>
           </div>
           <div className="about-team-grid">
@@ -291,7 +309,7 @@ export default async function AboutPage({params}: AboutPageProps) {
                 <div className="about-team-avatar">
                   <span>{index + 1}</span>
                 </div>
-                <h3 className="about-team-name">{isVi ? 'Lợi thế xưởng riêng' : 'Workshop Advantage'}</h3>
+                <h3 className="about-team-name">{t('factoryCardTitle')}</h3>
                 <div className="about-team-divider" />
                 <p className="about-team-bio">{benefit}</p>
               </div>
@@ -303,17 +321,17 @@ export default async function AboutPage({params}: AboutPageProps) {
       <section className="about-intro-section">
         <div className="shell about-split-row">
           <div className="about-split-title">
-            <h2>{isVi ? 'Lợi ích dành cho chủ đầu tư' : 'Benefits for investors'}</h2>
+            <h2>{t('benefitsTitle')}</h2>
             <div className="about-split-rule" />
           </div>
           <div className="about-split-body">
             <p>
               {isVi
-                ? 'Khi lựa chọn New Sky, chủ đầu tư có thể làm việc với một đơn vị có khả năng triển khai đồng bộ từ thiết kế đến thi công và bàn giao. Điều này giúp dự án rõ trách nhiệm, giảm rủi ro chồng chéo giữa các nhà thầu, kiểm soát tiến độ tốt hơn và đảm bảo chất lượng đồng nhất trong toàn bộ quá trình triển khai.'
-                : 'By choosing New Sky, investors work with one partner capable of coordinating design, construction, and handover. This clarifies responsibility, reduces overlap between contractors, improves programme control, and keeps quality consistent throughout the delivery process.'}
+                ? 'Khi lựa chọn New Sky, chủ đầu tư có thể làm việc với một đầu mối tổng thầu chuyên nhà hàng, có lịch sử dự án rõ ràng và năng lực tự sản xuất các hạng mục trọng yếu. Điều này giúp dự án rõ trách nhiệm, giảm rủi ro chồng chéo giữa các nhà thầu và kiểm soát chất lượng đồng nhất hơn trong quá trình triển khai.'
+                : 'By choosing New Sky, investors work with one restaurant-focused contractor with clear project history and in-house production for key scopes. This clarifies responsibility, reduces overlap between contractors, and keeps quality more consistent throughout delivery.'}
             </p>
             <p>
-              <strong>{isVi ? 'New Sky - Đối tác thiết kế và thi công trọn gói cho chủ nhà hàng Việt.' : 'New Sky - Design-and-build partner for restaurant owners in Vietnam.'}</strong>
+              <strong>{t('finalLine')}</strong>
             </p>
           </div>
         </div>

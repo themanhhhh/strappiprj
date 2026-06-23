@@ -1,8 +1,9 @@
 import {ContactFormUi} from '@/components/contact-form-ui';
-import {InfoCard} from '@/components/info-card';
+import type {Metadata} from 'next';
 import {PageHero} from '@/components/page-hero';
-import {SectionIntro} from '@/components/section-intro';
 import {getHeroSlides} from '@/lib/strapi/queries';
+import {getLocalizedAlternates, getOpenGraphLocale} from '@/lib/seo';
+import {getTranslations} from 'next-intl/server';
 
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL ?? 'http://localhost:1337';
 
@@ -10,8 +11,24 @@ type ContactPageProps = {
   params: Promise<{locale: string}>;
 };
 
+export async function generateMetadata({params}: ContactPageProps): Promise<Metadata> {
+  const {locale} = await params;
+  const t = await getTranslations({locale, namespace: 'contactPage'});
+
+  return {
+    title: t('metadata.title'),
+    description: t('metadata.description'),
+    alternates: getLocalizedAlternates(locale, '/contact'),
+    openGraph: {
+      locale: getOpenGraphLocale(locale),
+      url: `/${locale}/contact`,
+    },
+  };
+}
+
 export default async function ContactPage({params}: ContactPageProps) {
   const {locale} = await params;
+  const t = await getTranslations({locale, namespace: 'contactPage'});
   const heroSlides = await getHeroSlides(locale, 'contact');
   const slides = heroSlides.map((s) => ({
     imageUrl: s.cover?.url ? (s.cover.url.startsWith('http') ? s.cover.url : `${STRAPI_URL}${s.cover.url}`) : null,
@@ -20,9 +37,9 @@ export default async function ContactPage({params}: ContactPageProps) {
     <>
       <PageHero
         slides={slides}
-        eyebrow={locale === 'vi' ? 'Tiếp nhận thông tin' : 'Lead Capture'}
-        title={locale === 'vi' ? 'Sẵn sàng tư vấn thi công trực tiếp.' : 'The contact page now has a real UI shell for enquiries.'}
-        description={locale === 'vi' ? 'Tất cả các trường thông tin, biểu mẫu và nhãn dán đều được thiết kế chuẩn mực sẵn sàng cho việc ghi nhận lịch hẹn.' : 'Form fields, labels, spacing and supporting information are standardized so integration can focus on behavior later.'}
+        eyebrow={t('hero.eyebrow')}
+        title={t('hero.title')}
+        description={t('hero.description')}
       />
 
       <section className="section-block bg-sector-overlay">

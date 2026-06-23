@@ -6,6 +6,8 @@ import {SlideshowBackground} from '@/components/slideshow-background';
 import {getJobs, getHeroSlides} from '@/lib/strapi/queries';
 import {jobs as catalogJobs} from '@/lib/catalog';
 import type {Locale} from '@/i18n/routing';
+import {getLocalizedAlternates, getOpenGraphLocale} from '@/lib/seo';
+import {getTranslations} from 'next-intl/server';
 
 type CareersPageProps = {
   params: Promise<{locale: string}>;
@@ -13,11 +15,15 @@ type CareersPageProps = {
 
 export async function generateMetadata({params}: CareersPageProps): Promise<Metadata> {
   const {locale} = await params;
+  const t = await getTranslations({locale, namespace: 'careersPage'});
   return {
-    title: locale === 'vi' ? 'Tuyển dụng — Đội ngũ New Sky' : 'Careers — Join New Sky',
-    description: locale === 'vi'
-      ? 'Khám phá các vị trí tuyển dụng tại New Sky trong đội thiết kế, giám sát, thi công và xưởng sản xuất Inox.'
-      : 'Explore open positions at New Sky across design, site supervision, construction, and stainless-steel production teams.',
+    title: t('metadata.title'),
+    description: t('metadata.description'),
+    alternates: getLocalizedAlternates(locale, '/careers'),
+    openGraph: {
+      locale: getOpenGraphLocale(locale),
+      url: `/${locale}/careers`,
+    },
   };
 }
 
@@ -25,6 +31,7 @@ const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL ?? 'http://localhost:1337'
 
 export default async function CareersPage({params}: CareersPageProps) {
   const {locale} = await params;
+  const t = await getTranslations({locale, namespace: 'careersPage'});
 
   // Fetch từ Strapi; nếu Strapi chưa có data thì fallback về catalog
   const [strapiJobs, heroSlides] = await Promise.all([
@@ -67,18 +74,16 @@ export default async function CareersPage({params}: CareersPageProps) {
           <div>
             <SectionIntro
               index="09"
-              title={locale === 'vi' ? 'Làm việc cùng hệ thống đang tăng trưởng' : 'Work inside a growing operating system'}
-              description={locale === 'vi' ? 'Các vị trí tuyển dụng được trình bày theo ngôn ngữ doanh nghiệp rõ ràng, tập trung vào vai trò, kỳ vọng và giá trị công việc thay vì các thẻ demo chung chung.' : 'Open roles are presented with a clearer corporate structure focused on scope, expectations, and the value of the work.'}
+              title={t('intro.title')}
+              description={t('intro.description')}
             />
           </div>
 
           <div className="careers-intro-note panel">
-            <p className="meta-kicker">{locale === 'vi' ? 'Cách tiếp cận' : 'Approach'}</p>
-            <h3>{locale === 'vi' ? 'Tuyển đúng người cho đúng giai đoạn mở rộng.' : 'Hiring the right people for the right stage of growth.'}</h3>
+            <p className="meta-kicker">{t('intro.approachLabel')}</p>
+            <h3>{t('intro.approachTitle')}</h3>
             <p>
-              {locale === 'vi'
-                ? 'Mỗi vai trò đều cần khả năng thực thi, phối hợp đội nhóm và thích nghi với nhịp độ triển khai của một hệ thống đa thương hiệu.'
-                : 'Each role requires execution strength, collaborative discipline, and the ability to move with a multi-brand operating pace.'}
+              {t('intro.approachBody')}
             </p>
           </div>
         </div>
@@ -88,8 +93,8 @@ export default async function CareersPage({params}: CareersPageProps) {
         <div className="shell">
           <SectionIntro
             index="09"
-            title={locale === 'vi' ? 'Vị trí đang mở' : 'Open roles'}
-            description={locale === 'vi' ? 'Danh sách vị trí được rút gọn để dễ quét, đồng thời giữ cảm giác chỉn chu và nhất quán với ngôn ngữ thiết kế toàn site.' : 'Each opening is presented in a compact, easier-to-scan format while staying consistent with the site’s visual language.'}
+            title={t('intro.openRolesTitle')}
+            description={t('intro.openRolesDescription')}
           />
           <div className="careers-role-list">
             {displayJobs.map((role, index) => (

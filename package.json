@@ -5,9 +5,10 @@
   "scripts": {
     "dev:web": "pnpm --filter web dev",
     "build:web": "pnpm --filter web build",
+    "build:web:cpanel": "pnpm --filter web build:cpanel",
     "lint:web": "pnpm --filter web lint",
     "dev:cms": "pnpm --filter cms develop",
-    "build:cms": "pnpm --filter cms build"
+    "build:cms": "pnpm --filter cms build",
+    "start:cms": "pnpm --filter cms start"
   }
 }
-

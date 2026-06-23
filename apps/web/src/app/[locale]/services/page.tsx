@@ -3,6 +3,7 @@ import Image from 'next/image';
 import {getTranslations} from 'next-intl/server';
 import {PageHero} from '@/components/page-hero';
 import {getHeroSlides} from '@/lib/strapi/queries';
+import {getLocalizedAlternates, getOpenGraphLocale} from '@/lib/seo';
 
 type ServicesPageProps = {
   params: Promise<{locale: string}>;
@@ -29,6 +30,11 @@ export async function generateMetadata({params}: ServicesPageProps): Promise<Met
   return {
     title: t('metadata.title'),
     description: t('metadata.description'),
+    alternates: getLocalizedAlternates(locale, '/services'),
+    openGraph: {
+      locale: getOpenGraphLocale(locale),
+      url: `/${locale}/services`,
+    },
   };
 }
 
@@ -148,7 +154,7 @@ export default async function ServicesPage({params}: ServicesPageProps) {
           font-size: 12px;
           letter-spacing: 0.14em;
           text-transform: uppercase;
-          color: #8a7a58;
+          color: var(--brand-blue);
           font-weight: 700;
         }
 
@@ -206,7 +212,7 @@ export default async function ServicesPage({params}: ServicesPageProps) {
 
         .capability-copy span,
         .process-index {
-          color: #8a7a58;
+          color: var(--brand-blue);
           font-family: var(--font-mono);
           font-size: 12px;
           font-weight: 800;
@@ -270,7 +276,7 @@ export default async function ServicesPage({params}: ServicesPageProps) {
         }
 
         .factory-stats strong {
-          color: #c87941;
+          color: var(--brand-gold);
           font-size: clamp(34px, 5vw, 58px);
           line-height: 1;
         }
@@ -315,7 +321,7 @@ export default async function ServicesPage({params}: ServicesPageProps) {
         }
 
         .process-card dt {
-          color: #8a7a58;
+          color: var(--brand-blue);
           font-size: 11px;
           font-weight: 800;
           letter-spacing: 0.12em;

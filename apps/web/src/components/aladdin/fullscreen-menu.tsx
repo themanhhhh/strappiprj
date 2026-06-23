@@ -21,6 +21,8 @@ export function FullscreenMenu({items, locale, transparent = false}: FullscreenM
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const lastScrollY = useRef(0);
+  const contactHref = locale === 'vi' ? `/${locale}/lien-he` : `/${locale}/contact`;
+  const ctaLabel = locale === 'vi' ? 'Nhận báo giá' : 'Request a quote';
 
   const getLocaleUrl = (targetLocale: string) => {
     if (!pathname) return `/${targetLocale}`;
@@ -102,7 +104,7 @@ export function FullscreenMenu({items, locale, transparent = false}: FullscreenM
           <Link href={`/${locale}`} className="header-brand-center">
             <Image
               src="/images/logo.png"
-              alt="Maestro"
+              alt="New Sky"
               width={350}
               height={61}
               priority
@@ -173,8 +175,8 @@ export function FullscreenMenu({items, locale, transparent = false}: FullscreenM
                 <Link href={getLocaleUrl('en')} className={locale === 'en' ? 'active' : ''}>En</Link>
               </div>
 
-              <ButtonLink href={`/${locale}/contact`} variant="primary" className="overlay-cta" onClick={() => setIsOpen(false)}>
-                Liên hệ
+              <ButtonLink href={contactHref} variant="primary" className="overlay-cta" onClick={() => setIsOpen(false)}>
+                {ctaLabel}
               </ButtonLink>
             </div>
           </div>
@@ -189,7 +191,7 @@ export function FullscreenMenu({items, locale, transparent = false}: FullscreenM
       <Link href={`/${locale}`} className="brand">
         <Image
           src="/images/logo.png"
-          alt="Maestro"
+          alt="New Sky"
           width={220}
           height={52}
           priority
@@ -216,8 +218,8 @@ export function FullscreenMenu({items, locale, transparent = false}: FullscreenM
         <Link href={getLocaleUrl('en')} className={locale === 'en' ? 'active' : ''}>En</Link>
       </div>
 
-      <ButtonLink href={`/${locale}/contact`} variant="primary" className="desktop-cta-btn">
-        Liên hệ
+      <ButtonLink href={contactHref} variant="primary" className="desktop-cta-btn">
+        {ctaLabel}
       </ButtonLink>
 
       {/* Mobile Hamburger Toggle */}
@@ -265,8 +267,8 @@ export function FullscreenMenu({items, locale, transparent = false}: FullscreenM
               <Link href={getLocaleUrl('en')} className={locale === 'en' ? 'active' : ''}>En</Link>
             </div>
 
-            <ButtonLink href={`/${locale}/contact`} variant="primary" className="overlay-cta" onClick={() => setIsOpen(false)}>
-              Liên hệ
+            <ButtonLink href={contactHref} variant="primary" className="overlay-cta" onClick={() => setIsOpen(false)}>
+              {ctaLabel}
             </ButtonLink>
           </div>
         </div>

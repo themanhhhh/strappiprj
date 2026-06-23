@@ -48,74 +48,88 @@ export type JobEntry = {
 
 export const services: ServiceEntry[] = [
   {
-    slug: 'thiet-ke-noi-that',
+    slug: 'thiet-ke',
     index: '01',
-    title: 'Thiết kế nội thất',
-    description: 'Triển khai bản vẽ kiến trúc + nội thất từ ý tưởng ban đầu đến chi tiết thi công, phù hợp định vị thương hiệu chủ nhà hàng.',
+    title: 'Thiết kế',
+    description: 'Triển khai ý tưởng, mặt bằng công năng và bản vẽ kỹ thuật phù hợp định vị thương hiệu nhà hàng.',
     meta: 'Năng lực cốt lõi',
     deliverables: [
       'Ý tưởng thiết kế ban đầu',
-      'Bản vẽ kiến trúc + nội thất',
+      'Mặt bằng công năng và bản vẽ kỹ thuật',
       'Chi tiết thi công theo định vị thương hiệu'
     ],
     process: ['Khảo sát', 'Thiết kế', 'Duyệt bản vẽ', 'Bàn giao hồ sơ thi công'],
     relatedProjectSlugs: ['ngoc-khanh-complex', 'tian-long-chain']
   },
   {
-    slug: 'co-dien',
+    slug: 'noi-that',
     index: '02',
+    title: 'Nội thất',
+    description: 'Sản xuất và lắp đặt hạng mục nội thất nhà hàng tại xưởng để đồng bộ giữa thiết kế và thi công.',
+    meta: 'Xưởng Hà Đông',
+    deliverables: [
+      'Hạng mục nội thất nhà hàng',
+      'Sản xuất tại xưởng Hà Đông',
+      'Lắp đặt theo bản vẽ đã duyệt'
+    ],
+    process: ['Bóc tách hạng mục', 'Sản xuất tại xưởng', 'Kiểm tra hoàn thiện', 'Lắp đặt công trường'],
+    relatedProjectSlugs: ['ngoc-khanh-complex', 'tian-long-chain']
+  },
+  {
+    slug: 'co-dien',
+    index: '03',
     title: 'Cơ điện',
-    description: 'Hệ thống điện, nước cấp, nước thải, thông gió, hút khói và phối hợp tiêu chuẩn PCCC cho nhà hàng.',
+    description: 'Điều phối hệ thống điện, nước cấp, nước thải, thông gió, hút khói và các yêu cầu kỹ thuật liên quan cho nhà hàng.',
     meta: 'MEP / Nhà hàng',
     deliverables: [
       'Hệ thống điện và cấp thoát nước',
       'Thông gió, hút khói và PCCC',
-      'Phối hợp tiêu chuẩn BQL tòa nhà khi thi công trong TTTM'
+      'Phối hợp yêu cầu kỹ thuật của mặt bằng khi cần'
     ],
-    process: ['Khảo sát hạ tầng', 'Bản vẽ kỹ thuật', 'Thi công công trường', 'Chạy thử'],
+    process: ['Khảo sát hạ tầng', 'Bản vẽ kỹ thuật', 'Điều phối thầu phụ', 'Chạy thử'],
     relatedProjectSlugs: ['gmaster-landmark-81']
   },
   {
     slug: 'inox-bep-cong-nghiep',
-    index: '03',
+    index: '04',
     title: 'Inox bếp công nghiệp',
-    description: 'Bàn Inox, giá kệ, tủ bếp, bồn rửa và hệ thống thiết bị bếp được sản xuất trực tiếp tại xưởng Inox 3.000m2 nội bộ.',
-    meta: 'Xưởng Inox 3.000m2',
+    description: 'Bàn inox, giá kệ, tủ bếp, bồn rửa và các hạng mục inox bếp công nghiệp được sản xuất tại xưởng Hà Đông.',
+    meta: 'Xưởng Hà Đông 3.000m²',
     deliverables: [
-      'Bàn Inox, giá kệ, tủ bếp, bồn rửa',
+      'Bàn inox, giá kệ, tủ bếp, bồn rửa',
       'Sản xuất tại xưởng Hà Đông',
-      'Kiểm soát từ cắt CNC, chấn, hàn đến lắp đặt'
+      'Lắp đặt theo nhu cầu vận hành bếp nhà hàng'
     ],
-    process: ['Thiết kế Inox', 'Sản xuất tại xưởng', 'Đóng gói', 'Lắp đặt công trường'],
+    process: ['Thiết kế inox', 'Sản xuất tại xưởng', 'Kiểm tra hoàn thiện', 'Lắp đặt công trường'],
     relatedProjectSlugs: ['ngoc-khanh-complex', 'tian-long-chain']
   },
   {
     slug: 'xay-dung',
-    index: '04',
+    index: '05',
     title: 'Xây dựng',
-    description: 'Cải tạo mặt bằng nhà phố, dựng vách ngăn và hoàn thiện sàn - tường - trần theo bản vẽ thiết kế.',
+    description: 'Tổ chức cải tạo mặt bằng, dựng vách ngăn và hoàn thiện sàn, tường, trần theo bản vẽ đã duyệt.',
     meta: 'Cải tạo / Hoàn thiện',
     deliverables: [
       'Cải tạo mặt bằng nhà phố hoặc trung tâm thương mại',
       'Dựng vách ngăn',
       'Hoàn thiện sàn, tường, trần'
     ],
-    process: ['Khảo sát hiện trạng', 'Lập tiến độ', 'Thi công cải tạo', 'Nghiệm thu hoàn thiện'],
+    process: ['Khảo sát hiện trạng', 'Lập tiến độ', 'Điều phối thầu phụ', 'Nghiệm thu hoàn thiện'],
     relatedProjectSlugs: ['ngoc-khanh-complex']
   },
   {
-    slug: 'lap-dat-ban-giao-van-hanh',
-    index: '05',
-    title: 'Lắp đặt + bàn giao vận hành',
-    description: 'Lắp đặt thiết bị, chạy thử, nghiệm thu, bàn giao hồ sơ kỹ thuật và hỗ trợ vận hành 30 ngày đầu sau khai trương.',
-    meta: 'Handover / Operation',
+    slug: 'bien-hieu',
+    index: '06',
+    title: 'Biển hiệu',
+    description: 'Sản xuất chữ inox, biển hiệu UV và pano để đồng bộ nhận diện mặt tiền, không gian và điểm chạm thương hiệu.',
+    meta: 'Chữ inox / UV / Pano',
     deliverables: [
-      'Lắp đặt thiết bị và chạy thử',
-      'Nghiệm thu và bàn giao hồ sơ kỹ thuật',
-      'Hỗ trợ vận hành 30 ngày đầu sau khai trương'
+      'Chữ inox',
+      'Biển hiệu UV',
+      'Pano và hạng mục nhận diện liên quan'
     ],
-    process: ['Lắp đặt', 'Chạy thử', 'Nghiệm thu', 'Hỗ trợ vận hành'],
-    relatedProjectSlugs: ['ngoc-khanh-complex', 'gmaster-landmark-81', 'tian-long-chain']
+    process: ['Chốt nhận diện', 'Sản xuất tại xưởng', 'Kiểm tra hoàn thiện', 'Lắp đặt công trường'],
+    relatedProjectSlugs: ['ngoc-khanh-complex', 'tian-long-chain']
   }
 ];
 
@@ -124,43 +138,43 @@ export const projects: ProjectEntry[] = [
     slug: 'mall-restaurant-rollout',
     title: 'Chuỗi nhà hàng trung tâm thương mại',
     description: 'Bố cục thẻ thông tin hiển thị cái nhìn tổng quan, phạm vi bàn giao và loại hình dự án.',
-    meta: 'THI CÔNG / 420 M2 / HCMC',
+    meta: 'THI CÔNG / 420 M² / HCMC',
     category: 'Fast Casual Fit-out',
     location: 'TP. Hồ Chí Minh',
     year: '2025',
-    area: '420 m2',
+    area: '420 m²',
     challenge: 'Thời gian bàn giao mặt bằng ngắn và xung đột kỹ thuật MEP về thông gió nhà bếp và hệ thống thoát nước.',
     solution: 'Điều chỉnh lại thiết kế MEP từ sớm và chia quá trình thi công thành các giai đoạn kiểm soát chặt chẽ.',
     outcome: 'Cửa hàng khai trương đúng tiến độ với lối đi kỹ thuật rõ ràng và ít sửa chữa ở giai đoạn cuối.',
-    serviceSlugs: ['restaurant-fit-out', 'mep-coordination']
+    serviceSlugs: ['thiet-ke', 'noi-that', 'co-dien', 'inox-bep-cong-nghiep', 'xay-dung', 'bien-hieu']
   },
   {
     slug: 'cafe-upgrade-package',
     title: 'Gói cải tạo quán Cafe',
     description: 'Chuẩn bị sẵn cho các bộ lọc, thẻ tag và hiển thị danh sách theo danh mục mà không cần tuỳ chỉnh giao diện.',
-    meta: 'CẢI TẠO / 180 M2 / ĐÀ NẴNG',
+    meta: 'CẢI TẠO / 180 M² / ĐÀ NẴNG',
     category: 'Cafe Renovation',
     location: 'Đà Nẵng',
     year: '2025',
-    area: '180 m2',
+    area: '180 m²',
     challenge: 'Cửa hàng cần cải tạo nhưng vẫn phải duy trì hoạt động phục vụ và lối ra vào của khách.',
     solution: 'Áp dụng các khung giờ thi công ngắt quãng và thiết kế lại luồng di chuyển quanh khu vực quầy bar.',
     outcome: 'Cửa hàng cải tạo giúp cải thiện năng suất phục vụ giờ cao điểm và giảm thiểu va chạm giữa nhân viên.',
-    serviceSlugs: ['renovation-upgrade', 'mep-coordination']
+    serviceSlugs: ['thiet-ke', 'noi-that', 'co-dien', 'xay-dung']
   },
   {
     slug: 'signature-dining-space',
     title: 'Không gian ăn uống Signature',
     description: 'Hỗ trợ hiển thị meta data tương lai như hình ảnh, năm, ngân sách và các dịch vụ liên quan từ Strapi.',
-    meta: 'FLAGSHIP / 560 M2 / HN',
+    meta: 'FLAGSHIP / 560 M² / HN',
     category: 'Flagship Dining',
     location: 'Hà Nội',
     year: '2025',
-    area: '560 m2',
+    area: '560 m²',
     challenge: 'Khách hàng cần một khu vực đón khách ấn tượng hơn mà không làm giảm năng suất hiện tại.',
     solution: 'Cân đối lại lối vào, khu vực chờ và ăn uống trong khi vẫn đảm bảo hoàn thiện kiến trúc hài hoà với các dịch vụ.',
     outcome: 'Bố cục cuối cùng giúp nâng cao ấn tượng của thực khách và duy trì hiệu quả vận hành xuyên suốt các ca.',
-    serviceSlugs: ['restaurant-fit-out']
+    serviceSlugs: ['thiet-ke', 'noi-that', 'bien-hieu']
   }
 ];
 
@@ -176,7 +190,7 @@ export const posts: PostEntry[] = [
       'Record landlord constraints early',
       'Define budget range and opening target in the same document'
     ],
-    relatedServiceSlugs: ['restaurant-fit-out']
+    relatedServiceSlugs: ['thiet-ke', 'noi-that', 'co-dien']
   },
   {
     slug: 'coordination-risks-before-handover',
@@ -189,7 +203,7 @@ export const posts: PostEntry[] = [
       'Track MEP clashes with a single owner',
       'Run pre-handover walk-throughs by zone'
     ],
-    relatedServiceSlugs: ['mep-coordination', 'restaurant-fit-out']
+    relatedServiceSlugs: ['co-dien', 'xay-dung']
   },
   {
     slug: 'plan-service-circulation-early',
@@ -202,7 +216,7 @@ export const posts: PostEntry[] = [
       'Place support storage near service demand',
       'Use layout to reduce repeated movement'
     ],
-    relatedServiceSlugs: ['renovation-upgrade']
+    relatedServiceSlugs: ['thiet-ke', 'noi-that']
   }
 ];
 

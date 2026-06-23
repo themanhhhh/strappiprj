@@ -8,15 +8,17 @@ import {PageHero} from '@/components/page-hero';
 import {SectionIntro} from '@/components/section-intro';
 import {getServiceBySlug, getServices} from '@/lib/strapi/queries';
 import {getProject, getService, services as catalogServices} from '@/lib/catalog';
+import {getLocalizedAlternates, getOpenGraphLocale} from '@/lib/seo';
+import {locales} from '@/i18n/routing';
 
 type ServiceDetailPageProps = {
   params: Promise<{locale: string; slug: string}>;
 };
 
 export async function generateStaticParams() {
-  const strapiServices = await getServices('vi');
+  const strapiServices = (await Promise.all(locales.map((locale) => getServices(locale)))).flat();
   if (strapiServices.length > 0) {
-    return strapiServices.map((s) => ({slug: s.slug}));
+    return Array.from(new Set(strapiServices.map((s) => s.slug))).map((slug) => ({slug}));
   }
   return catalogServices.map((s) => ({slug: s.slug}));
 }
@@ -33,7 +35,13 @@ export async function generateMetadata({params}: ServiceDetailPageProps): Promis
   return {
     title: `${title} — ${t('metadataSuffix')}`,
     description,
-    openGraph: {title, description},
+    alternates: getLocalizedAlternates(locale, `/services/${slug}`),
+    openGraph: {
+      title,
+      description,
+      locale: getOpenGraphLocale(locale),
+      url: `/${locale}/services/${slug}`,
+    },
   };
 }
 

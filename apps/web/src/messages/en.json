@@ -6,11 +6,11 @@
     "journal": "Journal",
     "careers": "Careers",
     "contact": "Contact",
-    "cta": "Book survey"
+    "cta": "Request a quote"
   },
   "footer": {
     "brand": "NEW SKY",
-    "brandDescription": "Design-and-build partner for restaurant owners in Vietnam. 10 years - 100+ projects - in-house stainless-steel workshop.",
+    "brandDescription": "Design and construction partner for F&B restaurants in Vietnam. 10 years with Aladdin - more than 100 projects - in-house interiors, kitchen stainless steel, and signage.",
     "office": "Office",
     "hotline": "Hotline",
     "email": "Email",
@@ -21,7 +21,7 @@
     "initialMessage": "Hello. I am New Sky's consultation assistant. I can help with restaurant design-and-build, MEP, industrial kitchen stainless steel, construction timelines, and next steps for your project.",
     "errorMessage": "Sorry, the system is temporarily unavailable. Please try again later or contact New Sky directly via hotline 0906 790 333 for faster support.",
     "title": "New Sky Assistant",
-    "placeholder": "Briefly describe your project needs or scale...",
+    "placeholder": "Briefly describe your project needs or scale…",
     "disclaimer": "AI content is for initial reference only. For specific proposals, timelines, and quotations, please confirm with the New Sky team.",
     "openLabel": "Open consultation assistant",
     "closeLabel": "Close consultation assistant",
@@ -29,75 +29,86 @@
   },
   "home": {
     "eyebrow": "New Sky",
-    "title": "Design-and-build partner for restaurant owners in Vietnam.",
-    "description": "10 years - 100+ projects - in-house stainless-steel workshop.",
+    "title": "Design and construction partner for F&B restaurants in Vietnam.",
+    "description": "10 years with Aladdin - more than 100 projects - in-house interiors, kitchen stainless steel, and signage.",
     "primaryCta": "Request a quote",
     "secondaryCta": "View projects",
     "specLabel": "Specification",
-    "metricsLabel": "Scaffold metrics"
+    "metricsLabel": "Scaffold metrics",
+    "metadataTitle": "New Sky - F&B Restaurant Design and Construction",
+    "metadataDescription": "Design and construction partner for F&B restaurants in Vietnam - 10 years with Aladdin, in-house interiors, kitchen stainless steel, and signage.",
+    "ecosystemTitle": "Brands We Have Delivered",
+    "teamLabel": "Delivery Teams",
+    "exploreCareers": "Explore Careers"
   },
   "servicesPage": {
     "metadata": {
       "title": "Capabilities - New Sky",
-      "description": "New Sky core capabilities, 3,000sqm stainless-steel workshop, and six-step construction process."
+      "description": "6 restaurant F&B contractor capabilities, a 3,000sqm in-house workshop, and New Sky's delivery process."
     },
     "hero": {
       "eyebrow": "Capabilities",
       "title": "End-to-end restaurant design and construction from concept to opening day.",
-      "description": "New Sky organizes five core capabilities under one accountable partner, combining a 3,000sqm stainless-steel workshop and a six-step construction process to control programme, quality, and handover."
+      "description": "New Sky organizes 6 capabilities under one restaurant-focused contractor: design, interiors, MEP, kitchen stainless steel, construction, and signage, followed by installation, handover, and maintenance."
     },
     "capabilitiesIntro": {
-      "eyebrow": "5 core capabilities",
+      "eyebrow": "6 core capabilities",
       "title": "A capability system for the full restaurant delivery lifecycle.",
-      "description": "From design drawings, MEP, industrial kitchen stainless steel, and construction through installation and operational handover, New Sky controls the full process through one integrated team."
+      "description": "From design, interiors, MEP, kitchen stainless steel, construction, and signage, New Sky gives the project one accountable lead; MEP and construction are coordinated through subcontractors, while the remaining scopes are handled in-house."
     },
     "capabilities": [
       {
         "index": "01",
-        "title": "Interior Design",
-        "description": "Architecture and interior drawings from initial concept to construction details, aligned with each restaurant brand position.",
+        "title": "Design",
+        "description": "Concept, functional layout, and technical drawings aligned with each restaurant brand position.",
         "image": "/images/image1.png"
       },
       {
         "index": "02",
-        "title": "MEP Systems",
-        "description": "Electrical, water supply, wastewater, ventilation, smoke extraction, and fire-safety coordination, including mall management requirements when needed.",
+        "title": "Interiors",
+        "description": "Production and installation of restaurant interior items through New Sky's workshop for stronger design-to-build consistency.",
         "image": "/images/image2.png"
       },
       {
         "index": "03",
-        "title": "Industrial Kitchen Stainless Steel",
-        "description": "Stainless-steel tables, shelves, cabinets, sinks, and kitchen equipment systems produced directly at New Sky's 3,000sqm in-house workshop.",
+        "title": "MEP Systems",
+        "description": "Coordination of electrical, water supply, wastewater, ventilation, smoke extraction, and related restaurant technical requirements.",
         "image": "/images/image3.png"
       },
       {
         "index": "04",
-        "title": "Construction",
-        "description": "Site renovation, partition works, and floor - wall - ceiling finishes executed according to approved construction drawings.",
+        "title": "Industrial Kitchen Stainless Steel",
+        "description": "Stainless-steel tables, shelves, cabinets, sinks, and kitchen items produced at the Ha Dong workshop.",
         "image": "/images/image4.png"
       },
       {
         "index": "05",
-        "title": "Installation + Operational Handover",
-        "description": "Equipment installation, testing, acceptance, technical document handover, and 30-day initial operational support after opening.",
+        "title": "Construction",
+        "description": "Coordination of site renovation, partitions, and floor, wall, and ceiling finishes according to approved drawings.",
+        "image": "/images/image5.png"
+      },
+      {
+        "index": "06",
+        "title": "Signage",
+        "description": "Production of stainless-steel lettering, UV signage, and pano signage to align frontage, space, and brand touchpoints.",
         "image": "/images/image5.png"
       }
     ],
     "factory": {
       "eyebrow": "2026 capability shift",
-      "title": "3,000sqm stainless-steel workshop in Ha Dong, Hanoi",
-      "description": "The in-house workshop gives New Sky full control from design to kitchen stainless-steel fabrication instead of relying on outside fabricators. This is the foundation for shortening delivery timelines by 2-3 times and controlling quality from CNC cutting, bending, and welding through packing and installation.",
+      "title": "3,000sqm in-house workshop in Ha Dong, Hanoi",
+      "description": "The Ha Dong workshop helps New Sky produce interiors, industrial kitchen stainless steel, and signage in-house, improving control over the scopes New Sky directly delivers for restaurant F&B projects.",
       "stats": [
-        {"value": "3,000sqm", "label": "Total workshop and staging area"},
-        {"value": "1,000sqm", "label": "Production workshop"},
-        {"value": "2,000sqm", "label": "Staging area"},
-        {"value": "2-3x", "label": "Faster than outsourced fabrication"}
+        {"value": "3,000sqm", "label": "Ha Dong workshop"},
+        {"value": "3", "label": "In-house product groups"},
+        {"value": "Steel", "label": "Kitchen stainless steel"},
+        {"value": "Interiors", "label": "And signage"}
       ]
     },
     "processIntro": {
       "eyebrow": "Six-step construction process",
       "title": "From survey to handover, every step has clear scope, timing, and ownership.",
-      "description": "This process is shaped by 10 years and 100+ restaurant projects, balancing shorter timelines, quality control, and cost transparency before contract signing."
+      "description": "This process is shaped by 10 years and more than 100 restaurant projects, balancing schedule, quality, and clear accountability before contract signing."
     },
     "processLabels": {
       "timeline": "Timeline",
@@ -109,7 +120,7 @@
       {"index": "03", "title": "Quotation + Contract", "scope": "Break down materials, labour, timeline, and equipment; prepare detailed quotation, sign contract, and collect deposit.", "timeline": "3-5 days", "owner": "Design + accounting teams"},
       {"index": "04", "title": "Workshop Production", "scope": "Produce stainless-steel and furniture items at the Ha Dong workshop while preparing construction and MEP materials in parallel.", "timeline": "4-6 days", "owner": "Workshop team"},
       {"index": "05", "title": "Site Installation", "scope": "Transport and install stainless steel, MEP, and construction finishes, then test equipment on site.", "timeline": "3-5 days", "owner": "Construction + supervision teams"},
-      {"index": "06", "title": "Handover + Warranty", "scope": "Acceptance, technical document handover, initial operation training, and 12-month warranty for stainless-steel and installation works.", "timeline": "After opening", "owner": "Full team"}
+      {"index": "06", "title": "Handover + Maintenance", "scope": "Acceptance, technical document handover, initial operation guidance, and maintenance request intake after handover.", "timeline": "After opening", "owner": "Full team"}
     ]
   },
   "serviceDetail": {
@@ -134,5 +145,101 @@
       "primary": "Book consultation",
       "secondary": "See all services"
     }
+  },
+  "contactPage": {
+    "metadata": {
+      "title": "Contact New Sky",
+      "description": "Contact New Sky to discuss F&B restaurant projects, kitchen stainless steel, interiors, and signage."
+    },
+    "hero": {
+      "eyebrow": "Contact New Sky",
+      "title": "Discuss Your F&B Restaurant Project",
+      "description": "Share your site, chain scale, opening timeline, or needs for kitchen stainless steel, interiors, and signage so New Sky can advise the next step."
+    }
+  },
+  "aboutPage": {
+    "metadata": {
+      "title": "About New Sky",
+      "description": "New Sky is a design and construction partner for restaurant owners, F&B chains, and F&B businesses expanding in Vietnam."
+    },
+    "hero": {
+      "eyebrow": "About New Sky",
+      "title": "Design and construction partner for F&B restaurants in Vietnam",
+      "description": "Design, interiors, MEP, kitchen stainless steel, construction, and signage under one restaurant-focused contractor."
+    },
+    "introTitle": "One accountable partner for the full restaurant delivery process",
+    "projectsCta": "Explore Projects",
+    "contactCta": "Contact Us",
+    "leaderLabel": "Leadership",
+    "leaderTitle": "Company Director",
+    "directorName": "Luu Van Sy",
+    "directorRole": "Director - New Sky Construction and Food Co., Ltd.",
+    "capabilitiesTitle": "6 Restaurant Contractor Capabilities",
+    "factoryTitle": "3,000sqm In-House Workshop",
+    "factoryCardTitle": "Workshop Advantage",
+    "benefitsTitle": "Benefits for Investors",
+    "finalLine": "New Sky - Design and construction partner for F&B restaurants in Vietnam."
+  },
+  "projectsPage": {
+    "metadata": {
+      "title": "Projects - New Sky",
+      "description": "Explore restaurant, F&B chain, and commercial projects delivered by New Sky."
+    },
+    "hero": {
+      "eyebrow": "Projects",
+      "title": "Projects that prove New Sky's programme, quality, and chain rollout capability",
+      "description": "Each project proves New Sky's ability to coordinate design, interiors, MEP, kitchen stainless steel, construction, and signage through one accountable partner.",
+      "aside": [
+        "Construction and fit-out delivered through coordinated execution.",
+        "Finishing quality controlled at the level of detail.",
+        "Interiors, materials, and technical systems aligned within one delivery framework."
+      ]
+    }
+  },
+  "journalPage": {
+    "metadata": {
+      "title": "News and Capabilities - New Sky",
+      "description": "Project stories, construction capabilities, in-house workshop updates, and restaurant delivery insights from New Sky."
+    },
+    "hero": {
+      "eyebrow": "News & Capabilities",
+      "title": "Stories on projects, construction capability, and restaurant delivery process.",
+      "description": "From project updates to in-house workshop capability and F&B rollout experience, each story focuses on practical proof."
+    },
+    "intro": {
+      "label": "New Sky perspective",
+      "title": "Content designed to reflect New Sky's capability, programme discipline, and construction quality.",
+      "body": "The Journal brings together project stories, in-house production, construction quality, and market perspectives around restaurant design and construction delivery.",
+      "featureLabel": "Featured story",
+      "listLabel": "All articles",
+      "articleCount": "articles",
+      "readMore": "Read more"
+    }
+  },
+  "careersPage": {
+    "metadata": {
+      "title": "Careers - Join New Sky",
+      "description": "Explore open positions at New Sky across design, site supervision, construction, and in-house production teams."
+    },
+    "intro": {
+      "title": "Work inside a growing operating system",
+      "description": "Open roles are presented with a clearer corporate structure focused on scope, expectations, and the value of the work.",
+      "approachLabel": "Approach",
+      "approachTitle": "Hiring the right people for the right stage of growth.",
+      "approachBody": "Each role requires execution strength, collaborative discipline, and the ability to move with a multi-brand operating pace.",
+      "openRolesTitle": "Open roles",
+      "openRolesDescription": "Each opening is presented in a compact, easier-to-scan format while staying consistent with the site's visual language."
+    }
+  },
+  "projectDetail": {
+    "heroCta": "Explore",
+    "relatedServices": "Related Services",
+    "details": "Details"
+  },
+  "journalDetail": {
+    "overview": "Article overview",
+    "relatedLabel": "Related content",
+    "relatedTitle": "Further Reading",
+    "readMore": "Read more"
   }
 }

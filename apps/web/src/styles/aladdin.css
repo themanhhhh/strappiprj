@@ -223,7 +223,7 @@
 }
 
 .brand-tag {
-  color: #8a7a58;
+  color: var(--brand-blue);
   font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -519,7 +519,7 @@
 
 .careers-role-meta {
   margin: 0;
-  color: #8a7a58;
+  color: var(--brand-blue);
 }
 
 .careers-role-desc {
@@ -647,7 +647,7 @@
   font-size: 0.875rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--accent-warm, #c87941);
+  color: var(--brand-gold);
   font-weight: 600;
 }
 
@@ -717,7 +717,7 @@
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--accent-warm, #c87941);
+  color: var(--brand-gold);
   font-weight: 600;
   margin-bottom: var(--space-4);
 }
@@ -736,7 +736,7 @@
   padding: var(--space-6);
   background: var(--surface-light, #f8f6f3);
   border-radius: 2px;
-  border-left: 3px solid var(--accent-warm, #c87941);
+  border-left: 3px solid var(--brand-gold);
 }
 
 .about-mvp-icon {
@@ -782,7 +782,7 @@
 .about-stat-value {
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 800;
-  color: var(--accent-warm, #c87941);
+  color: var(--brand-gold);
   line-height: 1;
 }
 
@@ -796,7 +796,7 @@
 
 /* Vision 2028 banner */
 .about-vision-banner {
-  background: linear-gradient(135deg, #c87941 0%, #a05e2a 100%);
+  background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-blue) 100%);
   padding: 72px 0;
   text-align: center;
 }
@@ -897,7 +897,7 @@
 .about-split-rule {
   width: 56px;
   height: 3px;
-  background: var(--accent-warm, #c87941);
+  background: var(--brand-gold);
   border-radius: 2px;
 }
 
@@ -918,14 +918,14 @@
 }
 
 .about-leader-heading {
-  border-bottom: 3px solid var(--accent-warm, #c87941);
+  border-bottom: 3px solid var(--brand-gold);
   margin-bottom: 36px;
   padding-bottom: 12px;
 }
 
 .about-leader-heading span {
   display: block;
-  color: var(--accent-warm, #c87941);
+  color: var(--brand-gold);
   font-size: 0.875rem;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -950,14 +950,14 @@
 
 .about-leader-portrait {
   aspect-ratio: 4 / 5;
-  background: linear-gradient(135deg, #173f70, #c87941);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: 3rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  background: #e8e4df;
+  overflow: hidden;
+  position: relative;
+}
+
+.about-leader-portrait img {
+  object-fit: cover;
+  object-position: center top;
 }
 
 .about-leader-copy p {
@@ -1030,7 +1030,7 @@
 .about-vmv-label {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--accent-warm, #c87941);
+  color: var(--brand-gold);
   line-height: 1.2;
 }
 
@@ -1075,7 +1075,7 @@
 .about-timeline-year {
   font-size: 1.125rem;
   font-weight: 700;
-  color: var(--accent-warm, #c87941);
+  color: var(--brand-gold);
   padding-top: 2px;
 }
 
@@ -1114,7 +1114,7 @@
   content: '—';
   position: absolute;
   left: 0;
-  color: var(--accent-warm, #c87941);
+  color: var(--brand-gold);
   font-weight: 700;
 }
 
@@ -1148,7 +1148,7 @@
 .about-team-header h2 {
   font-size: clamp(1.75rem, 3vw, 2.5rem);
   font-weight: 700;
-  color: var(--accent-warm, #c87941);
+  color: var(--brand-gold);
   margin-bottom: 16px;
 }
 
@@ -1186,7 +1186,7 @@
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #c87941, #a05e2a);
+  background: linear-gradient(135deg, var(--brand-navy), var(--brand-blue));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1200,7 +1200,7 @@
 .about-team-name {
   font-size: 1.0625rem;
   font-weight: 700;
-  color: var(--accent-warm, #c87941);
+  color: var(--brand-gold);
   margin-bottom: 12px;
 }
 
@@ -1242,8 +1242,8 @@
 
 .about-presence-top-bg {
   background: url("/images/bg-about.png") bottom left / cover,
-              linear-gradient(0deg, #0B0202, #0B0202),
-              linear-gradient(180deg, #37220D 0%, #0B0202 100%);
+              linear-gradient(0deg, var(--brand-navy), var(--brand-navy)),
+              linear-gradient(180deg, var(--brand-blue) 0%, var(--brand-navy) 100%);
   padding: 80px 0 0;
 }
 
@@ -1290,19 +1290,19 @@
 .about-presence-btn {
   display: inline-block;
   padding: 10px 28px;
-  border: 1.5px solid rgba(200,121,65,0.8);
+  border: 1.5px solid rgba(231, 174, 31, 0.85);
   border-radius: 4px;
-  color: #c87941;
+  color: var(--brand-gold);
   font-size: 0.875rem;
   font-weight: 600;
   text-decoration: none;
   letter-spacing: 0.04em;
   transition: background 0.25s, color 0.25s;
-  background: rgba(200,121,65,0.08);
+  background: rgba(231, 174, 31, 0.08);
 }
 
 .about-presence-btn:hover {
-  background: #c87941;
+  background: var(--brand-navy);
   color: #fff;
 }
 
@@ -1342,14 +1342,24 @@
   transform: translate(-50%, -50%);
   z-index: 10;
   cursor: pointer;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
+  display: grid;
+  place-items: center;
+  padding: 8px;
+  border: 0;
+  background: transparent;
+  opacity: 0.7;
+  pointer-events: auto;
+  transition: opacity 0.3s ease, transform 0.2s ease;
 }
 
 .map-pin-html.map-pin-active {
   opacity: 1;
-  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.map-pin-html:hover,
+.map-pin-html:focus-visible {
+  opacity: 1;
 }
 
 .map-pin-pulse {
@@ -1357,7 +1367,7 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: rgba(200, 121, 65, 0.35); /* orange/gold glow */
+  background: rgba(231, 174, 31, 0.35);
   animation: map-pulse-html 2s ease-out infinite;
   transform-origin: center;
 }
@@ -1366,11 +1376,11 @@
   position: relative;
   width: 8px;
   height: 8px;
-  background: #c87941;
+  background: var(--brand-gold);
   border: 2px solid #fff;
   border-radius: 50%;
   z-index: 2;
-  box-shadow: 0 0 6px rgba(200, 121, 65, 0.9);
+  box-shadow: 0 0 6px rgba(231, 174, 31, 0.85);
 }
 
 /* Connector: horizontal line + text label */
@@ -1446,7 +1456,7 @@
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.15em;
-  color: #c87941;
+  color: var(--brand-gold);
   margin-bottom: 12px;
 }
 
@@ -1461,7 +1471,7 @@
 .about-presence-city-rule {
   width: 40px;
   height: 2px;
-  background: #c87941;
+  background: var(--brand-gold);
   margin-bottom: 20px;
 }
 
@@ -1505,13 +1515,13 @@
 .about-presence-city-tab .tab-num {
   font-size: 0.75rem;
   font-weight: 700;
-  color: #c87941;
+  color: var(--brand-gold);
   min-width: 24px;
   letter-spacing: 0.08em;
 }
 
 .about-presence-city-tab.active .tab-num {
-  color: #c87941;
+  color: var(--brand-gold);
 }
 
 .about-presence-city-tab .tab-city {
@@ -1591,7 +1601,7 @@
 /* ── Ecosystem Brands Component ─────────────── */
 .ecosystem-btn {
   display: inline-block;
-  background-color: #c48f56;
+  background-color: var(--brand-navy);
   color: #fff;
   padding: 12px 32px;
   border-radius: 30px;
@@ -1602,10 +1612,10 @@
 }
 
 .ecosystem-btn:hover {
-  background-color: #a87a48;
+  background-color: var(--brand-blue);
 }
 
-/* Partner Slider CSS (Maestro EPC style) */
+/* Partner Slider CSS */
 .partner-slider {
   opacity: 0;
   transform: translateY(30px);
@@ -1689,7 +1699,7 @@
   transform: translate(-50%, 14px);
 }
 
-/* ── Custom Project Detail Layout (Maestro EPC Style) ──── */
+/* ── Custom Project Detail Layout ──── */
 
 .project-detail-page {
   background: var(--bg-body, #fafafa);
@@ -1789,7 +1799,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #c87941;
+  color: var(--brand-gold);
 }
 
 .project-meta-value {
@@ -1917,7 +1927,7 @@
 
 .gallery-thumb-btn.active {
   opacity: 1;
-  border-color: #c87941;
+  border-color: var(--brand-gold);
 }
 
 .gallery-thumb-btn:hover {
@@ -1964,7 +1974,7 @@
   z-index: 1;
 }
 
-/* ── Custom Contact Form Layout (Maestro EPC Style) ──── */
+/* ── Custom Contact Form Layout ──── */
 .maestro-contact-wrapper {
   max-width: 900px;
   margin: 0 auto;
@@ -1978,7 +1988,7 @@
 }
 
 .maestro-contact-header h2 {
-  color: #c87941;
+  color: var(--brand-gold);
   font-size: 1.5rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -2028,7 +2038,7 @@
 .maestro-input:focus,
 .maestro-textarea:focus {
   outline: none;
-  border-color: #c87941;
+  border-color: var(--brand-gold);
 }
 
 .maestro-textarea {
@@ -2052,7 +2062,7 @@
 }
 
 .maestro-submit-button {
-  background-color: #c87941;
+  background-color: var(--brand-navy);
   color: #ffffff;
   border: none;
   border-radius: 30px;

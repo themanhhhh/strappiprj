@@ -17,6 +17,7 @@ type ContactFormUiProps = {
 };
 
 export function ContactFormUi({ locale = 'en' }: ContactFormUiProps) {
+  const requiredText = locale === 'vi' ? ' (bắt buộc)' : ' (required)';
   const [formState, setFormState] = useState<FormState>({
     status: "idle",
     message: "",
@@ -63,6 +64,11 @@ export function ContactFormUi({ locale = 'en' }: ContactFormUiProps) {
         status: "error",
         message: locale === 'vi' ? "Vui lòng kiểm tra các trường bị tô đỏ." : "Please review the highlighted fields.",
       });
+      const firstErrorName = Object.keys(nextErrors)[0];
+      window.requestAnimationFrame(() => {
+        const firstErrorField = form.elements.namedItem(firstErrorName) as HTMLElement | null;
+        firstErrorField?.focus();
+      });
       return;
     }
 
@@ -100,9 +106,9 @@ export function ContactFormUi({ locale = 'en' }: ContactFormUiProps) {
 
   return (
     <div className="maestro-contact-wrapper">
-      <div className="maestro-contact-header">
-        <h2>{locale === 'vi' ? 'LIÊN HỆ VỚI CHÚNG TÔI' : 'CONTACT US'}</h2>
-        <p>{locale === 'vi' ? 'Vui lòng điền vào biểu mẫu dưới đây và chúng tôi sẽ phản hồi sớm nhất.' : 'Please fill out the form below and we will get back to you shortly.'}</p>
+        <div className="maestro-contact-header">
+        <h2>{locale === 'vi' ? 'LIÊN HỆ NEW SKY' : 'CONTACT NEW SKY'}</h2>
+        <p>{locale === 'vi' ? 'Chia sẻ nhu cầu dự án, quy mô chuỗi hoặc hạng mục sản phẩm rời để New Sky phản hồi bước tiếp theo.' : 'Share your project needs, chain scale, or standalone product scope so New Sky can respond with the next step.'}</p>
       </div>
 
       <form className="maestro-contact-form" onSubmit={handleSubmit} noValidate>
@@ -110,7 +116,7 @@ export function ContactFormUi({ locale = 'en' }: ContactFormUiProps) {
           <label className="field maestro-field">
             <span className="field-label">
               {locale === 'vi' ? 'HỌ VÀ TÊN' : 'COMPANY / INDIVIDUAL NAME'}
-              <span className="required-marker"> (required)</span>
+              <span className="required-marker">{requiredText}</span>
             </span>
             <input
               className="field-input maestro-input"
@@ -124,14 +130,16 @@ export function ContactFormUi({ locale = 'en' }: ContactFormUiProps) {
           <label className="field maestro-field">
             <span className="field-label">
               {locale === 'vi' ? 'SỐ ĐIỆN THOẠI' : 'PHONE NUMBER'}
-              <span className="required-marker"> (required)</span>
+              <span className="required-marker">{requiredText}</span>
             </span>
-            <input
-              className="field-input maestro-input"
-              name="phone"
-              autoComplete="tel"
-              aria-invalid={Boolean(fieldErrors.phone)}
-            />
+              <input
+                className="field-input maestro-input"
+                type="tel"
+                name="phone"
+                autoComplete="tel"
+                inputMode="tel"
+                aria-invalid={Boolean(fieldErrors.phone)}
+              />
             {fieldErrors.phone ? <span className="field-error">{fieldErrors.phone}</span> : null}
           </label>
         </div>
@@ -140,22 +148,23 @@ export function ContactFormUi({ locale = 'en' }: ContactFormUiProps) {
           <label className="field maestro-field">
             <span className="field-label">
               {locale === 'vi' ? 'ĐỊA CHỈ EMAIL' : 'EMAIL ADDRESS'}
-              <span className="required-marker"> (required)</span>
+              <span className="required-marker">{requiredText}</span>
             </span>
             <input
               className="field-input maestro-input"
-              type="email"
-              name="email"
-              autoComplete="email"
-              aria-invalid={Boolean(fieldErrors.email)}
-            />
+                type="email"
+                name="email"
+                autoComplete="email"
+                spellCheck={false}
+                aria-invalid={Boolean(fieldErrors.email)}
+              />
             {fieldErrors.email ? <span className="field-error">{fieldErrors.email}</span> : null}
           </label>
 
           <label className="field maestro-field">
             <span className="field-label">
               {locale === 'vi' ? 'LOẠI YÊU CẦU' : 'ENQUIRY TYPE'}
-              <span className="required-marker"> (required)</span>
+              <span className="required-marker">{requiredText}</span>
             </span>
             <select
               className="field-select maestro-input"
@@ -206,7 +215,7 @@ export function ContactFormUi({ locale = 'en' }: ContactFormUiProps) {
           </button>
           
           {formState.status !== "idle" ? (
-            <p className={`form-status form-status-${formState.status}`}>
+            <p className={`form-status form-status-${formState.status}`} aria-live="polite">
               {formState.message}
             </p>
           ) : null}

@@ -1,7 +1,5 @@
-import type {ReactNode} from 'react';
-
 export type ServiceItem = {
-  icon?: ReactNode;
+  icon?: any;
   title: string;
   subtitle?: string;
   description: string;
@@ -47,7 +45,7 @@ export function ServicesGrid({heading = 'OUR SERVICES', items}: ServicesGridProp
           font-weight: 600;
           letter-spacing: 0.14em;
           text-transform: uppercase;
-          color: #8a7a58;
+          color: var(--brand-blue);
           margin: 0 0 22px;
         }
         .sg-card {
@@ -89,7 +87,7 @@ export function ServicesGrid({heading = 'OUR SERVICES', items}: ServicesGridProp
         }
         .sg-subtitle {
           font-size: 11px;
-          color: #8a7a58;
+          color: var(--brand-blue);
           margin: 0;
           line-height: 1.5;
           letter-spacing: 0.12em;

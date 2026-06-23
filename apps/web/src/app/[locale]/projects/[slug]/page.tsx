@@ -1,4 +1,5 @@
 import {notFound} from 'next/navigation';
+import type {Metadata} from 'next';
 import {ButtonLink} from '@/components/button-link';
 import {CtaStrip} from '@/components/cta-strip';
 import {getProjectBySlug, getProjects, getHeroSlides} from '@/lib/strapi/queries';
@@ -7,6 +8,9 @@ import {Header} from '@/components/header';
 import Image from 'next/image';
 import {ProjectGallery} from '@/components/project-gallery';
 import {HeroBanner} from '@/components/aladdin/hero-banner';
+import {getLocalizedAlternates, getOpenGraphLocale} from '@/lib/seo';
+import {locales} from '@/i18n/routing';
+import {getTranslations} from 'next-intl/server';
 
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL ?? 'http://localhost:1337';
 
@@ -15,15 +19,40 @@ type ProjectDetailPageProps = {
 };
 
 export async function generateStaticParams() {
-  const strapiProjects = await getProjects('vi');
+  const strapiProjects = (await Promise.all(locales.map((locale) => getProjects(locale)))).flat();
   if (strapiProjects.length > 0) {
-    return strapiProjects.map((p) => ({slug: p.slug}));
+    return Array.from(new Set(strapiProjects.map((p) => p.slug))).map((slug) => ({slug}));
   }
   return catalogProjects.map((project) => ({slug: project.slug}));
 }
 
+export async function generateMetadata({params}: ProjectDetailPageProps): Promise<Metadata> {
+  const {locale, slug} = await params;
+  const strapiProject = await getProjectBySlug(slug, locale);
+  const catalogProject = strapiProject ? null : getProject(slug);
+  const title = strapiProject?.title ?? catalogProject?.title ?? slug;
+  const description = strapiProject?.description ?? catalogProject?.description ?? '';
+  const imageUrl = strapiProject?.cover?.url
+    ? strapiProject.cover.url.startsWith('http') ? strapiProject.cover.url : `${STRAPI_URL}${strapiProject.cover.url}`
+    : undefined;
+
+  return {
+    title: `${title} - New Sky`,
+    description,
+    alternates: getLocalizedAlternates(locale, `/projects/${slug}`),
+    openGraph: {
+      title,
+      description,
+      locale: getOpenGraphLocale(locale),
+      url: `/${locale}/projects/${slug}`,
+      ...(imageUrl ? {images: [{url: imageUrl}]} : {}),
+    },
+  };
+}
+
 export default async function ProjectDetailPage({params}: ProjectDetailPageProps) {
   const {locale, slug} = await params;
+  const t = await getTranslations({locale, namespace: 'projectDetail'});
 
   // Try fetching from Strapi first
   let projectData = null;
@@ -85,7 +114,7 @@ export default async function ProjectDetailPage({params}: ProjectDetailPageProps
           <HeroBanner
             locale={locale}
             slides={heroSlidesData}
-            ctaText={locale === 'vi' ? 'Khám phá' : 'Explore'}
+            ctaText={t('heroCta')}
           />
         </div>
       ) : (
@@ -97,7 +126,7 @@ export default async function ProjectDetailPage({params}: ProjectDetailPageProps
             ) : (
               <div className="project-hero-bg-fallback-maestro" />
             )}
-            {/* Removed overlay to match Maestro look */}
+            {/* Removed overlay to keep the project image clear. */}
           </div>
         </div>
       )}
@@ -170,7 +199,7 @@ export default async function ProjectDetailPage({params}: ProjectDetailPageProps
         <section className="related-services-maestro">
           <div className="shell">
             <h2 className="related-projects-title-maestro">
-              {locale === 'vi' ? 'Dịch vụ liên quan' : 'Related Services'}
+              {t('relatedServices')}
             </h2>
             <div className="related-projects-grid-maestro">
               {p.relatedServices.map((service) => (
@@ -182,7 +211,7 @@ export default async function ProjectDetailPage({params}: ProjectDetailPageProps
                     </p>
                     <div className="related-project-links">
                       <ButtonLink href={`/${locale}/services/${service.slug}`} variant="ghost" style={{ borderBottom: '1px solid #c5a059', borderRadius: 0, paddingBottom: 2 }}>
-                        {locale === 'vi' ? 'Chi tiết' : 'Details'}
+                        {t('details')}
                       </ButtonLink>
                     </div>
                   </div>

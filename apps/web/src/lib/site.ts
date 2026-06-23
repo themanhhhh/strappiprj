@@ -95,7 +95,7 @@ export const siteConfig: {
 } = {
   name: 'New Sky',
   description:
-    'Đối tác thiết kế + thi công nhà hàng trọn gói cho chủ nhà hàng Việt.',
+    'Đối tác thiết kế và thi công nhà hàng F&B cho chủ nhà hàng Việt - 10 năm cùng hệ thống Aladdin, xưởng tự sản xuất nội thất, inox bếp và biển hiệu.',
   locales: ['vi', 'en'],
   navigation: [
     {key: 'about', href: '/about'},
@@ -105,16 +105,8 @@ export const siteConfig: {
     {key: 'careers', href: '/careers'},
     {key: 'contact', href: '/contact'}
   ],
-  socialLinks: [
-    {label: 'LinkedIn', href: '#'},
-    {label: 'Facebook', href: '#'},
-    {label: 'Zalo', href: '#'}
-  ],
-  utilityLinks: [
-    {label: 'Search', href: '#'},
-    {label: 'Investor Desk', href: '#'},
-    {label: 'Policy', href: '#'}
-  ],
+  socialLinks: [],
+  utilityLinks: [],
   offices: [
     {
       label: 'VĂN PHÒNG MIỀN BẮC',
@@ -132,131 +124,131 @@ export const siteConfig: {
   megaMenu: {
     about: {
       key: 'about',
-      eyebrow: 'Corporate Profile',
-      title: 'Enterprise story and operating discipline',
-      description: 'Use the corporate section to explain structure, standards, leadership and brand direction.',
+      eyebrow: 'New Sky Profile',
+      title: 'Tổng thầu chuyên nhà hàng F&B',
+      description: 'Câu chuyện New Sky, mô hình một đầu mối và năng lực xưởng tự sản xuất nội thất, inox bếp, biển hiệu.',
       columns: [
         {
-          title: 'Company',
+          title: 'Về New Sky',
           links: [
-            {label: 'Overview', href: '/about', meta: 'Who we are'},
-            {label: 'Leadership', href: '/about', meta: 'Management team'},
-            {label: 'Operating model', href: '/about', meta: 'How we work'}
+            {label: 'Tổng quan', href: '/about', meta: 'Đối tác thiết kế - thi công F&B'},
+            {label: 'Giám đốc Lưu Sỹ', href: '/tac-gia/luu-sy', meta: 'Tác giả chuyên môn'},
+            {label: 'Mô hình triển khai', href: '/about', meta: 'Một đầu mối trách nhiệm'}
           ]
         },
         {
-          title: 'Standards',
+          title: 'Năng lực',
           links: [
-            {label: 'Safety & QA', href: '/about', meta: 'Site discipline'},
-            {label: 'CSR', href: '/about', meta: 'Community impact'},
-            {label: 'Governance', href: '/about', meta: 'Policy and systems'}
+            {label: 'Xưởng Hà Đông', href: '/xuong-inox-bep-cong-nghiep-ha-dong', meta: '3.000m²'},
+            {label: '6 năng lực', href: '/services', meta: 'Thiết kế đến biển hiệu'},
+            {label: 'FAQ', href: '/faq', meta: 'Câu hỏi thường gặp'}
           ]
         }
       ],
       featured: {
-        title: 'Corporate brochure',
-        description: 'Reserve this tile for a profile download, milestone story or chairman message.',
+        title: '10 năm cùng hệ thống Aladdin',
+        description: 'Bằng chứng kinh nghiệm từ hơn 100 dự án nhà hàng và 6 thương hiệu thuộc hệ thống Aladdin.',
         href: '/about'
       }
     },
     services: {
       key: 'services',
-      eyebrow: 'Capabilities',
-      title: 'Execution services built for F&B rollout',
-      description: 'Group your offer by execution packages, coordination services and upgrade programs.',
+      eyebrow: 'Dịch vụ New Sky',
+      title: '4 hub dịch vụ cho nhà hàng F&B',
+      description: 'Thiết kế thi công trọn gói, bếp công nghiệp inox, biển hiệu F&B và nội thất F&B.',
       columns: [
         {
-          title: 'Execution',
+          title: 'Hub chính',
           links: [
-            {label: 'Restaurant fit-out', href: '/services/restaurant-fit-out', meta: 'Core delivery'},
-            {label: 'Renovation', href: '/services/renovation-upgrade', meta: 'Live operation upgrade'}
+            {label: 'Thiết kế thi công trọn gói', href: '/dich-vu/thiet-ke-thi-cong-nha-hang-tron-goi', meta: 'Một đầu mối'},
+            {label: 'Bếp công nghiệp inox', href: '/dich-vu/bep-cong-nghiep-inox', meta: 'Sản xuất tại xưởng'}
           ]
         },
         {
-          title: 'Technical',
+          title: 'Sản xuất',
           links: [
-            {label: 'MEP coordination', href: '/services/mep-coordination', meta: 'Technical alignment'},
-            {label: 'Project planning', href: '/services', meta: 'Delivery sequence'}
+            {label: 'Biển hiệu F&B', href: '/dich-vu/bien-hieu-fnb', meta: 'Chữ inox, UV, pano'},
+            {label: 'Nội thất F&B', href: '/dich-vu/noi-that-fnb', meta: 'Đồng bộ thiết kế'}
           ]
         }
       ],
       featured: {
-        title: 'Service matrix',
-        description: 'Show a visual matrix of service packages and the project types they support.',
-        href: '/services'
+        title: '6 năng lực tổng thầu',
+        description: 'Thiết kế, nội thất, cơ điện, inox bếp, xây dựng và biển hiệu cho nhà hàng F&B.',
+        href: '/dich-vu'
       }
     },
     projects: {
       key: 'projects',
-      eyebrow: 'Portfolio',
-      title: 'Case studies, rollout stories and flagship work',
-      description: 'The portfolio menu should surface categories, flagship projects and fast access to proof.',
+      eyebrow: 'Dự án',
+      title: 'Bằng chứng triển khai nhà hàng F&B',
+      description: 'Các case study tiêu biểu, năng lực rollout chuỗi và điểm neo từ hệ thống Aladdin.',
       columns: [
         {
-          title: 'Project types',
+          title: 'Nhóm dự án',
           links: [
-            {label: 'Fast casual fit-out', href: '/projects', meta: 'Retail center rollout'},
-            {label: 'Cafe renovation', href: '/projects', meta: 'Upgrade program'},
-            {label: 'Flagship dining', href: '/projects', meta: 'Signature stores'}
+            {label: 'Dự án nhà hàng', href: '/projects', meta: 'Thiết kế - thi công'},
+            {label: 'Chuỗi F&B', href: '/projects', meta: 'Mở rộng hệ thống'},
+            {label: 'Hạng mục sản xuất', href: '/projects', meta: 'Inox, nội thất, biển hiệu'}
           ]
         },
         {
-          title: 'Highlights',
+          title: 'Điểm neo',
           links: [
-            {label: 'Mall restaurant rollout', href: '/projects/mall-restaurant-rollout', meta: '420 m2'},
-            {label: 'Cafe upgrade package', href: '/projects/cafe-upgrade-package', meta: '180 m2'}
+            {label: 'Ngọc Khánh 16 ngày', href: '/projects/ngoc-khanh-complex', meta: '1.260m²'},
+            {label: 'Chuỗi Aladdin', href: '/projects/tian-long-chain', meta: '6 thương hiệu'}
           ]
         }
       ],
       featured: {
-        title: 'View flagship case study',
-        description: 'Direct visitors to the most convincing project proof from the menu itself.',
-        href: '/projects/signature-dining-space'
+        title: 'Ngọc Khánh 16 ngày',
+        description: 'Case study tiêu biểu cho năng lực điều phối đồng bộ trong tiến độ ngắn.',
+        href: '/projects'
       }
     },
     journal: {
       key: 'journal',
-      eyebrow: 'Newsroom',
-      title: 'Corporate news, project updates and knowledge content',
-      description: 'The newsroom dropdown should split knowledge articles from company announcements.',
+      eyebrow: 'Blog',
+      title: 'Kiến thức setup và thi công nhà hàng',
+      description: 'Nội dung chuyên môn cho chủ nhà hàng F&B trước khi khảo sát, thiết kế và thi công.',
       columns: [
         {
-          title: 'Editorial',
+          title: 'Chủ đề',
           links: [
-            {label: 'Knowledge articles', href: '/journal', meta: 'Operational content'},
-            {label: 'Technical notes', href: '/journal', meta: 'Coordination insights'}
+            {label: 'Thiết kế thi công', href: '/journal', meta: 'Quy trình triển khai'},
+            {label: 'Bếp công nghiệp', href: '/journal', meta: 'Inox và vận hành'}
           ]
         },
         {
-          title: 'Latest stories',
+          title: 'Gợi ý đọc',
           links: [
-            {label: 'Prepare a restaurant site brief', href: '/journal/prepare-restaurant-site-brief'},
-            {label: 'Coordination risks before handover', href: '/journal/coordination-risks-before-handover'}
+            {label: 'Chuẩn bị brief mặt bằng', href: '/journal'},
+            {label: 'Rủi ro phối hợp trước bàn giao', href: '/journal'}
           ]
         }
       ],
       featured: {
-        title: 'Featured newsroom story',
-        description: 'Use the right-hand tile for the current top story or company announcement.',
+        title: 'FAQ cho chủ nhà hàng',
+        description: 'Những câu hỏi thường gặp về phạm vi dịch vụ, xưởng và quy trình trao đổi dự án.',
         href: '/journal'
       }
     },
     careers: {
       key: 'careers',
-      eyebrow: 'People',
-      title: 'Employer brand and open roles',
-      description: 'Surface your culture, teams and key vacancies directly from the primary navigation.',
+      eyebrow: 'Tuyển dụng',
+      title: 'Đội ngũ triển khai New Sky',
+      description: 'Các vị trí phục vụ thiết kế, giám sát, thi công trực tiếp và vận hành xưởng.',
       columns: [
         {
-          title: 'Teams',
+          title: 'Đội nhóm',
           links: [
-            {label: 'Site execution', href: '/careers', meta: 'Field operations'},
-            {label: 'Design coordination', href: '/careers', meta: 'Project design'},
-            {label: 'Business support', href: '/careers', meta: 'Growth functions'}
+            {label: 'Thi công công trường', href: '/careers', meta: 'Giám sát và lắp đặt'},
+            {label: 'Thiết kế', href: '/careers', meta: 'Mặt bằng và kỹ thuật'},
+            {label: 'Xưởng sản xuất', href: '/careers', meta: 'Nội thất, inox, biển hiệu'}
           ]
         },
         {
-          title: 'Open roles',
+          title: 'Vị trí',
           links: [
             {label: 'Site supervisor', href: '/careers/site-supervisor'},
             {label: 'Project architect', href: '/careers/project-architect'},
@@ -265,29 +257,29 @@ export const siteConfig: {
         }
       ],
       featured: {
-        title: 'Work with the rollout team',
-        description: 'Use the feature card for a recruitment campaign or hiring message.',
+        title: 'Làm việc cùng đội tổng thầu F&B',
+        description: 'Cùng triển khai các dự án nhà hàng có yêu cầu cao về tiến độ và chất lượng.',
         href: '/careers'
       }
     },
     contact: {
       key: 'contact',
-      eyebrow: 'Connect',
-      title: 'Enquiry channels and office contacts',
-      description: 'The contact dropdown should route users quickly to consultations, office information and lead channels.',
+      eyebrow: 'Liên hệ',
+      title: 'Trao đổi dự án với New Sky',
+      description: 'Gửi nhu cầu dự án, gọi hotline hoặc xem thông tin văn phòng đại diện.',
       columns: [
         {
-          title: 'Channels',
+          title: 'Kênh liên hệ',
           links: [
-            {label: 'Book consultation', href: '/contact', meta: 'Primary lead form'},
-            {label: 'Call hotline', href: '/contact', meta: 'Fast response'},
-            {label: 'Office contact', href: '/contact', meta: 'Head office and branch'}
+            {label: 'Gửi yêu cầu tư vấn', href: '/contact', meta: 'Form dự án'},
+            {label: 'Gọi hotline', href: '/contact', meta: '0906 790 333'},
+            {label: 'Văn phòng đại diện', href: '/contact', meta: 'Miền Bắc và miền Nam'}
           ]
         }
       ],
       featured: {
-        title: 'Direct enquiry handoff',
-        description: 'Reserve this card for fast-contact actions or a support map block.',
+        title: 'Hotline 0906 790 333',
+        description: 'Kênh tạm thay Zalo OA cho đến khi có link chính thức.',
         href: '/contact'
       }
     }
@@ -299,41 +291,41 @@ export const homepageContent: Record<Locale, HomepageContent> = {
     heroSlides: [
       {
         eyebrow: 'New Sky Capability Profile',
-        title: 'Đối tác thiết kế + thi công nhà hàng trọn gói cho chủ nhà hàng Việt.',
+        title: 'Đối tác thiết kế và thi công nhà hàng F&B cho chủ nhà hàng Việt.',
         description:
-          '10 năm đồng hành cùng hệ thống chuỗi nhà hàng, 100+ dự án đã thi công và xưởng sản xuất Inox riêng tại Hà Đông.',
+          '10 năm cùng hệ thống Aladdin, hơn 100 dự án nhà hàng và xưởng tự sản xuất nội thất, inox bếp, biển hiệu tại Hà Đông.',
         imageLabel: 'Retail center rollout',
         imageUrl: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=2070&auto=format&fit=crop',
         stats: [
           {value: '10 năm', label: 'Kinh nghiệm thực chiến'},
-          {value: '100+', label: 'Dự án nhà hàng'},
-          {value: '3.000m2', label: 'Xưởng Inox riêng'}
+          {value: 'Hơn 100', label: 'Dự án nhà hàng'},
+          {value: '3.000m²', label: 'Xưởng tự sản xuất'}
         ]
       },
       {
-        eyebrow: '3 cam kết',
+        eyebrow: '3 điểm neo năng lực',
         title: 'Cạnh tranh bằng tiến độ, chất lượng và niềm tin có bằng chứng cụ thể.',
         description:
-          'New Sky chứng minh năng lực bằng dự án 84 Ngọc Khánh thi công 16 ngày, 100+ dự án trong 10 năm và quan hệ đồng hành dài hạn cùng các thương hiệu F&B.',
+          'New Sky chứng minh năng lực bằng dự án 84 Ngọc Khánh thi công 16 ngày, hơn 100 dự án nhà hàng trong 10 năm và quan hệ đồng hành cùng 6 thương hiệu thuộc hệ thống Aladdin.',
         imageLabel: 'Chain rollout system',
         imageUrl: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070&auto=format&fit=crop',
         stats: [
           {value: '16 ngày', label: 'Kỷ lục Ngọc Khánh'},
-          {value: '60+', label: 'Dự án mới 2026'},
-          {value: '6', label: 'Thương hiệu F&B'}
+          {value: 'Hơn 100', label: 'Dự án trong 10 năm'},
+          {value: '6', label: 'Thương hiệu Aladdin'}
         ]
       },
       {
         eyebrow: 'Một đầu mối',
-        title: 'Thiết kế, cơ điện, Inox bếp, xây dựng và bàn giao vận hành trong một hệ thống.',
+        title: 'Thiết kế, nội thất, cơ điện, inox bếp, xây dựng và biển hiệu trong một hệ thống.',
         description:
-          'Cách làm trọn gói giúp chủ đầu tư giảm phối hợp nhiều nhà thầu, kiểm soát chất lượng tốt hơn và rút ngắn tiến độ khai trương.',
+          'Cách làm tổng thầu chuyên nhà hàng giúp chủ đầu tư giảm phối hợp nhiều đầu mối, kiểm soát chất lượng tốt hơn và chủ động tiến độ khai trương.',
         imageLabel: 'Flagship execution',
         imageUrl: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=2070&auto=format&fit=crop',
         stats: [
-          {value: '5', label: 'Năng lực cốt lõi'},
-          {value: '2-3x', label: 'Rút ngắn tiến độ'},
-          {value: '12 tháng', label: 'Bảo hành'}
+          {value: '6', label: 'Năng lực cốt lõi'},
+          {value: '3', label: 'Bước lắp đặt, bàn giao, bảo trì'},
+          {value: '1', label: 'Đầu mối tổng thầu'}
         ]
       }
     ],
@@ -352,19 +344,29 @@ export const homepageContent: Record<Locale, HomepageContent> = {
         description: 'Chuỗi lẩu bò tươi Triều Châu với yêu cầu đồng bộ chất lượng khi mở rộng nhiều cơ sở.'
       },
       {
-        name: 'Quán Mộc',
+        name: 'Bò Tơ Quán Mộc',
         tag: 'Traditional Dining',
         description: 'Thương hiệu nhà hàng phong cách hoài cổ Hà Nội, nổi bật trong case Ngọc Khánh 16 ngày.'
       },
       {
-        name: 'Hải Sư',
-        tag: 'Dimsum & Rice',
-        description: 'Dự án F&B được triển khai từ thiết kế, thi công đến bàn giao vận hành.'
+        name: 'G.Master',
+        tag: 'F&B Brand',
+        description: 'Một trong 6 thương hiệu thuộc hệ thống Aladdin mà New Sky có kinh nghiệm đồng hành triển khai.'
+      },
+      {
+        name: 'Cơm Niêu Hải Sư',
+        tag: 'Vietnamese Dining',
+        description: 'Thương hiệu nhà hàng Việt trong hệ thống Aladdin, thuộc nhóm kinh nghiệm dự án F&B của New Sky.'
+      },
+      {
+        name: 'Khèn Nướng Sapa',
+        tag: 'Vietnamese Dining',
+        description: 'Thương hiệu nhà hàng Việt trong hệ thống Aladdin, bổ sung bằng chứng triển khai đa định dạng F&B.'
       }
     ],
-    socialTitle: 'Cam kết của New Sky',
+    socialTitle: 'Minh chứng của New Sky',
     socialLead:
-      'Mỗi cam kết về tiến độ, chất lượng và niềm tin đều được neo bằng bằng chứng dự án thực tế.',
+      'Tiến độ, chất lượng và niềm tin đều được neo bằng bằng chứng dự án thực tế.',
     socialStories: [
       {
         title: 'Tiến độ có bằng chứng',
@@ -372,36 +374,36 @@ export const homepageContent: Record<Locale, HomepageContent> = {
       },
       {
         title: 'Chất lượng đồng bộ',
-        description: '100+ dự án trong 10 năm với hệ thống kiểm soát từ thiết kế, vật tư, sản xuất, lắp đặt đến nghiệm thu.'
+        description: 'Hơn 100 dự án nhà hàng trong 10 năm với hệ thống kiểm soát từ thiết kế, vật tư, sản xuất, lắp đặt đến nghiệm thu.'
       }
     ],
     careersTitle: 'Đội ngũ triển khai',
     careersLead:
-      'New Sky vận hành bằng các đội chuyên trách: thiết kế, giám sát thi công, đội thi công trực tiếp, hành chính, kế toán và xưởng Inox.',
+      'New Sky vận hành bằng các đội chuyên trách: thiết kế, giám sát thi công, đội thi công trực tiếp, hành chính, kế toán và xưởng tự sản xuất.',
     careers: {
       title: 'Một đội ngũ phục vụ đồng thời nhiều dự án trên 3 miền',
       description:
         'Các bộ phận phối hợp theo quy trình rõ ràng để giữ tiến độ, chất lượng và trách nhiệm xuyên suốt dự án.',
-      highlights: ['Đội thiết kế', 'Đội giám sát thi công', 'Xưởng Inox 3.000m2']
+      highlights: ['Đội thiết kế', 'Đội giám sát thi công', 'Xưởng tự sản xuất 3.000m²']
     },
     newsTitle: 'Dự án và năng lực',
     newsLead:
-      'Cập nhật các dự án tiêu biểu, năng lực xưởng Inox và kinh nghiệm triển khai chuỗi nhà hàng.',
+      'Cập nhật các dự án tiêu biểu, năng lực xưởng tự sản xuất và kinh nghiệm triển khai chuỗi nhà hàng.',
     featuredNews: [
       {
         category: 'Case study',
-        title: 'Tổ hợp Ngọc Khánh 1.260m2 hoàn thành trong 16 ngày',
+        title: 'Tổ hợp Ngọc Khánh 1.260m² hoàn thành trong 16 ngày',
         description: 'Bằng chứng tiêu biểu cho năng lực điều phối đồng bộ nhiều hạng mục trong tiến độ rất ngắn.'
       },
       {
-        category: 'Xưởng Inox',
-        title: 'Xưởng sản xuất Inox 3.000m2 tại Hà Đông',
-        description: 'Năng lực sản xuất nội bộ giúp rút ngắn tiến độ và kiểm soát chất lượng từ khâu đầu.'
+        category: 'Xưởng tự sản xuất',
+        title: 'Xưởng tự sản xuất 3.000m² tại Hà Đông',
+        description: 'Năng lực sản xuất nội bộ cho nội thất, inox bếp và biển hiệu giúp New Sky chủ động hơn ở các hạng mục tự làm.'
       },
       {
         category: 'Chuỗi F&B',
-        title: 'Đồng hành thi công 6 thương hiệu nhà hàng',
-        description: 'Kinh nghiệm triển khai chuỗi giúp New Sky chuẩn hóa hạng mục và đồng bộ chất lượng giữa nhiều mặt bằng.'
+        title: 'Đồng hành cùng 6 thương hiệu thuộc hệ thống Aladdin',
+        description: 'Bò Tơ Quán Mộc, Tian Long, Long Wang, G.Master, Cơm Niêu Hải Sư và Khèn Nướng Sapa là các điểm neo niềm tin của New Sky.'
       }
     ],
     ctaLabel: 'Liên hệ',
@@ -415,41 +417,41 @@ export const homepageContent: Record<Locale, HomepageContent> = {
     heroSlides: [
       {
         eyebrow: 'New Sky Capability Profile',
-        title: 'Design-and-build partner for restaurant owners in Vietnam.',
+        title: 'Design and construction partner for F&B restaurants in Vietnam.',
         description:
-          '10 years of practical experience, 100+ restaurant projects, and an in-house stainless-steel production workshop.',
+          '10 years with the Aladdin system, more than 100 restaurant projects, and in-house production for interiors, kitchen stainless steel, and signage.',
         imageLabel: 'Retail center rollout',
         imageUrl: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=2070&auto=format&fit=crop',
         stats: [
           {value: '10 years', label: 'Practical experience'},
           {value: '100+', label: 'Restaurant projects'},
-          {value: '3,000sqm', label: 'Stainless-steel workshop'}
+          {value: '3,000sqm', label: 'In-house workshop'}
         ]
       },
       {
-        eyebrow: '3 commitments',
+        eyebrow: '3 proof points',
         title: 'Competing through programme, quality, and trust backed by proof.',
         description:
-          'New Sky proves capability through the 16-day Ngoc Khanh project, 100+ projects over 10 years, and long-term delivery for F&B brands.',
+          'New Sky proves capability through the 16-day Ngoc Khanh project, more than 100 restaurant projects over 10 years, and delivery experience with 6 brands in the Aladdin system.',
         imageLabel: 'Chain rollout system',
         imageUrl: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070&auto=format&fit=crop',
         stats: [
           {value: '16 days', label: 'Ngoc Khanh record'},
-          {value: '60+', label: 'New projects in 2026'},
-          {value: '6', label: 'F&B brands'}
+          {value: '100+', label: 'Projects over 10 years'},
+          {value: '6', label: 'Aladdin brands'}
         ]
       },
       {
         eyebrow: 'Single partner',
-        title: 'Design, MEP, kitchen stainless steel, construction, and handover in one system.',
+        title: 'Design, interiors, MEP, kitchen stainless steel, construction, and signage in one system.',
         description:
-          'The end-to-end model helps investors reduce multi-contractor coordination, improve quality control, and shorten opening schedules.',
+          'The restaurant-focused general-contractor model helps investors reduce coordination across multiple parties, improve quality control, and protect opening schedules.',
         imageLabel: 'Flagship execution',
         imageUrl: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=2070&auto=format&fit=crop',
         stats: [
-          {value: '5', label: 'Core capabilities'},
-          {value: '2-3x', label: 'Faster delivery'},
-          {value: '12 months', label: 'Warranty'}
+          {value: '6', label: 'Core capabilities'},
+          {value: '3', label: 'Install, handover, maintain'},
+          {value: '1', label: 'Accountable partner'}
         ]
       }
     ],
@@ -468,19 +470,29 @@ export const homepageContent: Record<Locale, HomepageContent> = {
         description: 'A Teochew fresh-beef hotpot chain requiring consistent quality across multiple locations.'
       },
       {
-        name: 'Quan Moc',
+        name: 'Bo To Quan Moc',
         tag: 'Traditional Dining',
         description: 'A nostalgic Hanoi-style restaurant brand featured in the 16-day Ngoc Khanh case study.'
       },
       {
-        name: 'Hai Su',
-        tag: 'Dimsum & Rice',
-        description: 'An F&B project type delivered from design and construction through operational handover.'
+        name: 'G.Master',
+        tag: 'F&B Brand',
+        description: 'One of 6 brands in the Aladdin system that anchor New Sky delivery experience.'
+      },
+      {
+        name: 'Com Nieu Hai Su',
+        tag: 'Vietnamese Dining',
+        description: 'A Vietnamese restaurant brand in the Aladdin system, part of New Sky restaurant project experience.'
+      },
+      {
+        name: 'Khen Nuong Sapa',
+        tag: 'Vietnamese Dining',
+        description: 'A Vietnamese restaurant brand in the Aladdin system, showing experience across F&B formats.'
       }
     ],
-    socialTitle: 'New Sky Commitments',
+    socialTitle: 'New Sky Proof Points',
     socialLead:
-      'Every commitment on programme, quality, and trust is anchored in actual project proof.',
+      'Programme, quality, and trust are anchored in actual project proof.',
     socialStories: [
       {
         title: 'Programme with proof',
@@ -488,21 +500,21 @@ export const homepageContent: Record<Locale, HomepageContent> = {
       },
       {
         title: 'Consistent quality',
-        description: '100+ projects over 10 years with control from design, materials, production, and installation through acceptance.'
+        description: 'More than 100 restaurant projects over 10 years with control from design, materials, production, and installation through acceptance.'
       }
     ],
     careersTitle: 'Delivery Teams',
     careersLead:
-      'New Sky operates through dedicated design, site supervision, direct construction, administration, accounting, and stainless-steel workshop teams.',
+      'New Sky operates through dedicated design, site supervision, direct construction, administration, accounting, and in-house workshop teams.',
     careers: {
       title: 'One team serving simultaneous projects across Vietnam',
       description:
         'Specialized departments coordinate through a clear process to protect programme, quality, and accountability throughout each project.',
-      highlights: ['Design team', 'Site supervision team', '3,000sqm stainless-steel workshop']
+      highlights: ['Design team', 'Site supervision team', '3,000sqm in-house workshop']
     },
     newsTitle: 'Projects and Capabilities',
     newsLead:
-      'Updates on representative projects, stainless-steel workshop capability, and restaurant-chain delivery experience.',
+      'Updates on representative projects, in-house workshop capability, and restaurant-chain delivery experience.',
     featuredNews: [
       {
         category: 'Case study',
@@ -511,13 +523,13 @@ export const homepageContent: Record<Locale, HomepageContent> = {
       },
       {
         category: 'Workshop',
-        title: '3,000sqm stainless-steel workshop in Ha Dong',
-        description: 'In-house production shortens timelines and controls quality from the beginning.'
+        title: '3,000sqm in-house workshop in Ha Dong',
+        description: 'In-house production for interiors, kitchen stainless steel, and signage gives New Sky stronger control over self-delivered scopes.'
       },
       {
         category: 'F&B chains',
-        title: 'Delivery partner for six restaurant brands',
-        description: 'Chain delivery experience helps New Sky standardize packages and maintain quality across different sites.'
+        title: 'Delivery experience with 6 brands in the Aladdin system',
+        description: 'Bo To Quan Moc, Tian Long, Long Wang, G.Master, Com Nieu Hai Su, and Khen Nuong Sapa are New Sky trust anchors.'
       }
     ],
     ctaLabel: 'Contact',

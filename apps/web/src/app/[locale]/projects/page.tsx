@@ -1,11 +1,10 @@
-import {Suspense} from 'react';
 import type {Metadata} from 'next';
-import {CtaStrip} from '@/components/cta-strip';
 import {PageHero} from '@/components/page-hero';
 import {BrandList, type BrandItem} from '@/components/brand-list';
 import {getProjects, getHeroSlides} from '@/lib/strapi/queries';
-import {getStrapiImageUrl} from '@/lib/strapi/queries';
 import {projects as catalogProjects} from '@/lib/catalog';
+import {getLocalizedAlternates, getOpenGraphLocale} from '@/lib/seo';
+import {getTranslations} from 'next-intl/server';
 
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL ?? 'http://localhost:1337';
 
@@ -16,17 +15,22 @@ type ProjectsPageProps = {
 
 export async function generateMetadata({params}: ProjectsPageProps): Promise<Metadata> {
   const {locale} = await params;
+  const t = await getTranslations({locale, namespace: 'projectsPage'});
   return {
-    title: locale === 'vi' ? 'Dự án - New Sky' : 'Projects - New Sky',
-    description:
-      locale === 'vi'
-        ? 'Khám phá các dự án nhà hàng, chuỗi F&B và không gian thương mại do New Sky thiết kế + thi công trọn gói.'
-        : 'Explore restaurant, F&B chain, and commercial projects delivered end-to-end by New Sky.',
+    title: t('metadata.title'),
+    description: t('metadata.description'),
+    alternates: getLocalizedAlternates(locale, '/projects'),
+    openGraph: {
+      locale: getOpenGraphLocale(locale),
+      url: `/${locale}/projects`,
+    },
   };
 }
 
 export default async function ProjectsPage({params}: ProjectsPageProps) {
   const {locale} = await params;
+  const t = await getTranslations({locale, namespace: 'projectsPage'});
+  const asideItems = t.raw('hero.aside') as string[];
 
   // Fetch tất cả projects và hero slides từ Strapi
   const [strapiProjects, heroSlides] = await Promise.all([
@@ -89,45 +93,23 @@ export default async function ProjectsPage({params}: ProjectsPageProps) {
     <>
       <PageHero
         slides={slides}
-        eyebrow={locale === 'vi' ? 'Du an' : 'Projects'}
-        title={
-          locale === 'vi'
-            ? 'Những dự án chứng minh năng lực tiến độ, chất lượng và thi công chuỗi của New Sky'
-            : 'Projects that prove New Sky\'s programme, quality, and chain rollout capability'
-        }
-        description={
-          locale === 'vi'
-            ? 'Mỗi dự án là bằng chứng cho khả năng phối hợp thiết kế, cơ điện, Inox bếp công nghiệp, xây dựng và bàn giao vận hành trong một đầu mối.'
-            : 'Each project proves New Sky\'s ability to coordinate design, MEP, industrial stainless-steel kitchens, construction, and operational handover through one accountable partner.'
-        }
+        eyebrow={t('hero.eyebrow')}
+        title={t('hero.title')}
+        description={t('hero.description')}
         aside={
           <ul className="detail-list">
-            {locale === 'vi' ? (
-              <>
-                <li>Construction va fit-out duoc dieu phoi dong bo.</li>
-                <li>Chat luong hoan thien duoc kiem soat o tung chi tiet.</li>
-                <li>Joinery, vat lieu va ky thuat duoc can doi trong mot he thong thuc thi thong nhat.</li>
-              </>
-            ) : (
-              <>
-                <li>Construction and fit-out delivered through coordinated execution.</li>
-                <li>Finishing quality controlled at the level of detail.</li>
-                <li>Joinery, materiality, and technical systems aligned within one delivery framework.</li>
-              </>
-            )}
+            {asideItems.map((item) => <li key={item}>{item}</li>)}
           </ul>
         }
       />
 
       <section className="section-block">
         <div className="shell">
-          <Suspense fallback={<div style={{height: 120}} />}>
-            <BrandList
-              locale={locale}
-              items={displayItems}
-              brands={brands}
-            />
-          </Suspense>
+          <BrandList
+            locale={locale}
+            items={displayItems}
+            brands={brands}
+          />
         </div>
       </section>
 

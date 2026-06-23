@@ -3,6 +3,7 @@ import {getTranslations} from 'next-intl/server';
 import {FullscreenMenu} from '@/components/aladdin/fullscreen-menu';
 import {localeLabels, type Locale} from '@/i18n/routing';
 import {siteConfig} from '@/lib/site';
+import {getNavPath} from '@/lib/routes';
 
 type HeaderProps = {
   locale: Locale;
@@ -14,7 +15,7 @@ export async function Header({locale, transparent = false}: HeaderProps) {
   const menuItems = siteConfig.navigation.map((item) => ({
     key: item.key,
     label: t(item.key),
-    href: item.href
+    href: getNavPath(item.key, locale, item.href)
   }));
 
   const headerClass = transparent

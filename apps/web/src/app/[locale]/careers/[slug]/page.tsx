@@ -1,10 +1,12 @@
 import {notFound} from 'next/navigation';
+import type {Metadata} from 'next';
 import {ButtonLink} from '@/components/button-link';
 import {CtaStrip} from '@/components/cta-strip';
 import {InfoCard} from '@/components/info-card';
 import {PageHero} from '@/components/page-hero';
 import {SectionIntro} from '@/components/section-intro';
 import {getJob, jobs} from '@/lib/catalog';
+import {getLocalizedAlternates, getOpenGraphLocale} from '@/lib/seo';
 
 type JobDetailPageProps = {
   params: Promise<{locale: string; slug: string}>;
@@ -12,6 +14,25 @@ type JobDetailPageProps = {
 
 export function generateStaticParams() {
   return jobs.map((job) => ({slug: job.slug}));
+}
+
+export async function generateMetadata({params}: JobDetailPageProps): Promise<Metadata> {
+  const {locale, slug} = await params;
+  const job = getJob(slug);
+  const title = job?.title ?? slug;
+  const description = job?.description ?? '';
+
+  return {
+    title: `${title} - New Sky`,
+    description,
+    alternates: getLocalizedAlternates(locale, `/careers/${slug}`),
+    openGraph: {
+      title,
+      description,
+      locale: getOpenGraphLocale(locale),
+      url: `/${locale}/careers/${slug}`,
+    },
+  };
 }
 
 export default async function JobDetailPage({params}: JobDetailPageProps) {
@@ -75,4 +96,3 @@ export default async function JobDetailPage({params}: JobDetailPageProps) {
     </>
   );
 }
-

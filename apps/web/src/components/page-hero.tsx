@@ -1,4 +1,4 @@
-import type {ReactNode} from 'react';
+import type {JSX} from 'react';
 import {Header} from '@/components/header';
 import {useLocale} from 'next-intl';
 import type {Locale} from '@/i18n/routing';
@@ -13,8 +13,8 @@ type PageHeroProps = {
   eyebrow: string;
   title: string;
   description: string;
-  aside?: ReactNode;
-  actions?: ReactNode;
+  aside?: JSX.Element;
+  actions?: JSX.Element;
   imageUrl?: string;
   /** Truyền danh sách slides để bật slideshow giống trang chủ */
   slides?: PageHeroSlide[];
@@ -46,6 +46,15 @@ export function PageHero({eyebrow, title, description, aside, actions, imageUrl,
             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom right, #111, #222)' }} />
           )}
           <div className="hero-gradient-overlay" style={{zIndex: 1, position: 'relative'}} />
+        </div>
+        <div className="shell" style={{position: 'relative', zIndex: 2}}>
+          <div className="aladdin-hero-content">
+            <p className="hero-eyebrow">{eyebrow}</p>
+            <h1 className="hero-title">{title}</h1>
+            <p className="hero-desc">{description}</p>
+            {actions ? <div className="hero-actions">{actions}</div> : null}
+            {aside ? <div className="hero-actions" style={{marginTop: 32}}>{aside}</div> : null}
+          </div>
         </div>
       </section>
     </div>

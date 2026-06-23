@@ -6,8 +6,11 @@ import {CtaStrip} from '@/components/cta-strip';
 import {Header} from '@/components/header';
 import {SlideshowBackground} from '@/components/slideshow-background';
 import type {Locale} from '@/i18n/routing';
+import {locales} from '@/i18n/routing';
 import {getHeroSlides, getPostBySlug, getPosts} from '@/lib/strapi/queries';
 import {getPost, posts as catalogPosts} from '@/lib/catalog';
+import {getLocalizedAlternates, getOpenGraphLocale} from '@/lib/seo';
+import {getTranslations} from 'next-intl/server';
 
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL ?? 'http://localhost:1337';
 
@@ -16,9 +19,9 @@ type PostDetailPageProps = {
 };
 
 export async function generateStaticParams() {
-  const strapiPosts = await getPosts('vi');
+  const strapiPosts = (await Promise.all(locales.map((locale) => getPosts(locale)))).flat();
   if (strapiPosts.length > 0) {
-    return strapiPosts.map((p) => ({slug: p.slug}));
+    return Array.from(new Set(strapiPosts.map((p) => p.slug))).map((slug) => ({slug}));
   }
   return catalogPosts.map((p) => ({slug: p.slug}));
 }
@@ -36,9 +39,12 @@ export async function generateMetadata({params}: PostDetailPageProps): Promise<M
   return {
     title: `${title} — New Sky`,
     description,
+    alternates: getLocalizedAlternates(locale, `/journal/${slug}`),
     openGraph: {
       title,
       description,
+      locale: getOpenGraphLocale(locale),
+      url: `/${locale}/journal/${slug}`,
       ...(imageUrl ? {images: [{url: imageUrl}]} : {}),
     },
   };
@@ -46,6 +52,7 @@ export async function generateMetadata({params}: PostDetailPageProps): Promise<M
 
 export default async function PostDetailPage({params}: PostDetailPageProps) {
   const {locale, slug} = await params;
+  const t = await getTranslations({locale, namespace: 'journalDetail'});
   const [post, detailHeroSlides, allStrapiPosts] = await Promise.all([
     getPostBySlug(slug, locale),
     getHeroSlides(locale, 'journal'),
@@ -133,7 +140,7 @@ export default async function PostDetailPage({params}: PostDetailPageProps) {
         <div className="shell journal-article-intro-grid-maestro">
           <div>
             <p className="journal-index-section-kicker-maestro">
-              {locale === 'vi' ? 'Tổng quan bài viết' : 'Article overview'}
+              {t('overview')}
             </p>
           </div>
           <p className="journal-intro-maestro">{targetPost.intro || targetPost.description}</p>
@@ -158,10 +165,10 @@ export default async function PostDetailPage({params}: PostDetailPageProps) {
           <div className="shell">
             <div className="related-news-header-maestro">
               <p className="journal-index-section-kicker-maestro">
-                {locale === 'vi' ? 'Nội dung liên quan' : 'Related content'}
+                 {t('relatedLabel')}
               </p>
               <h2 className="related-news-title-maestro">
-                {locale === 'vi' ? 'Những góc nhìn tiếp theo' : 'Further Reading'}
+                 {t('relatedTitle')}
               </h2>
             </div>
             <div className="journal-related-grid-maestro">
@@ -184,7 +191,7 @@ export default async function PostDetailPage({params}: PostDetailPageProps) {
                     )}
                     <h3 className="journal-related-title-maestro">{rp.title}</h3>
                     <Link href={`/${locale}/journal/${rp.slug}`} className="journal-card-link-maestro">
-                      {locale === 'vi' ? 'Doc tiep' : 'Read more'}
+                      {t('readMore')}
                     </Link>
                   </div>
                 </article>

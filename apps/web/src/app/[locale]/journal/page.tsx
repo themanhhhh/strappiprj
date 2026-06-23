@@ -3,6 +3,8 @@ import Link from 'next/link';
 import {PageHero} from '@/components/page-hero';
 import {getHeroSlides, getPosts} from '@/lib/strapi/queries';
 import {posts as catalogPosts} from '@/lib/catalog';
+import {getLocalizedAlternates, getOpenGraphLocale} from '@/lib/seo';
+import {getTranslations} from 'next-intl/server';
 
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL ?? 'http://localhost:1337';
 
@@ -22,11 +24,15 @@ type DisplayPost = {
 
 export async function generateMetadata({params}: JournalPageProps): Promise<Metadata> {
   const {locale} = await params;
+  const t = await getTranslations({locale, namespace: 'journalPage'});
   return {
-    title: locale === 'vi' ? 'Tin tức và năng lực - New Sky' : 'News and Capabilities - New Sky',
-    description: locale === 'vi'
-      ? 'Những câu chuyện về dự án, năng lực thi công, xưởng Inox và quy trình triển khai nhà hàng của New Sky.'
-      : 'Project stories, construction capabilities, stainless-steel workshop updates, and restaurant delivery insights from New Sky.',
+    title: t('metadata.title'),
+    description: t('metadata.description'),
+    alternates: getLocalizedAlternates(locale, '/journal'),
+    openGraph: {
+      locale: getOpenGraphLocale(locale),
+      url: `/${locale}/journal`,
+    },
   };
 }
 
@@ -40,40 +46,6 @@ function formatDate(dateStr: string, locale: string) {
   } catch {
     return dateStr;
   }
-}
-
-function getCopy(locale: string) {
-  if (locale === 'vi') {
-    return {
-      eyebrow: 'Tin tức & năng lực',
-      title: 'Những câu chuyện về dự án, năng lực thi công và quy trình triển khai nhà hàng.',
-      description:
-        'Từ cập nhật dự án đến xưởng Inox, tiến độ thi công và kinh nghiệm triển khai chuỗi F&B, mỗi bài viết tập trung vào bằng chứng thực tế.',
-      introLabel: 'Góc nhìn New Sky',
-      introTitle: 'Nội dung được xây dựng để phản ánh năng lực, tiến độ và chất lượng thi công của New Sky.',
-      introBody:
-        'Đây là nơi New Sky chia sẻ cập nhật dự án, quy trình sản xuất Inox, chất lượng thi công và các góc nhìn thị trường liên quan đến thiết kế + thi công nhà hàng.',
-      featureLabel: 'Bai viet noi bat',
-      listLabel: 'Tat ca bai viet',
-      articleCount: 'bai viet',
-      readMore: 'Doc tiep',
-    };
-  }
-
-  return {
-    eyebrow: 'News & Capabilities',
-    title: 'Stories on projects, construction capability, and restaurant delivery process.',
-    description:
-      'From project updates to stainless-steel workshop capability and F&B rollout experience, each story focuses on practical proof.',
-    introLabel: 'New Sky perspective',
-    introTitle: 'Content designed to reflect New Sky\'s capability, programme discipline, and construction quality.',
-    introBody:
-      'The Journal brings together project stories, stainless-steel production, construction quality, and market perspectives around restaurant design-and-build delivery.',
-    featureLabel: 'Featured story',
-    listLabel: 'All articles',
-    articleCount: 'articles',
-    readMore: 'Read more',
-  };
 }
 
 function mapPosts(strapiPosts: Awaited<ReturnType<typeof getPosts>>): DisplayPost[] {
@@ -106,6 +78,7 @@ function mapPosts(strapiPosts: Awaited<ReturnType<typeof getPosts>>): DisplayPos
 
 export default async function JournalPage({params}: JournalPageProps) {
   const {locale} = await params;
+  const t = await getTranslations({locale, namespace: 'journalPage'});
 
   const [strapiPosts, heroSlides] = await Promise.all([
     getPosts(locale),
@@ -113,7 +86,6 @@ export default async function JournalPage({params}: JournalPageProps) {
   ]);
 
   const displayPosts = mapPosts(strapiPosts);
-  const copy = getCopy(locale);
   const slides = heroSlides
     .map((slide) => ({
       imageUrl: slide.cover?.url
@@ -131,15 +103,15 @@ export default async function JournalPage({params}: JournalPageProps) {
       <PageHero
         slides={slides}
         imageUrl={heroImage ?? undefined}
-        eyebrow={copy.eyebrow}
-        title={copy.title}
-        description={copy.description}
+        eyebrow={t('hero.eyebrow')}
+        title={t('hero.title')}
+        description={t('hero.description')}
       />
 
       <section className="journal-hero-summary-maestro">
         <div className="shell">
           <div className="journal-index-meta-row-maestro journal-index-meta-row-surface-maestro">
-            <span>{String(displayPosts.length).padStart(2, '0')} {copy.articleCount}</span>
+            <span>{String(displayPosts.length).padStart(2, '0')} {t('intro.articleCount')}</span>
             <span>Editorial format</span>
             <span>Crafted presentation</span>
           </div>
@@ -149,10 +121,10 @@ export default async function JournalPage({params}: JournalPageProps) {
       <section className="journal-index-intro-maestro">
         <div className="shell journal-index-intro-grid-maestro">
           <div>
-            <p className="journal-index-section-kicker-maestro">{copy.introLabel}</p>
-            <h2 className="journal-index-section-title-maestro">{copy.introTitle}</h2>
+            <p className="journal-index-section-kicker-maestro">{t('intro.label')}</p>
+            <h2 className="journal-index-section-title-maestro">{t('intro.title')}</h2>
           </div>
-          <p className="journal-index-intro-copy-maestro">{copy.introBody}</p>
+          <p className="journal-index-intro-copy-maestro">{t('intro.body')}</p>
         </div>
       </section>
 
@@ -169,7 +141,7 @@ export default async function JournalPage({params}: JournalPageProps) {
             </div>
 
             <div className="journal-featured-content-maestro">
-              <p className="journal-index-section-kicker-maestro">{copy.featureLabel}</p>
+              <p className="journal-index-section-kicker-maestro">{t('intro.featureLabel')}</p>
               <h2 className="journal-featured-title-maestro">{featuredPost.title}</h2>
 
               <div className="journal-featured-meta-maestro">
@@ -182,7 +154,7 @@ export default async function JournalPage({params}: JournalPageProps) {
               </p>
 
               <Link href={`/${locale}/journal/${featuredPost.slug}`} className="journal-featured-link-maestro">
-                {copy.readMore}
+                {t('intro.readMore')}
               </Link>
             </div>
           </div>
@@ -192,7 +164,7 @@ export default async function JournalPage({params}: JournalPageProps) {
       <section className="journal-listing-maestro">
         <div className="shell">
           <div className="journal-listing-header-maestro">
-            <p className="journal-index-section-kicker-maestro">{copy.listLabel}</p>
+            <p className="journal-index-section-kicker-maestro">{t('intro.listLabel')}</p>
           </div>
 
           <div className="journal-listing-grid-maestro">
@@ -219,7 +191,7 @@ export default async function JournalPage({params}: JournalPageProps) {
 
                   <h3 className="journal-card-title-maestro">{post.title}</h3>
                   <p className="journal-card-summary-maestro">{post.description || post.intro}</p>
-                  <span className="journal-card-link-maestro">{copy.readMore}</span>
+                  <span className="journal-card-link-maestro">{t('intro.readMore')}</span>
                 </div>
               </Link>
             ))}

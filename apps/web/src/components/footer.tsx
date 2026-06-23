@@ -2,6 +2,7 @@ import Link from 'next/link';
 import {getTranslations} from 'next-intl/server';
 import {siteConfig} from '@/lib/site';
 import type {Locale} from '@/i18n/routing';
+import {getNavPath} from '@/lib/routes';
 
 type FooterProps = {
   locale: Locale;
@@ -24,8 +25,8 @@ export async function Footer({locale}: FooterProps) {
             <div key={office.label} className="footer-col">
               <p className="footer-label">{office.label}</p>
               <p>{office.address}</p>
-              <p>{office.phone}</p>
-              <p>{office.email}</p>
+              <p><a href={`tel:${office.phone.replace(/\s/g, '')}`}>{office.phone}</a></p>
+              <p><a href={`mailto:${office.email}`}>{office.email}</a></p>
             </div>
           ))}
         </div>
@@ -36,7 +37,7 @@ export async function Footer({locale}: FooterProps) {
           <p className="footer-label">{t('menu')}</p>
           <div className="footer-nav">
             {siteConfig.navigation.map((item) => (
-              <Link key={item.key} href={`/${locale}${item.href}`}>
+              <Link key={item.key} href={`/${locale}${getNavPath(item.key, locale, item.href)}`}>
                 {nav(item.key)}
               </Link>
             ))}
