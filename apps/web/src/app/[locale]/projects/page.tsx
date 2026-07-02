@@ -2,7 +2,7 @@ import type {Metadata} from 'next';
 import {PageHero} from '@/components/page-hero';
 import {BrandList, type BrandItem} from '@/components/brand-list';
 import {getProjects, getHeroSlides} from '@/lib/strapi/queries';
-import {projects as catalogProjects} from '@/lib/catalog';
+import {fallbackBannerImage, getProjectFallbackImage, projects as catalogProjects} from '@/lib/catalog';
 import {getLocalizedAlternates, getOpenGraphLocale} from '@/lib/seo';
 import {getTranslations} from 'next-intl/server';
 
@@ -78,7 +78,7 @@ export default async function ProjectsPage({params}: ProjectsPageProps) {
       description: p.description,
       meta: p.meta,
       brand: p.category,
-      coverUrl: null,
+      coverUrl: getProjectFallbackImage(p.slug),
       publishedAt: p.year ? `${p.year}-01-01` : null,
     }));
 
@@ -92,7 +92,7 @@ export default async function ProjectsPage({params}: ProjectsPageProps) {
   return (
     <>
       <PageHero
-        slides={slides}
+        slides={slides.length > 0 ? slides : [{imageUrl: fallbackBannerImage}]}
         eyebrow={t('hero.eyebrow')}
         title={t('hero.title')}
         description={t('hero.description')}

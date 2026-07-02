@@ -198,6 +198,14 @@
   border-bottom: 1px solid rgba(17, 17, 17, 0.08);
 }
 
+.brand-card-image:has(.brand-card-logo) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: #fff;
+}
+
 .brand-card-img,
 .brand-card-image .image-placeholder {
   width: 100%;
@@ -209,6 +217,10 @@
   object-fit: cover;
   object-position: center;
   transition: transform 0.45s ease;
+}
+
+.brand-card-logo {
+  object-fit: contain;
 }
 
 .aladdin-brand-card:hover .brand-card-img {

@@ -4,6 +4,7 @@ import {useLocale} from 'next-intl';
 import type {Locale} from '@/i18n/routing';
 import Image from 'next/image';
 import {SlideshowBackground} from '@/components/slideshow-background';
+import {fallbackBannerImage} from '@/lib/catalog';
 
 export type PageHeroSlide = {
   imageUrl?: string | null;
@@ -43,7 +44,13 @@ export function PageHero({eyebrow, title, description, aside, actions, imageUrl,
               style={{ objectFit: 'cover' }}
             />
           ) : (
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom right, #111, #222)' }} />
+            <Image
+              src={fallbackBannerImage}
+              alt={title}
+              fill
+              priority
+              style={{ objectFit: 'cover' }}
+            />
           )}
           <div className="hero-gradient-overlay" style={{zIndex: 1, position: 'relative'}} />
         </div>

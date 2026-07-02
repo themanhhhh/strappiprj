@@ -2,7 +2,7 @@ import type {Metadata} from 'next';
 import Link from 'next/link';
 import {PageHero} from '@/components/page-hero';
 import {getHeroSlides, getPosts} from '@/lib/strapi/queries';
-import {posts as catalogPosts} from '@/lib/catalog';
+import {fallbackBannerImage, posts as catalogPosts} from '@/lib/catalog';
 import {getLocalizedAlternates, getOpenGraphLocale} from '@/lib/seo';
 import {getTranslations} from 'next-intl/server';
 
@@ -72,7 +72,7 @@ function mapPosts(strapiPosts: Awaited<ReturnType<typeof getPosts>>): DisplayPos
     meta: post.meta,
     description: post.description,
     intro: post.intro,
-    coverUrl: null,
+    coverUrl: fallbackBannerImage,
   }));
 }
 
@@ -101,7 +101,7 @@ export default async function JournalPage({params}: JournalPageProps) {
   return (
     <div className="journal-index-maestro-page">
       <PageHero
-        slides={slides}
+        slides={slides.length > 0 ? slides : [{imageUrl: fallbackBannerImage}]}
         imageUrl={heroImage ?? undefined}
         eyebrow={t('hero.eyebrow')}
         title={t('hero.title')}

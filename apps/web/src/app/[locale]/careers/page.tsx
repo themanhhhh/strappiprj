@@ -4,7 +4,7 @@ import {SectionIntro} from '@/components/section-intro';
 import {Header} from '@/components/header';
 import {SlideshowBackground} from '@/components/slideshow-background';
 import {getJobs, getHeroSlides} from '@/lib/strapi/queries';
-import {jobs as catalogJobs} from '@/lib/catalog';
+import {fallbackBannerImage, jobs as catalogJobs} from '@/lib/catalog';
 import type {Locale} from '@/i18n/routing';
 import {getLocalizedAlternates, getOpenGraphLocale} from '@/lib/seo';
 import {getTranslations} from 'next-intl/server';
@@ -63,7 +63,7 @@ export default async function CareersPage({params}: CareersPageProps) {
 
         <section className="careers-hero">
           <div className="careers-hero-media">
-            {slides.length > 0 ? <SlideshowBackground slides={slides} /> : null}
+            <SlideshowBackground slides={slides.length > 0 ? slides : [{imageUrl: fallbackBannerImage}]} />
             <div className="careers-hero-overlay" />
           </div>
         </section>

@@ -3,7 +3,7 @@ import type {Metadata} from 'next';
 import {ButtonLink} from '@/components/button-link';
 import {CtaStrip} from '@/components/cta-strip';
 import {getProjectBySlug, getProjects, getHeroSlides} from '@/lib/strapi/queries';
-import {getProject, getService, projects as catalogProjects} from '@/lib/catalog';
+import {fallbackBannerImage, getProject, getProjectFallbackImage, getService, projects as catalogProjects} from '@/lib/catalog';
 import {Header} from '@/components/header';
 import Image from 'next/image';
 import {ProjectGallery} from '@/components/project-gallery';
@@ -34,7 +34,7 @@ export async function generateMetadata({params}: ProjectDetailPageProps): Promis
   const description = strapiProject?.description ?? catalogProject?.description ?? '';
   const imageUrl = strapiProject?.cover?.url
     ? strapiProject.cover.url.startsWith('http') ? strapiProject.cover.url : `${STRAPI_URL}${strapiProject.cover.url}`
-    : undefined;
+    : fallbackBannerImage;
 
   return {
     title: `${title} - New Sky`,
@@ -86,7 +86,7 @@ export default async function ProjectDetailPage({params}: ProjectDetailPageProps
       challenge: catalogData.challenge,
       solution: catalogData.solution,
       outcome: catalogData.outcome,
-      coverUrl: null,
+      coverUrl: getProjectFallbackImage(catalogData.slug),
       galleryUrls: [],
       relatedServices: catalogData.serviceSlugs.map(s => getService(s)).filter(Boolean) as any[],
     };

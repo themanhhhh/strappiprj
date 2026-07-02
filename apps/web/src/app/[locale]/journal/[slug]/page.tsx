@@ -8,7 +8,7 @@ import {SlideshowBackground} from '@/components/slideshow-background';
 import type {Locale} from '@/i18n/routing';
 import {locales} from '@/i18n/routing';
 import {getHeroSlides, getPostBySlug, getPosts} from '@/lib/strapi/queries';
-import {getPost, posts as catalogPosts} from '@/lib/catalog';
+import {fallbackBannerImage, getPost, posts as catalogPosts} from '@/lib/catalog';
 import {getLocalizedAlternates, getOpenGraphLocale} from '@/lib/seo';
 import {getTranslations} from 'next-intl/server';
 
@@ -34,7 +34,7 @@ export async function generateMetadata({params}: PostDetailPageProps): Promise<M
   const description = post?.description ?? catalogPost?.description ?? '';
   const imageUrl = post?.cover?.url
     ? post.cover.url.startsWith('http') ? post.cover.url : `${STRAPI_URL}${post.cover.url}`
-    : undefined;
+    : fallbackBannerImage;
 
   return {
     title: `${title} — New Sky`,
@@ -100,7 +100,7 @@ export default async function PostDetailPage({params}: PostDetailPageProps) {
         title: p.title,
         slug: p.slug,
         date: new Date().toISOString(), // Mock date for catalog posts if any
-        coverUrl: null,
+        coverUrl: fallbackBannerImage,
       }));
   }
 
@@ -129,7 +129,7 @@ export default async function PostDetailPage({params}: PostDetailPageProps) {
           ) : coverUrl ? (
             <Image src={coverUrl} alt={targetPost.title} fill priority style={{objectFit: 'cover'}} />
           ) : (
-            <div className="project-hero-bg-fallback-maestro" style={{ width: '100%', height: '100%', background: '#333' }} />
+            <Image src={fallbackBannerImage} alt={targetPost.title} fill priority style={{objectFit: 'cover'}} />
           )}
           <div className="journal-hero-overlay-maestro" />
         </div>

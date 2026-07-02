@@ -2,6 +2,7 @@
 
 import {useEffect, useRef, useState} from 'react';
 import Image from 'next/image';
+import {fallbackBannerImage} from '@/lib/catalog';
 
 type Slide = {
   eyebrow?: string | null;
@@ -17,31 +18,36 @@ type HeroBannerProps = {
 };
 
 export function HeroBanner({slides}: HeroBannerProps) {
+  const normalizedSlides = slides.map((slide) => ({
+    ...slide,
+    imageUrl: slide.imageUrl || fallbackBannerImage,
+  }));
   const [active, setActive] = useState(0);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const startAuto = () => {
     if (intervalRef.current) clearInterval(intervalRef.current);
     intervalRef.current = setInterval(() => {
-      setActive((i) => (i + 1) % slides.length);
+      setActive((i) => (i + 1) % normalizedSlides.length);
     }, 7000);
   };
 
   useEffect(() => {
+    if (normalizedSlides.length <= 1) return;
     startAuto();
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [slides.length]);
+  }, [normalizedSlides.length]);
 
-  if (!slides || slides.length === 0) return null;
+  if (normalizedSlides.length === 0) return null;
 
   return (
     <section className="aladdin-hero" style={{backgroundColor: '#000', position: 'relative', overflow: 'hidden'}}>
       {/* Background layers */}
       <div className="hs-backgrounds">
-        {slides.map((slide, i) => (
+        {normalizedSlides.map((slide, i) => (
           <div
             key={i}
             className="hs-bg-layer"
@@ -63,7 +69,7 @@ export function HeroBanner({slides}: HeroBannerProps) {
 
       {/* Content layers */}
       <div className="hs-contents shell">
-        {slides.map((slide, i) => (
+        {normalizedSlides.map((slide, i) => (
           <div
             key={i}
             className="aladdin-hero-content hs-content-layer"
@@ -81,9 +87,9 @@ export function HeroBanner({slides}: HeroBannerProps) {
       </div>
 
       {/* Dots */}
-      {slides.length > 1 && (
+      {normalizedSlides.length > 1 && (
         <div className="aladdin-hero-dots" style={{position: 'relative', zIndex: 10}}>
-          {slides.map((_, i) => (
+          {normalizedSlides.map((_, i) => (
             <button
               key={i}
               type="button"

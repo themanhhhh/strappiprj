@@ -7,6 +7,7 @@ type Brand = {
   description: string;
   slug?: string;
   coverUrl?: string | null;
+  logoUrl?: string | null;
 };
 
 type BrandGridProps = {
@@ -31,7 +32,14 @@ export function BrandGrid({locale, title, brands}: BrandGridProps) {
               className="aladdin-brand-card"
             >
               <div className="brand-card-image">
-                {brand.coverUrl ? (
+                {brand.logoUrl ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={brand.logoUrl}
+                    alt={brand.name}
+                    className="brand-card-img brand-card-logo"
+                  />
+                ) : brand.coverUrl ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
                     src={brand.coverUrl}

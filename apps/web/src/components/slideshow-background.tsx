@@ -2,6 +2,7 @@
 
 import {useEffect, useRef, useState} from 'react';
 import Image from 'next/image';
+import {fallbackBannerImage} from '@/lib/catalog';
 
 type Slide = {
   imageUrl?: string | null;
@@ -12,22 +13,25 @@ type Props = {
 };
 
 export function SlideshowBackground({slides}: Props) {
+  const normalizedSlides = slides.length > 0
+    ? slides.map((slide) => ({...slide, imageUrl: slide.imageUrl || fallbackBannerImage}))
+    : [{imageUrl: fallbackBannerImage}];
   const [active, setActive] = useState(0);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
-    if (slides.length <= 1) return;
+    if (normalizedSlides.length <= 1) return;
     intervalRef.current = setInterval(() => {
-      setActive((i) => (i + 1) % slides.length);
+      setActive((i) => (i + 1) % normalizedSlides.length);
     }, 7000);
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [slides.length]);
+  }, [normalizedSlides.length]);
 
   return (
     <>
-      {slides.map((slide, i) =>
+      {normalizedSlides.map((slide, i) =>
         slide.imageUrl ? (
           <div
             key={i}

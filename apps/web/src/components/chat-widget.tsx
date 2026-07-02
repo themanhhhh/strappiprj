@@ -197,9 +197,9 @@ export function ChatWidget({ enabled = true }: ChatWidgetProps) {
         /* ── FAB ─────────────────────────── */
         .cw-fab {
           position: fixed;
-          bottom: 28px;
-          right: 28px;
-          z-index: 1000;
+          bottom: 88px;
+          right: 20px;
+          z-index: 1110;
           width: 54px;
           height: 54px;
           border-radius: 50%;
@@ -221,12 +221,12 @@ export function ChatWidget({ enabled = true }: ChatWidgetProps) {
         /* ── Window ──────────────────────── */
         .cw-window {
           position: fixed;
-          bottom: 96px;
-          right: 28px;
-          z-index: 999;
+          bottom: 156px;
+          right: 20px;
+          z-index: 1105;
           width: 380px;
           height: 640px;
-          max-height: calc(100vh - 140px);
+          max-height: calc(100vh - 180px);
           display: flex;
           flex-direction: column;
           background: #fff;
@@ -432,8 +432,16 @@ export function ChatWidget({ enabled = true }: ChatWidgetProps) {
 
         /* ── Responsive ──────────────────── */
         @media (max-width: 480px) {
-          .cw-window { width: calc(100vw - 24px); right: 12px; bottom: 82px; }
-          .cw-fab { right: 16px; bottom: 20px; }
+          .cw-window {
+            width: calc(100vw - 24px);
+            right: 12px;
+            bottom: 138px;
+            max-height: calc(100vh - 156px);
+          }
+          .cw-fab {
+            right: 16px;
+            bottom: 72px;
+          }
         }
       `}</style>
     </>

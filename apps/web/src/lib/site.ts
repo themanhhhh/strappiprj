@@ -83,6 +83,8 @@ type HomepageContent = {
   ctaSecondary: string;
 };
 
+const fallbackHeroImage = '/images/ALD04659-HDR.jpg';
+
 export const siteConfig: {
   name: string;
   description: string;
@@ -295,7 +297,7 @@ export const homepageContent: Record<Locale, HomepageContent> = {
         description:
           '10 năm cùng hệ thống Aladdin, hơn 100 dự án nhà hàng và xưởng tự sản xuất nội thất, inox bếp, biển hiệu tại Hà Đông.',
         imageLabel: 'Retail center rollout',
-        imageUrl: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=2070&auto=format&fit=crop',
+        imageUrl: fallbackHeroImage,
         stats: [
           {value: '10 năm', label: 'Kinh nghiệm thực chiến'},
           {value: 'Hơn 100', label: 'Dự án nhà hàng'},
@@ -308,7 +310,7 @@ export const homepageContent: Record<Locale, HomepageContent> = {
         description:
           'New Sky chứng minh năng lực bằng dự án 84 Ngọc Khánh thi công 16 ngày, hơn 100 dự án nhà hàng trong 10 năm và quan hệ đồng hành cùng 6 thương hiệu thuộc hệ thống Aladdin.',
         imageLabel: 'Chain rollout system',
-        imageUrl: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070&auto=format&fit=crop',
+        imageUrl: fallbackHeroImage,
         stats: [
           {value: '16 ngày', label: 'Kỷ lục Ngọc Khánh'},
           {value: 'Hơn 100', label: 'Dự án trong 10 năm'},
@@ -321,7 +323,7 @@ export const homepageContent: Record<Locale, HomepageContent> = {
         description:
           'Cách làm tổng thầu chuyên nhà hàng giúp chủ đầu tư giảm phối hợp nhiều đầu mối, kiểm soát chất lượng tốt hơn và chủ động tiến độ khai trương.',
         imageLabel: 'Flagship execution',
-        imageUrl: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=2070&auto=format&fit=crop',
+        imageUrl: fallbackHeroImage,
         stats: [
           {value: '6', label: 'Năng lực cốt lõi'},
           {value: '3', label: 'Bước lắp đặt, bàn giao, bảo trì'},
@@ -421,7 +423,7 @@ export const homepageContent: Record<Locale, HomepageContent> = {
         description:
           '10 years with the Aladdin system, more than 100 restaurant projects, and in-house production for interiors, kitchen stainless steel, and signage.',
         imageLabel: 'Retail center rollout',
-        imageUrl: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=2070&auto=format&fit=crop',
+        imageUrl: fallbackHeroImage,
         stats: [
           {value: '10 years', label: 'Practical experience'},
           {value: '100+', label: 'Restaurant projects'},
@@ -434,7 +436,7 @@ export const homepageContent: Record<Locale, HomepageContent> = {
         description:
           'New Sky proves capability through the 16-day Ngoc Khanh project, more than 100 restaurant projects over 10 years, and delivery experience with 6 brands in the Aladdin system.',
         imageLabel: 'Chain rollout system',
-        imageUrl: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070&auto=format&fit=crop',
+        imageUrl: fallbackHeroImage,
         stats: [
           {value: '16 days', label: 'Ngoc Khanh record'},
           {value: '100+', label: 'Projects over 10 years'},
@@ -447,7 +449,7 @@ export const homepageContent: Record<Locale, HomepageContent> = {
         description:
           'The restaurant-focused general-contractor model helps investors reduce coordination across multiple parties, improve quality control, and protect opening schedules.',
         imageLabel: 'Flagship execution',
-        imageUrl: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=2070&auto=format&fit=crop',
+        imageUrl: fallbackHeroImage,
         stats: [
           {value: '6', label: 'Core capabilities'},
           {value: '3', label: 'Install, handover, maintain'},

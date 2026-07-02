@@ -15,6 +15,33 @@ import {getTranslations} from 'next-intl/server';
 
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL ?? 'http://localhost:1337';
 
+const fallbackBrandAssets = [
+  {
+    slug: 'long-wang',
+    logoUrl: '/images/fallback/logo/images.jfif',
+  },
+  {
+    slug: 'tian-long',
+    logoUrl: '/images/fallback/logo/images (1).jfif',
+  },
+  {
+    slug: 'bo-to-quan-moc',
+    logoUrl: '/images/fallback/logo/duong-ban-750x468.png',
+  },
+  {
+    slug: 'g-master',
+    logoUrl: '/images/fallback/logo/1778650433_6a040d4150dd9.png',
+  },
+  {
+    slug: 'com-nieu-hai-su',
+    logoUrl: '/images/fallback/logo/com-nieu-hai-su_waon.png',
+  },
+  {
+    slug: 'khen-nuong-sapa',
+    logoUrl: null,
+  },
+] as const;
+
 type HomePageProps = {
   params: Promise<{locale: string}>;
 };
@@ -62,7 +89,12 @@ export default async function HomePage({params}: HomePageProps) {
             ? p.logo.url.startsWith('http') ? p.logo.url : `${STRAPI_URL}${p.logo.url}`
             : null,
         }))
-      : content.brands.map((b) => ({...b, slug: undefined, coverUrl: null, logoUrl: null}));
+      : content.brands.map((brand, index) => ({
+          ...brand,
+          slug: fallbackBrandAssets[index]?.slug,
+          coverUrl: null,
+          logoUrl: fallbackBrandAssets[index]?.logoUrl ?? null,
+        }));
 
   // Build news items: Strapi posts → news showcase (tối đa 5)
   const newsItems =

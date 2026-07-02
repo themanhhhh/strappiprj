@@ -46,6 +46,21 @@ export type JobEntry = {
   benefits: string[];
 };
 
+export const fallbackBannerImage = '/images/ALD04659-HDR.jpg';
+
+export const projectFallbackImages: Record<string, string> = {
+  'bo-to-quan-moc': '/images/fallback/brands/bo-to-quan-moc/banners/DSC07157.jpg',
+  'long-wang': '/images/fallback/brands/long-wang/banners/DSC02232.jpg',
+  'tian-long': '/images/fallback/brands/tian-long/gallery/DSC07529.jpg',
+  'g-master': '/images/fallback/brands/g-master/banners/ALD04659-HDR.jpg',
+  'com-nieu-hai-su': '/images/fallback/brands/com-nieu-hai-su/banners/_DSC6149.jpg',
+  'khen-nuong-sapa': '/images/fallback/brands/khen-nuong-sapa/banners/ALD00859.jpg',
+};
+
+export function getProjectFallbackImage(slug: string) {
+  return projectFallbackImages[slug] ?? fallbackBannerImage;
+}
+
 export const services: ServiceEntry[] = [
   {
     slug: 'thiet-ke',
@@ -59,7 +74,7 @@ export const services: ServiceEntry[] = [
       'Chi tiết thi công theo định vị thương hiệu'
     ],
     process: ['Khảo sát', 'Thiết kế', 'Duyệt bản vẽ', 'Bàn giao hồ sơ thi công'],
-    relatedProjectSlugs: ['ngoc-khanh-complex', 'tian-long-chain']
+    relatedProjectSlugs: ['bo-to-quan-moc', 'long-wang', 'tian-long']
   },
   {
     slug: 'noi-that',
@@ -73,7 +88,7 @@ export const services: ServiceEntry[] = [
       'Lắp đặt theo bản vẽ đã duyệt'
     ],
     process: ['Bóc tách hạng mục', 'Sản xuất tại xưởng', 'Kiểm tra hoàn thiện', 'Lắp đặt công trường'],
-    relatedProjectSlugs: ['ngoc-khanh-complex', 'tian-long-chain']
+    relatedProjectSlugs: ['bo-to-quan-moc', 'long-wang', 'tian-long']
   },
   {
     slug: 'co-dien',
@@ -87,7 +102,7 @@ export const services: ServiceEntry[] = [
       'Phối hợp yêu cầu kỹ thuật của mặt bằng khi cần'
     ],
     process: ['Khảo sát hạ tầng', 'Bản vẽ kỹ thuật', 'Điều phối thầu phụ', 'Chạy thử'],
-    relatedProjectSlugs: ['gmaster-landmark-81']
+    relatedProjectSlugs: ['g-master', 'long-wang', 'com-nieu-hai-su']
   },
   {
     slug: 'inox-bep-cong-nghiep',
@@ -101,7 +116,7 @@ export const services: ServiceEntry[] = [
       'Lắp đặt theo nhu cầu vận hành bếp nhà hàng'
     ],
     process: ['Thiết kế inox', 'Sản xuất tại xưởng', 'Kiểm tra hoàn thiện', 'Lắp đặt công trường'],
-    relatedProjectSlugs: ['ngoc-khanh-complex', 'tian-long-chain']
+    relatedProjectSlugs: ['long-wang', 'tian-long', 'g-master', 'khen-nuong-sapa']
   },
   {
     slug: 'xay-dung',
@@ -115,7 +130,7 @@ export const services: ServiceEntry[] = [
       'Hoàn thiện sàn, tường, trần'
     ],
     process: ['Khảo sát hiện trạng', 'Lập tiến độ', 'Điều phối thầu phụ', 'Nghiệm thu hoàn thiện'],
-    relatedProjectSlugs: ['ngoc-khanh-complex']
+    relatedProjectSlugs: ['bo-to-quan-moc', 'g-master']
   },
   {
     slug: 'bien-hieu',
@@ -129,52 +144,94 @@ export const services: ServiceEntry[] = [
       'Pano và hạng mục nhận diện liên quan'
     ],
     process: ['Chốt nhận diện', 'Sản xuất tại xưởng', 'Kiểm tra hoàn thiện', 'Lắp đặt công trường'],
-    relatedProjectSlugs: ['ngoc-khanh-complex', 'tian-long-chain']
+    relatedProjectSlugs: ['bo-to-quan-moc', 'long-wang', 'tian-long', 'khen-nuong-sapa']
   }
 ];
 
 export const projects: ProjectEntry[] = [
   {
-    slug: 'mall-restaurant-rollout',
-    title: 'Chuỗi nhà hàng trung tâm thương mại',
-    description: 'Bố cục thẻ thông tin hiển thị cái nhìn tổng quan, phạm vi bàn giao và loại hình dự án.',
-    meta: 'THI CÔNG / 420 M² / HCMC',
-    category: 'Fast Casual Fit-out',
-    location: 'TP. Hồ Chí Minh',
-    year: '2025',
-    area: '420 m²',
-    challenge: 'Thời gian bàn giao mặt bằng ngắn và xung đột kỹ thuật MEP về thông gió nhà bếp và hệ thống thoát nước.',
-    solution: 'Điều chỉnh lại thiết kế MEP từ sớm và chia quá trình thi công thành các giai đoạn kiểm soát chặt chẽ.',
-    outcome: 'Cửa hàng khai trương đúng tiến độ với lối đi kỹ thuật rõ ràng và ít sửa chữa ở giai đoạn cuối.',
+    slug: 'bo-to-quan-moc',
+    title: 'Bò Tơ Quán Mộc',
+    description: 'Bò tơ Ba Vì trong không gian hoài cổ Hà Nội thập niên 80, gần gũi và mộc mạc cho mô hình nhà phố và chuỗi F&B đông khách.',
+    meta: 'BÒ TƠ BA VÌ / HOÀI CỔ HÀ NỘI',
+    category: 'Bò Tơ Quán Mộc',
+    location: 'Hà Nội',
+    year: '2023',
+    area: '1.260 m²',
+    challenge: 'Thiết kế và thi công không gian nhà hàng mang màu sắc gần gũi, mộc mạc, phù hợp với mô hình nhà phố và chuỗi F&B đông khách.',
+    solution: 'New Sky triển khai đồng bộ thiết kế, nội thất, cơ điện, inox bếp, xây dựng và biển hiệu để tạo trải nghiệm thương hiệu nhất quán.',
+    outcome: 'Cùng Long Wang tạo nên tổ hợp Ngọc Khánh 1.260m², hoàn thành trong 16 ngày - một kỷ lục tiến độ của đội New Sky.',
     serviceSlugs: ['thiet-ke', 'noi-that', 'co-dien', 'inox-bep-cong-nghiep', 'xay-dung', 'bien-hieu']
   },
   {
-    slug: 'cafe-upgrade-package',
-    title: 'Gói cải tạo quán Cafe',
-    description: 'Chuẩn bị sẵn cho các bộ lọc, thẻ tag và hiển thị danh sách theo danh mục mà không cần tuỳ chỉnh giao diện.',
-    meta: 'CẢI TẠO / 180 M² / ĐÀ NẴNG',
-    category: 'Cafe Renovation',
-    location: 'Đà Nẵng',
-    year: '2025',
-    area: '180 m²',
-    challenge: 'Cửa hàng cần cải tạo nhưng vẫn phải duy trì hoạt động phục vụ và lối ra vào của khách.',
-    solution: 'Áp dụng các khung giờ thi công ngắt quãng và thiết kế lại luồng di chuyển quanh khu vực quầy bar.',
-    outcome: 'Cửa hàng cải tạo giúp cải thiện năng suất phục vụ giờ cao điểm và giảm thiểu va chạm giữa nhân viên.',
-    serviceSlugs: ['thiet-ke', 'noi-that', 'co-dien', 'xay-dung']
+    slug: 'long-wang',
+    title: 'Long Wang',
+    description: 'Lẩu hấp thủy nhiệt Hồng Kông và dim sum trong không gian cao cấp, đồng bộ trải nghiệm khách hàng, vận hành bếp và nhận diện thương hiệu.',
+    meta: 'LẨU HẤP HỒNG KÔNG / DIM SUM',
+    category: 'Long Wang',
+    location: 'Toàn quốc',
+    year: '2023-2025',
+    area: 'Chuỗi F&B',
+    challenge: 'Mô hình nhà hàng có yêu cầu cao về vận hành bếp, trải nghiệm khách hàng và nhận diện thương hiệu.',
+    solution: 'New Sky triển khai không gian cao cấp, đồng bộ từ thiết kế, nội thất, cơ điện, inox bếp đến biển hiệu.',
+    outcome: 'Thể hiện năng lực xử lý các mô hình nhà hàng phức tạp, cần kiểm soát đồng thời công năng bếp, hình ảnh thương hiệu và chất lượng hoàn thiện.',
+    serviceSlugs: ['thiet-ke', 'noi-that', 'co-dien', 'inox-bep-cong-nghiep', 'xay-dung', 'bien-hieu']
   },
   {
-    slug: 'signature-dining-space',
-    title: 'Không gian ăn uống Signature',
-    description: 'Hỗ trợ hiển thị meta data tương lai như hình ảnh, năm, ngân sách và các dịch vụ liên quan từ Strapi.',
-    meta: 'FLAGSHIP / 560 M² / HN',
-    category: 'Flagship Dining',
+    slug: 'tian-long',
+    title: 'Tian Long',
+    description: 'Lẩu bò tươi Triều Châu được chuẩn hóa thiết kế, nội thất, inox bếp, biển hiệu và thi công để triển khai đồng bộ nhiều cơ sở.',
+    meta: 'LẨU BÒ TƯƠI TRIỀU CHÂU',
+    category: 'Tian Long',
+    location: 'Ba miền',
+    year: '2024-2026',
+    area: 'Chuỗi F&B',
+    challenge: 'Mở rộng chuỗi nhanh nhưng vẫn cần giữ chất lượng, hình ảnh và phong cách nhất quán giữa các mặt bằng.',
+    solution: 'New Sky chuẩn hóa thiết kế, nội thất, inox bếp, biển hiệu và thi công để triển khai đồng bộ nhiều cơ sở trên cả ba miền.',
+    outcome: 'Phù hợp với bài toán mở rộng chuỗi F&B nhanh, cần một hệ thống thi công nhất quán và kiểm soát được chất lượng hoàn thiện.',
+    serviceSlugs: ['thiet-ke', 'noi-that', 'co-dien', 'inox-bep-cong-nghiep', 'xay-dung', 'bien-hieu']
+  },
+  {
+    slug: 'g-master',
+    title: 'G.Master',
+    description: 'Yakizakaya Nhật hiện đại, kết hợp nướng Nhật và izakaya trong môi trường trung tâm thương mại cao cấp.',
+    meta: 'YAKIZAKAYA NHẬT HIỆN ĐẠI',
+    category: 'G.Master',
+    location: 'TP. Hồ Chí Minh',
+    year: '2026',
+    area: 'Trung tâm thương mại',
+    challenge: 'Mô hình nướng Nhật trong trung tâm thương mại yêu cầu xử lý kỹ hệ thống bếp than hoa, hút khói, thông gió và nghiệm thu kỹ thuật.',
+    solution: 'New Sky thiết kế phong cách Nhật, thi công cơ điện, bếp than hoa, hệ thống hút khói và thông gió cho mô hình nướng trong trung tâm thương mại.',
+    outcome: 'Dự án G.Master Vincom Landmark 81 cho thấy năng lực thi công trong môi trường cao cấp, nhiều quy chuẩn nghiệm thu và kiểm soát kỹ thuật khắt khe.',
+    serviceSlugs: ['thiet-ke', 'noi-that', 'co-dien', 'inox-bep-cong-nghiep', 'xay-dung', 'bien-hieu']
+  },
+  {
+    slug: 'com-nieu-hai-su',
+    title: 'Cơm Niêu Hải Sư',
+    description: 'Cơm niêu Singapore trong không gian ẩm thực hiện đại, sạch sẽ, tối ưu trải nghiệm phục vụ nhanh và vận hành bếp ổn định.',
+    meta: 'CƠM NIÊU SINGAPORE',
+    category: 'Cơm Niêu Hải Sư',
     location: 'Hà Nội',
     year: '2025',
-    area: '560 m²',
-    challenge: 'Khách hàng cần một khu vực đón khách ấn tượng hơn mà không làm giảm năng suất hiện tại.',
-    solution: 'Cân đối lại lối vào, khu vực chờ và ăn uống trong khi vẫn đảm bảo hoàn thiện kiến trúc hài hoà với các dịch vụ.',
-    outcome: 'Bố cục cuối cùng giúp nâng cao ấn tượng của thực khách và duy trì hiệu quả vận hành xuyên suốt các ca.',
-    serviceSlugs: ['thiet-ke', 'noi-that', 'bien-hieu']
+    area: 'Chuỗi F&B',
+    challenge: 'Không gian cần giữ cảm giác hiện đại, sạch sẽ, đồng thời phục vụ nhanh và vận hành bếp ổn định trong giờ cao điểm.',
+    solution: 'New Sky thiết kế và thi công không gian ẩm thực hiện đại, tối ưu trải nghiệm phục vụ nhanh và tổ chức khu bếp phù hợp vận hành.',
+    outcome: 'Là một trong các thương hiệu thuộc hệ thống Aladdin, góp phần thể hiện khả năng New Sky triển khai đa dạng concept F&B trong cùng một hệ sinh thái.',
+    serviceSlugs: ['thiet-ke', 'noi-that', 'co-dien', 'inox-bep-cong-nghiep', 'xay-dung', 'bien-hieu']
+  },
+  {
+    slug: 'khen-nuong-sapa',
+    title: 'Khèn Nướng Sapa',
+    description: 'Nướng than hoa mang bản sắc Tây Bắc, kết hợp nội thất, mặt tiền và khu vực bếp nướng cho mô hình nhà hàng trải nghiệm.',
+    meta: 'NƯỚNG THAN HOA / TÂY BẮC',
+    category: 'Khèn Nướng Sapa',
+    location: 'Hà Nội',
+    year: '2025',
+    area: 'Nhà hàng trải nghiệm',
+    challenge: 'Không gian cần chuyển hóa câu chuyện bản địa Tây Bắc thành trải nghiệm thực tế, khác biệt với các mô hình lẩu, nướng Nhật hay cơm niêu.',
+    solution: 'New Sky tạo dựng không gian mang bản sắc vùng miền, kết hợp nội thất, mặt tiền và khu vực bếp nướng phù hợp với mô hình nhà hàng trải nghiệm.',
+    outcome: 'Cho thấy khả năng chuyển hóa câu chuyện thương hiệu thành không gian thực tế có bản sắc riêng trong hệ sinh thái F&B đa concept.',
+    serviceSlugs: ['thiet-ke', 'noi-that', 'co-dien', 'inox-bep-cong-nghiep', 'xay-dung', 'bien-hieu']
   }
 ];
 
