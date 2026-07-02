@@ -57,8 +57,41 @@ export const projectFallbackImages: Record<string, string> = {
   'khen-nuong-sapa': '/images/fallback/brands/khen-nuong-sapa/banners/ALD00859.jpg',
 };
 
+export const projectFallbackGalleries: Record<string, string[]> = {
+  'bo-to-quan-moc': [
+    '/images/fallback/brands/bo-to-quan-moc/gallery/DSC07157.jpg',
+  ],
+  'long-wang': [
+    '/images/fallback/brands/long-wang/gallery/DSC02232.jpg',
+    '/images/fallback/brands/long-wang/gallery/DSC02229.jpg',
+    '/images/fallback/brands/long-wang/gallery/DSC02220.jpg',
+  ],
+  'tian-long': [
+    '/images/fallback/brands/tian-long/gallery/DSC07529.jpg',
+    '/images/fallback/brands/tian-long/gallery/DSC07430.jpg',
+    '/images/fallback/brands/tian-long/gallery/DSC07426.jpg',
+  ],
+  'g-master': [
+    '/images/fallback/brands/g-master/gallery/ALD04659-HDR.jpg',
+  ],
+  'com-nieu-hai-su': [
+    '/images/fallback/brands/com-nieu-hai-su/gallery/_DSC6149.jpg',
+    '/images/fallback/brands/com-nieu-hai-su/gallery/_DSC6148.jpg',
+    '/images/fallback/brands/com-nieu-hai-su/gallery/_DSC6134.jpg',
+  ],
+  'khen-nuong-sapa': [
+    '/images/fallback/brands/khen-nuong-sapa/gallery/ALD00859.jpg',
+    '/images/fallback/brands/khen-nuong-sapa/gallery/ALD00820.jpg',
+    '/images/fallback/brands/khen-nuong-sapa/gallery/ALD00809.jpg',
+  ],
+};
+
 export function getProjectFallbackImage(slug: string) {
   return projectFallbackImages[slug] ?? fallbackBannerImage;
+}
+
+export function getProjectFallbackGallery(slug: string) {
+  return projectFallbackGalleries[slug] ?? [getProjectFallbackImage(slug)];
 }
 
 export const services: ServiceEntry[] = [

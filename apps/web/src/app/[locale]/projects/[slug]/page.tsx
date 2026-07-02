@@ -3,7 +3,7 @@ import type {Metadata} from 'next';
 import {ButtonLink} from '@/components/button-link';
 import {CtaStrip} from '@/components/cta-strip';
 import {getProjectBySlug, getProjects, getHeroSlides} from '@/lib/strapi/queries';
-import {fallbackBannerImage, getProject, getProjectFallbackImage, getService, projects as catalogProjects} from '@/lib/catalog';
+import {fallbackBannerImage, getProject, getProjectFallbackGallery, getProjectFallbackImage, getService, projects as catalogProjects} from '@/lib/catalog';
 import {Header} from '@/components/header';
 import Image from 'next/image';
 import {ProjectGallery} from '@/components/project-gallery';
@@ -87,7 +87,7 @@ export default async function ProjectDetailPage({params}: ProjectDetailPageProps
       solution: catalogData.solution,
       outcome: catalogData.outcome,
       coverUrl: getProjectFallbackImage(catalogData.slug),
-      galleryUrls: [],
+      galleryUrls: getProjectFallbackGallery(catalogData.slug),
       relatedServices: catalogData.serviceSlugs.map(s => getService(s)).filter(Boolean) as any[],
     };
   }
