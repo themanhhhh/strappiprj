@@ -4,8 +4,8 @@ import {siteUrl} from '@/lib/seo';
 
 const faqs = [
   ['New Sky làm những hạng mục nào?', 'New Sky tổ chức 6 năng lực gồm thiết kế, nội thất, cơ điện, inox bếp, xây dựng và biển hiệu; thêm các bước lắp đặt, bàn giao và bảo trì.'],
-  ['New Sky có tự sản xuất không?', 'New Sky có xưởng 3.000m² tại Hà Đông để tự sản xuất nội thất, inox bếp công nghiệp và biển hiệu.'],
-  ['New Sky phục vụ khách hàng nào?', 'Tệp chính là chủ chuỗi nhà hàng F&B, người setup nhà hàng, doanh nghiệp F&B mở rộng chuỗi và khách cần sản phẩm rời như inox bếp, nội thất, biển hiệu.'],
+  ['New Sky có tự sản xuất không?', 'New Sky có xưởng 3.000m² tại Thượng Hồng, Hưng Yên để tự sản xuất nội thất, inox bếp công nghiệp và biển hiệu.'],
+  ['New Sky phục vụ khách hàng nào?', 'Tệp chính là chủ chuỗi nhà hàng F&B, người dựng quán, doanh nghiệp F&B mở rộng chuỗi và khách cần sản phẩm rời như inox bếp, nội thất, biển hiệu.'],
   ['Có công khai giá trên website không?', 'Không. New Sky chỉ báo giá sau khi trao đổi trực tiếp về mặt bằng, phạm vi, vật liệu và yêu cầu kỹ thuật.'],
 ];
 
@@ -15,7 +15,7 @@ export async function generateMetadata({params}: FaqPageProps): Promise<Metadata
   const {locale} = await params;
   return {
     title: 'FAQ - Câu hỏi thường gặp về New Sky',
-    description: 'Câu hỏi thường gặp về dịch vụ thiết kế và thi công nhà hàng F&B, xưởng inox bếp, nội thất và biển hiệu của New Sky.',
+    description: 'Câu hỏi thường gặp về dịch vụ đồng hành cùng nhà đầu tư nhà hàng, xưởng inox bếp, nội thất và biển hiệu của New Sky.',
     alternates: {canonical: `/${locale}/faq`},
   };
 }

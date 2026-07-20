@@ -9,27 +9,6 @@ type ContactPayload = {
   website?: string;
 };
 
-async function resolveServiceId(strapiUrl: string, token: string, slug: string) {
-  const query = new URLSearchParams({
-    'filters[slug][$eq]': slug,
-    'pagination[pageSize]': '1'
-  });
-
-  const response = await fetch(`${strapiUrl}/api/services?${query.toString()}`, {
-    headers: {
-      Authorization: `Bearer ${token}`
-    },
-    cache: 'no-store'
-  });
-
-  if (!response.ok) {
-    return undefined;
-  }
-
-  const json = (await response.json()) as {data?: Array<{id: number}>};
-  return json.data?.[0]?.id;
-}
-
 export async function POST(request: Request) {
   const strapiUrl = process.env.STRAPI_URL;
   const token = process.env.STRAPI_API_TOKEN;
@@ -62,25 +41,19 @@ export async function POST(request: Request) {
 
   if (!fullName || !message || (!phone && !email)) {
     return NextResponse.json(
-      {message: 'Full name, project brief, and one contact method are required.'},
+      {message: 'Full name, project summary, and one contact method are required.'},
       {status: 400}
     );
   }
 
-  const data: Record<string, string | number> = {
+  const data: Record<string, string> = {
     fullName,
     phone,
     email,
     message,
+    serviceInterest: serviceInterestSlug,
     status: 'new'
   };
-
-  if (serviceInterestSlug) {
-    const serviceId = await resolveServiceId(strapiUrl, token, serviceInterestSlug);
-    if (serviceId) {
-      data.serviceInterest = serviceId;
-    }
-  }
 
   const response = await fetch(`${strapiUrl}/api/contact-submissions`, {
     method: 'POST',

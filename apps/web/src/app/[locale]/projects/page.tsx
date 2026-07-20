@@ -46,14 +46,14 @@ export default async function ProjectsPage({params}: ProjectsPageProps) {
   let brands: string[] | null = null;
 
   if (strapiProjects.length > 0) {
-    displayItems = strapiProjects.map((p) => {
+    displayItems = strapiProjects.map((p, index) => {
       const cover = p.cover?.url
         ? p.cover.url.startsWith('http') ? p.cover.url : `${STRAPI_URL}${p.cover.url}`
         : null;
       return {
         slug: p.slug,
         title: p.title,
-        description: p.description ?? '',
+        description: index < 3 ? p.description ?? '' : '',
         meta: p.meta ?? p.category ?? '',
         brand: p.category ?? '',
         coverUrl: cover,
@@ -72,10 +72,10 @@ export default async function ProjectsPage({params}: ProjectsPageProps) {
     brands = uniqueBrands.length > 0 ? uniqueBrands : null;
   } else {
     // Fallback catalog
-    displayItems = catalogProjects.map((p) => ({
+    displayItems = catalogProjects.map((p, index) => ({
       slug: p.slug,
       title: p.title,
-      description: p.description,
+      description: index < 3 ? p.description : '',
       meta: p.meta,
       brand: p.category,
       coverUrl: getProjectFallbackImage(p.slug),

@@ -22,6 +22,10 @@ type DisplayPost = {
   coverUrl: string | null;
 };
 
+function isHiddenSamplePost(post: {slug?: string; title?: string}) {
+  return post.slug?.includes('chuan-bi') || post.title?.includes('Chuẩn bị');
+}
+
 export async function generateMetadata({params}: JournalPageProps): Promise<Metadata> {
   const {locale} = await params;
   const t = await getTranslations({locale, namespace: 'journalPage'});
@@ -50,7 +54,7 @@ function formatDate(dateStr: string, locale: string) {
 
 function mapPosts(strapiPosts: Awaited<ReturnType<typeof getPosts>>): DisplayPost[] {
   if (strapiPosts.length > 0) {
-    return strapiPosts.map((post) => ({
+    return strapiPosts.filter((post) => !isHiddenSamplePost(post)).map((post) => ({
       slug: post.slug,
       title: post.title,
       date: post.publishedAt ?? null,
@@ -112,8 +116,8 @@ export default async function JournalPage({params}: JournalPageProps) {
         <div className="shell">
           <div className="journal-index-meta-row-maestro journal-index-meta-row-surface-maestro">
             <span>{String(displayPosts.length).padStart(2, '0')} {t('intro.articleCount')}</span>
-            <span>Editorial format</span>
-            <span>Crafted presentation</span>
+            <span>Chuyên mục New Sky</span>
+            <span>Nội dung đang cập nhật</span>
           </div>
         </div>
       </section>

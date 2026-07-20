@@ -6,11 +6,11 @@
     "journal": "Tin tức",
     "careers": "Tuyển dụng",
     "contact": "Liên hệ",
-    "cta": "Nhận báo giá"
+    "cta": "Liên hệ New Sky"
   },
   "footer": {
     "brand": "NEW SKY",
-    "brandDescription": "Đối tác thiết kế và thi công nhà hàng F&B cho chủ nhà hàng Việt. 10 năm cùng hệ thống Aladdin - hơn 100 dự án - xưởng tự sản xuất nội thất, inox bếp và biển hiệu.",
+    "brandDescription": "Giải pháp đồng hành cùng nhà đầu tư nhà hàng. Gần 160 nhà hàng, 8 thương hiệu khắp cả nước và xưởng tự sản xuất tại Thượng Hồng, Hưng Yên.",
     "office": "Văn phòng",
     "hotline": "Đường dây nóng",
     "email": "Hộp thư",
@@ -29,14 +29,14 @@
   },
   "home": {
     "eyebrow": "New Sky",
-    "title": "Đối tác thiết kế và thi công nhà hàng F&B cho chủ nhà hàng Việt.",
-    "description": "10 năm cùng hệ thống Aladdin - hơn 100 dự án - xưởng tự sản xuất nội thất, inox bếp và biển hiệu.",
-    "primaryCta": "Nhận báo giá",
+    "title": "Giải pháp đồng hành cùng nhà đầu tư nhà hàng.",
+    "description": "Gần 160 nhà hàng, 8 thương hiệu khắp cả nước. Đồng hành từ mặt bằng đến ngày quán vận hành có lãi - con số rõ từ đầu.",
+    "primaryCta": "Liên hệ New Sky",
     "secondaryCta": "Xem dự án",
     "specLabel": "Bản thông số",
     "metricsLabel": "Chỉ số khởi tạo",
-    "metadataTitle": "New Sky - Thiết kế và thi công nhà hàng F&B",
-    "metadataDescription": "Đối tác thiết kế và thi công nhà hàng F&B cho chủ nhà hàng Việt - 10 năm cùng hệ thống Aladdin, xưởng tự sản xuất nội thất, inox bếp và biển hiệu.",
+    "metadataTitle": "New Sky — Giải pháp đồng hành cùng nhà đầu tư nhà hàng",
+    "metadataDescription": "Gần 160 nhà hàng, 8 thương hiệu khắp cả nước. Đồng hành từ mặt bằng đến ngày quán vận hành có lãi — con số rõ từ đầu.",
     "ecosystemTitle": "Thương hiệu đã đồng hành thi công",
     "teamLabel": "Đội ngũ triển khai",
     "exploreCareers": "Khám phá cơ hội"
@@ -78,7 +78,7 @@
       {
         "index": "04",
         "title": "Inox bếp công nghiệp",
-        "description": "Bàn, giá kệ, tủ bếp, bồn rửa và các hạng mục inox bếp công nghiệp được sản xuất tại xưởng Hà Đông.",
+        "description": "Bàn, giá kệ, tủ bếp, bồn rửa và các hạng mục inox bếp công nghiệp được sản xuất tại xưởng Thượng Hồng, Hưng Yên.",
         "image": "/images/image4.png"
       },
       {
@@ -96,10 +96,10 @@
     ],
     "factory": {
       "eyebrow": "Bước chuyển dịch 2026",
-      "title": "Xưởng tự sản xuất 3.000m² tại Hà Đông, Hà Nội",
-      "description": "Xưởng Hà Đông giúp New Sky chủ động sản xuất nội thất, inox bếp công nghiệp và biển hiệu, qua đó kiểm soát tốt hơn chất lượng các hạng mục tự làm trong dự án nhà hàng F&B.",
+      "title": "Xưởng tự sản xuất 3.000m² tại Thượng Hồng, Hưng Yên",
+      "description": "Xưởng Thượng Hồng giúp New Sky chủ động sản xuất nội thất, inox bếp công nghiệp và biển hiệu, qua đó kiểm soát tốt hơn chất lượng các hạng mục tự làm trong dự án nhà hàng F&B.",
       "stats": [
-        {"value": "3.000m²", "label": "Quy mô xưởng Hà Đông"},
+        {"value": "3.000m²", "label": "Quy mô xưởng Thượng Hồng"},
         {"value": "3", "label": "Nhóm sản phẩm tự sản xuất"},
         {"value": "Inox", "label": "Bếp công nghiệp"},
         {"value": "Nội thất", "label": "Và biển hiệu"}
@@ -108,19 +108,19 @@
     "processIntro": {
       "eyebrow": "Quy trình thi công 6 bước",
       "title": "Từ khảo sát đến bàn giao, mỗi bước có phạm vi, thời gian và người phụ trách rõ ràng.",
-      "description": "Quy trình này được hình thành từ 10 năm thi công hơn 100 dự án nhà hàng, cân bằng giữa tiến độ, chất lượng và trách nhiệm rõ ràng trước khi ký hợp đồng."
+      "description": "Quy trình này được hình thành từ kinh nghiệm triển khai gần 160 nhà hàng, cân bằng giữa tiến độ, chất lượng và trách nhiệm rõ ràng trước khi ký hợp đồng."
     },
     "processLabels": {
-      "timeline": "Thời gian",
+      "time": "Mốc thời gian",
       "owner": "Phụ trách"
     },
     "process": [
-      {"index": "01", "title": "Khảo sát", "scope": "Đo đạc mặt bằng, ghi nhận hạ tầng điện, nước, thoát thải và yêu cầu BQL tòa nhà nếu là TTTM.", "timeline": "3-7 ngày", "owner": "Đội thiết kế + giám sát"},
-      {"index": "02", "title": "Thiết kế", "scope": "Ý tưởng ban đầu và bản vẽ chi tiết: kiến trúc, nội thất, cơ điện, Inox bếp. Điều chỉnh đến khi khách hàng duyệt.", "timeline": "7-14 ngày", "owner": "Đội thiết kế"},
-      {"index": "03", "title": "Báo giá + hợp đồng", "scope": "Bóc tách khối lượng vật tư, nhân công, thời gian và thiết bị; lên báo giá chi tiết, ký hợp đồng và tạm ứng.", "timeline": "3-5 ngày", "owner": "Đội thiết kế + kế toán"},
-      {"index": "04", "title": "Sản xuất tại xưởng", "scope": "Sản xuất Inox và đồ furniture nội thất tại xưởng Hà Đông, song song chuẩn bị vật tư xây dựng và cơ điện.", "timeline": "4-6 ngày", "owner": "Đội thi công xưởng"},
-      {"index": "05", "title": "Lắp đặt công trường", "scope": "Vận chuyển, lắp đặt Inox, cơ điện, thi công xây dựng hoàn thiện và chạy thử thiết bị.", "timeline": "3-5 ngày", "owner": "Đội thi công + giám sát"},
-      {"index": "06", "title": "Bàn giao + bảo trì", "scope": "Nghiệm thu, bàn giao hồ sơ kỹ thuật, hướng dẫn vận hành ban đầu và tiếp nhận nhu cầu bảo trì sau bàn giao.", "timeline": "Sau khai trương", "owner": "Toàn đội"}
+      {"index": "01", "title": "Khảo sát", "scope": "Đo đạc mặt bằng, ghi nhận hạ tầng điện, nước, thoát thải và yêu cầu BQL tòa nhà nếu là TTTM.", "time": "3-7 ngày", "owner": "Đội thiết kế + giám sát"},
+      {"index": "02", "title": "Thiết kế", "scope": "Ý tưởng ban đầu và bản vẽ chi tiết: kiến trúc, nội thất, cơ điện, Inox bếp. Điều chỉnh đến khi khách hàng duyệt.", "time": "7-14 ngày", "owner": "Đội thiết kế"},
+      {"index": "03", "title": "Báo giá + hợp đồng", "scope": "Bóc tách khối lượng vật tư, nhân công, thời gian và thiết bị; lên báo giá chi tiết, ký hợp đồng và tạm ứng.", "time": "3-5 ngày", "owner": "Đội thiết kế + kế toán"},
+      {"index": "04", "title": "Sản xuất tại xưởng", "scope": "Sản xuất inox và đồ nội thất tại xưởng Thượng Hồng, song song chuẩn bị vật tư xây dựng và cơ điện.", "time": "4-6 ngày", "owner": "Đội thi công xưởng"},
+      {"index": "05", "title": "Lắp đặt công trường", "scope": "Vận chuyển, lắp đặt Inox, cơ điện, thi công xây dựng hoàn thiện và chạy thử thiết bị.", "time": "3-5 ngày", "owner": "Đội thi công + giám sát"},
+      {"index": "06", "title": "Bàn giao + bảo trì", "scope": "Nghiệm thu, bàn giao hồ sơ kỹ thuật, hướng dẫn vận hành ban đầu và tiếp nhận nhu cầu bảo trì sau bàn giao.", "time": "Sau khai trương", "owner": "Toàn đội"}
     ]
   },
   "serviceDetail": {
@@ -154,17 +154,17 @@
     "hero": {
       "eyebrow": "Liên hệ New Sky",
       "title": "Trao đổi về dự án nhà hàng F&B của bạn.",
-      "description": "Gửi thông tin mặt bằng, quy mô chuỗi, timeline khai trương hoặc nhu cầu inox bếp, nội thất, biển hiệu để New Sky tư vấn bước tiếp theo."
+      "description": "Gửi thông tin mặt bằng, quy mô chuỗi, mốc thời gian khai trương hoặc nhu cầu inox bếp, nội thất, biển hiệu để New Sky tư vấn bước tiếp theo."
     }
   },
   "aboutPage": {
     "metadata": {
       "title": "Giới thiệu New Sky",
-      "description": "New Sky là đối tác thiết kế và thi công nhà hàng F&B cho chủ nhà hàng Việt, chuỗi F&B và doanh nghiệp F&B mở rộng hệ thống."
+      "description": "New Sky là giải pháp đồng hành cùng nhà đầu tư nhà hàng, từ mặt bằng đến ngày quán vận hành có lãi."
     },
     "hero": {
       "eyebrow": "Giới thiệu New Sky",
-      "title": "Đối tác thiết kế và thi công nhà hàng F&B cho chủ nhà hàng Việt",
+      "title": "Giải pháp đồng hành cùng nhà đầu tư nhà hàng",
       "description": "Thiết kế, nội thất, cơ điện, inox bếp, xây dựng và biển hiệu trong một đầu mối tổng thầu chuyên nhà hàng."
     },
     "introTitle": "Một đầu mối duy nhất cho toàn bộ quá trình triển khai nhà hàng",
@@ -178,7 +178,7 @@
     "factoryTitle": "Xưởng tự sản xuất 3.000m²",
     "factoryCardTitle": "Lợi thế xưởng riêng",
     "benefitsTitle": "Lợi ích dành cho chủ đầu tư",
-    "finalLine": "New Sky - Đối tác thiết kế và thi công nhà hàng F&B cho chủ nhà hàng Việt."
+    "finalLine": "New Sky - Giải pháp đồng hành cùng nhà đầu tư nhà hàng."
   },
   "projectsPage": {
     "metadata": {
@@ -190,7 +190,7 @@
       "title": "Những dự án chứng minh năng lực tiến độ, chất lượng và thi công chuỗi của New Sky",
       "description": "Mỗi dự án là bằng chứng cho khả năng phối hợp thiết kế, nội thất, cơ điện, inox bếp, xây dựng và biển hiệu trong một đầu mối.",
       "aside": [
-        "Thi công và fit-out được điều phối đồng bộ.",
+        "Thi công và hoàn thiện nội thất được điều phối đồng bộ.",
         "Chất lượng hoàn thiện được kiểm soát ở từng chi tiết.",
         "Nội thất, vật liệu và kỹ thuật được cân đối trong một hệ thống thực thi thống nhất."
       ]
@@ -223,12 +223,12 @@
     },
     "intro": {
       "title": "Làm việc cùng hệ thống đang tăng trưởng",
-      "description": "Các vị trí tuyển dụng được trình bày theo ngôn ngữ doanh nghiệp rõ ràng, tập trung vào vai trò, kỳ vọng và giá trị công việc.",
+      "description": "New Sky tìm kiếm nhân sự có tinh thần thực thi, phối hợp tốt và sẵn sàng đồng hành cùng các dự án nhà hàng thực tế.",
       "approachLabel": "Cách tiếp cận",
       "approachTitle": "Tuyển đúng người cho đúng giai đoạn mở rộng.",
       "approachBody": "Mỗi vai trò đều cần khả năng thực thi, phối hợp đội nhóm và thích nghi với nhịp độ triển khai của một hệ thống đa thương hiệu.",
       "openRolesTitle": "Vị trí đang mở",
-      "openRolesDescription": "Danh sách vị trí được rút gọn để dễ quét, đồng thời giữ cảm giác chỉn chu và nhất quán với ngôn ngữ thiết kế toàn site."
+      "openRolesDescription": "Các vị trí đang tuyển cho đội thiết kế, giám sát, công trường, xưởng sản xuất và khối hỗ trợ kinh doanh."
     }
   },
   "projectDetail": {

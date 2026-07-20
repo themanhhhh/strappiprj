@@ -40,9 +40,25 @@ export default async function LocaleLayout({children, params}: LocaleLayoutProps
     telephone: '0906790333',
     email: 'syluu.newsky@gmail.com',
     description: locale === 'vi'
-      ? 'Đối tác thiết kế và thi công nhà hàng F&B cho chủ nhà hàng Việt, với xưởng tự sản xuất nội thất, inox bếp và biển hiệu.'
+      ? 'Giải pháp đồng hành cùng nhà đầu tư nhà hàng, từ mặt bằng đến ngày quán vận hành có lãi.'
       : 'Design and construction partner for F&B restaurants in Vietnam, with in-house interiors, kitchen stainless steel, and signage production.',
     areaServed: 'Vietnam',
+    address: [
+      {
+        '@type': 'PostalAddress',
+        name: 'Văn phòng miền Bắc',
+        streetAddress: 'BT C01-L10 An Vượng, Khu đô thị Dương Nội, Phường Dương Nội',
+        addressLocality: 'Thành phố Hà Nội',
+        addressCountry: 'VN',
+      },
+      {
+        '@type': 'PostalAddress',
+        name: 'Văn phòng miền Nam',
+        streetAddress: '31-33 Nguyễn Thị Thập, Khu đô thị Him Lam, Quận 7',
+        addressLocality: 'TP. Hồ Chí Minh',
+        addressCountry: 'VN',
+      },
+    ],
     knowsAbout: [
       'Thiết kế nhà hàng F&B',
       'Thi công nhà hàng F&B',
@@ -61,6 +77,7 @@ export default async function LocaleLayout({children, params}: LocaleLayoutProps
       },
     ],
   };
+  const isEnglish = locale === 'en';
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
@@ -68,6 +85,7 @@ export default async function LocaleLayout({children, params}: LocaleLayoutProps
         type="application/ld+json"
         dangerouslySetInnerHTML={{__html: JSON.stringify(organizationJsonLd)}}
       />
+      {isEnglish ? <meta name="robots" content="noindex,follow" /> : null}
       <div className="page-frame maestro-locale-frame">
         <Header locale={locale as Locale} />
         <main className="page-main">{children}</main>

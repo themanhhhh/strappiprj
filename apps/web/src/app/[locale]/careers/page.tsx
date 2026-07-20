@@ -73,7 +73,7 @@ export default async function CareersPage({params}: CareersPageProps) {
         <div className="shell careers-intro-grid">
           <div>
             <SectionIntro
-              index="09"
+              index=""
               title={t('intro.title')}
               description={t('intro.description')}
             />
@@ -92,7 +92,7 @@ export default async function CareersPage({params}: CareersPageProps) {
       <section className="section-block careers-openings-section" id="careers-openings">
         <div className="shell">
           <SectionIntro
-            index="09"
+            index=""
             title={t('intro.openRolesTitle')}
             description={t('intro.openRolesDescription')}
           />

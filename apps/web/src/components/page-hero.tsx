@@ -37,7 +37,7 @@ export function PageHero({eyebrow, title, description, aside, actions, imageUrl,
             <SlideshowBackground slides={slides} />
           ) : imageUrl ? (
             <Image
-              src={imageUrl}
+              src={fallbackBannerImage}
               alt={title}
               fill
               priority

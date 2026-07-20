@@ -107,7 +107,7 @@ export default async function ProjectDetailPage({params}: ProjectDetailPageProps
 
   return (
     <div className="project-detail-page maestro-project-page">
-      {/* 1. Custom Hero: Render HeroBanner if data exists, else fallback to project cover */}
+      {/* 1. Custom Hero: use one shared fallback image when CMS has no hero slide. */}
       {heroSlidesData.length > 0 ? (
         <div className="hero-header-page" style={{ position: 'relative' }}>
           <Header locale={locale as any} transparent />
@@ -121,11 +121,7 @@ export default async function ProjectDetailPage({params}: ProjectDetailPageProps
         <div className="project-hero-maestro hero-header-page" style={{ position: 'relative' }}>
           <Header locale={locale as any} transparent />
           <div className="project-hero-bg-maestro">
-            {p.coverUrl ? (
-              <Image src={p.coverUrl} alt={p.title} fill priority style={{objectFit: 'cover'}} />
-            ) : (
-              <div className="project-hero-bg-fallback-maestro" />
-            )}
+            <Image src={fallbackBannerImage} alt={p.title} fill priority style={{objectFit: 'cover'}} />
             {/* Removed overlay to keep the project image clear. */}
           </div>
         </div>
@@ -148,19 +144,19 @@ export default async function ProjectDetailPage({params}: ProjectDetailPageProps
                 <table className="project-meta-table">
                   <tbody>
                     <tr className="project-meta-row">
-                      <td className="project-meta-label-maestro">LOCATION</td>
+                      <td className="project-meta-label-maestro">ĐỊA ĐIỂM</td>
                       <td className="project-meta-value-maestro">{p.location || '—'}</td>
                     </tr>
                     <tr className="project-meta-row">
-                      <td className="project-meta-label-maestro">SCOPE</td>
+                      <td className="project-meta-label-maestro">PHẠM VI</td>
                       <td className="project-meta-value-maestro">{p.area || '—'}</td>
                     </tr>
                     <tr className="project-meta-row">
-                      <td className="project-meta-label-maestro">YEAR</td>
+                      <td className="project-meta-label-maestro">NĂM</td>
                       <td className="project-meta-value-maestro">{p.year || '—'}</td>
                     </tr>
                     <tr className="project-meta-row">
-                      <td className="project-meta-label-maestro">SUB-SECTOR</td>
+                      <td className="project-meta-label-maestro">NHÓM DỰ ÁN</td>
                       <td className="project-meta-value-maestro">{p.category || '—'}</td>
                     </tr>
                   </tbody>

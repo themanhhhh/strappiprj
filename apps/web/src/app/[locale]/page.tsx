@@ -8,6 +8,7 @@ import {ButtonLink} from '@/components/button-link';
 import {NewsShowcase} from '@/components/news-showcase';
 import {Header} from '@/components/header';
 import {homepageContent} from '@/lib/site';
+import {getProjectFallbackImage} from '@/lib/catalog';
 import {getProjects, getPosts, getHeroSlides, getHomepage} from '@/lib/strapi/queries';
 import type {Locale} from '@/i18n/routing';
 import {getLocalizedAlternates, getOpenGraphLocale} from '@/lib/seo';
@@ -19,26 +20,32 @@ const fallbackBrandAssets = [
   {
     slug: 'long-wang',
     logoUrl: '/images/fallback/logo/images.jfif',
+    coverUrl: getProjectFallbackImage('long-wang'),
   },
   {
     slug: 'tian-long',
     logoUrl: '/images/fallback/logo/images (1).jfif',
+    coverUrl: getProjectFallbackImage('tian-long'),
   },
   {
     slug: 'bo-to-quan-moc',
     logoUrl: '/images/fallback/logo/duong-ban-750x468.png',
+    coverUrl: getProjectFallbackImage('bo-to-quan-moc'),
   },
   {
     slug: 'g-master',
     logoUrl: '/images/fallback/logo/1778650433_6a040d4150dd9.png',
+    coverUrl: getProjectFallbackImage('g-master'),
   },
   {
     slug: 'com-nieu-hai-su',
     logoUrl: '/images/fallback/logo/com-nieu-hai-su_waon.png',
+    coverUrl: getProjectFallbackImage('com-nieu-hai-su'),
   },
   {
     slug: 'khen-nuong-sapa',
     logoUrl: null,
+    coverUrl: getProjectFallbackImage('khen-nuong-sapa'),
   },
 ] as const;
 
@@ -92,7 +99,7 @@ export default async function HomePage({params}: HomePageProps) {
       : content.brands.map((brand, index) => ({
           ...brand,
           slug: fallbackBrandAssets[index]?.slug,
-          coverUrl: null,
+          coverUrl: fallbackBrandAssets[index]?.coverUrl ?? null,
           logoUrl: fallbackBrandAssets[index]?.logoUrl ?? null,
         }));
 

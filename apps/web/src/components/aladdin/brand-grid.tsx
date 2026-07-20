@@ -32,19 +32,19 @@ export function BrandGrid({locale, title, brands}: BrandGridProps) {
               className="aladdin-brand-card"
             >
               <div className="brand-card-image">
-                {brand.logoUrl ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    src={brand.logoUrl}
-                    alt={brand.name}
-                    className="brand-card-img brand-card-logo"
-                  />
-                ) : brand.coverUrl ? (
+                {brand.coverUrl ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
                     src={brand.coverUrl}
                     alt={brand.name}
                     className="brand-card-img"
+                  />
+                ) : brand.logoUrl ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={brand.logoUrl}
+                    alt={brand.name}
+                    className="brand-card-img brand-card-logo"
                   />
                 ) : (
                   <div className="image-placeholder" />

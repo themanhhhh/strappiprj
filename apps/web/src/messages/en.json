@@ -18,11 +18,11 @@
     "social": "Social"
   },
   "chat": {
-    "initialMessage": "Hello. I am New Sky's consultation assistant. I can help with restaurant design-and-build, MEP, industrial kitchen stainless steel, construction timelines, and next steps for your project.",
+    "initialMessage": "Hello. I am New Sky's consultation assistant. I can help with restaurant project planning, MEP, industrial kitchen stainless steel, construction schedules, and next steps for your project.",
     "errorMessage": "Sorry, the system is temporarily unavailable. Please try again later or contact New Sky directly via hotline 0906 790 333 for faster support.",
     "title": "New Sky Assistant",
     "placeholder": "Briefly describe your project needs or scale…",
-    "disclaimer": "AI content is for initial reference only. For specific proposals, timelines, and quotations, please confirm with the New Sky team.",
+    "disclaimer": "AI content is for initial reference only. For specific proposals, schedules, and quotations, please confirm with the New Sky team.",
     "openLabel": "Open consultation assistant",
     "closeLabel": "Close consultation assistant",
     "sendLabel": "Send"
@@ -111,16 +111,16 @@
       "description": "This process is shaped by 10 years and more than 100 restaurant projects, balancing schedule, quality, and clear accountability before contract signing."
     },
     "processLabels": {
-      "timeline": "Timeline",
+      "time": "Schedule",
       "owner": "Owner"
     },
     "process": [
-      {"index": "01", "title": "Survey", "scope": "Measure the site, record electrical, water, and drainage conditions, and review landlord requirements for mall projects.", "timeline": "3-7 days", "owner": "Design + supervision teams"},
-      {"index": "02", "title": "Design", "scope": "Initial concept and detailed drawings across architecture, interiors, MEP, and kitchen stainless steel, adjusted until approval.", "timeline": "7-14 days", "owner": "Design team"},
-      {"index": "03", "title": "Quotation + Contract", "scope": "Break down materials, labour, timeline, and equipment; prepare detailed quotation, sign contract, and collect deposit.", "timeline": "3-5 days", "owner": "Design + accounting teams"},
-      {"index": "04", "title": "Workshop Production", "scope": "Produce stainless-steel and furniture items at the Ha Dong workshop while preparing construction and MEP materials in parallel.", "timeline": "4-6 days", "owner": "Workshop team"},
-      {"index": "05", "title": "Site Installation", "scope": "Transport and install stainless steel, MEP, and construction finishes, then test equipment on site.", "timeline": "3-5 days", "owner": "Construction + supervision teams"},
-      {"index": "06", "title": "Handover + Maintenance", "scope": "Acceptance, technical document handover, initial operation guidance, and maintenance request intake after handover.", "timeline": "After opening", "owner": "Full team"}
+      {"index": "01", "title": "Survey", "scope": "Measure the site, record electrical, water, and drainage conditions, and review landlord requirements for mall projects.", "time": "3-7 days", "owner": "Design + supervision teams"},
+      {"index": "02", "title": "Design", "scope": "Initial concept and detailed drawings across architecture, interiors, MEP, and kitchen stainless steel, adjusted until approval.", "time": "7-14 days", "owner": "Design team"},
+      {"index": "03", "title": "Quotation + Contract", "scope": "Break down materials, labour, schedule, and equipment; prepare detailed quotation, sign contract, and collect deposit.", "time": "3-5 days", "owner": "Design + accounting teams"},
+      {"index": "04", "title": "Workshop Production", "scope": "Produce stainless-steel and furniture items at the Thuong Hong workshop while preparing construction and MEP materials in parallel.", "time": "4-6 days", "owner": "Workshop team"},
+      {"index": "05", "title": "Site Installation", "scope": "Transport and install stainless steel, MEP, and construction finishes, then test equipment on site.", "time": "3-5 days", "owner": "Construction + supervision teams"},
+      {"index": "06", "title": "Handover + Maintenance", "scope": "Acceptance, technical document handover, initial operation guidance, and maintenance request intake after handover.", "time": "After opening", "owner": "Full team"}
     ]
   },
   "serviceDetail": {
@@ -154,7 +154,7 @@
     "hero": {
       "eyebrow": "Contact New Sky",
       "title": "Discuss Your F&B Restaurant Project",
-      "description": "Share your site, chain scale, opening timeline, or needs for kitchen stainless steel, interiors, and signage so New Sky can advise the next step."
+      "description": "Share your site, chain scale, opening schedule, or needs for kitchen stainless steel, interiors, and signage so New Sky can advise the next step."
     }
   },
   "aboutPage": {
@@ -187,10 +187,10 @@
     },
     "hero": {
       "eyebrow": "Projects",
-      "title": "Projects that prove New Sky's programme, quality, and chain rollout capability",
+      "title": "Projects that prove New Sky's programme, quality, and chain expansion capability",
       "description": "Each project proves New Sky's ability to coordinate design, interiors, MEP, kitchen stainless steel, construction, and signage through one accountable partner.",
       "aside": [
-        "Construction and fit-out delivered through coordinated execution.",
+        "Construction and interior completion delivered through coordinated execution.",
         "Finishing quality controlled at the level of detail.",
         "Interiors, materials, and technical systems aligned within one delivery framework."
       ]
@@ -204,7 +204,7 @@
     "hero": {
       "eyebrow": "News & Capabilities",
       "title": "Stories on projects, construction capability, and restaurant delivery process.",
-      "description": "From project updates to in-house workshop capability and F&B rollout experience, each story focuses on practical proof."
+      "description": "From project updates to in-house workshop capability and F&B chain expansion experience, each story focuses on practical proof."
     },
     "intro": {
       "label": "New Sky perspective",

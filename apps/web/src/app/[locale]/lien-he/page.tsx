@@ -35,12 +35,11 @@ export default async function LienHePage(props: AliasPageProps) {
       areaServed: 'VN',
       availableLanguage: ['vi', 'en'],
     },
-    department: siteConfig.offices.map((office) => ({
-      '@type': 'LocalBusiness',
+    address: siteConfig.offices.map((office) => ({
+      '@type': 'PostalAddress',
       name: office.label,
-      address: office.address,
-      telephone: '+84906790333',
-      email: office.email,
+      streetAddress: office.address,
+      addressCountry: 'VN',
     })),
   };
 

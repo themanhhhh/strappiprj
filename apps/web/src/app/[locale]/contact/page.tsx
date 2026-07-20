@@ -4,6 +4,7 @@ import {PageHero} from '@/components/page-hero';
 import {getHeroSlides} from '@/lib/strapi/queries';
 import {getLocalizedAlternates, getOpenGraphLocale} from '@/lib/seo';
 import {getTranslations} from 'next-intl/server';
+import {siteConfig} from '@/lib/site';
 
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL ?? 'http://localhost:1337';
 
@@ -44,6 +45,16 @@ export default async function ContactPage({params}: ContactPageProps) {
 
       <section className="section-block bg-sector-overlay">
         <div className="shell">
+          <div className="tile-grid" style={{marginBottom: '32px'}}>
+            {siteConfig.offices.map((office) => (
+              <article key={office.label} className="info-card">
+                <p className="tile-meta">{office.label}</p>
+                <h2>{office.address}</h2>
+                <p><a href={`tel:${office.phone.replace(/\s/g, '')}`}>{office.phone}</a></p>
+                <p><a href={`mailto:${office.email}`}>{office.email}</a></p>
+              </article>
+            ))}
+          </div>
 
           <ContactFormUi locale={locale} />
         </div>

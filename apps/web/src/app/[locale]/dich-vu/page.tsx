@@ -12,7 +12,7 @@ export async function generateMetadata({params}: ServicesHubPageProps): Promise<
   const {locale} = await params;
   return {
     title: 'Dịch vụ thiết kế và thi công nhà hàng - New Sky',
-    description: '4 hub dịch vụ của New Sky: thiết kế thi công nhà hàng trọn gói, bếp công nghiệp inox, biển hiệu F&B và nội thất F&B.',
+    description: 'Dịch vụ New Sky đồng hành cùng nhà đầu tư nhà hàng từ mặt bằng, thiết kế, thi công, bếp inox, nội thất đến biển hiệu.',
     alternates: getLocalizedAlternates(locale, '/dich-vu'),
   };
 }
@@ -24,8 +24,8 @@ export default async function ServicesHubPage({params}: ServicesHubPageProps) {
     <>
       <PageHero
         eyebrow="Dịch vụ New Sky"
-        title="4 hub dịch vụ cho nhà hàng F&B"
-        description="New Sky tổ chức dịch vụ theo 4 hub SEO chính, trong đó gói thiết kế thi công nhà hàng trọn gói là trụ định vị ưu tiên cao nhất."
+        title="Dịch vụ đồng hành cùng nhà đầu tư nhà hàng"
+        description="New Sky triển khai các hạng mục trọng yếu để chủ đầu tư có một đầu mối rõ trách nhiệm từ mặt bằng đến ngày quán vận hành."
       />
       <section className="section-block">
         <div className="shell tile-grid">

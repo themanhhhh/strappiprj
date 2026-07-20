@@ -20,27 +20,26 @@ const lato = Lato({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'New Sky — Thiết kế + thi công nhà hàng trọn gói',
+    default: 'New Sky — Giải pháp đồng hành cùng nhà đầu tư nhà hàng',
     template: '%s — New Sky',
   },
   description:
-    'Đối tác thiết kế và thi công nhà hàng F&B cho chủ nhà hàng Việt - 10 năm cùng hệ thống Aladdin, xưởng tự sản xuất nội thất, inox bếp và biển hiệu.',
+    'Gần 160 nhà hàng, 8 thương hiệu khắp cả nước. Đồng hành từ mặt bằng đến ngày quán vận hành có lãi — con số rõ từ đầu.',
   keywords: ['thi công nhà hàng', 'thiết kế nhà hàng', 'bếp inox công nghiệp', 'thi công F&B', 'New Sky'],
   authors: [{name: 'New Sky', url: siteUrl}],
   creator: 'New Sky',
   openGraph: {
     type: 'website',
     locale: 'vi_VN',
-    alternateLocale: 'en_US',
     url: siteUrl,
     siteName: 'New Sky',
-    title: 'New Sky — Thiết kế + thi công nhà hàng trọn gói',
-    description: 'Đối tác thiết kế và thi công nhà hàng F&B cho chủ nhà hàng Việt.',
+    title: 'New Sky — Giải pháp đồng hành cùng nhà đầu tư nhà hàng',
+    description: 'Gần 160 nhà hàng, 8 thương hiệu khắp cả nước. Đồng hành từ mặt bằng đến ngày quán vận hành có lãi.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'New Sky — Thiết kế + thi công nhà hàng trọn gói',
-    description: '10 năm cùng hệ thống Aladdin - hơn 100 dự án - xưởng tự sản xuất nội thất, inox bếp và biển hiệu.',
+    title: 'New Sky — Giải pháp đồng hành cùng nhà đầu tư nhà hàng',
+    description: 'Gần 160 nhà hàng, 8 thương hiệu khắp cả nước.',
   },
   robots: {
     index: true,

@@ -51,11 +51,11 @@ export default async function JobDetailPage({params}: JobDetailPageProps) {
         description={job.description}
         actions={
           <div className="button-row">
-            <ButtonLink href={`/${locale}/contact`} variant="primary">
-              Apply via contact
+            <ButtonLink href={locale === 'vi' ? `/${locale}/lien-he` : `/${locale}/contact`} variant="primary">
+              {locale === 'vi' ? 'Liên hệ ứng tuyển' : 'Apply via contact'}
             </ButtonLink>
-            <ButtonLink href={`/${locale}/careers`} variant="secondary">
-              Back to careers
+            <ButtonLink href={locale === 'vi' ? `/${locale}/tuyen-dung` : `/${locale}/careers`} variant="secondary">
+              {locale === 'vi' ? 'Quay lại tuyển dụng' : 'Back to careers'}
             </ButtonLink>
           </div>
         }
@@ -71,13 +71,13 @@ export default async function JobDetailPage({params}: JobDetailPageProps) {
         <div className="shell">
           <SectionIntro
             index="16"
-            title="Role details"
-            description="Job detail pages need a structured split between responsibilities, requirements and benefits."
+            title={locale === 'vi' ? 'Thông tin vị trí' : 'Role details'}
+            description={locale === 'vi' ? 'Các nhóm thông tin chính gồm trách nhiệm, yêu cầu và quyền lợi.' : 'Responsibilities, requirements and benefits.'}
           />
           <div className="tile-grid">
-            <InfoCard meta="Responsibilities" title="What you will do" description={job.responsibilities.join('. ')} />
-            <InfoCard meta="Requirements" title="What you need" description={job.requirements.join('. ')} tone="accent" />
-            <InfoCard meta="Benefits" title="What you get" description={job.benefits.join('. ')} tone="dark" />
+            <InfoCard meta={locale === 'vi' ? 'Trách nhiệm' : 'Responsibilities'} title={locale === 'vi' ? 'Công việc chính' : 'What you will do'} description={job.responsibilities.join('. ')} />
+            <InfoCard meta={locale === 'vi' ? 'Yêu cầu' : 'Requirements'} title={locale === 'vi' ? 'Điều kiện phù hợp' : 'What you need'} description={job.requirements.join('. ')} tone="accent" />
+            <InfoCard meta={locale === 'vi' ? 'Quyền lợi' : 'Benefits'} title={locale === 'vi' ? 'Bạn nhận được gì' : 'What you get'} description={job.benefits.join('. ')} tone="dark" />
           </div>
         </div>
       </section>
@@ -85,11 +85,11 @@ export default async function JobDetailPage({params}: JobDetailPageProps) {
       <section className="section-block">
         <div className="shell">
           <CtaStrip
-            label="Application CTA"
-            title="Turn job interest into an application handoff."
-            description="This CTA can later be replaced by apply URL or email fields from Strapi."
-            primary={{label: 'Start application', href: `/${locale}/contact`}}
-            secondary={{label: 'View all roles', href: `/${locale}/careers`}}
+            label={locale === 'vi' ? 'Ứng tuyển' : 'Application'}
+            title={locale === 'vi' ? 'Muốn trao đổi thêm về vị trí này?' : 'Interested in this role?'}
+            description={locale === 'vi' ? 'Gửi thông tin liên hệ để New Sky phản hồi bước tiếp theo.' : 'Send your contact details so New Sky can respond with next steps.'}
+            primary={{label: locale === 'vi' ? 'Liên hệ ứng tuyển' : 'Start application', href: locale === 'vi' ? `/${locale}/lien-he` : `/${locale}/contact`}}
+            secondary={{label: locale === 'vi' ? 'Xem tất cả vị trí' : 'View all roles', href: locale === 'vi' ? `/${locale}/tuyen-dung` : `/${locale}/careers`}}
           />
         </div>
       </section>

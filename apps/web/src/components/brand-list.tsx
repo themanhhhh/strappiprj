@@ -23,7 +23,9 @@ type BrandListProps = {
 function formatDate(dateStr: string | null | undefined, locale: string) {
   if (!dateStr) return '';
   try {
-    return new Date(dateStr).toLocaleDateString(locale === 'vi' ? 'vi-VN' : 'en-US', {
+    const date = new Date(dateStr);
+    if (Number.isNaN(date.getTime())) return '';
+    return date.toLocaleDateString(locale === 'vi' ? 'vi-VN' : 'en-US', {
       day: '2-digit',
       month: '2-digit',
       year: 'numeric',
@@ -109,7 +111,7 @@ export function BrandList({locale, items, brands}: BrandListProps) {
           filtered.map((item, index) => (
             <Link
               key={item.slug}
-              href={`/${locale}/projects/${item.slug}`}
+              href={locale === 'vi' ? `/${locale}/du-an/${item.slug}` : `/${locale}/projects/${item.slug}`}
               className={`brand-row${index % 2 === 1 ? ' brand-row-reverse' : ''}`}
             >
               {/* Ảnh thumbnail */}
@@ -137,7 +139,7 @@ export function BrandList({locale, items, brands}: BrandListProps) {
                   )}
                 </p>
                 <h3 className="brand-row-title">{item.title}</h3>
-                <p className="brand-row-desc">{item.description}</p>
+                {item.description ? <p className="brand-row-desc">{item.description}</p> : null}
               </div>
             </Link>
           ))

@@ -20,7 +20,7 @@ type ProcessStep = {
   index: string;
   title: string;
   scope: string;
-  timeline: string;
+  time: string;
   owner: string;
 };
 
@@ -122,7 +122,7 @@ export default async function ServicesPage({params}: ServicesPageProps) {
                 <h3>{step.title}</h3>
                 <p>{step.scope}</p>
                 <dl>
-                  <div><dt>{t('processLabels.timeline')}</dt><dd>{step.timeline}</dd></div>
+                  <div><dt>{t('processLabels.time')}</dt><dd>{step.time}</dd></div>
                   <div><dt>{t('processLabels.owner')}</dt><dd>{step.owner}</dd></div>
                 </dl>
               </article>

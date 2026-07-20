@@ -4,8 +4,8 @@ const localizedPaths: Record<string, Partial<Record<Locale, string>>> = {
   about: {vi: '/ve-chung-toi', en: '/about'},
   services: {vi: '/dich-vu', en: '/services'},
   projects: {vi: '/du-an', en: '/projects'},
-  journal: {vi: '/blog', en: '/journal'},
-  careers: {vi: '/careers', en: '/careers'},
+  journal: {vi: '/tin-tuc', en: '/journal'},
+  careers: {vi: '/tuyen-dung', en: '/careers'},
   contact: {vi: '/lien-he', en: '/contact'},
 };
 

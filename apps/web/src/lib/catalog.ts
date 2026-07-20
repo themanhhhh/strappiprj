@@ -114,10 +114,10 @@ export const services: ServiceEntry[] = [
     index: '02',
     title: 'Nội thất',
     description: 'Sản xuất và lắp đặt hạng mục nội thất nhà hàng tại xưởng để đồng bộ giữa thiết kế và thi công.',
-    meta: 'Xưởng Hà Đông',
+    meta: 'Xưởng Thượng Hồng',
     deliverables: [
       'Hạng mục nội thất nhà hàng',
-      'Sản xuất tại xưởng Hà Đông',
+      'Sản xuất tại xưởng Thượng Hồng, Hưng Yên',
       'Lắp đặt theo bản vẽ đã duyệt'
     ],
     process: ['Bóc tách hạng mục', 'Sản xuất tại xưởng', 'Kiểm tra hoàn thiện', 'Lắp đặt công trường'],
@@ -141,11 +141,11 @@ export const services: ServiceEntry[] = [
     slug: 'inox-bep-cong-nghiep',
     index: '04',
     title: 'Inox bếp công nghiệp',
-    description: 'Bàn inox, giá kệ, tủ bếp, bồn rửa và các hạng mục inox bếp công nghiệp được sản xuất tại xưởng Hà Đông.',
-    meta: 'Xưởng Hà Đông 3.000m²',
+    description: 'Bàn inox, giá kệ, tủ bếp, bồn rửa và các hạng mục inox bếp công nghiệp được sản xuất tại xưởng Thượng Hồng, Hưng Yên.',
+    meta: 'Xưởng Thượng Hồng 3.000m²',
     deliverables: [
       'Bàn inox, giá kệ, tủ bếp, bồn rửa',
-      'Sản xuất tại xưởng Hà Đông',
+      'Sản xuất tại xưởng Thượng Hồng, Hưng Yên',
       'Lắp đặt theo nhu cầu vận hành bếp nhà hàng'
     ],
     process: ['Thiết kế inox', 'Sản xuất tại xưởng', 'Kiểm tra hoàn thiện', 'Lắp đặt công trường'],
@@ -182,6 +182,20 @@ export const services: ServiceEntry[] = [
 ];
 
 export const projects: ProjectEntry[] = [
+  {
+    slug: 'to-hop-84-ngoc-khanh',
+    title: 'Tổ hợp 84 Ngọc Khánh',
+    description: 'Tổ hợp Bò Tơ Quán Mộc + Long Wang tại 84 Ngọc Khánh, Ba Đình, Hà Nội, quy mô 1.260m² và hoàn thành trong 16 ngày.',
+    meta: 'TỔ HỢP NHÀ HÀNG / 16 NGÀY',
+    category: 'Tổ hợp 84 Ngọc Khánh',
+    location: 'Hà Nội',
+    year: '2023',
+    area: '1.260 m²',
+    challenge: 'Mặt bằng lớn cần cải tạo nhanh để kịp mốc khai trương, đồng thời tổ chức hai concept thương hiệu trên cùng một tổ hợp.',
+    solution: 'New Sky điều phối đồng bộ thiết kế, nội thất, cơ điện, inox bếp, xây dựng và biển hiệu; sản xuất tại xưởng song song với thi công công trường.',
+    outcome: 'Dự án hoàn thành trong 16 ngày, là mốc năng lực tiêu biểu về tiến độ và phối hợp đa hạng mục.',
+    serviceSlugs: ['thiet-ke', 'noi-that', 'co-dien', 'inox-bep-cong-nghiep', 'xay-dung', 'bien-hieu']
+  },
   {
     slug: 'bo-to-quan-moc',
     title: 'Bò Tơ Quán Mộc',
@@ -270,41 +284,28 @@ export const projects: ProjectEntry[] = [
 
 export const posts: PostEntry[] = [
   {
-    slug: 'prepare-restaurant-site-brief',
-    title: 'How to prepare a restaurant site brief',
-    description: 'Prepared card pattern for SEO-driven editorial listing pages.',
-    meta: 'Knowledge / Fit-out',
-    intro: 'A usable site brief should capture concept, area, operating model, target opening date and key constraints before any execution planning starts.',
-    takeaways: [
-      'Clarify operational model before drawing decisions',
-      'Record landlord constraints early',
-      'Define budget range and opening target in the same document'
-    ],
-    relatedServiceSlugs: ['thiet-ke', 'noi-that', 'co-dien']
-  },
-  {
     slug: 'coordination-risks-before-handover',
-    title: 'Common coordination risks before handover',
-    description: 'Supports article categories, excerpts and cover imagery later.',
-    meta: 'Technical / MEP',
-    intro: 'Most late-stage project friction comes from unresolved coordination between finishes, equipment and service routes.',
+    title: 'Các rủi ro phối hợp thường gặp trước bàn giao',
+    description: 'Những điểm dễ phát sinh lỗi khi hoàn thiện nội thất, thiết bị bếp, cơ điện và nghiệm thu công trình nhà hàng.',
+    meta: 'Kỹ thuật / Cơ điện',
+    intro: 'Phần lớn vướng mắc ở giai đoạn cuối đến từ việc phối hợp chưa dứt điểm giữa hoàn thiện, thiết bị, tuyến kỹ thuật và yêu cầu vận hành thực tế.',
     takeaways: [
-      'Resolve equipment points before ceiling closure',
-      'Track MEP clashes with a single owner',
-      'Run pre-handover walk-throughs by zone'
+      'Chốt điểm chờ thiết bị trước khi đóng trần và hoàn thiện tường',
+      'Theo dõi xung đột cơ điện bằng một đầu mối chịu trách nhiệm',
+      'Kiểm tra tiền bàn giao theo từng khu vực thay vì kiểm tổng thể quá muộn'
     ],
     relatedServiceSlugs: ['co-dien', 'xay-dung']
   },
   {
     slug: 'plan-service-circulation-early',
-    title: 'Planning service circulation early',
-    description: 'Uses the same visual language as service and project listings.',
-    meta: 'Operations / Design',
-    intro: 'Early circulation planning prevents avoidable friction between guests, staff, pickup zones and service points.',
+    title: 'Lên luồng vận hành nhà hàng từ giai đoạn đầu',
+    description: 'Vì sao luồng khách, nhân sự, giao nhận và phục vụ cần được tính từ khi thiết kế mặt bằng.',
+    meta: 'Vận hành / Thiết kế',
+    intro: 'Tính toán luồng di chuyển từ sớm giúp giảm va chạm giữa khách, nhân sự, khu pickup, quầy phục vụ và các điểm hỗ trợ vận hành.',
     takeaways: [
-      'Separate staff and guest choke points',
-      'Place support storage near service demand',
-      'Use layout to reduce repeated movement'
+      'Tách các điểm nghẽn giữa khách và nhân sự phục vụ',
+      'Đặt kho phụ và điểm hỗ trợ gần nơi phát sinh nhu cầu',
+      'Dùng bố cục mặt bằng để giảm thao tác di chuyển lặp lại'
     ],
     relatedServiceSlugs: ['thiet-ke', 'noi-that']
   }
@@ -313,60 +314,60 @@ export const posts: PostEntry[] = [
 export const jobs: JobEntry[] = [
   {
     slug: 'site-supervisor',
-    title: 'Site supervisor',
-    description: 'Prepared for job cards with department, level and application CTA.',
-    meta: 'Site Execution / Full-time',
-    location: 'Ho Chi Minh City',
-    jobType: 'Full-time',
+    title: 'Giám sát thi công nhà hàng F&B',
+    description: 'Theo dõi tiến độ, chất lượng và phối hợp các đội thi công tại công trường nhà hàng.',
+    meta: 'Thi công công trường / Toàn thời gian',
+    location: 'Hà Nội hoặc theo dự án',
+    jobType: 'Toàn thời gian',
     responsibilities: [
-      'Coordinate on-site trades and schedule priorities',
-      'Report progress, risks and quality status',
-      'Work with project leads on site readiness and handover'
+      'Phối hợp các đội thi công tại công trường',
+      'Báo cáo tiến độ, rủi ro và tình trạng chất lượng',
+      'Làm việc với quản lý dự án về điều kiện mặt bằng và bàn giao'
     ],
     requirements: [
-      'Experience in fit-out or interior execution',
-      'Comfortable with drawings and site coordination',
-      'Able to manage subcontractor communication'
+      'Có kinh nghiệm thi công hoàn thiện nội thất hoặc công trình F&B',
+      'Đọc hiểu bản vẽ và phối hợp công trường',
+      'Có khả năng làm việc với thầu phụ'
     ],
-    benefits: ['Structured project environment', 'Clear reporting line', 'Exposure to F&B fit-out projects']
+    benefits: ['Môi trường dự án rõ quy trình', 'Đầu mối báo cáo rõ ràng', 'Tham gia các dự án hoàn thiện nội thất F&B thực tế']
   },
   {
     slug: 'project-architect',
-    title: 'Project architect',
-    description: 'Supports responsibilities, requirements and benefits on detail pages later.',
-    meta: 'Design Coordination / Full-time',
-    location: 'Ho Chi Minh City',
-    jobType: 'Full-time',
+    title: 'Kiến trúc sư triển khai nội thất F&B',
+    description: 'Triển khai mặt bằng, bản vẽ kỹ thuật và chi tiết nội thất cho các dự án nhà hàng.',
+    meta: 'Thiết kế / Toàn thời gian',
+    location: 'Hà Nội',
+    jobType: 'Toàn thời gian',
     responsibilities: [
-      'Translate concept intent into execution-ready packages',
-      'Coordinate with site and MEP stakeholders',
-      'Support material decisions and design clarifications'
+      'Chuyển ý tưởng thành hồ sơ sẵn sàng thi công',
+      'Phối hợp với công trường và bộ phận cơ điện',
+      'Hỗ trợ quyết định vật liệu và làm rõ chi tiết thiết kế'
     ],
     requirements: [
-      'Architectural documentation experience',
-      'Ability to coordinate across disciplines',
-      'Good control of detail packages'
+      'Có kinh nghiệm triển khai hồ sơ kiến trúc hoặc nội thất',
+      'Có khả năng phối hợp nhiều bộ phận',
+      'Kiểm soát tốt chi tiết kỹ thuật'
     ],
-    benefits: ['Cross-functional collaboration', 'Fast decision loops', 'Portfolio-building project exposure']
+    benefits: ['Phối hợp trực tiếp với xưởng và công trường', 'Quy trình ra quyết định nhanh', 'Tích lũy hồ sơ dự án nhà hàng thực tế']
   },
   {
     slug: 'marketing-coordinator',
-    title: 'Marketing coordinator',
-    description: 'Matches the rest of the brand rather than default job board styling.',
-    meta: 'Business Support / Full-time',
-    location: 'Ho Chi Minh City',
-    jobType: 'Full-time',
+    title: 'Nhân sự truyền thông và nội dung dự án',
+    description: 'Phụ trách nội dung website, hồ sơ năng lực, bài viết chuyên môn và tư liệu truyền thông cho New Sky.',
+    meta: 'Truyền thông và bán hàng / Toàn thời gian',
+    location: 'Hà Nội',
+    jobType: 'Toàn thời gian',
     responsibilities: [
-      'Coordinate case-study and editorial production',
-      'Manage website publishing workflow with CMS',
-      'Support lead funnel reporting with the business team'
+      'Phối hợp sản xuất case study và nội dung chuyên môn',
+      'Quản lý quy trình xuất bản website trên CMS',
+      'Hỗ trợ báo cáo nguồn khách cùng đội kinh doanh'
     ],
     requirements: [
-      'Strong writing and content operations skills',
-      'Comfortable with CMS workflows',
-      'Able to work across design and execution teams'
+      'Viết tiếng Việt rõ ràng, đúng dấu',
+      'Quen với quy trình CMS là lợi thế',
+      'Có khả năng làm việc với đội thiết kế và đội thi công'
     ],
-    benefits: ['Content ownership', 'Hands-on CMS workflow', 'Close access to real project material']
+    benefits: ['Được phụ trách nội dung có chiều sâu', 'Làm trực tiếp với CMS', 'Tiếp cận tư liệu dự án thật']
   }
 ];
 

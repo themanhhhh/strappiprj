@@ -54,7 +54,7 @@ export function ContactFormUi({ locale = 'en' }: ContactFormUiProps) {
     }
 
     if (!payload.message) {
-      nextErrors.message = locale === 'vi' ? "Vui lòng mô tả tóm tắt dự án của bạn." : "Please describe the project brief.";
+      nextErrors.message = locale === 'vi' ? "Vui lòng mô tả tóm tắt dự án của bạn." : "Please describe the project.";
     }
 
     setFieldErrors(nextErrors);
@@ -190,7 +190,7 @@ export function ContactFormUi({ locale = 'en' }: ContactFormUiProps) {
 
         <label className="field maestro-field full-width">
           <span className="field-label">
-            {locale === 'vi' ? 'TÓM TẮT YÊU CẦU' : 'MESSAGE / BRIEF INTRODUCTION'}
+              {locale === 'vi' ? 'TÓM TẮT YÊU CẦU' : 'MESSAGE / PROJECT INTRODUCTION'}
           </span>
           <textarea
             className="field-textarea maestro-textarea"
@@ -211,7 +211,7 @@ export function ContactFormUi({ locale = 'en' }: ContactFormUiProps) {
           >
             {formState.status === "submitting" 
               ? (locale === 'vi' ? "Đang gửi…" : "Sending…") 
-              : (locale === 'vi' ? "Gửi thông tin" : "Send Message")}
+              : (locale === 'vi' ? "Liên hệ New Sky" : "Contact New Sky")}
           </button>
           
           {formState.status !== "idle" ? (

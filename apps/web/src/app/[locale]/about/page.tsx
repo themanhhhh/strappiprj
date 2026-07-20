@@ -3,7 +3,7 @@ import Image from 'next/image';
 import {ButtonLink} from '@/components/button-link';
 import {PageHero} from '@/components/page-hero';
 import {getHeroSlides} from '@/lib/strapi/queries';
-import {getLocalizedAlternates, getOpenGraphLocale} from '@/lib/seo';
+import {getLocalizedAlternates, getOpenGraphLocale, siteUrl} from '@/lib/seo';
 import {getTranslations} from 'next-intl/server';
 
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL ?? 'http://localhost:1337';
@@ -27,15 +27,15 @@ export async function generateMetadata({params}: AboutPageProps): Promise<Metada
 }
 
 const viStats = [
-  {value: '10 năm', label: 'Đồng hành cùng hệ thống chuỗi nhà hàng của Aladdin.,JSC'},
-  {value: 'Hơn 100', label: 'Dự án nhà hàng đã thi công trong 10 năm'},
+  {value: '10 năm', label: 'Đồng hành cùng hệ thống Aladdin'},
+  {value: 'Gần 160', label: 'Nhà hàng đã triển khai'},
   {value: '16 ngày', label: 'Từ nhận mặt bằng đến khai trương dự án 84 Ngọc Khánh'},
-  {value: '3.000m²', label: 'Xưởng tự sản xuất tại Hà Đông, Hà Nội'},
+  {value: '3.000m²', label: 'Xưởng tự sản xuất tại Thượng Hồng, Hưng Yên'},
 ];
 
 const enStats = [
-  {value: '10 years', label: 'Working alongside Aladdin.,JSC restaurant chains'},
-  {value: '100+', label: 'Restaurant projects delivered over 10 years'},
+  {value: '10 years', label: 'Working alongside the Aladdin system'},
+  {value: 'Nearly 160', label: 'Restaurants delivered'},
   {value: '16 days', label: 'From site handover to opening at 84 Ngoc Khanh'},
   {value: '3,000sqm', label: 'In-house workshop in Ha Dong, Hanoi'},
 ];
@@ -47,11 +47,11 @@ const viProofPoints = [
   },
   {
     label: 'Minh chứng chất lượng',
-    body: 'Chất lượng được xây dựng từ kinh nghiệm thực chiến qua hơn 100 dự án nhà hàng trong 10 năm. Mỗi dự án được kiểm soát từ thiết kế, vật tư, sản xuất, lắp đặt đến nghiệm thu để hạn chế sửa chữa lớn sau bàn giao.',
+    body: 'Chất lượng được xây dựng từ kinh nghiệm thực chiến qua gần 160 nhà hàng. Mỗi dự án được kiểm soát từ thiết kế, vật tư, sản xuất, lắp đặt đến nghiệm thu để hạn chế sửa chữa lớn sau bàn giao.',
   },
   {
     label: 'Minh chứng niềm tin',
-    body: 'Niềm tin của khách hàng đến từ bằng chứng cụ thể: 10 năm đồng hành cùng 6 thương hiệu thuộc hệ thống Aladdin gồm Bò Tơ Quán Mộc, Tian Long, Long Wang, G.Master, Cơm Niêu Hải Sư và Khèn Nướng Sapa.',
+    body: 'Niềm tin của khách hàng đến từ bằng chứng cụ thể: 10 năm đồng hành cùng 8 thương hiệu thuộc hệ thống Aladdin gồm Bò Tơ Quán Mộc, Tian Long, Long Wang, G.Master, Cơm Niêu Hải Sư, Khèn Nướng Sapa, Cuốn An Vũ và Cảo Vương.',
   },
 ];
 
@@ -66,7 +66,7 @@ const enProofPoints = [
   },
   {
     label: 'Trust Proof',
-    body: 'Customer trust is built on concrete proof: 10 years working with the Aladdin.,JSC restaurant-chain system, from its early stage to a multi-brand ecosystem with hundreds of outlets.',
+    body: 'Customer trust is built on concrete proof: 10 years working with the Aladdin system, from its early stage to a multi-brand ecosystem with hundreds of outlets.',
   },
 ];
 
@@ -88,7 +88,7 @@ const viCapabilities = [
   },
   {
     label: 'Inox bếp công nghiệp',
-    body: 'Bàn inox, giá kệ, tủ bếp, bồn rửa và các hạng mục inox bếp công nghiệp được sản xuất tại xưởng Hà Đông.',
+    body: 'Bàn inox, giá kệ, tủ bếp, bồn rửa và các hạng mục inox bếp công nghiệp được sản xuất tại xưởng Thượng Hồng, Hưng Yên.',
     image: '/images/image4.png',
   },
   {
@@ -152,12 +152,12 @@ const enFactoryBenefits = [
 
 const viDirectorProfile = [
   'Ông Lưu Văn Sỹ là Giám đốc Công ty TNHH Xây Dựng và Thực Phẩm New Sky, người định hướng năng lực thiết kế và thi công trọn gói cho các dự án nhà hàng và chuỗi F&B tại Việt Nam.',
-  'Với kinh nghiệm đồng hành cùng hệ thống chuỗi nhà hàng của Aladdin.,JSC, ông tập trung xây dựng New Sky theo hướng thực thi nhanh, kiểm soát chất lượng chặt chẽ và phát triển năng lực sản xuất nội bộ cho nội thất, inox bếp và biển hiệu.',
+  'Với kinh nghiệm đồng hành cùng hệ thống Aladdin, ông tập trung xây dựng New Sky theo hướng thực thi nhanh, kiểm soát chất lượng chặt chẽ và phát triển năng lực sản xuất nội bộ cho nội thất, inox bếp và biển hiệu.',
 ];
 
 const enDirectorProfile = [
   'Mr. Luu Van Sy is the Director of New Sky Construction and Food Co., Ltd., leading the company\'s design and construction capability for restaurants and F&B chains in Vietnam.',
-  'With experience working alongside the Aladdin.,JSC restaurant-chain system, he focuses on building New Sky around fast execution, strict quality control, and stronger in-house production for interiors, kitchen stainless steel, and signage.',
+  'With experience working alongside the Aladdin system, he focuses on building New Sky around fast execution, strict quality control, and stronger in-house production for interiors, kitchen stainless steel, and signage.',
 ];
 
 export default async function AboutPage({params}: AboutPageProps) {
@@ -169,12 +169,24 @@ export default async function AboutPage({params}: AboutPageProps) {
   const capabilities = isVi ? viCapabilities : enCapabilities;
   const factoryBenefits = isVi ? viFactoryBenefits : enFactoryBenefits;
   const heroSlides = await getHeroSlides(locale, 'about');
+  const personJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Lưu Văn Sỹ',
+    jobTitle: 'Cố vấn kinh doanh nhà hàng — Giám đốc New Sky',
+    worksFor: {
+      '@type': 'Organization',
+      name: 'New Sky',
+      url: siteUrl,
+    },
+  };
   const slides = heroSlides.map((s) => ({
     imageUrl: s.cover?.url ? (s.cover.url.startsWith('http') ? s.cover.url : `${STRAPI_URL}${s.cover.url}`) : null,
   }));
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(personJsonLd)}} />
       <PageHero
         slides={slides}
         eyebrow={t('hero.eyebrow')}
@@ -191,7 +203,7 @@ export default async function AboutPage({params}: AboutPageProps) {
           <div className="about-split-body">
             <p>
               {isVi
-                ? 'New Sky là đối tác chuyên thiết kế và thi công nhà hàng F&B, phục vụ chủ chuỗi nhà hàng Việt Nam quy mô 3 đến hơn 50 cơ sở, người setup nhà hàng F&B và doanh nghiệp F&B mở rộng chuỗi. Với kinh nghiệm 10 năm đồng hành cùng hệ thống Aladdin, New Sky đã tham gia thi công hơn 100 dự án nhà hàng.'
+                ? 'New Sky là giải pháp đồng hành cùng nhà đầu tư nhà hàng, phục vụ chủ chuỗi nhà hàng Việt Nam quy mô 3 đến hơn 50 cơ sở, người dựng quán F&B và doanh nghiệp F&B mở rộng chuỗi. Với kinh nghiệm đồng hành cùng hệ thống Aladdin, New Sky đã tham gia triển khai gần 160 nhà hàng.'
                 : 'New Sky is a specialist design and construction partner for restaurant owners, F&B chains, and F&B businesses expanding in Vietnam. With 10 years working alongside the Aladdin system, New Sky has delivered more than 100 restaurant projects.'}
             </p>
             <p>
@@ -276,13 +288,13 @@ export default async function AboutPage({params}: AboutPageProps) {
             <div className="about-split-rule" />
           </div>
           <div className="about-split-body">
-            <div className="about-history-timeline">
+            <div className="about-history-flow">
               {capabilities.map((item) => (
-                <div key={item.label} className="about-timeline-item">
+                <div key={item.label} className="about-flow-item">
                   <div className="about-capability-image">
                     <Image src={item.image} alt={item.label} fill sizes="(max-width: 768px) 100vw, 220px" />
                   </div>
-                  <div className="about-timeline-content">
+                  <div className="about-flow-content">
                     <h4>{item.label}</h4>
                     <p>{item.body}</p>
                   </div>
@@ -299,7 +311,7 @@ export default async function AboutPage({params}: AboutPageProps) {
             <h2>{t('factoryTitle')}</h2>
             <p>
               {isVi
-                ? 'Xưởng đặt tại Hà Đông, Hà Nội, giúp New Sky chủ động sản xuất nội thất, inox bếp công nghiệp và biển hiệu cho dự án nhà hàng F&B cũng như nhu cầu sản phẩm rời.'
+                ? 'Xưởng đặt tại Thượng Hồng, Hưng Yên, giúp New Sky chủ động sản xuất nội thất, inox bếp công nghiệp và biển hiệu cho dự án nhà hàng F&B cũng như nhu cầu sản phẩm rời.'
                 : 'Located in Ha Dong, Hanoi, the workshop helps New Sky produce interiors, industrial kitchen stainless steel, and signage for restaurant F&B projects as well as standalone product needs.'}
             </p>
           </div>

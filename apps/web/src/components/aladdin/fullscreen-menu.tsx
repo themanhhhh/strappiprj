@@ -3,7 +3,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import {useState, useEffect, useRef} from 'react';
-import {usePathname} from 'next/navigation';
 import {ButtonLink} from '@/components/button-link';
 
 type FullscreenMenuProps = {
@@ -19,16 +18,9 @@ type FullscreenMenuProps = {
 export function FullscreenMenu({items, locale, transparent = false}: FullscreenMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const pathname = usePathname();
   const lastScrollY = useRef(0);
   const contactHref = locale === 'vi' ? `/${locale}/lien-he` : `/${locale}/contact`;
-  const ctaLabel = locale === 'vi' ? 'Nhận báo giá' : 'Request a quote';
-
-  const getLocaleUrl = (targetLocale: string) => {
-    if (!pathname) return `/${targetLocale}`;
-    const pathWithoutLocale = pathname.replace(new RegExp(`^\\/${locale}`), '');
-    return `/${targetLocale}${pathWithoutLocale === '' ? '' : pathWithoutLocale}`;
-  };
+  const ctaLabel = locale === 'vi' ? 'Liên hệ New Sky' : 'Contact New Sky';
 
   // Lắng nghe sự kiện scroll để đổi màu/ẩn hiện header
   useEffect(() => {
@@ -122,11 +114,6 @@ export function FullscreenMenu({items, locale, transparent = false}: FullscreenM
                 {item.label}
               </Link>
             ))}
-            <div className="desktop-locale-switch">
-              <Link href={getLocaleUrl('vi')} className={locale === 'vi' ? 'active' : ''}>Vi</Link>
-              <span className="separator">|</span>
-              <Link href={getLocaleUrl('en')} className={locale === 'en' ? 'active' : ''}>En</Link>
-            </div>
           </nav>
         </div>
 
@@ -137,6 +124,7 @@ export function FullscreenMenu({items, locale, transparent = false}: FullscreenM
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle navigation menu"
           aria-expanded={isOpen}
+          aria-controls="mobile-navigation-menu"
         >
           <span className={`hamburger-line ${isOpen ? 'open' : ''}`} />
           <span className={`hamburger-line ${isOpen ? 'open' : ''}`} />
@@ -144,17 +132,8 @@ export function FullscreenMenu({items, locale, transparent = false}: FullscreenM
         </button>
 
         {/* Mobile Fullscreen Overlay */}
-        <div className={`fullscreen-overlay ${isOpen ? 'overlay-open' : ''}`}>
+        <div id="mobile-navigation-menu" className={`fullscreen-overlay ${isOpen ? 'overlay-open' : ''}`}>
           <div className="overlay-content">
-            <button
-              type="button"
-              className="overlay-close"
-              onClick={() => setIsOpen(false)}
-              aria-label="Close navigation menu"
-            >
-              &times;
-            </button>
-
             <nav className="overlay-nav">
               {items.map((item) => (
                 <Link
@@ -169,12 +148,6 @@ export function FullscreenMenu({items, locale, transparent = false}: FullscreenM
             </nav>
 
             <div className="overlay-bottom">
-              <div className="overlay-locale">
-                <Link href={getLocaleUrl('vi')} className={locale === 'vi' ? 'active' : ''}>Vi</Link>
-                <span className="separator">|</span>
-                <Link href={getLocaleUrl('en')} className={locale === 'en' ? 'active' : ''}>En</Link>
-              </div>
-
               <ButtonLink href={contactHref} variant="primary" className="overlay-cta" onClick={() => setIsOpen(false)}>
                 {ctaLabel}
               </ButtonLink>
@@ -212,12 +185,6 @@ export function FullscreenMenu({items, locale, transparent = false}: FullscreenM
         ))}
       </nav>
 
-      <div className="desktop-locale-switch">
-        <Link href={getLocaleUrl('vi')} className={locale === 'vi' ? 'active' : ''}>Vi</Link>
-        <span className="separator">|</span>
-        <Link href={getLocaleUrl('en')} className={locale === 'en' ? 'active' : ''}>En</Link>
-      </div>
-
       <ButtonLink href={contactHref} variant="primary" className="desktop-cta-btn">
         {ctaLabel}
       </ButtonLink>
@@ -225,10 +192,11 @@ export function FullscreenMenu({items, locale, transparent = false}: FullscreenM
       {/* Mobile Hamburger Toggle */}
       <button
         type="button"
-        className="hamburger-toggle mobile-only"
-        onClick={() => setIsOpen(!isOpen)}
-        aria-label="Toggle navigation menu"
-        aria-expanded={isOpen}
+          className="hamburger-toggle mobile-only"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle navigation menu"
+          aria-expanded={isOpen}
+          aria-controls="mobile-navigation-menu"
       >
         <span className={`hamburger-line ${isOpen ? 'open' : ''}`} />
         <span className={`hamburger-line ${isOpen ? 'open' : ''}`} />
@@ -236,17 +204,8 @@ export function FullscreenMenu({items, locale, transparent = false}: FullscreenM
       </button>
 
       {/* Mobile Fullscreen Overlay */}
-      <div className={`fullscreen-overlay ${isOpen ? 'overlay-open' : ''}`}>
+      <div id="mobile-navigation-menu" className={`fullscreen-overlay ${isOpen ? 'overlay-open' : ''}`}>
         <div className="overlay-content">
-          <button
-            type="button"
-            className="overlay-close"
-            onClick={() => setIsOpen(false)}
-            aria-label="Close navigation menu"
-          >
-            &times;
-          </button>
-
           <nav className="overlay-nav">
             {items.map((item) => (
               <Link
@@ -261,12 +220,6 @@ export function FullscreenMenu({items, locale, transparent = false}: FullscreenM
           </nav>
 
           <div className="overlay-bottom">
-            <div className="overlay-locale">
-              <Link href={getLocaleUrl('vi')} className={locale === 'vi' ? 'active' : ''}>Vi</Link>
-              <span className="separator">|</span>
-              <Link href={getLocaleUrl('en')} className={locale === 'en' ? 'active' : ''}>En</Link>
-            </div>
-
             <ButtonLink href={contactHref} variant="primary" className="overlay-cta" onClick={() => setIsOpen(false)}>
               {ctaLabel}
             </ButtonLink>

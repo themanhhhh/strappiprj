@@ -18,10 +18,15 @@ type PostDetailPageProps = {
   params: Promise<{locale: string; slug: string}>;
 };
 
+function isHiddenSamplePost(post: {slug?: string; title?: string} | null | undefined) {
+  return Boolean(post?.slug?.includes('chuan-bi') || post?.title?.includes('Chuẩn bị'));
+}
+
 export async function generateStaticParams() {
   const strapiPosts = (await Promise.all(locales.map((locale) => getPosts(locale)))).flat();
-  if (strapiPosts.length > 0) {
-    return Array.from(new Set(strapiPosts.map((p) => p.slug))).map((slug) => ({slug}));
+  const visibleStrapiPosts = strapiPosts.filter((post) => !isHiddenSamplePost(post));
+  if (visibleStrapiPosts.length > 0) {
+    return Array.from(new Set(visibleStrapiPosts.map((p) => p.slug))).map((slug) => ({slug}));
   }
   return catalogPosts.map((p) => ({slug: p.slug}));
 }
@@ -61,7 +66,7 @@ export default async function PostDetailPage({params}: PostDetailPageProps) {
   const catalogPost = post ? null : getPost(slug);
   const targetPost = post || catalogPost;
 
-  if (!targetPost) notFound();
+  if (!targetPost || isHiddenSamplePost(targetPost)) notFound();
 
   // Determine cover URL
   let coverUrl = null;
@@ -81,7 +86,7 @@ export default async function PostDetailPage({params}: PostDetailPageProps) {
 
   // Fetch related posts (latest 2 excluding current)
   let relatedPosts = allStrapiPosts
-    .filter((p) => p.slug !== slug)
+    .filter((p) => p.slug !== slug && !isHiddenSamplePost(p))
     .slice(0, 2)
     .map((p) => ({
       title: p.title,
@@ -127,7 +132,7 @@ export default async function PostDetailPage({params}: PostDetailPageProps) {
           {heroSlides.length > 0 ? (
             <SlideshowBackground slides={heroSlides} />
           ) : coverUrl ? (
-            <Image src={coverUrl} alt={targetPost.title} fill priority style={{objectFit: 'cover'}} />
+            <Image src={fallbackBannerImage} alt={targetPost.title} fill priority style={{objectFit: 'cover'}} />
           ) : (
             <Image src={fallbackBannerImage} alt={targetPost.title} fill priority style={{objectFit: 'cover'}} />
           )}

@@ -11,14 +11,14 @@ export const serviceHubs: ServiceHub[] = [
     slug: 'thiet-ke-thi-cong-nha-hang-tron-goi',
     title: 'Thiết kế thi công nhà hàng trọn gói',
     keyword: 'thiết kế thi công nhà hàng trọn gói',
-    description: 'Hub chính của New Sky cho chủ chuỗi nhà hàng, người setup F&B và doanh nghiệp F&B mở rộng hệ thống cần một đầu mối tổng thầu chuyên nhà hàng.',
+    description: 'Dịch vụ dành cho chủ chuỗi nhà hàng, người dựng quán và doanh nghiệp F&B mở rộng hệ thống cần một đầu mối rõ trách nhiệm.',
     scope: ['Thiết kế', 'Nội thất', 'Cơ điện', 'Inox bếp', 'Xây dựng', 'Biển hiệu', 'Lắp đặt', 'Bàn giao', 'Bảo trì'],
   },
   {
     slug: 'bep-cong-nghiep-inox',
     title: 'Bếp công nghiệp inox',
     keyword: 'bếp công nghiệp inox',
-    description: 'Các hạng mục inox bếp công nghiệp được sản xuất tại xưởng Hà Đông 3.000m², phục vụ dự án nhà hàng F&B và nhu cầu sản phẩm rời.',
+    description: 'Các hạng mục inox bếp công nghiệp được sản xuất tại xưởng Thượng Hồng, Hưng Yên 3.000m², phục vụ dự án nhà hàng F&B và nhu cầu sản phẩm rời.',
     scope: ['Bàn inox', 'Giá kệ inox', 'Tủ bếp inox', 'Bồn rửa inox', 'Lắp đặt theo mặt bằng bếp'],
   },
   {
