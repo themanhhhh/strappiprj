@@ -112,36 +112,19 @@
   font-size: clamp(36px, 4.5vw, 56px);
   line-height: 1.15;
   margin-bottom: 24px;
-  color: white;
+  color: black;
   opacity: 0;
   animation: heroTextReveal 0.7s ease 0.5s forwards;
 }
 
 .hero-desc {
   font-size: 16px;
-  color: rgba(255, 255, 255, 0.8);
+  color: black;
   margin-bottom: 40px;
   line-height: 1.7;
   max-width: 550px;
   opacity: 0;
   animation: heroTextReveal 0.7s ease 0.7s forwards;
-}
-
-/* Home HeroBanner uses a light text surface over the image. */
-.hero-banner-dark-text .hero-gradient-overlay {
-  background:
-    linear-gradient(to right, rgba(255, 250, 246, 0.94) 0%, rgba(255, 250, 246, 0.72) 48%, rgba(255, 250, 246, 0.08) 100%),
-    linear-gradient(to top, rgba(255, 250, 246, 0.18) 0%, transparent 50%);
-}
-
-.hero-banner-dark-text .hero-eyebrow,
-.hero-banner-dark-text .hero-title,
-.hero-banner-dark-text .hero-desc {
-  color: #111;
-}
-
-.hero-banner-dark-text .hero-eyebrow {
-  color: var(--brand-navy);
 }
 
 .hero-actions {

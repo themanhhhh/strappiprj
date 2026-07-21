@@ -44,7 +44,7 @@ export function HeroBanner({slides}: HeroBannerProps) {
   if (normalizedSlides.length === 0) return null;
 
   return (
-    <section className="aladdin-hero hero-banner-dark-text" style={{backgroundColor: '#000', position: 'relative', overflow: 'hidden'}}>
+    <section className="aladdin-hero" style={{backgroundColor: '#000', position: 'relative', overflow: 'hidden'}}>
       {/* Background layers */}
       <div className="hs-backgrounds">
         {normalizedSlides.map((slide, i) => (
