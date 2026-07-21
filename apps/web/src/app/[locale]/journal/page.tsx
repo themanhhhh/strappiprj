@@ -53,8 +53,10 @@ function formatDate(dateStr: string, locale: string) {
 }
 
 function mapPosts(strapiPosts: Awaited<ReturnType<typeof getPosts>>): DisplayPost[] {
-  if (strapiPosts.length > 0) {
-    return strapiPosts.filter((post) => !isHiddenSamplePost(post)).map((post) => ({
+  const visibleStrapiPosts = strapiPosts.filter((post) => !isHiddenSamplePost(post));
+
+  if (visibleStrapiPosts.length > 0) {
+    return visibleStrapiPosts.map((post) => ({
       slug: post.slug,
       title: post.title,
       date: post.publishedAt ?? null,
@@ -136,17 +138,21 @@ export default async function JournalPage({params}: JournalPageProps) {
         <section className="journal-featured-maestro">
           <div className="shell journal-featured-grid-maestro">
             <div className="journal-featured-media-maestro">
-              {featuredPost.coverUrl ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img src={featuredPost.coverUrl} alt={featuredPost.title} className="journal-featured-image-maestro" />
-              ) : (
-                <div className="journal-featured-placeholder-maestro" />
-              )}
+              <Link href={`/${locale}/${locale === 'vi' ? 'tin-tuc' : 'journal'}/${featuredPost.slug}`} aria-label={featuredPost.title}>
+                {featuredPost.coverUrl ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={featuredPost.coverUrl} alt={featuredPost.title} className="journal-featured-image-maestro" />
+                ) : (
+                  <div className="journal-featured-placeholder-maestro" />
+                )}
+              </Link>
             </div>
 
             <div className="journal-featured-content-maestro">
               <p className="journal-index-section-kicker-maestro">{t('intro.featureLabel')}</p>
-              <h2 className="journal-featured-title-maestro">{featuredPost.title}</h2>
+              <Link href={`/${locale}/${locale === 'vi' ? 'tin-tuc' : 'journal'}/${featuredPost.slug}`} className="journal-featured-title-link-maestro">
+                <h2 className="journal-featured-title-maestro">{featuredPost.title}</h2>
+              </Link>
 
               <div className="journal-featured-meta-maestro">
                 {featuredPost.meta ? <span>{featuredPost.meta}</span> : null}

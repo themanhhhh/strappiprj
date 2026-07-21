@@ -107,7 +107,7 @@ export const siteConfig: {
     {key: 'careers', href: '/careers'},
     {key: 'contact', href: '/contact'}
   ],
-  socialLinks: [{label: 'Facebook', href: '#'}],
+  socialLinks: [{label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61589913545206'}],
   utilityLinks: [],
   offices: [
     {

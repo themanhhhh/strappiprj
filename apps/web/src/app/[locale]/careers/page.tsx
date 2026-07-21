@@ -1,4 +1,5 @@
 import type {Metadata} from 'next';
+import Link from 'next/link';
 import {ButtonLink} from '@/components/button-link';
 import {SectionIntro} from '@/components/section-intro';
 import {Header} from '@/components/header';
@@ -98,7 +99,12 @@ export default async function CareersPage({params}: CareersPageProps) {
           />
           <div className="careers-role-list">
             {displayJobs.map((role, index) => (
-              <article key={role.slug} className="careers-role-card">
+              <Link
+                key={role.slug}
+                href={locale === 'vi' ? `/${locale}/tuyen-dung/${role.slug}` : `/${locale}/careers/${role.slug}`}
+                className="careers-role-card"
+                aria-label={locale === 'vi' ? `Xem thông tin ${role.title}` : `View ${role.title} details`}
+              >
                 <div className="careers-role-index">{String(index + 1).padStart(2, '0')}</div>
                 <div className="careers-role-main">
                   <p className="careers-role-meta">{role.meta}</p>
@@ -106,7 +112,7 @@ export default async function CareersPage({params}: CareersPageProps) {
                 </div>
                 <p className="careers-role-desc">{role.description}</p>
                
-              </article>
+              </Link>
             ))}
           </div>
         </div>

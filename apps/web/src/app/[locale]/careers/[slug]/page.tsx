@@ -6,19 +6,45 @@ import {InfoCard} from '@/components/info-card';
 import {PageHero} from '@/components/page-hero';
 import {SectionIntro} from '@/components/section-intro';
 import {getJob, jobs} from '@/lib/catalog';
+import {getJobBySlug, getJobs} from '@/lib/strapi/queries';
+import {locales} from '@/i18n/routing';
 import {getLocalizedAlternates, getOpenGraphLocale} from '@/lib/seo';
 
 type JobDetailPageProps = {
   params: Promise<{locale: string; slug: string}>;
 };
 
-export function generateStaticParams() {
-  return jobs.map((job) => ({slug: job.slug}));
+type JobDetail = {
+  title: string;
+  description: string;
+  meta: string;
+  location: string;
+  jobType: string;
+  responsibilities: string[];
+  requirements: string[];
+  benefits: string[];
+};
+
+function toList(value: string | null | undefined) {
+  return (value ?? '')
+    .split('\n')
+    .map((item) => item.replace(/^[-–•]\s*/, '').trim())
+    .filter(Boolean);
+}
+
+function mapJobType(value: string) {
+  return value === 'full-time' ? 'Toàn thời gian' : value;
+}
+
+export async function generateStaticParams() {
+  const cmsJobs = (await Promise.all(locales.map((locale) => getJobs(locale)))).flat();
+  return Array.from(new Set([...jobs.map((job) => job.slug), ...cmsJobs.map((job) => job.slug)])).map((slug) => ({slug}));
 }
 
 export async function generateMetadata({params}: JobDetailPageProps): Promise<Metadata> {
   const {locale, slug} = await params;
-  const job = getJob(slug);
+  const cmsJob = await getJobBySlug(slug, locale);
+  const job = cmsJob ?? getJob(slug);
   const title = job?.title ?? slug;
   const description = job?.description ?? '';
 
@@ -37,7 +63,20 @@ export async function generateMetadata({params}: JobDetailPageProps): Promise<Me
 
 export default async function JobDetailPage({params}: JobDetailPageProps) {
   const {locale, slug} = await params;
-  const job = getJob(slug);
+  const cmsJob = await getJobBySlug(slug, locale);
+  const fallbackJob = getJob(slug);
+  const job: JobDetail | undefined = cmsJob
+    ? {
+        title: cmsJob.title,
+        description: cmsJob.description ?? '',
+        meta: cmsJob.meta ?? cmsJob.department?.name ?? '',
+        location: cmsJob.location ?? '',
+        jobType: mapJobType(cmsJob.jobType ?? ''),
+        responsibilities: toList(cmsJob.responsibilities),
+        requirements: toList(cmsJob.requirements),
+        benefits: toList(cmsJob.benefits),
+      }
+    : fallbackJob;
 
   if (!job) {
     notFound();

@@ -47,9 +47,9 @@ export async function Footer({locale}: FooterProps) {
           <p className="footer-label">{t('social')}</p>
           <div className="social-nav">
             {siteConfig.socialLinks.map((item) => (
-              <Link key={item.label} href={item.href}>
+              <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer">
                 {item.label}
-              </Link>
+              </a>
             ))}
           </div>
         </div>

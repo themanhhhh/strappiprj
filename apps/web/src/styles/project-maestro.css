@@ -574,6 +574,15 @@
   transition: transform 700ms ease;
 }
 
+.journal-featured-media-maestro > a {
+  display: block;
+  height: 100%;
+}
+
+.journal-featured-media-maestro:hover .journal-featured-image-maestro {
+  transform: scale(1.03);
+}
+
 .journal-featured-placeholder-maestro,
 .journal-card-placeholder-maestro {
   width: 100%;
@@ -590,6 +599,21 @@
   font-size: clamp(2.1rem, 4vw, 3.5rem);
   line-height: 1.05;
   font-weight: 500;
+}
+
+.journal-featured-title-link-maestro {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.journal-featured-title-link-maestro:hover .journal-featured-title-maestro {
+  color: var(--brand-blue);
+}
+
+.journal-featured-title-link-maestro:focus-visible {
+  outline: 3px solid var(--brand-gold);
+  outline-offset: 6px;
 }
 
 .journal-featured-meta-maestro,
