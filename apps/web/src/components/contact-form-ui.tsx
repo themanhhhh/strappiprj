@@ -184,7 +184,6 @@ export function ContactFormUi({ locale = 'en' }: ContactFormUiProps) {
         </div>
 
         <label className="field visually-hidden" aria-hidden="true">
-          <span className="field-label">Website</span>
           <input className="field-input maestro-input" name="website" tabIndex={-1} autoComplete="off" />
         </label>
 

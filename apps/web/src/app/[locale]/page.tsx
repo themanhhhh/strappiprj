@@ -72,6 +72,10 @@ export default async function HomePage({params}: HomePageProps) {
   const {locale} = await params;
   const t = await getTranslations({locale, namespace: 'home'});
   const content = homepageContent[locale as keyof typeof homepageContent] ?? homepageContent.vi;
+  const normalizeHomepageText = (value: string | null | undefined, fallback: string) =>
+    (value ?? fallback)
+      .replace(/6 thương hiệu Aladdin/g, '8 thương hiệu Aladdin')
+      .replace(/Aladdin\.,JSC/g, 'hệ thống Aladdin');
 
   // ── Fetch từ Strapi ───────────────────────────────────────────
   const [strapiProjects, strapiPosts, strapiHeroSlides, strapiHomepage] = await Promise.all([
@@ -156,7 +160,7 @@ export default async function HomePage({params}: HomePageProps) {
 
       <BrandGrid
         locale={locale}
-        title={strapiHomepage?.brandSectionTitle ?? content.brandSectionTitle}
+        title={normalizeHomepageText(strapiHomepage?.brandSectionTitle, content.brandSectionTitle)}
         brands={brandItems}
       />
 
@@ -184,7 +188,7 @@ export default async function HomePage({params}: HomePageProps) {
                 ))}
               </ul>
               <div className="button-row">
-                <ButtonLink href={`/${locale}/careers`} variant="primary">
+                <ButtonLink href={locale === 'vi' ? `/${locale}/tuyen-dung` : `/${locale}/careers`} variant="primary">
                   {t('exploreCareers')}
                 </ButtonLink>
               </div>

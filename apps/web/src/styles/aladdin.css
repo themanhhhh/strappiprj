@@ -127,6 +127,23 @@
   animation: heroTextReveal 0.7s ease 0.7s forwards;
 }
 
+/* Home HeroBanner uses a light text surface over the image. */
+.hero-banner-dark-text .hero-gradient-overlay {
+  background:
+    linear-gradient(to right, rgba(255, 250, 246, 0.94) 0%, rgba(255, 250, 246, 0.72) 48%, rgba(255, 250, 246, 0.08) 100%),
+    linear-gradient(to top, rgba(255, 250, 246, 0.18) 0%, transparent 50%);
+}
+
+.hero-banner-dark-text .hero-eyebrow,
+.hero-banner-dark-text .hero-title,
+.hero-banner-dark-text .hero-desc {
+  color: #111;
+}
+
+.hero-banner-dark-text .hero-eyebrow {
+  color: var(--brand-navy);
+}
+
 .hero-actions {
   opacity: 0;
   animation: heroTextReveal 0.7s ease 0.9s forwards;

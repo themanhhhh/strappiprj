@@ -53,10 +53,6 @@ export async function Footer({locale}: FooterProps) {
             ))}
           </div>
         </div>
-        <div className="footer-col">
-          <p className="footer-label">{t('office')}</p>
-          <p>{siteConfig.offices[0].address}</p>
-        </div>
       </div>
     </footer>
   );

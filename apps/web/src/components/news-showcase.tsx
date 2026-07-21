@@ -30,7 +30,8 @@ export function NewsShowcase({locale, items}: NewsShowcaseProps) {
   return (
     <div className="news-card-grid">
       {items.map((item) => {
-        const href = item.slug ? `/${locale}/journal/${item.slug}` : `/${locale}/journal`;
+        const contentPath = locale === 'vi' ? 'tin-tuc' : 'journal';
+        const href = item.slug ? `/${locale}/${contentPath}/${item.slug}` : `/${locale}/${contentPath}`;
         return (
           <a key={item.slug ?? item.title} href={href} className="news-card">
             {/* Thumbnail */}

@@ -26,7 +26,7 @@ export function EcosystemBrands({locale, title, description, brands}: EcosystemB
               {title}
             </h2>
             <Link
-              href={`/${locale}/projects`}
+              href={`/${locale}/${locale === 'vi' ? 'du-an' : 'projects'}`}
               className="ecosystem-btn"
             >
               {locale === 'vi' ? 'Xem thêm' : 'See more'}
@@ -45,7 +45,7 @@ export function EcosystemBrands({locale, title, description, brands}: EcosystemB
               {/* Nhân bản mảng 3 lần để tạo cảm giác scroll vô cực */}
               {[...brands, ...brands, ...brands].map((brand, i) => (
                 <Link
-                  href={brand.slug ? `/${locale}/projects/${brand.slug}` : `/${locale}/projects`}
+                  href={brand.slug ? `/${locale}/${locale === 'vi' ? 'du-an' : 'projects'}/${brand.slug}` : `/${locale}/${locale === 'vi' ? 'du-an' : 'projects'}`}
                   key={`${brand.name}-${i}`}
                   className="ecosystem-logo"
                 >

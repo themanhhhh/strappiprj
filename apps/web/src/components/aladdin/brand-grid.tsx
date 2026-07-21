@@ -27,7 +27,7 @@ export function BrandGrid({locale, title, brands}: BrandGridProps) {
         <div className="aladdin-brand-grid">
           {visibleBrands.map((brand) => (
             <Link
-              href={brand.slug ? `/${locale}/projects/${brand.slug}` : `/${locale}/projects`}
+              href={brand.slug ? `/${locale}/${locale === 'vi' ? 'du-an' : 'projects'}/${brand.slug}` : `/${locale}/${locale === 'vi' ? 'du-an' : 'projects'}`}
               key={brand.name}
               className="aladdin-brand-card"
             >
@@ -60,7 +60,7 @@ export function BrandGrid({locale, title, brands}: BrandGridProps) {
         </div>
 
         <div className="button-row" style={{justifyContent: 'center', marginTop: '40px'}}>
-          <ButtonLink href={`/${locale}/projects`} variant="secondary">
+          <ButtonLink href={`/${locale}/${locale === 'vi' ? 'du-an' : 'projects'}`} variant="secondary">
             {locale === 'vi' ? 'Xem thêm' : 'See more'}
           </ButtonLink>
         </div>
