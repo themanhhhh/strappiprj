@@ -41,15 +41,17 @@ export async function generateMetadata({params}: PostDetailPageProps): Promise<M
     ? post.cover.url.startsWith('http') ? post.cover.url : `${STRAPI_URL}${post.cover.url}`
     : fallbackBannerImage;
 
+  const contentPath = locale === 'vi' ? '/tin-tuc' : '/journal';
+
   return {
     title: `${title} — New Sky`,
     description,
-    alternates: getLocalizedAlternates(locale, `/journal/${slug}`),
+    alternates: getLocalizedAlternates(locale, `${contentPath}/${slug}`),
     openGraph: {
       title,
       description,
       locale: getOpenGraphLocale(locale),
-      url: `/${locale}/journal/${slug}`,
+      url: `/${locale}${contentPath}/${slug}`,
       ...(imageUrl ? {images: [{url: imageUrl}]} : {}),
     },
   };
@@ -195,7 +197,7 @@ export default async function PostDetailPage({params}: PostDetailPageProps) {
                       </p>
                     )}
                     <h3 className="journal-related-title-maestro">{rp.title}</h3>
-                    <Link href={`/${locale}/journal/${rp.slug}`} className="journal-card-link-maestro">
+                    <Link href={`/${locale}/${locale === 'vi' ? 'tin-tuc' : 'journal'}/${rp.slug}`} className="journal-card-link-maestro">
                       {t('readMore')}
                     </Link>
                   </div>

@@ -75,7 +75,17 @@ export default async function HomePage({params}: HomePageProps) {
   const normalizeHomepageText = (value: string | null | undefined, fallback: string) =>
     (value ?? fallback)
       .replace(/6 thương hiệu Aladdin/g, '8 thương hiệu Aladdin')
-      .replace(/Aladdin\.,JSC/g, 'hệ thống Aladdin');
+      .replace(/Aladdin\.,JSC/g, 'hệ thống Aladdin')
+      .replace(/\bsetup\b/gi, 'làm quán')
+      .replace(/\bbrief\b/gi, 'đầu bài')
+      .replace(/ROLLOUT CHUỖI/gi, 'NHÂN CHUỖI');
+  const normalizeHomepageStories = (stories: unknown) => {
+    const source = Array.isArray(stories) ? stories : content.socialStories;
+    return source.map((story) => ({
+      title: normalizeHomepageText(String(story.title ?? ''), ''),
+      description: normalizeHomepageText(String(story.description ?? ''), ''),
+    }));
+  };
 
   // ── Fetch từ Strapi ───────────────────────────────────────────
   const [strapiProjects, strapiPosts, strapiHeroSlides, strapiHomepage] = await Promise.all([
@@ -152,7 +162,7 @@ export default async function HomePage({params}: HomePageProps) {
       <EcosystemBrands
         locale={locale}
         title={t('ecosystemTitle')}
-        description={content.brandSectionLead}
+        description={normalizeHomepageText(content.brandSectionLead, '')}
         brands={brandItems}
       />
 
@@ -166,9 +176,9 @@ export default async function HomePage({params}: HomePageProps) {
 
       <CsrSection
         locale={locale}
-        title={strapiHomepage?.socialTitle ?? content.socialTitle}
-        description={strapiHomepage?.socialLead ?? content.socialLead}
-        stories={strapiHomepage?.socialStories ?? content.socialStories}
+        title={normalizeHomepageText(strapiHomepage?.socialTitle, content.socialTitle)}
+        description={normalizeHomepageText(strapiHomepage?.socialLead, content.socialLead)}
+        stories={normalizeHomepageStories(strapiHomepage?.socialStories)}
       />
 
       <section className="aladdin-section bg-sector-overlay">
@@ -196,8 +206,8 @@ export default async function HomePage({params}: HomePageProps) {
           </div>
 
           <div className="news-stack">
-            <h2 className="section-title-left">{strapiHomepage?.newsTitle ?? content.newsTitle}</h2>
-            <p className="section-desc-left">{strapiHomepage?.newsLead ?? content.newsLead}</p>
+            <h2 className="section-title-left">{normalizeHomepageText(strapiHomepage?.newsTitle, content.newsTitle)}</h2>
+            <p className="section-desc-left">{normalizeHomepageText(strapiHomepage?.newsLead, content.newsLead)}</p>
             <NewsShowcase locale={locale} items={newsItems} />
           </div>
         </div>

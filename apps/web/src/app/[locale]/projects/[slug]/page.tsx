@@ -36,15 +36,17 @@ export async function generateMetadata({params}: ProjectDetailPageProps): Promis
     ? strapiProject.cover.url.startsWith('http') ? strapiProject.cover.url : `${STRAPI_URL}${strapiProject.cover.url}`
     : fallbackBannerImage;
 
+  const contentPath = locale === 'vi' ? '/du-an' : '/projects';
+
   return {
     title: `${title} - New Sky`,
     description,
-    alternates: getLocalizedAlternates(locale, `/projects/${slug}`),
+    alternates: getLocalizedAlternates(locale, `${contentPath}/${slug}`),
     openGraph: {
       title,
       description,
       locale: getOpenGraphLocale(locale),
-      url: `/${locale}/projects/${slug}`,
+      url: `/${locale}${contentPath}/${slug}`,
       ...(imageUrl ? {images: [{url: imageUrl}]} : {}),
     },
   };

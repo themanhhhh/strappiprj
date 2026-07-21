@@ -203,7 +203,7 @@ export default async function AboutPage({params}: AboutPageProps) {
           <div className="about-split-body">
             <p>
               {isVi
-                ? 'New Sky là giải pháp đồng hành cùng nhà đầu tư nhà hàng, phục vụ chủ chuỗi nhà hàng Việt Nam quy mô 3 đến hơn 50 cơ sở, người dựng quán F&B và doanh nghiệp F&B mở rộng chuỗi. Với kinh nghiệm đồng hành cùng hệ thống Aladdin, New Sky đã tham gia triển khai gần 160 nhà hàng.'
+                ? 'New Sky là giải pháp đồng hành cùng nhà đầu tư nhà hàng, phục vụ chủ chuỗi nhà hàng, người dựng quán và doanh nghiệp F&B mở rộng chuỗi. Với kinh nghiệm đồng hành cùng hệ thống Aladdin, New Sky đã tham gia triển khai gần 160 nhà hàng.'
                 : 'New Sky is a specialist design and construction partner for restaurant owners, F&B chains, and F&B businesses expanding in Vietnam. With 10 years working alongside the Aladdin system, New Sky has delivered more than 100 restaurant projects.'}
             </p>
             <p>

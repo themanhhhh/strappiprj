@@ -54,7 +54,7 @@ export default async function ProjectsPage({params}: ProjectsPageProps) {
         slug: p.slug,
         title: p.title,
         description: index < 3 ? p.description ?? '' : '',
-        meta: p.meta ?? p.category ?? '',
+        meta: (p.meta ?? p.category ?? '').replace(/ROLLOUT CHUỖI/gi, 'NHÂN CHUỖI'),
         brand: p.category ?? '',
         coverUrl: cover,
         publishedAt: p.year ? `${p.year}-01-01` : null,

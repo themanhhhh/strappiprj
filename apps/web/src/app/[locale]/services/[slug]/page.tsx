@@ -32,15 +32,17 @@ export async function generateMetadata({params}: ServiceDetailPageProps): Promis
   const title = strapiService?.title ?? catalogService?.title ?? slug;
   const description = strapiService?.description ?? catalogService?.description ?? '';
 
+  const contentPath = locale === 'vi' ? '/dich-vu' : '/services';
+
   return {
     title: `${title} — ${t('metadataSuffix')}`,
     description,
-    alternates: getLocalizedAlternates(locale, `/services/${slug}`),
+    alternates: getLocalizedAlternates(locale, `${contentPath}/${slug}`),
     openGraph: {
       title,
       description,
       locale: getOpenGraphLocale(locale),
-      url: `/${locale}/services/${slug}`,
+      url: `/${locale}${contentPath}/${slug}`,
     },
   };
 }

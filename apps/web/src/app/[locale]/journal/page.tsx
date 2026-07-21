@@ -163,7 +163,7 @@ export default async function JournalPage({params}: JournalPageProps) {
                 {featuredPost.intro || featuredPost.description}
               </p>
 
-              <Link href={`/${locale}/journal/${featuredPost.slug}`} className="journal-featured-link-maestro">
+              <Link href={`/${locale}/${locale === 'vi' ? 'tin-tuc' : 'journal'}/${featuredPost.slug}`} className="journal-featured-link-maestro">
                 {t('intro.readMore')}
               </Link>
             </div>
@@ -181,7 +181,7 @@ export default async function JournalPage({params}: JournalPageProps) {
             {remainingPosts.map((post) => (
               <Link
                 key={post.slug}
-                href={`/${locale}/journal/${post.slug}`}
+                href={`/${locale}/${locale === 'vi' ? 'tin-tuc' : 'journal'}/${post.slug}`}
                 className="journal-card-maestro"
               >
                 <div className="journal-card-media-maestro">

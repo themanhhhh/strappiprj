@@ -39,7 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   for (const service of services) {
     entries.push({
-      url: absoluteUrl(getLocalizedPath('vi', `/services/${service.slug}`)),
+      url: absoluteUrl(getLocalizedPath('vi', `/dich-vu/${service.slug}`)),
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.7,
@@ -48,7 +48,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   for (const project of projects) {
     entries.push({
-      url: absoluteUrl(getLocalizedPath('vi', `/projects/${project.slug}`)),
+      url: absoluteUrl(getLocalizedPath('vi', `/du-an/${project.slug}`)),
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.7,
@@ -56,8 +56,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   for (const post of posts) {
-      entries.push({
-        url: absoluteUrl(getLocalizedPath('vi', `/journal/${post.slug}`)),
+    entries.push({
+        url: absoluteUrl(getLocalizedPath('vi', `/tin-tuc/${post.slug}`)),
         lastModified: now,
         changeFrequency: 'monthly',
         priority: 0.6,
