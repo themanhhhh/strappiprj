@@ -3,6 +3,9 @@ import Link from 'next/link';
 import {PageHero} from '@/components/page-hero';
 import {serviceHubs} from '@/lib/service-hubs';
 import {getLocalizedAlternates} from '@/lib/seo';
+import {getHeroSlides} from '@/lib/strapi/queries';
+
+const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL ?? 'http://localhost:1337';
 
 type ServicesHubPageProps = {
   params: Promise<{locale: string}>;
@@ -19,10 +22,20 @@ export async function generateMetadata({params}: ServicesHubPageProps): Promise<
 
 export default async function ServicesHubPage({params}: ServicesHubPageProps) {
   const {locale} = await params;
+  const heroSlides = await getHeroSlides(locale, 'services');
+  const slides = heroSlides.map((slide) => ({
+    eyebrow: slide.eyebrow,
+    title: slide.title,
+    description: slide.description,
+    imageUrl: slide.cover?.url
+      ? slide.cover.url.startsWith('http') ? slide.cover.url : `${STRAPI_URL}${slide.cover.url}`
+      : null,
+  }));
 
   return (
     <>
       <PageHero
+        slides={slides}
         eyebrow="Dịch vụ New Sky"
         title="Dịch vụ đồng hành cùng nhà đầu tư nhà hàng"
         description="New Sky triển khai các hạng mục trọng yếu để chủ đầu tư có một đầu mối rõ trách nhiệm từ mặt bằng đến ngày quán vận hành."

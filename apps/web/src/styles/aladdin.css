@@ -130,6 +130,13 @@
   animation: heroTextReveal 0.7s ease 0.7s forwards;
 }
 
+/* Keep page-level heroes readable when page-specific styles are loaded later. */
+.hero-header-page .hero-eyebrow,
+.hero-header-page .hero-title,
+.hero-header-page .hero-desc {
+  color: #fff;
+}
+
 .hero-actions {
   opacity: 0;
   animation: heroTextReveal 0.7s ease 0.9s forwards;

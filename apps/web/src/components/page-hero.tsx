@@ -59,7 +59,7 @@ export function PageHero({eyebrow, title, description, aside, actions, imageUrl,
               style={{ objectFit: 'cover' }}
             />
           )}
-          <div className="hero-gradient-overlay" style={{zIndex: 1, position: 'relative'}} />
+          <div className="hero-gradient-overlay" />
         </div>
         <div className="shell" style={{position: 'relative', zIndex: 2}}>
           <div className="aladdin-hero-content">
