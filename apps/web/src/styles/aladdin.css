@@ -74,8 +74,8 @@
   z-index: 2;
   pointer-events: none;
   background:
-    linear-gradient(to right, rgba(17, 14, 10, 0.5) 0%, rgba(17, 14, 10, 0.2) 60%, rgba(17, 14, 10, 0) 100%),
-    linear-gradient(to top, rgba(0, 0, 0, 0.2) 0%, transparent 40%);
+    linear-gradient(to right, rgba(8, 8, 8, 0.82) 0%, rgba(8, 8, 8, 0.58) 42%, rgba(8, 8, 8, 0.12) 78%, transparent 100%),
+    linear-gradient(to top, rgba(0, 0, 0, 0.35) 0%, transparent 55%);
 }
 
 /* Hero text reveal animation */
@@ -98,12 +98,13 @@
 }
 
 .hero-eyebrow {
-  color: var(--accent-safety);
+  color: #fff;
   font-size: 14px;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 16px;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.45);
   opacity: 0;
   animation: heroTextReveal 0.7s ease 0.3s forwards;
 }
@@ -112,14 +113,16 @@
   font-size: clamp(36px, 4.5vw, 56px);
   line-height: 1.15;
   margin-bottom: 24px;
-  color: black;
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
   opacity: 0;
   animation: heroTextReveal 0.7s ease 0.5s forwards;
 }
 
 .hero-desc {
   font-size: 16px;
-  color: black;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
   margin-bottom: 40px;
   line-height: 1.7;
   max-width: 550px;
@@ -130,6 +133,14 @@
 .hero-actions {
   opacity: 0;
   animation: heroTextReveal 0.7s ease 0.9s forwards;
+}
+
+@media (max-width: 768px) {
+  .hero-gradient-overlay {
+    background:
+      linear-gradient(to right, rgba(8, 8, 8, 0.78), rgba(8, 8, 8, 0.5)),
+      linear-gradient(to top, rgba(0, 0, 0, 0.45), transparent);
+  }
 }
 
 .aladdin-hero-dots {

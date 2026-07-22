@@ -94,6 +94,9 @@ export default async function JournalPage({params}: JournalPageProps) {
   const displayPosts = mapPosts(strapiPosts);
   const slides = heroSlides
     .map((slide) => ({
+      eyebrow: slide.eyebrow,
+      title: slide.title,
+      description: slide.description,
       imageUrl: slide.cover?.url
         ? slide.cover.url.startsWith('http')
           ? slide.cover.url

@@ -86,30 +86,44 @@ export default async function PostDetailPage({params}: PostDetailPageProps) {
     }))
     .filter((slide) => slide.imageUrl);
 
-  // Fetch related posts (latest 2 excluding current)
-  let relatedPosts = allStrapiPosts
+  const currentCategorySlug = post?.category?.slug;
+  const relatedStrapiPosts = allStrapiPosts
     .filter((p) => p.slug !== slug && !isHiddenSamplePost(p))
+    .sort((a, b) => {
+      const aSameCategory = currentCategorySlug && a.category?.slug === currentCategorySlug ? 1 : 0;
+      const bSameCategory = currentCategorySlug && b.category?.slug === currentCategorySlug ? 1 : 0;
+      return bSameCategory - aSameCategory;
+    })
     .slice(0, 2)
     .map((p) => ({
       title: p.title,
       slug: p.slug,
+      description: p.description ?? p.intro ?? '',
+      meta: p.meta ?? p.category?.name ?? '',
       date: p.publishedAt,
       coverUrl: p.cover?.url
         ? p.cover.url.startsWith('http') ? p.cover.url : `${STRAPI_URL}${p.cover.url}`
         : null,
     }));
 
-  if (relatedPosts.length === 0) {
-    relatedPosts = catalogPosts
-      .filter((p) => p.slug !== slug)
-      .slice(0, 2)
-      .map((p) => ({
-        title: p.title,
-        slug: p.slug,
-        date: new Date().toISOString(), // Mock date for catalog posts if any
-        coverUrl: fallbackBannerImage,
-      }));
-  }
+  const relatedCatalogSlugs: Record<string, string[]> = {
+    'coordination-risks-before-handover': ['plan-service-circulation-early'],
+    'plan-service-circulation-early': ['coordination-risks-before-handover'],
+  };
+  const catalogBySlug = new Map(catalogPosts.map((catalogEntry) => [catalogEntry.slug, catalogEntry]));
+  const relatedPosts = relatedStrapiPosts.length > 0
+    ? relatedStrapiPosts
+    : (relatedCatalogSlugs[slug] ?? [])
+        .map((relatedSlug) => catalogBySlug.get(relatedSlug))
+        .filter((relatedEntry): relatedEntry is NonNullable<typeof relatedEntry> => Boolean(relatedEntry))
+        .map((relatedEntry) => ({
+          title: relatedEntry.title,
+          slug: relatedEntry.slug,
+          description: relatedEntry.description,
+          meta: relatedEntry.meta,
+          date: null,
+          coverUrl: fallbackBannerImage,
+        }));
 
   let eyebrowMeta = '';
   if (post) {
@@ -196,7 +210,9 @@ export default async function PostDetailPage({params}: PostDetailPageProps) {
                         })}
                       </p>
                     )}
+                    {rp.meta ? <p className="journal-related-date-maestro">{rp.meta}</p> : null}
                     <h3 className="journal-related-title-maestro">{rp.title}</h3>
+                    {rp.description ? <p>{rp.description}</p> : null}
                     <Link href={`/${locale}/${locale === 'vi' ? 'tin-tuc' : 'journal'}/${rp.slug}`} className="journal-card-link-maestro">
                       {t('readMore')}
                     </Link>

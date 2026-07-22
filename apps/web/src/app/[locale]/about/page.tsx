@@ -181,6 +181,9 @@ export default async function AboutPage({params}: AboutPageProps) {
     },
   };
   const slides = heroSlides.map((s) => ({
+    eyebrow: s.eyebrow,
+    title: s.title,
+    description: s.description,
     imageUrl: s.cover?.url ? (s.cover.url.startsWith('http') ? s.cover.url : `${STRAPI_URL}${s.cover.url}`) : null,
   }));
 

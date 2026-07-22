@@ -20,7 +20,7 @@ type HeroBannerProps = {
 export function HeroBanner({slides}: HeroBannerProps) {
   const normalizedSlides = slides.map((slide) => ({
     ...slide,
-    imageUrl: fallbackBannerImage,
+    imageUrl: slide.imageUrl || fallbackBannerImage,
   }));
   const [active, setActive] = useState(0);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);

@@ -8,6 +8,9 @@ import {fallbackBannerImage} from '@/lib/catalog';
 
 export type PageHeroSlide = {
   imageUrl?: string | null;
+  eyebrow?: string | null;
+  title?: string | null;
+  description?: string | null;
 };
 
 type PageHeroProps = {
@@ -25,6 +28,10 @@ export function PageHero({eyebrow, title, description, aside, actions, imageUrl,
   const locale = useLocale() as Locale;
 
   const hasSlides = slides && slides.length > 0;
+  const firstSlide = slides?.[0];
+  const displayEyebrow = firstSlide?.eyebrow || eyebrow;
+  const displayTitle = firstSlide?.title || title;
+  const displayDescription = firstSlide?.description || description;
 
   return (
     <div className="hero-header-page" style={{ position: 'relative' }}>
@@ -37,8 +44,8 @@ export function PageHero({eyebrow, title, description, aside, actions, imageUrl,
             <SlideshowBackground slides={slides} />
           ) : imageUrl ? (
             <Image
-              src={fallbackBannerImage}
-              alt={title}
+              src={imageUrl}
+              alt={displayTitle}
               fill
               priority
               style={{ objectFit: 'cover' }}
@@ -46,7 +53,7 @@ export function PageHero({eyebrow, title, description, aside, actions, imageUrl,
           ) : (
             <Image
               src={fallbackBannerImage}
-              alt={title}
+              alt={displayTitle}
               fill
               priority
               style={{ objectFit: 'cover' }}
@@ -56,9 +63,9 @@ export function PageHero({eyebrow, title, description, aside, actions, imageUrl,
         </div>
         <div className="shell" style={{position: 'relative', zIndex: 2}}>
           <div className="aladdin-hero-content">
-            <p className="hero-eyebrow">{eyebrow}</p>
-            <h1 className="hero-title">{title}</h1>
-            <p className="hero-desc">{description}</p>
+            <p className="hero-eyebrow">{displayEyebrow}</p>
+            <h1 className="hero-title">{displayTitle}</h1>
+            <p className="hero-desc">{displayDescription}</p>
             {actions ? <div className="hero-actions">{actions}</div> : null}
             {aside ? <div className="hero-actions" style={{marginTop: 32}}>{aside}</div> : null}
           </div>

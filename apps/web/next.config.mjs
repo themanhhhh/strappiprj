@@ -5,7 +5,10 @@ import {fileURLToPath} from 'node:url';
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 const appDir = dirname(fileURLToPath(import.meta.url));
 const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_URL;
-const strapiMediaHost = strapiUrl ? new URL(strapiUrl).hostname.replace('.strapiapp.com', '.media.strapiapp.com') : undefined;
+const strapiHost = strapiUrl ? new URL(strapiUrl).hostname : undefined;
+const strapiMediaHost = strapiHost?.endsWith('.strapiapp.com')
+  ? strapiHost.replace('.strapiapp.com', '.media.strapiapp.com')
+  : undefined;
 
 const remotePatterns = [
   {
@@ -26,6 +29,13 @@ if (strapiMediaHost) {
   remotePatterns.push({
     protocol: 'https',
     hostname: strapiMediaHost,
+  });
+}
+
+if (strapiHost && strapiHost !== 'localhost') {
+  remotePatterns.push({
+    protocol: 'https',
+    hostname: strapiHost,
   });
 }
 

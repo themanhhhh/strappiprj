@@ -14,7 +14,7 @@ type Props = {
 
 export function SlideshowBackground({slides}: Props) {
   const normalizedSlides = slides.length > 0
-    ? slides.map((slide) => ({...slide, imageUrl: fallbackBannerImage}))
+    ? slides.map((slide) => ({...slide, imageUrl: slide.imageUrl || fallbackBannerImage}))
     : [{imageUrl: fallbackBannerImage}];
   const [active, setActive] = useState(0);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
