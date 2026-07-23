@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { services } from "@/lib/catalog";
 
 type FormState = {
@@ -23,6 +23,13 @@ export function ContactFormUi({ locale = 'en' }: ContactFormUiProps) {
     message: "",
   });
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
+  const [toastMessage, setToastMessage] = useState("");
+
+  useEffect(() => {
+    if (!toastMessage) return;
+    const timeout = window.setTimeout(() => setToastMessage(""), 4500);
+    return () => window.clearTimeout(timeout);
+  }, [toastMessage]);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -92,9 +99,10 @@ export function ContactFormUi({ locale = 'en' }: ContactFormUiProps) {
       form.reset();
       setFieldErrors({});
       setFormState({
-        status: "success",
-        message: result.message || (locale === 'vi' ? "Yêu cầu của bạn đã được gửi thành công." : "Your enquiry has been sent successfully."),
+        status: "idle",
+        message: "",
       });
+      setToastMessage(locale === 'vi' ? "Đã gửi yêu cầu thành công." : "Enquiry sent successfully.");
     } catch (error) {
       setFormState({
         status: "error",
@@ -220,6 +228,11 @@ export function ContactFormUi({ locale = 'en' }: ContactFormUiProps) {
           ) : null}
         </div>
       </form>
+      {toastMessage ? (
+        <div className="contact-toast" role="status" aria-live="polite">
+          {toastMessage}
+        </div>
+      ) : null}
     </div>
   );
 }

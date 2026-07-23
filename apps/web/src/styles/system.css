@@ -291,6 +291,17 @@ p {
   width: 100%;
 }
 
+.overlay-brand {
+  display: inline-flex;
+  align-self: center;
+  width: 80px;
+}
+
+.overlay-brand img {
+  width: 100%;
+  height: auto;
+}
+
 .overlay-nav {
   display: flex;
   flex-direction: column;
@@ -1357,6 +1368,30 @@ h3.news-card-title,
 .form-status-submitting {
   background: rgba(245, 196, 0, 0.16);
   color: var(--text-ink);
+}
+
+.contact-toast {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1000;
+  max-width: min(360px, calc(100vw - 32px));
+  padding: 14px 18px;
+  border: 1px solid rgba(31, 109, 69, 0.28);
+  border-radius: var(--radius-xs);
+  background: #fff;
+  box-shadow: 0 12px 32px rgba(0, 64, 117, 0.18);
+  color: var(--success);
+  line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+  .contact-toast {
+    right: 16px;
+    bottom: 16px;
+    left: 16px;
+    max-width: none;
+  }
 }
 
 .visually-hidden {

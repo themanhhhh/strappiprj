@@ -134,6 +134,9 @@ export function FullscreenMenu({items, locale, transparent = false}: FullscreenM
         {/* Mobile Fullscreen Overlay */}
         <div id="mobile-navigation-menu" className={`fullscreen-overlay ${isOpen ? 'overlay-open' : ''}`}>
           <div className="overlay-content">
+            <Link href={`/${locale}`} className="overlay-brand" onClick={() => setIsOpen(false)}>
+              <Image src="/images/logo.png" alt="New Sky" width={220} height={52} priority />
+            </Link>
             <nav className="overlay-nav">
               {items.map((item) => (
                 <Link
@@ -206,6 +209,9 @@ export function FullscreenMenu({items, locale, transparent = false}: FullscreenM
       {/* Mobile Fullscreen Overlay */}
       <div id="mobile-navigation-menu" className={`fullscreen-overlay ${isOpen ? 'overlay-open' : ''}`}>
         <div className="overlay-content">
+          <Link href={`/${locale}`} className="overlay-brand" onClick={() => setIsOpen(false)}>
+            <Image src="/images/logo.png" alt="New Sky" width={220} height={52} priority />
+          </Link>
           <nav className="overlay-nav">
             {items.map((item) => (
               <Link
