@@ -108,7 +108,12 @@ export default async function CityPage({params}: CityPageProps) {
 
           <div className="tile-grid">
             {cityPresence.map((item) => (
-              <ButtonLink key={item.slug} href={`/${locale}/thanh-pho/${item.slug}`} variant={item.slug === slug ? 'primary' : 'secondary'}>
+              <ButtonLink
+                key={item.slug}
+                href={`/${locale}/thanh-pho/${item.slug}`}
+                variant={item.slug === slug ? 'primary' : 'secondary'}
+                className="city-nav-button"
+              >
                 {item.city}
               </ButtonLink>
             ))}

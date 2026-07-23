@@ -5,6 +5,7 @@ import Link from 'next/link';
 import {cityPresence} from '@/lib/city-presence';
 
 const locations = cityPresence;
+const PAGE_SIZE = 5;
 
 type AboutPresenceProps = {
   locale: string;
@@ -12,8 +13,17 @@ type AboutPresenceProps = {
 
 export function AboutPresence({locale}: AboutPresenceProps) {
   const [activeId, setActiveId] = useState<string>('01');
+  const [page, setPage] = useState(0);
+  const totalPages = Math.ceil(locations.length / PAGE_SIZE);
+  const visibleLocations = locations.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
 
   const activeLocation = locations.find((l) => l.id === activeId);
+
+  function selectPage(nextPage: number) {
+    const safePage = Math.max(0, Math.min(nextPage, totalPages - 1));
+    setPage(safePage);
+    setActiveId(locations[safePage * PAGE_SIZE].id);
+  }
 
   return (
     <section className="about-presence-section">
@@ -52,7 +62,7 @@ export function AboutPresence({locale}: AboutPresenceProps) {
             />
 
             {/* Pins: show every served city, highlight the selected one */}
-            {locations.map((loc) => {
+            {visibleLocations.map((loc) => {
               const isActive = loc.id === activeId;
               return (
                 <Link
@@ -98,7 +108,7 @@ export function AboutPresence({locale}: AboutPresenceProps) {
 
           {/* City tabs */}
           <div className="about-presence-city-tabs">
-            {locations.map((loc) => (
+            {visibleLocations.map((loc) => (
               <Link
                 key={loc.id}
                 href={`/${locale}/thanh-pho/${loc.slug}`}
@@ -112,6 +122,40 @@ export function AboutPresence({locale}: AboutPresenceProps) {
                 </span>
               </Link>
             ))}
+            {totalPages > 1 ? (
+              <div className="about-presence-pagination" aria-label={locale === 'vi' ? 'Phân trang thành phố' : 'City pagination'}>
+                <button
+                  type="button"
+                  className="about-presence-page-button about-presence-page-arrow"
+                  onClick={() => selectPage(page - 1)}
+                  disabled={page === 0}
+                  aria-label={locale === 'vi' ? 'Trang trước' : 'Previous page'}
+                >
+                  ←
+                </button>
+                {Array.from({length: totalPages}, (_, index) => (
+                  <button
+                    key={index}
+                    type="button"
+                    className={`about-presence-page-button${page === index ? ' active' : ''}`}
+                    onClick={() => selectPage(index)}
+                    aria-label={`${locale === 'vi' ? 'Trang' : 'Page'} ${index + 1}`}
+                    aria-current={page === index ? 'page' : undefined}
+                  >
+                    {index + 1}
+                  </button>
+                ))}
+                <button
+                  type="button"
+                  className="about-presence-page-button about-presence-page-arrow"
+                  onClick={() => selectPage(page + 1)}
+                  disabled={page === totalPages - 1}
+                  aria-label={locale === 'vi' ? 'Trang sau' : 'Next page'}
+                >
+                  →
+                </button>
+              </div>
+            ) : null}
           </div>
         </div>
       </div>
